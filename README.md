@@ -1,6 +1,6 @@
 # test-frontend-clubpetro
 
-![alt text](https://media.giphy.com/media/iD7NgqjcafvzXcFrVh/giphy.gif)
+![alt text](https://raw.githubusercontent.com/ClubPetro/test-frontend/main/brand.png)
 
 ## Desenvolvedor Front-end - ClubPetro
 
