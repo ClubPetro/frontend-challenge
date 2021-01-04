@@ -1,6 +1,6 @@
 # Desafio de Frontend
 
-<img src="./img/logo-clubpetro.png" style="margin-left: 100px"
+<img src="./img/logo-clubpetro.png"
      alt="Clubpetro" width="300">
 
 - [Descrição](#descrição)
@@ -45,9 +45,9 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 
 > Requisitos que não são obrigatórios mas podem te deixar em vantagem com relação aos outros candidatos.
 
-- [Material-UI](https://material-ui.com/pt/)
-- [Styled Components](https://styled-components.com/)
-- Testes automatizados
+- [Material-UI](https://material-ui.com/pt/);
+- [Styled Components](https://styled-components.com/);
+- Testes automatizados;
 - Utilização da biblioteca [json-server](https://www.npmjs.com/package/json-server) para o CRUD.
 
 ### Submissão e Prazo de entrega
