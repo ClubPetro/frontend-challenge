@@ -1,6 +1,6 @@
 # Desafio de Frontend
 
-<img src="./img/logo.png" style="margin-left: 100px"
+<img src="./img/logo-clubpetro.png" style="margin-left: 100px"
      alt="Clubpetro" width="300">
 
 - [Descrição](#descrição)
