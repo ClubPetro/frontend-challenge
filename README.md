@@ -7,8 +7,7 @@
   - [O Desafio](#o-desafio)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
-- [Submissão]('')
-- [Prazo de Entrega]('')
+- [Submissão e Prazo de Entrega](#su)
 
 ## Descrição
 
@@ -16,7 +15,7 @@ Este desafio tem como objetivo avaliar as habilidades técnicas do canditado a v
 
 #### O Desafio
 
-Você precisará desenvolver um sistema que permita o CRUD de lugares para se conhecer ao redor do mundo. Como na imagem a seguir:
+O desafio consiste em desenvolver um sistema que permita o CRUD de lugares para se conhecer ao redor do mundo. Como na imagem a seguir:
 
 <img src="./img/challenge.png" alt="Desafio" >
 
@@ -49,6 +48,7 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - Testes automatizados
 - Utilização da biblioteca [json-server](https://www.npmjs.com/package/json-server) para o CRUD.
 
-### Submissão
+### Submissão e Prazo de entrega
 
-### Prazo de entrega
+- O canditado deverá realizar um fork deste repositório e submeter o código no mesmo.
+- O prazo de entrega para este desafio é de 2(duas) semanas, contando a partir do dia em que o canditado recebeu o email com o link do repositório.
