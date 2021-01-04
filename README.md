@@ -53,5 +53,5 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 ### Submissão e Prazo de entrega
 
 - O canditado deverá realizar um fork deste repositório e submeter o código no mesmo.
-- O prazo de entrega para este desafio é de 2(duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
-- Ao finalizar o desafio, o candidato deverá responder ao email enviado pelo clubpetro com o link seu repositório ou PR.
+- O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
+- Ao finalizar o desafio, o candidato deverá enviar um email para jobs@clubpetro.com.br contendo o link do seu PR.
