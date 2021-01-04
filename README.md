@@ -7,7 +7,7 @@
   - [O Desafio](#o-desafio)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
-- [Submissão e Prazo de Entrega](#su)
+- [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
 
 ## Descrição
 
