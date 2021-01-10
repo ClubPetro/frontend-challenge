@@ -24,9 +24,15 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Roboto', sans-serif;
 	line-height: 1;
+	overflow-x: hidden;
 }
 
 

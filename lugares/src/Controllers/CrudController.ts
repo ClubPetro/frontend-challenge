@@ -29,6 +29,19 @@ class CrudController {
 
     return response;
   }
+
+  public async delete(id:string){
+
+    fetch(`http://localhost:3000/countries/${id}`,{
+      method: "DELETE",
+      mode: "cors",
+      redirect: "follow",
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    }).then(resposne => console.log(resposne));
+
+  }
 }
 
 export default new CrudController();

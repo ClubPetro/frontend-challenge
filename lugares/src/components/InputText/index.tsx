@@ -1,7 +1,7 @@
-import React, { ChangeEvent } from "react";
-import { Input, Container, InputMaskDate } from "./styles";
+import React, { ChangeEvent, InputHTMLAttributes } from "react";
+import { Input, Container, InputMaskDate} from "./styles";
 
-interface TextInputProps {
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   placeholder: string;
   InputSize?: "small";
@@ -14,6 +14,7 @@ const InputText: React.FC<TextInputProps> = ({
   placeholder,
   handleChange,
   mask,
+  ...rest
 }) => {
   function handleChangeSelect(event: ChangeEvent<HTMLInputElement>): void {
     handleChange(event.target.value);
@@ -27,11 +28,13 @@ const InputText: React.FC<TextInputProps> = ({
           mask="99/9999"
           onChange={(event) => handleChangeSelect(event)}
           placeholder={placeholder}
+          {...rest}
         />
       ) : (
         <Input
           onChange={(event) => handleChangeSelect(event)}
           placeholder={placeholder}
+          {...rest}
         />
       )}
     </Container>

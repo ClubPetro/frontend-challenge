@@ -4,9 +4,11 @@ import Logo from "../../assets/Lugares 1.png";
 import Select from "../../components/Select";
 import Button from "../../components/Button/index";
 import Input from "../../components/InputText/index";
-import crudController from "../../Controllers/CrudController";
+import Modal from '../../components/Modal/index';
 import Message from "../../components/Message/index";
 import Card from "../../components/Card/index";
+
+import crudController from "../../Controllers/CrudController";
 
 interface countriesProps {
   name: string;
@@ -29,13 +31,21 @@ const App: React.FC = () => {
   const [country, SetCountrie] = useState<countriesProps>({} as countriesProps);
   const [location, setLocation] = useState("");
   const [goal, setGoal] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [message, setMessage] = useState({ type: "hide", text: "" });
   const [countryCard, setCountryCard] = useState<CountryProps[]>(
     [] as CountryProps[]
   );
+
+  const [countryCardEdit, setcountryCardEdit] = useState<CountryProps>(
+    {} as CountryProps
+  );
+
   const [currentCard, setCurrentCard] = useState<CurrentCard>(
     {} as CurrentCard
   );
+
+
 
   useEffect(() => {
     async function GetValues() {
@@ -75,7 +85,12 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      <Header>
+      <Modal
+        countryInfos={countryCardEdit}
+        isVisible={isModalVisible} 
+        handleModalVisibility={setIsModalVisible}
+      />
+      <Header id="header">
         <img src={Logo} alt="Lugares Logo" />
       </Header>
       <FormGroup>
@@ -100,7 +115,13 @@ const App: React.FC = () => {
       <CardContainer>
         {countryCard.length > 0 &&
           countryCard.map((country) => {
-            return <Card key={country.id} countryInfos={country} />;
+            return <Card 
+              key={country.id} 
+              countryInfos={country}
+              handleRefreshCardList={setCurrentCard}
+              handleModalVisibility={setIsModalVisible}
+              hadnleEditCard={setcountryCardEdit}
+             />;
           })}
       </CardContainer>
     </Container>

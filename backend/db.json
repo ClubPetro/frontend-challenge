@@ -5,27 +5,18 @@
         "name": "Brazil",
         "flag": "https://restcountries.eu/data/bra.svg"
       },
-      "location": "Rio",
-      "goal": "08/2022",
+      "location": "Minas",
+      "goal": "08/2021",
       "id": 1
-    },
-    {
-      "country": {
-        "name": "Canada",
-        "flag": "https://restcountries.eu/data/can.svg"
-      },
-      "location": "Montreal",
-      "goal": "08/2025",
-      "id": 2
     },
     {
       "country": {
         "name": "Brazil",
         "flag": "https://restcountries.eu/data/bra.svg"
       },
-      "location": "Minas",
-      "goal": "08/2022",
-      "id": 3
+      "location": "Rio",
+      "goal": "08/2021",
+      "id": 2
     }
   ]
 }
