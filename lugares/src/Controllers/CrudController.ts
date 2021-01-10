@@ -1,4 +1,4 @@
-interface CountrieProps {
+interface CountryProps {
   country: {
     name: string;
     flag: string;
@@ -7,8 +7,13 @@ interface CountrieProps {
   location: string;
 }
 
+interface UpdateProps {
+  goal?: string;
+  location?: string;
+}
+
 class CrudController {
-  public create(obj: CountrieProps) {
+  public create(obj: CountryProps) {
     const body = JSON.stringify(obj);
 
     fetch("http://localhost:3000/countries", {
@@ -34,6 +39,22 @@ class CrudController {
 
     fetch(`http://localhost:3000/countries/${id}`,{
       method: "DELETE",
+      mode: "cors",
+      redirect: "follow",
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    }).then(resposne => console.log(resposne));
+
+  }
+
+  public async update(id:string,updateValues:UpdateProps ){
+
+    const body = JSON.stringify(updateValues);
+
+    fetch(`http://localhost:3000/countries/${id}`,{
+      method: "PATCH",
+      body,
       mode: "cors",
       redirect: "follow",
       headers: new Headers({

@@ -80,7 +80,8 @@ const App: React.FC = () => {
     setMessage({ type: "info", text: "Cadastro feito com Sucesso!" });
     setTimeout(() => {
       setMessage({ type: "hide", text: "" });
-    }, 3000);
+    }, 3000); 
+    
   }
 
   return (
@@ -89,6 +90,7 @@ const App: React.FC = () => {
         countryInfos={countryCardEdit}
         isVisible={isModalVisible} 
         handleModalVisibility={setIsModalVisible}
+        handleRefreshCardList={setCurrentCard}
       />
       <Header id="header">
         <img src={Logo} alt="Lugares Logo" />
