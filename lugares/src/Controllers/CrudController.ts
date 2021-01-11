@@ -13,10 +13,11 @@ interface UpdateProps {
 }
 
 class CrudController {
-  public create(obj: CountryProps) {
+  public async create(obj: CountryProps) {
     const body = JSON.stringify(obj);
 
-    fetch("http://localhost:3000/countries", {
+
+  const country = await fetch("http://localhost:3000/countries", {
       body,
       method: "POST",
       mode: "cors",
@@ -24,7 +25,10 @@ class CrudController {
       headers: new Headers({
         "Content-Type": "application/json",
       }),
-    });
+    }).then(country => country.json());
+
+    return country;
+
   }
 
   public async index() {
@@ -52,7 +56,7 @@ class CrudController {
 
     const body = JSON.stringify(updateValues);
 
-    fetch(`http://localhost:3000/countries/${id}`,{
+    const newValue = await fetch(`http://localhost:3000/countries/${id}`,{
       method: "PATCH",
       body,
       mode: "cors",
@@ -60,7 +64,9 @@ class CrudController {
       headers: new Headers({
         "Content-Type": "application/json",
       }),
-    }).then(resposne => console.log(resposne));
+    }).then(resposne => resposne.json());
+
+    return newValue;
 
   }
 }

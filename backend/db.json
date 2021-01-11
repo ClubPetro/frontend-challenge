@@ -5,8 +5,8 @@
         "name": "Brazil",
         "flag": "https://restcountries.eu/data/bra.svg"
       },
-      "location": "Rio de Janeiro",
-      "goal": "02/2022",
+      "location": "Rio deJaneiro",
+      "goal": "05/2022",
       "id": 1
     },
     {
@@ -15,7 +15,7 @@
         "flag": "https://restcountries.eu/data/bra.svg"
       },
       "location": "Minas Gerais",
-      "goal": "08/2021",
+      "goal": "02/2023",
       "id": 2
     },
     {
@@ -24,7 +24,7 @@
         "flag": "https://restcountries.eu/data/can.svg"
       },
       "location": "Montreal",
-      "goal": "10/2030",
+      "goal": "02/2030",
       "id": 4
     }
   ]

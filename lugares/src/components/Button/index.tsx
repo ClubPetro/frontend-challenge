@@ -1,14 +1,13 @@
-import React from "react";
+import React,{ButtonHTMLAttributes} from "react";
 import { ButtonSend } from "./styles";
 
-interface ButtonProp {
+interface ButtonProp extends ButtonHTMLAttributes<HTMLButtonElement>  {
   text: string;
-  handleClick: Function;
 }
 
-const Button: React.FC<ButtonProp> = ({ text, handleClick }) => {
+const Button: React.FC<ButtonProp> = ({ text, ...rest }) => {
   return (
-    <ButtonSend onClick={() => handleClick()} type="button">
+    <ButtonSend {...rest} type="button">
       {text}
     </ButtonSend>
   );

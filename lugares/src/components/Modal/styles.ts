@@ -41,7 +41,7 @@ export const Container = styled.div<ModalProps>`
   .info {
     color: white;
     font-weight: bold;
-    line-height:20px;
+    line-height: 20px;
   }
   header {
     display: flex;

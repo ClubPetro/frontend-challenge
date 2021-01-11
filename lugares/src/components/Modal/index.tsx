@@ -3,12 +3,11 @@ import { Container } from "./styles";
 import Button from "../../components/Button/index";
 import Input from "../../components/InputText/index";
 import closed from "../../assets/mdi_close.png";
-import crudController from "../../Controllers/CrudController";
+import { useCardContext } from "../../Context/CardContext";
 
 interface ModalProps {
   isVisible: boolean;
   handleModalVisibility: Function;
-  handleRefreshCardList: Function;
   countryInfos: {
     id: string;
     country: {
@@ -23,40 +22,17 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({
   isVisible,
   handleModalVisibility,
-  handleRefreshCardList,
   countryInfos,
 }) => {
   const [location, setLocation] = useState<string>("");
   const [goal, setGoal] = useState("");
   const [info, setInfo] = useState("");
 
-  const handleUpdateCard = async () => {
-    if (goal === "" && location === "") {
-      setInfo("os campos não podem ficar em branco");
-      setTimeout(() => {
-        setInfo("");
-      }, 2000);
+  const { handleUpdateCard } = useCardContext();
 
-      return;
-    }
-
-    await crudController.update(countryInfos.id, {
-      goal: goal !== "" ? goal : countryInfos.goal,
-      location: location !== "" ? location : countryInfos.location,
-    });
-
+  const ClearForm = () => {
     setLocation("");
     setGoal("");
-
-    handleRefreshCardList({
-      country: {
-        name: countryInfos.country.name,
-        flag: countryInfos.country.flag,
-      },
-      goal: countryInfos.goal,
-      location: countryInfos.location,
-    });
-
     handleModalVisibility((old: boolean) => !old);
   };
 
@@ -97,7 +73,12 @@ const Modal: React.FC<ModalProps> = ({
         value={goal}
       />
 
-      <Button text="Editar" handleClick={handleUpdateCard} />
+      <Button
+        text="Editar"
+        onClick={() =>
+          handleUpdateCard(countryInfos, goal, location, setInfo, ClearForm)
+        }
+      />
     </Container>
   );
 };

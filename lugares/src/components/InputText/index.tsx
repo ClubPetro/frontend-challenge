@@ -1,5 +1,5 @@
 import React, { ChangeEvent, InputHTMLAttributes } from "react";
-import { Input, Container, InputMaskDate} from "./styles";
+import { Input, Container, InputMaskDate } from "./styles";
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;

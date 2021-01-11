@@ -2,10 +2,9 @@ import React from "react";
 import { Container } from "./styles";
 import Delete from "../../assets/mdi_close.png";
 import Edit from "../../assets/mdi_edit.png";
-import crudController from "../../Controllers/CrudController";
+import { useCardContext } from "../../Context/CardContext";
 
 interface CountryProps {
-  handleRefreshCardList: Function;
   handleModalVisibility: Function;
   hadnleEditCard:Function;
   countryInfos: {
@@ -21,24 +20,18 @@ interface CountryProps {
 
 const Card: React.FC<CountryProps> = ({
   countryInfos,
-  handleRefreshCardList,
   handleModalVisibility,
   hadnleEditCard
 }) => {
   const { country, goal, location, id } = countryInfos;
 
-  const handleDelete = async (id: string) => {
-    window.confirm("Você tem certeza que quer excluir?") &&
-      (await crudController.delete(id));
-
-    handleRefreshCardList({ country, goal, location });
-  };
-
+  const {handleDelete} = useCardContext();
+  
   return (
     <Container>
       <nav>
         <div>
-          <img className="flag" src={country.flag} alt="br" />
+          <img className="flag" src={country.flag} alt={country.name} />
           <h3>{country.name}</h3>
         </div>
         <div className="actions">
