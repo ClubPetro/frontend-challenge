@@ -1,0 +1,31 @@
+{
+  "countries": [
+    {
+      "country": {
+        "name": "Brazil",
+        "flag": "https://restcountries.eu/data/bra.svg"
+      },
+      "location": "Rio deJaneiro",
+      "goal": "05/2022",
+      "id": 1
+    },
+    {
+      "country": {
+        "name": "Brazil",
+        "flag": "https://restcountries.eu/data/bra.svg"
+      },
+      "location": "Minas Gerais",
+      "goal": "02/2023",
+      "id": 2
+    },
+    {
+      "country": {
+        "name": "Canada",
+        "flag": "https://restcountries.eu/data/can.svg"
+      },
+      "location": "Montreal",
+      "goal": "02/2030",
+      "id": 4
+    }
+  ]
+}
