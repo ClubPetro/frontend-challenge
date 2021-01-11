@@ -72,11 +72,11 @@ Stack:
 $ git clone https://github.com/kleberMRocha/frontend-challenge
 $ cd frontend-challenge
 $ cd lugares
-$ yarn install
+$ yarn 
 
 - Abra outro terminal na pasta raiz frontend-challenge
 $ cd backend
-$ yarn install
+$ yarn
 ```
 **2 -** Execute o projeto localmente:
 
