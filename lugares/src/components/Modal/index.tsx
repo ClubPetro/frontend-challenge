@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({
   const [goal, setGoal] = useState("");
   const [info, setInfo] = useState("");
 
-  const { handleUpdateCard } = useCardContext();
+  const { handleUpdateCountry } = useCardContext();
 
   const ClearForm = () => {
     setLocation("");
@@ -76,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({
       <Button
         text="Editar"
         onClick={() =>
-          handleUpdateCard(countryInfos, goal, location, setInfo, ClearForm)
+          handleUpdateCountry(countryInfos, goal, location, setInfo, ClearForm)
         }
       />
     </Container>

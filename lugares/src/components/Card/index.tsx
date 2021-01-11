@@ -25,7 +25,7 @@ const Card: React.FC<CountryProps> = ({
 }) => {
   const { country, goal, location, id } = countryInfos;
 
-  const {handleDelete} = useCardContext();
+  const {handleDeleteCountry} = useCardContext();
   
   return (
     <Container>
@@ -47,7 +47,7 @@ const Card: React.FC<CountryProps> = ({
             </button>
           </span>
           <span>
-            <button onClick={() => handleDelete(id)}>
+            <button onClick={() => handleDeleteCountry(id)}>
               <img src={Delete} alt="Delete" />
             </button>
           </span>

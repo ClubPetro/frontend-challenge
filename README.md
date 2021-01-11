@@ -3,11 +3,13 @@
 <img src="./img/logo-clubpetro.png"
      alt="Clubpetro" width="300">
 
-- [Descrição](#descrição)
+  - [Descrição](#descrição)
   - [O Desafio](#o-desafio)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+- [Execute o projeto localmente](#Execute-o-projeto-localmente)
+
 
 ## Descrição
 
@@ -55,3 +57,38 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O canditado deverá realizar um fork deste repositório e submeter o código no mesmo;
 - O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá enviar um email para jobs@clubpetro.com.br contendo o link do seu PR.
+
+### Execute o projeto localmente
+
+Stack:
+
+- React
+- Styled Components
+- JSON Server
+
+**1 -**  Clone o projeto e instale as dependências:
+
+```
+$ git clone https://github.com/kleberMRocha/frontend-challenge
+$ cd lugares
+$ yarn install
+
+- Abra outro terminal na pasta raiz
+$ cd backend
+$ yarn install
+```
+**2 -** Executar modo de desenvolvimento:
+
+```
+- No terminal que está aberto a pasta lugares
+$ yarn start
+
+```
+
+```
+- No terminal que está aberto a pasta backend
+$ yarn json-server --watch db.json
+
+```
+
+Abra  http: // localhost:3006 para visualizá-lo no navegador o projeto.

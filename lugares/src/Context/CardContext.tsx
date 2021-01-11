@@ -14,8 +14,8 @@ interface CountryCardProps {
 interface ContextProps {
   countries: CountryCardProps[];
   handleAddCountry: Function;
-  handleDelete: Function;
-  handleUpdateCard: Function;
+  handleDeleteCountry: Function;
+  handleUpdateCountry: Function;
 }
 
 interface countriesProps {
@@ -26,8 +26,8 @@ interface countriesProps {
 const CardContext = createContext<ContextProps>({
   countries: [] as CountryCardProps[],
   handleAddCountry: () => {},
-  handleDelete: () => {},
-  handleUpdateCard: () => {},
+  handleDeleteCountry: () => {},
+  handleUpdateCountry: () => {},
 });
 
 export const CardProvider: React.FC = ({ children }) => {
@@ -60,7 +60,7 @@ export const CardProvider: React.FC = ({ children }) => {
     }, 3000);
   }
 
-  async function handleDelete(id: string) {
+  async function handleDeleteCountry(id: string) {
     window.confirm("Você tem certeza que quer excluir?") &&
       (await crudController.delete(id));
 
@@ -71,7 +71,7 @@ export const CardProvider: React.FC = ({ children }) => {
       
   }
 
-  async function handleUpdateCard(
+  async function handleUpdateCountry(
     countryInfos: CountryCardProps,
     goal: string,
     location: string,
@@ -124,8 +124,8 @@ export const CardProvider: React.FC = ({ children }) => {
       value={{
         countries: countryCard,
         handleAddCountry: handleAddCountry,
-        handleDelete: handleDelete,
-        handleUpdateCard: handleUpdateCard,
+        handleDeleteCountry: handleDeleteCountry,
+        handleUpdateCountry: handleUpdateCountry,
       }}
     >
       {children}
