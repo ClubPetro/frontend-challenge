@@ -77,7 +77,7 @@ $ yarn install
 $ cd backend
 $ yarn install
 ```
-**2 -** Executar modo de desenvolvimento:
+**2 -** Execute o projeto localmente:
 
 ```
 - No terminal que está aberto a pasta lugares
@@ -91,4 +91,4 @@ $ yarn json-server --watch db.json
 
 ```
 
-Abra  http: // localhost:3006 para visualizá-lo no navegador o projeto.
+Abra  http: // localhost:3006 para visualizar o projeto no navegador
