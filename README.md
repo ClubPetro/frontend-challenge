@@ -70,10 +70,11 @@ Stack:
 
 ```
 $ git clone https://github.com/kleberMRocha/frontend-challenge
+$ cd frontend-challenge
 $ cd lugares
 $ yarn install
 
-- Abra outro terminal na pasta raiz
+- Abra outro terminal na pasta raiz frontend-challenge
 $ cd backend
 $ yarn install
 ```
