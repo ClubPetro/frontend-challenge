@@ -1,11 +1,12 @@
 import React from 'react';
 import * as S from './styled';
 
-const Dashboard: React.FC = () => {
+const Card: React.FC = () => {
   return (
     <S.Container>
-      <h1>Dashboard</h1>
+      <h1>card</h1>
     </S.Container>
   );
 };
-export default Dashboard;
+
+export default Card;

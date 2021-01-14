@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GlobalStyle from './styles/global';
 
-import App from './Dashboard';
+import App from './pages/Dashboard';
 
 ReactDOM.render(
   <React.StrictMode>
