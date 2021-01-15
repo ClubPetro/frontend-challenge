@@ -20,7 +20,7 @@ body {
 }
 
 body, input, button {
-  font: 16px 'Open Sans', sans-serif;
+  font: 16px 'Roboto', sans-serif;
   line-height: 1.6
 }
 

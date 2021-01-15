@@ -33,6 +33,7 @@
         "camelcase": "off",
         "no-use-before-define": "off",
         "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
         "prettier/prettier": "error",
         "react/prop-types": "off",
         "import/extensions": [
