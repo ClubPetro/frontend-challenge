@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -11,10 +12,13 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-input-mask": "^2.0.4",
     "react-scripts": "4.0.1",
     "styled-components": "^5.2.1",
+    "styled-components-modifiers": "^1.2.5",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
@@ -40,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-input-mask": "^3.0.0",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "cypress": "^6.2.1",

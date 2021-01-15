@@ -1,13 +1,14 @@
 import React from 'react';
 import * as S from './styled';
-import Logo from '../../../assets/img/logo.png';
+import * as U from '../../styles/utilities';
+import Logo from '../../assets/img/logo.png';
 
 const Header: React.FC = () => {
   return (
     <S.Container>
-      <S.ContentLimit>
+      <U.ContentLimit>
         <img src={Logo} alt="Logo" />
-      </S.ContentLimit>
+      </U.ContentLimit>
     </S.Container>
   );
 };
