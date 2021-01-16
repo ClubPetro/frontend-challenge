@@ -6,14 +6,12 @@ interface TextProps {
 }
 
 const TEXT_MODIFIERS = {
-  // body: () => 'font-size: 1.6rem;',
-  // bodyNormal: () => 'font-size: 1.6rem; font-weight: normal;',
   bodyBold: () => 'font-size: 1.6rem; font-weight: bold;',
-
   green: () => 'color: #4F9419',
   gray: () => 'color: #868686',
   black: () => 'color: #363636',
   white: () => 'color: #fff',
+  uppercase: () => 'text-transform: uppercase',
 };
 
 export const Text = styled.p<TextProps>`

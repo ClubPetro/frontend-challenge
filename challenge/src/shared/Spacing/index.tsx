@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import * as S from './styled';
 
 interface SpacingProps {
@@ -11,6 +11,7 @@ interface SpacingProps {
   display?: string;
   width?: string;
   style?: CSSProperties;
+  children?: ReactNode;
   onClick?: () => void;
 }
 
@@ -23,6 +24,7 @@ const Spacing: React.FC<SpacingProps> = ({
   padding,
   display,
   width,
+  children,
 }) => (
   <S.Spacing
     m={m}
@@ -33,7 +35,9 @@ const Spacing: React.FC<SpacingProps> = ({
     padding={padding}
     display={display}
     width={width}
-  />
+  >
+    {children}
+  </S.Spacing>
 );
 
 export default Spacing;

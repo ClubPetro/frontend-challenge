@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContentLimit = styled.div`
-  max-width: 120rem;
+  max-width: 130rem;
   margin: 0 auto;
   padding: 0 3rem;
 

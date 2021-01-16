@@ -17,8 +17,6 @@ const FilterPlaces: React.FC = () => {
     fetchData();
   }, []);
 
-  console.log(places);
-
   return (
     <S.Container>
       <U.ContentLimit>
