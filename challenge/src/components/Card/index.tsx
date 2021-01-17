@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Grid } from '@material-ui/core';
 import swal from 'sweetalert';
 import Text from '../../shared/Text';
 import Spacing from '../../shared/Spacing';
-
+import { useStateContext } from '../../hooks/context/modules/StatesContext';
 import { api } from '../../services/api';
 import iconEdit from '../../assets/img/icon-edit.png';
 import iconDelete from '../../assets/img/icon-delete.png';
@@ -12,17 +12,19 @@ import * as S from './styled';
 // const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Card: React.FC = () => {
-  const [places, setPlaces] = useState([]);
+  // const [places, setPlaces] = useState([]);
+
+  const { places, setPlaces } = useStateContext();
+
+  const loadProducts = useCallback(async () => {
+    const response = await api.get('places');
+    const { data } = response;
+    setPlaces(data);
+  }, [setPlaces]);
 
   useEffect(() => {
-    async function loadProducts() {
-      const response = await api.get('places');
-
-      const { data } = response;
-      setPlaces(data);
-    }
     loadProducts();
-  }, []);
+  }, [loadProducts]);
 
   const deleteItem = (id: string) => {
     swal({
@@ -40,7 +42,7 @@ const Card: React.FC = () => {
               swal('O item foi deletado com sucesso!', {
                 icon: 'success',
               });
-              // fetchData();
+              loadProducts();
             }
           })
           .catch(() => {

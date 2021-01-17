@@ -7,12 +7,13 @@ import Input from '../../shared/Input';
 import Text from '../../shared/Text';
 import * as S from './styled';
 import * as U from '../../styles/utilities';
+import { useStateContext } from '../../hooks/context/modules/StatesContext';
 import { apiContries, api } from '../../services/api';
 
 const FilterPlaces: React.FC = () => {
   const [contries, setCountries] = useState([]);
-  const [places, setPlaces] = useState([]);
 
+  const { places, setPlaces } = useStateContext();
   const [initialValues] = useState({
     country: '',
     place: '',
@@ -46,14 +47,12 @@ const FilterPlaces: React.FC = () => {
         });
         swal('Adicionado!', 'O lugar foi adicionado com sucesso!', 'success');
 
-        setPlaces(response.data);
+        setPlaces([...places, response.data]);
       }
     } catch {
       swal('Erro!', 'Verifique os campos!', 'error');
     }
   }
-
-  console.log(places);
 
   return (
     <S.Container>

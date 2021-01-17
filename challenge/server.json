@@ -8,18 +8,11 @@
       "goal": "04/2021"
     },
     {
-      "id": 2,
-      "flag": "https://restcountries.eu/data/bra.svg",
-      "country": "Brazil",
-      "place": "Recife",
-      "goal": "09/2021"
-    },
-    {
-      "id": "kk1gb4ww",
-      "flag": "https://restcountries.eu/data/arg.svg",
-      "country": "Argentina",
-      "place": "Buenos Aires",
-      "goal": "04/2021"
+      "id": "kk1kkab2",
+      "flag": "https://restcountries.eu/data/alb.svg",
+      "country": "Albania",
+      "place": "São Paulo",
+      "goal": "04/3213"
     }
   ]
 }

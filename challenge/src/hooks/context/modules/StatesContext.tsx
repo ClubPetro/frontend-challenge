@@ -1,8 +1,18 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
+interface ItemProps {
+  id: string;
+  flag: string;
+  country: string;
+  place: string;
+  goal: string;
+}
+
 interface StatesContextData {
   toogleEdit(): void;
   modalEdit?: boolean;
+  places: ItemProps[];
+  setPlaces: any;
 }
 
 interface ProviderProps {
@@ -12,6 +22,8 @@ interface ProviderProps {
 const StatesContext = createContext<StatesContextData>({} as StatesContextData);
 
 const StatesProvider: React.FC<ProviderProps> = ({ children }) => {
+  const [places, setPlaces] = useState([]);
+
   const [modalEdit, setModalEdit] = useState(false);
 
   const toogleEdit = () => {
@@ -19,7 +31,9 @@ const StatesProvider: React.FC<ProviderProps> = ({ children }) => {
   };
 
   return (
-    <StatesContext.Provider value={{ toogleEdit, modalEdit }}>
+    <StatesContext.Provider
+      value={{ toogleEdit, modalEdit, places, setPlaces }}
+    >
       {children}
     </StatesContext.Provider>
   );
