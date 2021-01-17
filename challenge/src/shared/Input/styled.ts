@@ -6,6 +6,7 @@ export const Select = styled.select`
   background-color: #fff;
   border: 0;
   border-radius: 7px;
+  /* color: #868686; */
   padding: 1.32rem;
   -webkit-appearance: none;
   background-image: url(${icon});
@@ -16,6 +17,10 @@ export const Select = styled.select`
   width: 100%;
   font-size: 1.6rem;
   font-family: inherit;
+
+  /* option:not(:checked) {
+    color: #000;
+  } */
 `;
 
 export const Label = styled.p`

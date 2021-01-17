@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-const api = axios.create({
+const apiContries = axios.create({
   baseURL: 'https://restcountries.eu/rest/v2/',
 });
 
-export default api;
+const api = axios.create({
+  baseURL: 'http://localhost:3333',
+});
+
+export { apiContries, api };

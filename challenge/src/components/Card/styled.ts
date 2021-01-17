@@ -6,7 +6,7 @@ export const Container = styled.div`
   grid-gap: 3rem 3.3rem;
   max-width: 140rem;
   margin: 0 auto;
-  place-content: center;
+  place-content: flex-start;
   margin-bottom: 10rem;
 `;
 
