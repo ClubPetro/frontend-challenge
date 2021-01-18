@@ -8,7 +8,7 @@
 
 1. Clone esse repositório;
 2. Entre na pasta `challenge`;
-3. execure `yarn` para baixar as dependências;
+3. execute `yarn` para baixar as dependências;
 3. execute `json-server server.json -p 3333 -w` para rodar a api proveniente do `json-server`;
 4. execute `yarn start` para rodar o project no `localhost:3000`
 
