@@ -3,31 +3,48 @@ import * as S from './styled';
 
 interface InputProps {
   select?: boolean;
+  name?: string;
   label?: string;
+  colorLabel?: string;
   placeholder?: string;
   mask?: any;
   options?: string[];
+  onChange?: (value: any) => void;
+  onBlur?: (value: any) => void;
+  value?: any;
+  border?: boolean;
 }
 const Input: React.FC<InputProps> = ({
   select,
+  name,
   label,
+  colorLabel,
   placeholder,
   mask,
   options,
+  onChange,
+  onBlur,
+  value,
+  border,
 }) => {
   return (
     <>
       {select ? (
         <S.ContainerInput>
           <S.Label>{label}</S.Label>
-          <S.Select name="select">
-            <option value="selected" selected>
-              Selecione...
-            </option>
+          <S.Select
+            border={border}
+            name={name}
+            onChange={onChange}
+            onBlur={onBlur}
+            value={value}
+            placeholder="Selecione..."
+          >
+            <option value="">Selecione...</option>
             {options !== undefined ? (
-              options.map(item => (
-                <option key={item} value={item}>
-                  {item}
+              options.map((item: any) => (
+                <option key={item} value={item.name}>
+                  {item.translations.br}
                 </option>
               ))
             ) : (
@@ -37,8 +54,17 @@ const Input: React.FC<InputProps> = ({
         </S.ContainerInput>
       ) : (
         <S.ContainerInput>
-          <S.Label>{label}</S.Label>
-          <S.Input type="text" mask={mask} placeholder={placeholder} />
+          <S.Label color={colorLabel}>{label}</S.Label>
+          <S.Input
+            border={border}
+            type="text"
+            name={name}
+            mask={mask}
+            placeholder={placeholder}
+            onChange={onChange}
+            onBlur={onBlur}
+            value={value}
+          />
         </S.ContainerInput>
       )}
     </>

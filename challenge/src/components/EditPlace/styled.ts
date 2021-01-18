@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  background-color: #4f9419;
-  padding: 9rem 0 7.3rem 0;
+export const ModalContainer = styled.div`
+  padding: 3rem 2.5rem;
 `;
 
 export const Button = styled.button`
