@@ -1,0 +1,27 @@
+{
+  "places": [
+    {
+      "id": "kk31lxaj",
+      "flag": "https://restcountries.eu/data/bra.svg",
+      "country": "Brasil",
+      "place": "São Paulo",
+      "goal": "04/2021"
+    },
+    {
+      "id": "kk31mj6c",
+      "flag": "https://restcountries.eu/data/mdv.svg",
+      "country": "Maldivas",
+      "place": "Malé",
+      "goal": "06/2025",
+      "placeEdit": "Malé",
+      "goalEdit": "06/2025"
+    },
+    {
+      "id": "kk31pden",
+      "flag": "https://restcountries.eu/data/fra.svg",
+      "country": "França",
+      "place": "Marselha",
+      "goal": "03/2022"
+    }
+  ]
+}
