@@ -39,6 +39,7 @@ const Input: React.FC<InputProps> = ({
             onBlur={onBlur}
             value={value}
             placeholder="Selecione..."
+            data-cy={name}
           >
             <option value="">Selecione...</option>
             {options !== undefined ? (
@@ -64,6 +65,7 @@ const Input: React.FC<InputProps> = ({
             onChange={onChange}
             onBlur={onBlur}
             value={value}
+            data-cy={name}
           />
         </S.ContainerInput>
       )}

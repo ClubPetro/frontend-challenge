@@ -88,7 +88,7 @@ const FilterPlaces: React.FC = () => {
                   />
                 </Grid>
                 <Grid item xs={12} md={2}>
-                  <S.Button type="submit">
+                  <S.Button type="submit" data-cy="btn-add">
                     <Text modifiers={['white']}>Adicionar</Text>
                   </S.Button>
                 </Grid>

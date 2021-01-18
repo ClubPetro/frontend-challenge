@@ -10,8 +10,8 @@ interface ItemProps {
   id?: string;
   flag?: string;
   country: string;
-  place: string;
-  goal: string;
+  placeEdit: string;
+  goalEdit: string;
 }
 
 const Edit: React.FC = () => {
@@ -21,8 +21,8 @@ const Edit: React.FC = () => {
     id: '',
     flag: '',
     country: '',
-    place: '',
-    goal: '',
+    placeEdit: '',
+    goalEdit: '',
   });
 
   const loadPlace = useCallback(async () => {
@@ -36,7 +36,11 @@ const Edit: React.FC = () => {
   }, [loadPlace]);
 
   const handleSubmitForm = (values: any) => {
-    editPlace(itemId, { ...values, place: values.place, goal: values.goal });
+    editPlace(itemId, {
+      ...values,
+      place: values.placeEdit,
+      goal: values.goalEdit,
+    });
   };
 
   return (
@@ -57,10 +61,10 @@ const Edit: React.FC = () => {
                   label="Local"
                   colorLabel="#000"
                   placeholder="Digite o local que deseja conhecer"
-                  name="place"
+                  name="placeEdit"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.place}
+                  value={values.placeEdit}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -70,14 +74,14 @@ const Edit: React.FC = () => {
                   colorLabel="#000"
                   mask="99/9999"
                   placeholder="mês/ano"
-                  name="goal"
+                  name="goalEdit"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.goal}
+                  value={values.goalEdit}
                 />
               </Grid>
               <Grid item xs={12}>
-                <S.Button type="submit">
+                <S.Button type="submit" data-cy="submit-edit-btn">
                   <Text modifiers={['white']}>Editar</Text>
                 </S.Button>
               </Grid>
