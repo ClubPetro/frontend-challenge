@@ -28,7 +28,7 @@ const Edit: React.FC = () => {
   const loadPlace = useCallback(async () => {
     const response = await api.get(`places/${itemId}`);
     const { data } = response;
-    setInitialValues(data);
+    setInitialValues({ ...data, placeEdit: data.place, goalEdit: data.goal });
   }, [itemId]);
 
   useEffect(() => {

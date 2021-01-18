@@ -1,18 +1,27 @@
 {
   "places": [
     {
-      "id": "kk31epet",
-      "flag": "https://restcountries.eu/data/bhs.svg",
-      "country": "Bahamas",
-      "place": "Nassau",
-      "goal": "05/2026"
+      "id": "kk31lxaj",
+      "flag": "https://restcountries.eu/data/bra.svg",
+      "country": "Brasil",
+      "place": "São Paulo",
+      "goal": "04/2021"
     },
     {
-      "id": "kk31er3s",
-      "flag": "https://restcountries.eu/data/jpn.svg",
-      "country": "Japão",
-      "place": "Saitama",
-      "goal": "06/2023"
+      "id": "kk31mj6c",
+      "flag": "https://restcountries.eu/data/mdv.svg",
+      "country": "Maldivas",
+      "place": "Malé",
+      "goal": "06/2025",
+      "placeEdit": "Malé",
+      "goalEdit": "06/2025"
+    },
+    {
+      "id": "kk31pden",
+      "flag": "https://restcountries.eu/data/fra.svg",
+      "country": "França",
+      "place": "Marselha",
+      "goal": "03/2022"
     }
   ]
 }
