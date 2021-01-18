@@ -20,19 +20,27 @@ const Card: React.FC = () => {
     <>
       <S.Container>
         {places.map((item: any) => (
-          <S.Card key={item}>
+          <S.Card key={item} data-cy="list-places">
             <S.ActionIcons>
               <Grid container spacing={3} justify="flex-end">
-                <Grid item onClick={() => modalEditCountry(item.id)}>
+                <Grid
+                  item
+                  onClick={() => modalEditCountry(item.id)}
+                  data-cy="edit-btn"
+                >
                   <img src={iconEdit} alt="edit" />
                 </Grid>
-                <Grid item onClick={() => deletePlace(item.id)}>
+                <Grid
+                  item
+                  onClick={() => deletePlace(item.id)}
+                  data-cy="delete-btn"
+                >
                   <img src={iconDelete} alt="delete" />
                 </Grid>
               </Grid>
             </S.ActionIcons>
 
-            <S.Image src={item.flag} />
+            <S.Image src={item.flag} alt="flag" />
             <Spacing mt={1} mb={1}>
               <Text
                 modifiers={['bodyBold', 'green']}
