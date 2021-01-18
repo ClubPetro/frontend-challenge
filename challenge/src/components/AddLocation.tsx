@@ -5,12 +5,21 @@ import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 import InputMask from 'react-input-mask'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 import axios from 'axios'
+import { v4 as uuidv4 } from 'uuid'
 
-const AddLocation = () => {
-    const [country, setCountry] = useState<string>('')
-    const [location, setLocation] = useState<string>('')
-    const [plan, setPlan] = useState<string>('')
+
+interface FuncProps {
+    setLocationsItens(arg: Object): void
+    locationsItens
+}
+
+const AddLocation: React.FC<FuncProps> = (props) => {
+    const [country, setCountry] = useState('')
+    const [countryFlag, setCountryFlag] = useState('')
+    const [location, setLocation] = useState('')
+    const [plan, setPlan] = useState('')
     const [countryList, setCountryList] = useState<any>([])
 
     async function fetchCountryList() {
@@ -18,10 +27,23 @@ const AddLocation = () => {
             const response = await axios.get('https://restcountries.eu/rest/v2/all')
             const listedCountries: Object[] = response.data
             setCountryList(() => listedCountries)
-            console.log(response);
         }
         catch (error) {
 
+        }
+    }
+
+    const formHandler = (e) => {
+        e.preventDefault()
+        if (!country && !location && !plan) {
+            
+        } else {
+            const id: string = uuidv4()
+            props.setLocationsItens([...props.locationsItens, {country, location, plan, countryFlag, id}])
+            setCountry('')
+            setCountryFlag('')
+            setLocation('')
+            setPlan('')
         }
     }
 
@@ -29,42 +51,65 @@ const AddLocation = () => {
         fetchCountryList()
     }, [])
 
-    interface translationCountryNames {
-        pt: string
+    interface CountryObject {
+        translations: TranslationsLanguages,
+        flag: string
     }
 
-    interface countryAPI {
-        translations: translationCountryNames,
-        flag: string 
+    interface TranslationsLanguages {
+        pt: string
     }
 
     return (
         <div className="add_location_section">
-            <form>
+            <form className="add_location_form" onSubmit={(e: React.FormEvent<HTMLFormElement>) => formHandler(e)}>
                 <FormControl >
-                    <InputLabel id="demo-simple-select-label">País</InputLabel>
+                    <InputLabel shrink id="demo-simple-select-label">País</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
+                        labelId="demo-simple-select-placeholder-label"
+                        id="demo-simple-select-placeholder-label"
                         value={country}
-                        onChange={setCountry((e: React.ChangeEvent<HTMLInputElement>) => e.target.value)}
-                    >
-                        {countryList.map((country) => {
+                        displayEmpty
+                        onChange={(e: React.ChangeEvent<{ value: any }>) => {
+                            const countryValue = e.target.value
+
+                            const countryObject: CountryObject = countryList.filter((i: CountryObject) => i.translations.pt === countryValue)                      
                             
+                            setCountry(countryValue)
+                            setCountryFlag(countryObject[0].flag)
+                        }}
+                    >
+                        <MenuItem value=""><em>Selecione...</em></MenuItem>
+                        {countryList.map((country: CountryObject) => {
                             return (
-                                <MenuItem value={country.translations.pt}>{country.translations.pt}</MenuItem>
+                                <MenuItem value={country.translations.pt} key={country.flag}>{country.translations.pt}</MenuItem>
                             )
                         })}
                     </Select>
                 </FormControl>
-                <TextField id="standard-basic" label="Local" value={location} />
+                <TextField 
+                placeholder="Digite o local que seja conhecer"
+                id="standard-basic" 
+                label="Local" 
+                value={location}
+                    onChange={(e: React.ChangeEvent<{ value: any }>) => setLocation(e.target.value)}
+                    InputLabelProps={{ shrink: true }}
+                />
                 <InputMask
                     mask="99/9999"
                     maskChar={null}
                     value={plan}
-                   
-                />;
-        </form>
+                    onChange={(e: React.ChangeEvent<{ value: any }>) => setPlan(e.target.value)}
+                >
+                    {(inputProps) => <TextField {...inputProps}
+                    placeholder="mês/ano"
+                        id="standard-basic"
+                        label="Data"
+                        InputLabelProps={{ shrink: true }}
+                    />}
+                </InputMask>
+                <Button variant="contained" type="submit">Adicionar</Button>
+            </form>
         </div>
     )
 }
