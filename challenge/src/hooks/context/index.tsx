@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { StatesProvider } from './modules/StatesContext';
+import { PlacesProvider } from './modules/PlacesContext';
 
 const AppProvider: React.FC = ({ children }) => (
-  <StatesProvider>{children}</StatesProvider>
+  <PlacesProvider>{children}</PlacesProvider>
 );
 
 export default AppProvider;

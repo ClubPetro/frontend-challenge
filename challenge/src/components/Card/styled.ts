@@ -4,10 +4,14 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 25rem));
   grid-gap: 3rem 3.3rem;
-  max-width: 140rem;
+  max-width: 145rem;
   margin: 0 auto;
-  place-content: flex-start;
+  padding: 0 2rem;
   margin-bottom: 10rem;
+
+  @media (max-width: 860px) {
+    place-content: center;
+  }
 `;
 
 const appearFromBottom = keyframes`

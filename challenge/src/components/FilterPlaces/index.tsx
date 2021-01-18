@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import { Formik } from 'formik';
-import uniqid from 'uniqid';
-import swal from 'sweetalert';
-import Input from '../../shared/Input';
-import Text from '../../shared/Text';
+import { Input, Text } from '../../shared';
+import { usePlaces } from '../../hooks/context/modules/PlacesContext';
+import { apiCountries } from '../../services/api';
 import * as S from './styled';
 import * as U from '../../styles/utilities';
-import { useStateContext } from '../../hooks/context/modules/StatesContext';
-import { apiContries, api } from '../../services/api';
+
+interface ItemProps {
+  country: string;
+  place: string;
+  goal: string;
+}
 
 const FilterPlaces: React.FC = () => {
-  const [contries, setCountries] = useState([]);
+  const [countries, setCountries] = useState([]);
 
-  const { places, setPlaces } = useStateContext();
-  const [initialValues] = useState({
+  const { addPlace } = usePlaces();
+
+  const [initialValues] = useState<ItemProps>({
     country: '',
     place: '',
     goal: '',
@@ -22,42 +26,32 @@ const FilterPlaces: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await apiContries.get('/all');
-      setCountries(response.data.map((item: any) => item.name));
+      const response = await apiCountries.get('/all');
+      setCountries(response.data.map((item: any) => item));
     };
     fetchData();
   }, []);
 
-  async function handleSubmitForm(values: {
-    country: string;
-    place: string;
-    goal: string;
-  }) {
-    try {
-      const flagResp = await apiContries.get(`name/${values.country}`);
-      const [result] = flagResp.data;
-
-      if (flagResp) {
-        const response = await api.post('/places', {
-          id: uniqid(),
-          flag: result.flag,
-          country: values.country,
-          place: values.place,
-          goal: values.goal,
-        });
-        swal('Adicionado!', 'O lugar foi adicionado com sucesso!', 'success');
-
-        setPlaces([...places, response.data]);
-      }
-    } catch {
-      swal('Erro!', 'Verifique os campos!', 'error');
-    }
+  async function handleSubmitForm(values: ItemProps) {
+    addPlace({
+      ...values,
+      country: values.country,
+      place: values.place,
+      goal: values.goal,
+    });
   }
 
   return (
     <S.Container>
       <U.ContentLimit>
-        <Formik initialValues={initialValues} onSubmit={handleSubmitForm}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={(values, { resetForm }) => {
+            handleSubmitForm(values);
+            resetForm();
+          }}
+          enableReinitialize
+        >
           {({ handleSubmit, handleBlur, handleChange, values }) => (
             <form onSubmit={handleSubmit}>
               <Grid container alignItems="center" spacing={4}>
@@ -65,7 +59,7 @@ const FilterPlaces: React.FC = () => {
                   <Input
                     select
                     label="País"
-                    options={contries}
+                    options={countries}
                     name="country"
                     onChange={handleChange}
                     onBlur={handleBlur}

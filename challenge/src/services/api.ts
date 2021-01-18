@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiContries = axios.create({
+const apiCountries = axios.create({
   baseURL: 'https://restcountries.eu/rest/v2/',
 });
 
@@ -8,4 +8,4 @@ const api = axios.create({
   baseURL: 'http://localhost:3333',
 });
 
-export { apiContries, api };
+export { apiCountries, api };

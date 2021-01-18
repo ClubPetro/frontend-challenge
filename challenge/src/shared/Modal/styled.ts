@@ -87,19 +87,12 @@ export const ButtonClose = styled.div`
   transition: 0.5s;
 
   img {
-    color: #121212;
-    opacity: 37%;
+    transition: 0.3s;
+    cursor: pointer;
   }
 
-  &:hover {
-    transition: 0.5s;
-    background: #ddd;
-    border-radius: 50%;
-
-    img {
-      transition: 0.5s;
-      color: #fff;
-      opacity: 1;
-    }
+  img:hover {
+    transition: 0.3s;
+    filter: brightness(1.5);
   }
 `;

@@ -6,6 +6,7 @@ interface TextProps {
 }
 
 const TEXT_MODIFIERS = {
+  title: () => 'font-size: 2.7rem; font-weight: bold;',
   bodyBold: () => 'font-size: 1.6rem; font-weight: bold;',
   green: () => 'color: #4F9419',
   gray: () => 'color: #868686',
