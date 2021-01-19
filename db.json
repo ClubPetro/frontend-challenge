@@ -1,0 +1,16 @@
+{
+  "locations": [
+    {
+      "country": "AGO",
+      "place": "asasa",
+      "goal": "11/1111",
+      "id": 1
+    },
+    {
+      "country": "BRA",
+      "place": "Palhoça",
+      "goal": "12/2030",
+      "id": 2
+    }
+  ]
+}
