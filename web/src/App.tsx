@@ -3,14 +3,16 @@ import React from 'react';
 import GlobaStyle from './styles/global';
 
 import Header from './components/Header';
-import Form from './components/Form';
+import FormComponent from './components/FormComponent';
+import PlaceCardList from './components/PlaceCardList';
 
 const  App: React.FC = () =>  {
   return (
     <>
-    <Header />
-    <Form />
-    <GlobaStyle />
+      <Header />
+      <FormComponent/>
+      <PlaceCardList/>
+      <GlobaStyle />
     </>
   );
 }

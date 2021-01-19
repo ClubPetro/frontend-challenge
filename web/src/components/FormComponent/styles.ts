@@ -23,7 +23,7 @@ export const Container = styled.div`
       }
     }
 
-    #country, #local, #meta {
+    #place, #goal {
       height: 48px;
       background-color: #ffffff;
       border: 0;
@@ -38,11 +38,9 @@ export const Container = styled.div`
       }
     }
 
-    #country {
-      width: 303px;
-    }
+    
 
-    #local {
+    #place {
       width: 455px;
     }
 
