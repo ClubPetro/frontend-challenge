@@ -8,6 +8,7 @@
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+- [Instruções para execução](#instruções-para-execução)
 
 ## Descrição
 
@@ -55,3 +56,38 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O canditado deverá realizar um fork deste repositório e submeter o código no mesmo;
 - O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá enviar um email para jobs@clubpetro.com.br contendo o link do seu PR.
+
+
+### Instruções para execução
+
+### Sobre a realização do desafio
+
+O desafio foi desenvolvido seguindo rigorosamente os requisitos obrigatórios e os bônus, comtemplando 100% do escopo especificado.
+
+Espero que gostem!
+
+### json-server
+
+A opção escolhida para o CRUD foi o uso da biblioteca json-server.
+
+* yarn
+  ```sh
+  yarn json-server
+
+### Instalação
+
+Para rodar a aplicação em localhost
+
+* yarn
+  ```sh
+  yarn start
+  ```
+
+### Testes
+
+Os testes foram cobertos 100% e também pode ser encontrado um coverage do mesmo em /coverage
+
+* yarn
+  ```sh
+  yarn test
+  ```
