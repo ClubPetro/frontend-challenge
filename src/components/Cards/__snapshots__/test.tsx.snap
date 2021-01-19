@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cards /> should render the cards properly 1`] = `
+.c1 {
+  display: grid;
+  grid-template-rows: 0.6fr auto 1fr;
+  height: 25rem;
+  width: 25rem;
+  padding: 1.6rem;
+  border-radius: 1rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 0.8rem;
+}
+
+.c12 p + p {
+  margin-top: calc(0.8rem + 0.4rem);
+}
+
+.c11 {
+  border: 0;
+  border-top: 1px solid #ABABAB;
+  margin-top: 0.8rem;
+}
+
+.c6 svg + svg {
+  margin-left: 1.6rem;
+}
+
+.c4 {
+  max-width: 80%;
+}
+
+.c4 .c9 {
+  margin-top: 1.6rem;
+}
+
+.c5 {
+  width: 5.6rem;
+  height: 3.4rem;
+}
+
+.c10 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4F9419;
+}
+
+.c7 {
+  font-size: 1.8rem;
+  color: #868686;
+  cursor: pointer;
+}
+
+.c8 {
+  font-size: 1.8rem;
+  color: #868686;
+  cursor: pointer;
+}
+
+.c0 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  grid-gap: 3.2rem;
+  width: 100%;
+  justify-items: center;
+  padding: 5.6rem 4.0rem;
+  max-width: 150rem;
+  margin: 0 auto;
+}
+
+@media (min-width:1440px) {
+  .c0 {
+    grid-template-columns: repeat(5,1fr);
+    justify-items: center;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="MuiPaper-root MuiCard-root c1 MuiPaper-elevation4 MuiPaper-rounded"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <img
+            alt="Country"
+            class="c5"
+            src="/img/country.png"
+          />
+        </div>
+        <div
+          class="c6"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="Edit card button"
+            class="MuiSvgIcon-root c7"
+            focusable="false"
+            role="button"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            aria-label="Remove card button"
+            class="MuiSvgIcon-root c8"
+            focusable="false"
+            role="button"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </div>
+      </div>
+      <h3
+        class="c9 c10"
+      >
+        Country
+      </h3>
+    </div>
+    <hr
+      class="c11"
+    />
+    <div
+      class="c12"
+    >
+      <p>
+        Local: 
+        Local
+         
+      </p>
+      <p>
+        Meta: 
+        Target
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;

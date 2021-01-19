@@ -1,0 +1,11 @@
+{
+  "travels": [
+    {
+      "country_name": "Brasil",
+      "country_flag_url": "https://restcountries.eu/data/bra.svg",
+      "local": "ClubPetro",
+      "target": "02/2021",
+      "id": 1
+    }
+  ]
+}
