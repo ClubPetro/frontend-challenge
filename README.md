@@ -1,5 +1,7 @@
 # Desafio de Frontend
 
+Um desafio proposto pela empresa Clubpetro onde devemos desenvolver uma interface que ajuda o usuário a criar uma agenda de viagens.
+
 ## Rodando o banco
 
 Estando na raiz do projeto, rode o comando `json-server --watch --port 3333 db.json`
