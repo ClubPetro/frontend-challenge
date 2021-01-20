@@ -7,6 +7,7 @@ import axios from 'axios'
 import Card from '../../components/Card';
 import { apiUrl } from '../../services/api';
 import { notifySuccess, notifyError } from '../../utils/toastify'
+import validation from "../../utils/validation"
 import Iplace from '../../interfaces/Iplace';
 import { baseUrl } from '../../services/backend';
 
@@ -41,16 +42,17 @@ function Home() {
         const idForm = id !== 0 ? `/${id}` : ''
         const method = id !== 0 ? 'put' : 'post'
 
-        axios[method](baseUrl.concat(idForm), place)
+        try {
+            validation(place)
+            axios[method](baseUrl.concat(idForm), place)
             .then(() => {
                 notifySuccess("Cadastro Realizado com Sucesso")
                 setIsPlacesUpdated(!isPlacesUpdated)
-            }).catch((error) => {
-                if(error.response) {
-                    notifyError(error.response.data)
-                    return
-                }
             })
+        } catch (error) {
+            notifyError(error.message)
+        }
+        
     }
 
     const loadCountries = useCallback(() => {
@@ -116,6 +118,7 @@ function Home() {
                                     placeholder="Digite o local que deseja conhecer"
                                     value={place.local}
                                     onChange={(e) => setPlace({...place, local: e.target.value})}
+                                    required
                                 />
                             </Form.Item>
                         </Col>
@@ -126,6 +129,7 @@ function Home() {
                                     className="input-mask"
                                     placeholder="mês/ano"
                                     value={place.target}
+                                    required
                                     onChange={(e) => setPlace({...place, target: e.target.value})}
                                 />
                             </Form.Item>
