@@ -23,7 +23,9 @@
 
 ### 2) Execute npm install ou yarn add para instalar as dependências.
 
-### 3) Para realizar os testes rode o comando npm run test ou yarn test.
+### 3) Execute o comando npm run json:server para iniciar o servidor do Json Server.
+
+### 4) Para realizar os testes rode o comando npm run test ou yarn test.
 
 
 ##
