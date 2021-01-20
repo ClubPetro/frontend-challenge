@@ -14,31 +14,37 @@ import './home.css'
 
 function Home() {
 
-    const { Option } = Select
-    const [countries, setCountries] = useState<any[]>([])
-    const [place, setPlace] = useState<Iplace>({
+    const defaultPlace = {
         country: {
             name: "",
             flag: ""
         },
         local: "",
         target: ""
-    })
+    }
+    const { Option } = Select
+    const [countries, setCountries] = useState<any[]>([])
+    const [place, setPlace] = useState<Iplace>({...defaultPlace})
     const [places, setPlaces] = useState<Iplace[]>([])
     const [id, setId] = useState(0)
+    const [isPlacesUpdated, setIsPlacesUpdated] = useState(false)
 
     const handleSelectInput = (value: string) => {
         setPlace({...place, country: {
             name: value.substring(0, value.indexOf('-')),
-            flag: value.substring(value.indexOf('-') + 1)
+            flag: value.substring(value.indexOf('-') + 1),
         }})
     }
 
     const savePlaceToGo = () => {
-        axios.post(baseUrl, place)
-            .then((resp) => {
+
+        const idForm = id !== 0 ? `/${id}` : ''
+        const method = id !== 0 ? 'put' : 'post'
+
+        axios[method](baseUrl.concat(idForm), place)
+            .then(() => {
                 notifySuccess("Cadastro Realizado com Sucesso")
-                setId(resp.data.id)
+                setIsPlacesUpdated(!isPlacesUpdated)
             }).catch((error) => {
                 if(error.response) {
                     notifyError(error.response.data)
@@ -61,10 +67,17 @@ function Home() {
         })
     },[])
 
+    function loadPlaceToGo(place: Iplace) {
+        setPlace({...place})
+        if(place.id) {
+            setId(place.id)
+        }
+    }
+
     useEffect(() => {
         loadCountries()
         loadPlacesToGo()
-    }, [loadCountries, loadPlacesToGo, id])
+    }, [loadCountries, loadPlacesToGo, isPlacesUpdated])
 
     return (
         <>
@@ -73,16 +86,17 @@ function Home() {
                 <Form 
                     layout="vertical"
                     onSubmitCapture={(e) => {
-                        e.preventDefault()
-                        
+                        e.preventDefault() 
                     }}
                 >
                     <Row>
+                        <Input hidden value={id}/>
                         <Col xl={6} md={6} sm={10} xs={10}>
                             <Form.Item label="País">
                                 <Select
                                     placeholder="Selecione..."
                                     showSearch
+                                    value={place.country.name}
                                     onChange={handleSelectInput}
                                 >
                                     {countries.map(country => {
@@ -100,6 +114,7 @@ function Home() {
                             <Form.Item label="Local">
                                 <Input 
                                     placeholder="Digite o local que deseja conhecer"
+                                    value={place.local}
                                     onChange={(e) => setPlace({...place, local: e.target.value})}
                                 />
                             </Form.Item>
@@ -110,6 +125,7 @@ function Home() {
                                     mask="99/9999" 
                                     className="input-mask"
                                     placeholder="mês/ano"
+                                    value={place.target}
                                     onChange={(e) => setPlace({...place, target: e.target.value})}
                                 />
                             </Form.Item>
@@ -128,6 +144,7 @@ function Home() {
                                 local={place.local}
                                 target={place.target}
                                 key={place.id}
+                                handleEditButtonClick={() => loadPlaceToGo(place)}
                             />
                 })}
             </div>

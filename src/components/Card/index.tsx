@@ -2,7 +2,6 @@ import React from 'react';
 import { Edit, Clear } from '@material-ui/icons';
 import styled from 'styled-components';
 
-import brasil from '../../assets/img/brasil.png';
 import ICard from '../../interfaces/ICard';
 
 const CardContainer = styled.div`
@@ -59,6 +58,13 @@ const ButtonsContainer = styled.div`
     color: #868686;
 `;
 
+const CardButton = styled.button`
+    background-color: #FFF;
+    padding: 0;
+    margin: 0;
+    border: none;
+`;
+
 const SpecificationContainer = styled.div`
     padding: 35px 25px 45px 25px;
     display: flex;
@@ -72,7 +78,13 @@ const Span = styled.span`
     padding: 5px 0px;
 `;
 
-const Card: React.FC<ICard> = ({countryFlag, countryName, local, target}) => {
+const Card: React.FC<ICard> = ({
+    countryFlag, 
+    countryName, 
+    local, 
+    target, 
+    handleEditButtonClick
+}) => {
     return (
         <CardContainer>
             <TopCardContainer>
@@ -81,7 +93,9 @@ const Card: React.FC<ICard> = ({countryFlag, countryName, local, target}) => {
                     <CountryName>{countryName}</CountryName>
                 </FlagAndNameContainer>
                 <ButtonsContainer>
-                    <Edit />
+                    <CardButton type="button" onClick={(e) => handleEditButtonClick()}>
+                        <Edit />
+                    </CardButton>
                     <Clear />
                 </ButtonsContainer>
             </TopCardContainer>
