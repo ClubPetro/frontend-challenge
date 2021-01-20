@@ -12,13 +12,22 @@
 - [json-server](https://www.npmjs.com/package/json-server);
 - [react-input-mask](https://www.npmjs.com/package/react-input-mask)
 
-#### copiar projeto
+### copiar projeto
 
 1. git clone https://github.com/LucasKinoshita/frontend-challenge.git
 2. cd frontend-challenge 📁
 
 #### como executar:
 
-1. yarn install 🔨
-2. yarn api:start ✅
-3. yarn start ✅
+1. para baixar dependências 🔨
+   ```sh
+   yarn install
+   ```
+2. para subir api com json-server ✅
+   ```sh
+   yarn api:start
+   ```
+3. para subir aplicação front-end ✅
+   ```sh
+   yarn start
+   ```
