@@ -17,7 +17,7 @@
 * [Json Server](https://www.npmjs.com/package/json-server)
 * [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-## :wrench: Instalação
+## :wrench: Instalação:
 
 ### 1) Clone este repositório com o comando git clone.
 
