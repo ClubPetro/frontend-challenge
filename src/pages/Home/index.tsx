@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {Form, Col, Row, Select, Input, Button } from 'antd';
+import { ToastContainer } from 'react-toastify';
 import InputMask from 'react-input-mask';
 import axios from 'axios'
 
 import Card from '../../components/Card';
 import { apiUrl } from '../../services/api';
+import { notifySuccess, notifyError } from '../../utils/toastify'
+import Iplace from '../../interfaces/Iplace';
+import { baseUrl } from '../../services/backend';
 
 import './home.css'
-import Iplace from '../../interfaces/Iplace';
 
 function Home() {
 
     const { Option } = Select
-    // const [ form ] = Form.useForm();
     const [countries, setCountries] = useState<any[]>([])
     const [place, setPlace] = useState<Iplace>({
         country: {
@@ -22,29 +24,57 @@ function Home() {
         local: "",
         target: ""
     })
+    const [places, setPlaces] = useState<Iplace[]>([])
+    const [id, setId] = useState(0)
 
     const handleSelectInput = (value: string) => {
         setPlace({...place, country: {
-            name: value.substring(0, value.indexOf('-') - 1),
-            flag: value.substring(value.indexOf('-') + 2)
+            name: value.substring(0, value.indexOf('-')),
+            flag: value.substring(value.indexOf('-') + 1)
         }})
     }
 
-    useEffect(() => {
+    const savePlaceToGo = () => {
+        axios.post(baseUrl, place)
+            .then((resp) => {
+                notifySuccess("Cadastro Realizado com Sucesso")
+                setId(resp.data.id)
+            }).catch((error) => {
+                if(error.response) {
+                    notifyError(error.response.data)
+                    return
+                }
+            })
+    }
+
+    const loadCountries = useCallback(() => {
         axios.get(apiUrl)
             .then(resp => {
                 setCountries(resp.data)
             })
-    }, [])
+    },[])
+
+    const loadPlacesToGo = useCallback(() => {
+        axios.get(baseUrl)
+            .then((resp) => {
+                setPlaces(resp.data)
+        })
+    },[])
+
+    useEffect(() => {
+        loadCountries()
+        loadPlacesToGo()
+    }, [loadCountries, loadPlacesToGo, id])
 
     return (
         <>
             <div className="search-area-container">
+                <ToastContainer />
                 <Form 
                     layout="vertical"
                     onSubmitCapture={(e) => {
                         e.preventDefault()
-                        console.log(place)
+                        
                     }}
                 >
                     <Row>
@@ -56,7 +86,12 @@ function Home() {
                                     onChange={handleSelectInput}
                                 >
                                     {countries.map(country => {
-                                        return <Option value={`${country.translations.br} - ${country.flag}`}>{country.translations.br}</Option>
+                                        return <Option 
+                                                    value={`${country.translations.br}-${country.flag}`}
+                                                    key={country.name}
+                                                >
+                                                    {country.translations.br}
+                                                </Option>
                                     })}
                                 </Select>
                             </Form.Item>
@@ -80,17 +115,21 @@ function Home() {
                             </Form.Item>
                         </Col>
                         <Col className="button-col" xl={4} md={6} sm={12} xs={12}>
-                            <Button htmlType="submit">Adicionar</Button>
+                            <Button htmlType="submit" onClick={savePlaceToGo}>Adicionar</Button>
                         </Col>
                     </Row>
                 </Form>
             </div>
             <div className="card-area-container">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {places.map((place: Iplace) => {
+                    return <Card 
+                                countryFlag={place.country.flag}
+                                countryName={place.country.name}
+                                local={place.local}
+                                target={place.target}
+                                key={place.id}
+                            />
+                })}
             </div>
         </>
     )

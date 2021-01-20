@@ -3,6 +3,7 @@ import { Edit, Clear } from '@material-ui/icons';
 import styled from 'styled-components';
 
 import brasil from '../../assets/img/brasil.png';
+import ICard from '../../interfaces/ICard';
 
 const CardContainer = styled.div`
     width: 250px;
@@ -71,13 +72,13 @@ const Span = styled.span`
     padding: 5px 0px;
 `;
 
-function Card() {
+const Card: React.FC<ICard> = ({countryFlag, countryName, local, target}) => {
     return (
         <CardContainer>
             <TopCardContainer>
                 <FlagAndNameContainer>
-                    <ImgWrapper src={brasil} alt="brasil"/>
-                    <CountryName>Brasil</CountryName>
+                    <ImgWrapper src={countryFlag} alt="brasil"/>
+                    <CountryName>{countryName}</CountryName>
                 </FlagAndNameContainer>
                 <ButtonsContainer>
                     <Edit />
@@ -86,8 +87,8 @@ function Card() {
             </TopCardContainer>
             <GradientHr />
             <SpecificationContainer>
-                <Span>Local: Campina Grande</Span>
-                <Span>Meta: 04/2022</Span>
+                <Span>Local: {local}</Span>
+                <Span>Meta: {target}</Span>
             </SpecificationContainer>
         </CardContainer>
     );
