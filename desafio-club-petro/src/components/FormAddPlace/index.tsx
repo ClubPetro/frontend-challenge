@@ -10,13 +10,15 @@ const FormAddPlace = () => {
             <label className="input-label" htmlFor="form-country">
               País
             </label>
-            <select
-              name="countries"
-              className="input-group-height select"
-              id="form-country"
-            >
-              <option value="Selecione...">Selecione...</option>
-            </select>
+            <div className="select-container">
+              <select
+                name="countries"
+                className="input-group-height select"
+                id="form-country"
+              >
+                <option value="Selecione...">Selecione...</option>
+              </select>
+            </div>
           </div>
 
           <div className="input-group">

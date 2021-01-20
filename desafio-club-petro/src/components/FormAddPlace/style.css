@@ -28,8 +28,23 @@
   color: #fff;
 }
 
+.select-container {
+  position: relative;
+}
+
 .select {
   background-color: #fff;
+  width: 100%;
+  appearance: none;
+}
+.select-container:after {
+  content: "arrow_drop_down";
+  position: absolute;
+  right: 16px;
+  top: 15px;
+  font-size: 30px;
+  font-family: "material icons";
+  color: #545454;
 }
 
 .input-group-height {
@@ -75,6 +90,10 @@
     margin-right: var(--margin-right);
   }
 
+  .select-container:after {
+    right: 20px;
+  }
+
   .place-width {
     width: 270px;
     margin-right: var(--margin-right);
@@ -101,6 +120,10 @@
   .select {
     width: 303px;
     margin-right: 34px;
+  }
+
+  .select-container:after {
+    right: 40px;
   }
 
   .place-width {
