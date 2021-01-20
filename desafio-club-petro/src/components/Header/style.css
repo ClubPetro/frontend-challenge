@@ -4,13 +4,13 @@
   background: #000;
 }
 
-.header-container {
-  margin-left: 53px;
-}
-
 @media (min-width: 1440px) {
   .header-container {
     width: 1440px;
     margin: 0 auto;
+  }
+
+  .header-logo {
+    margin-left: 53px;
   }
 }
