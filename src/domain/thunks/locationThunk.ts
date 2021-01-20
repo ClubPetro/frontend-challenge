@@ -7,7 +7,8 @@ import {
   editLocation,
   listLocations,
 } from '../../data/services/location'
-import { Location, UpdateLocation } from '../entities/location'
+import { dateCompare, Location, UpdateLocation } from '../entities/location'
+import { toast } from 'react-toastify'
 
 export interface ThunkApi {
   dispatch: Dispatch
@@ -33,8 +34,10 @@ export const deleteLocationThunk = createAsyncThunk<
 >('thunk/location/deleteLocationThunk', async (payload, thunkAPI) => {
   try {
     await deleteLocation(payload)
+    toast.success('Lugar deletado')
     return await listLocations()
   } catch (error) {
+    toast.error(error.message)
     return thunkAPI.rejectWithValue(error.message)
   }
 })
@@ -45,9 +48,15 @@ export const editLocationThunk = createAsyncThunk<
   ThunkApi
 >('thunk/location/editLocationThunk', async (payload, thunkAPI) => {
   try {
-    await editLocation(payload)
+    if (dateCompare(payload.goal)) {
+      await editLocation(payload)
+      toast.success('Lugar editado')
+    } else {
+      toast.error('A meta deve ser maior que a data de hoje')
+    }
     return await listLocations()
   } catch (error) {
+    toast.error(error.message)
     return thunkAPI.rejectWithValue(error.message)
   }
 })
@@ -58,9 +67,16 @@ export const addLocationThunk = createAsyncThunk<
   ThunkApi
 >('thunk/location/addLocationThunk', async (payload, thunkAPI) => {
   try {
-    await addLocation(payload)
+    if (dateCompare(payload.goal)) {
+      await addLocation(payload)
+      toast.success('Lugar adicionado')
+    } else {
+      toast.error('A meta deve ser maior que a data de hoje')
+    }
+
     return await listLocations()
   } catch (error) {
+    toast.error(error.message)
     return thunkAPI.rejectWithValue(error.message)
   }
 })

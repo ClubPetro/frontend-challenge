@@ -86,7 +86,6 @@ export const Home: React.FC = () => {
           <Button
             type="button"
             data-testid="Button"
-            onClick={handleSubmit}
             disabled={
               !locationInfo.country || !locationInfo.place || !locationInfo.goal
             }>

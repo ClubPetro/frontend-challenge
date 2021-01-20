@@ -1,5 +1,6 @@
-import { useEffect, useReducer, useState } from 'react'
+import { FormEvent, useEffect, useReducer, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 import { listCountries } from '../../data/services/country'
 import { locationSelector } from '../../domain/ducks/locationReducer'
 import { Country } from '../../domain/entities/country'
@@ -21,7 +22,7 @@ type UseLocaleHook = {
   changeLocationInfo: (info: Info) => void
   locations: Location[] | undefined
   actions: {
-    handleSubmit: () => void
+    handleSubmit: (event: FormEvent<HTMLFormElement>) => void
     handleDelete: (id: number) => void
     handleEdit: (id: number) => void
     handleSelect: (id: number) => void
@@ -52,12 +53,15 @@ export const useLocationHook = (): UseLocaleHook => {
     dispatch(getLocationsThunk())
   }, [dispatch])
 
-  async function handleSubmit(): Promise<void> {
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>,
+  ): Promise<void> {
+    event.preventDefault()
     try {
       dispatch(addLocationThunk(locationInfo))
       changeLocationInfo({ ...NEW_LOCATION })
     } catch (error) {
-      console.error(error.message)
+      toast.error(error.message)
     }
   }
 
@@ -65,7 +69,7 @@ export const useLocationHook = (): UseLocaleHook => {
     try {
       dispatch(deleteLocationThunk(id))
     } catch (error) {
-      console.error(error.message)
+      toast.error(error.message)
     }
   }
 
@@ -84,7 +88,7 @@ export const useLocationHook = (): UseLocaleHook => {
     try {
       dispatch(editLocationThunk({ ...locationInfo, id }))
     } catch (error) {
-      console.error(error.message)
+      toast.error(error.message)
     }
   }
 

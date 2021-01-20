@@ -5,10 +5,11 @@ Um desafio proposto pela empresa Clubpetro onde devemos desenvolver uma interfac
 ## Rodando o banco
 
 Estando na raiz do projeto, rode o comando `json-server --watch --port 3333 db.json`
+Tem que ser criado um .env no na raiz do seguindo o arquivo `.env.example`, normalmente o URL é `http://localhost:3333`
 
 ## Rodando o projeto
 
-Estando na raiz do projeto, rode o comando `yarn start`
+Estando na raiz do projeto, rode o comando `yarn` para instalar as dependencias e depois rode `yarn start`
 
 ## Sobre o projeto
 

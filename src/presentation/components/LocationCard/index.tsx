@@ -41,7 +41,7 @@ export const LocationCard: React.FC<LocationCardProps> = ({
   }, [isLoading, id, handleSelect])
 
   return (
-    <Card>
+    <Card data-testid="LocationCard">
       <Actions>
         <ActionButton
           state="information"

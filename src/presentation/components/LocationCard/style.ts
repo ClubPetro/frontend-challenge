@@ -2,11 +2,10 @@ import styled from 'styled-components'
 import InputMask from 'react-input-mask'
 
 export const Card = styled.div`
-  max-width: 25rem;
-  max-height: 25rem;
-
   width: 100%;
-  height: 100%;
+  max-width: 25rem;
+
+  height: 25rem;
 
   box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
 
@@ -22,7 +21,16 @@ export const Card = styled.div`
 
   box-sizing: border-box;
 
-  animation: 0.2s ease-in;
+  animation: 0.5s ease-out 0s 1 appearAnimation;
+
+  @keyframes appearAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `
 
 export const Title = styled.h1`
