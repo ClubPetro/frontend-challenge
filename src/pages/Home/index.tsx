@@ -76,6 +76,14 @@ function Home() {
         }
     }
 
+    function removePlaceToGo(place: Iplace) {
+        axios.delete(`${baseUrl}/${place.id}`)
+            .then(() => {
+                alert("Local excluído com sucesso!")
+                setIsPlacesUpdated(!isPlacesUpdated)
+            })
+    }
+
     useEffect(() => {
         loadCountries()
         loadPlacesToGo()
@@ -149,6 +157,7 @@ function Home() {
                                 target={place.target}
                                 key={place.id}
                                 handleEditButtonClick={() => loadPlaceToGo(place)}
+                                handleRemoveButtonClick={() => removePlaceToGo(place)}
                             />
                 })}
             </div>

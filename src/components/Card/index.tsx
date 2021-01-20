@@ -63,6 +63,14 @@ const CardButton = styled.button`
     padding: 0;
     margin: 0;
     border: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const SpecificationContainer = styled.div`
@@ -83,7 +91,8 @@ const Card: React.FC<ICard> = ({
     countryName, 
     local, 
     target, 
-    handleEditButtonClick
+    handleEditButtonClick,
+    handleRemoveButtonClick
 }) => {
     return (
         <CardContainer>
@@ -96,7 +105,9 @@ const Card: React.FC<ICard> = ({
                     <CardButton type="button" onClick={(e) => handleEditButtonClick()}>
                         <Edit />
                     </CardButton>
-                    <Clear />
+                    <CardButton type="button" onClick={(e) => handleRemoveButtonClick()}>
+                        <Clear />
+                    </CardButton>
                 </ButtonsContainer>
             </TopCardContainer>
             <GradientHr />
