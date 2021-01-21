@@ -55,3 +55,32 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O canditado deverá realizar um fork deste repositório e submeter o código no mesmo;
 - O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá enviar um email para jobs@clubpetro.com.br contendo o link do seu PR.
+
+### Baixe e execute o projeto localmente
+
+**1 -**  Clone o projeto e instale as dependências:
+```
+$ git clone https://github.com/wagnerGCastro/desafio-react-clubpetro-frontend
+$ cd desafio-react-clubpetro-frontend
+$ cd lugares
+$ yarn 
+```
+
+**2 -** Subir servidor JSON Server
+``` 
+- Abra o terminal, dentro da pasta lugares execute:
+$ yarn json-server 
+  ou 
+$ yarn json-server --watch db.json -p 3065
+```
+
+**3 -** Rodar a aplicação no browser
+``` 
+- Abra outro terminal, dentro da pasta lugares execute:
+$ yarn start
+```
+Abra o navegador e acesse [https://localhost:3033](https://localhost:3033) para visualizar o projeto.
+
+**4 -** Preview do projeto finalizado e hospedado :)
+
+Acesse [http://desafio-clubpetro-frontend.wagnercastro.tk/](http://desafio-clubpetro-frontend.wagnercastro.tk/)
