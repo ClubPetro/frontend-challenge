@@ -72,7 +72,7 @@
   background-color: #028a20;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1030px) {
   .form-content {
     display: flex;
     justify-content: center;

@@ -1,0 +1,96 @@
+.cardGridPlace {
+  display: flex;
+  justify-content: center;
+  margin-top: 53px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 250px);
+  gap: 30px;
+}
+
+.card {
+  height: 250px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background: #ffffff;
+  border-radius: 10px;
+  position: relative;
+}
+
+.fla-and-title {
+  display: flex;
+  flex-direction: column;
+  margin-top: 26px;
+  margin-left: 14px;
+}
+
+.card-country-flag {
+  width: 56px;
+  height: 34px;
+  margin-bottom: 16px;
+}
+
+.card-country-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #4f9419;
+  margin-bottom: 9px;
+}
+.edit-place {
+  position: absolute;
+  top: 17px;
+  right: 51px;
+}
+
+.delete-place {
+  position: absolute;
+  top: 15px;
+  right: 11px;
+}
+
+.line-divisor {
+  margin: 0 auto;
+  width: 231px;
+  background: #ABABAB;
+  margin-bottom: 43px;
+}
+
+.card-place-and-meta {
+  display: flex;
+  flex-direction: column;
+  margin-left: 26px;
+}
+
+.card-place {
+  margin-bottom: 11px;
+}
+
+@media (min-width: 570px) {
+  .wrapper {
+    grid-template-columns: repeat(2, 250px);
+  }
+}
+
+@media (min-width: 850px) {
+  .wrapper {
+    grid-template-columns: repeat(3, 250px);
+  }
+}
+
+@media (min-width: 1130px) {
+  .wrapper {
+    grid-template-columns: repeat(4, 250px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .form-container {
+    width: 1440px;
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    grid-template-columns: repeat(5, 250px);
+  }
+}
