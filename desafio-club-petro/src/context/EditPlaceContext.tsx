@@ -1,9 +1,11 @@
 import { createContext, useState } from "react";
 
-export const EditPlaceContext = createContext<any>([]);
+
+
+export const EditPlaceContext = createContext<any>({});
 
 const EditPlaceProvider: React.FC = ({ children }) => {
-  const [dataPlaceEdit, setDataPlaceEdit] = useState<any>({});
+  const [dataPlaceEdit, setDataPlaceEdit] = useState({});
   return (
     <EditPlaceContext.Provider value={{ dataPlaceEdit, setDataPlaceEdit}}>
       {children}

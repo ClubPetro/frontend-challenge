@@ -29,8 +29,8 @@ const FormEditPlace = () => {
         .doc(dataPlaceEdit.id)
         .update(dataPlaceEdit);
 
-      const ediPlaceMap = places.map((place) =>
-        place.id === dataPlaceEdit.id ? { ...place, dataPlaceEdit } : place
+      const ediPlaceMap = places.map((place: any) =>
+        place.id === dataPlaceEdit.id ? { ...place, ...dataPlaceEdit } : place
       );
 
       setPlaces(ediPlaceMap);

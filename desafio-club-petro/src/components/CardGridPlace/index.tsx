@@ -53,7 +53,7 @@ const CardGridPlace = () => {
             </div>
             <div className="edit-and-delet-place">
               <img
-                onClick={() => history.push("./editar")}
+                onClick={() => editModePlace(place)}
                 className="edit-place"
                 src={Edit}
                 alt="Editar"
