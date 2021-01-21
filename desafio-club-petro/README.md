@@ -4,7 +4,7 @@ Importante, o back end é o firebase, então precisa fazer nenhuma configuraçã
 
 Também fiz o deploy da aplicação, [DEMO](https://clubpetro-desafio.web.app).
 
-## Como rodar a aplicação :arrow_forward:
+## Como rodar a aplicação
 
 Realize o clone do projeto 
 
@@ -34,7 +34,7 @@ ou
 npm install
 ```
 
-Execute a aplicação frontend via yarn ou npm:
+Execute a aplicação via yarn ou npm:
 
 ```
 yarn start
