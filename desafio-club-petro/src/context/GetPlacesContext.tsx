@@ -23,7 +23,7 @@ const GetPlacesProvider: React.FC = ({ children }) => {
     };
 
     getDataPlaces();
-  }, [places]);
+  }, []);
 
   return (
     <GetPlacesContext.Provider value={{ places, setPlaces }}>
