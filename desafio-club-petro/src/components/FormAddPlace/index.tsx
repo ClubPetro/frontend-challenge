@@ -5,9 +5,9 @@ import { useContext, useEffect, useState } from "react";
 import { GetPlacesContext } from "../../context/GetPlacesContext";
 import { db } from "../../utils/firebase";
 
-
 const FormAddPlace = () => {
   const { places, setPlaces } = useContext(GetPlacesContext);
+  const [selected, setSelected] = useState(false)
   const [dataCountrySelect, setDataCountrySelect] = useState([]);
   const [countrySelected, setCountrySelected] = useState("");
   const [countryDataModel, setCountryDataModel] = useState({
@@ -47,6 +47,7 @@ const FormAddPlace = () => {
       }
     };
 
+
     getDataCountryNameAndFleg();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countrySelected, dataCountrySelect]);
@@ -62,6 +63,8 @@ const FormAddPlace = () => {
       ...countryDataModel,
       [name]: value,
     });
+
+    setSelected(false)
   };
 
   const addPlaceOnFirebase = async (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -78,8 +81,9 @@ const FormAddPlace = () => {
         country: {},
         meta: "",
         place: "",
-
       });
+
+      setSelected(true)
     } catch (error) {
       console.log(error);
     }
@@ -100,9 +104,11 @@ const FormAddPlace = () => {
                 id="form-country"
                 required
                 onChange={(e) => handleChangeCountry(e)}
-                defaultValue={countrySelected}
+                defaultValue={"DEFAULT"}
               >
-                <option value={countrySelected}>Selecione...</option>
+                <option value="DEFAULT" disabled selected={selected}>
+                  Selecione...
+                </option>
                 {dataCountrySelect.map((countries: CountrySelect) => (
                   <option value={countries.name} key={countries.name}>
                     {countries.name}

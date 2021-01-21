@@ -41,12 +41,14 @@
   position: absolute;
   top: 17px;
   right: 51px;
+  cursor: pointer;
 }
 
 .delete-place {
   position: absolute;
   top: 15px;
   right: 11px;
+  cursor: pointer;
 }
 
 .line-divisor {
