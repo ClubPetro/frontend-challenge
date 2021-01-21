@@ -1,0 +1,120 @@
+.search-area-container {
+    width: 100vw;
+    height: 10rem;
+    
+    background: #4F9419;
+    color: #FFF;
+
+    display: flex;
+    align-items: center;
+}
+
+.search-area-container .ant-form-vertical {
+    width: 100%;
+    margin: 0 3.5rem 1rem 3.5rem;
+}
+
+.search-area-container .ant-form-vertical label {
+    color: #FFF;
+    font-weight: bold;
+}
+
+.search-area-container .ant-form-vertical .ant-row .ant-form-item {
+    margin-bottom: 0;
+}
+
+.search-area-container .ant-form-vertical .ant-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-area-container .ant-form-vertical .ant-form-item-control-input-content .ant-select-selector,
+.search-area-container .ant-form-vertical .ant-form-item-control-input-content input{
+    border-radius: 7px;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-area-container .ant-form-vertical .ant-form-item-control-input-content .ant-select-selector:focus,
+.search-area-container .ant-form-vertical .ant-form-item-control-input-content input:focus,
+.input-mask:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    transition: none;
+}
+
+.search-area-container .ant-form-vertical .ant-form-item-control-input-content .ant-select-selector:hover,
+.search-area-container .ant-form-vertical .ant-form-item-control-input-content input:hover {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    
+}
+
+.ant-select-selection-placeholder {
+    color: #868686!important;
+}
+
+.button-col {
+    height: 2.5rem;
+    align-self: flex-end;
+}
+
+.button-col button,
+.button-col button:hover,
+.button-col button:active,
+.button-col button:focus {
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+    font-size: 18px;
+
+    background: #006C18;
+    border: none;
+    border-radius: 7px;
+    color: #FFF;
+}
+
+.input-mask {
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    background-color: #FFF;
+    padding-left: 10px;
+}
+
+::-webkit-input-placeholder {
+    color: #868686!important;
+ } 
+ :-moz-placeholder {
+    color: #868686;
+ }
+ 
+ ::-moz-placeholder { 
+    color: #868686;
+ }
+ 
+ :-ms-input-placeholder {  
+    color: #868686;
+ }
+
+ .card-area-container {
+    width: 100%;
+    height: 1fr;
+    padding: 50px 0;
+
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ @media(max-width: 634px) {
+     .card-area-container {
+         justify-content: center;
+     }
+ }
+
+
+
+
