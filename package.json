@@ -15,6 +15,7 @@
     "@types/react-dom": "^16.9.8",
     "antd": "^4.10.3",
     "axios": "^0.21.1",
+    "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-input-mask": "^2.0.4",
@@ -26,6 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "json-server --watch ./backend/db.json --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
