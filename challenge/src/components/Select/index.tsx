@@ -13,7 +13,7 @@ export default function Select(props: SelectProps) {
     <S.Wrapper>
       <label htmlFor={id}>{label}</label>
       <ReactSelect
-        id={id}
+        inputId={id}
         classNamePrefix="react-select"
         placeholder="Selecione..."
         theme={theme => ({
