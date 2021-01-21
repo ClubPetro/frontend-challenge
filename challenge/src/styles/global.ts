@@ -14,6 +14,7 @@ export default createGlobalStyle`
   }
 
   body {
+    color: ${({ theme }) => theme.colors.black};
     text-rendering: optimizeLegibility !important;
     -moz-osx-font-smoothing: grayscale !important;
     -webkit-font-smoothing: antialiased !important;
@@ -37,7 +38,7 @@ export default createGlobalStyle`
   h2,
   h3,
   strong {
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.font.bold};
   }
 
   img {
