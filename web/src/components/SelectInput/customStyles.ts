@@ -18,6 +18,7 @@ const customStyles: StylesConfig<OptionTypeBase, boolean> = {
     width: '303px',
     border: 0,
     backgroundColor: '#fff',
+    paddingLeft: '8px'
 
   }),
 

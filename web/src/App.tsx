@@ -1,19 +1,16 @@
 import React from 'react';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import GlobaStyle from './styles/global';
 
-import Header from './components/Header';
-import FormComponent from './components/FormComponent';
-import PlaceCardList from './components/PlaceCardList';
+import Routes from './routes';
 
 const  App: React.FC = () =>  {
+  
   return (
-    <>
-      <Header />
-      <FormComponent/>
-      <PlaceCardList/>
+    <Router>
+      <Routes/>
       <GlobaStyle />
-    </>
+    </Router>
   );
 }
 
