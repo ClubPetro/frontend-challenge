@@ -1,8 +1,10 @@
 import "./style.css";
 import Edit from "../../assets/img/edit.png"
 import Delete from "../../assets/img/delete.png"
+import { useHistory } from "react-router-dom";
 
 const CardGridPlace = () => {
+  const history = useHistory()
   return (
     <section className="cardGridPlace container">
       <div className="wrapper">
@@ -12,7 +14,7 @@ const CardGridPlace = () => {
             <h2 className="card-country-title">Brasil</h2>
           </div>
           <div className="edit-and-delet-place">
-            <img className="edit-place" src={Edit} alt="Editar"/>
+            <img onClick={() => history.push("./editar")} className="edit-place" src={Edit} alt="Editar"/>
             <img className="delete-place" src={Delete} alt="Excluir"/>
           </div>
           <hr className="line-divisor"/>
