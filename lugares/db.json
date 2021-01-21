@@ -1,0 +1,74 @@
+{
+  "lugares": [
+    {
+      "country": "Estados Unidos",
+      "flag": "https://restcountries.eu/data/usa.svg",
+      "local": "Disney World",
+      "meta": "12/2022",
+      "id": 56
+    },
+    {
+      "id": 57,
+      "country": "Itália",
+      "flag": "https://restcountries.eu/data/ita.svg",
+      "local": "Veneza",
+      "meta": "12/2022"
+    },
+    {
+      "id": 58,
+      "country": "México",
+      "flag": "https://restcountries.eu/data/mex.svg",
+      "local": "Cancú",
+      "meta": "05/2022"
+    },
+    {
+      "country": "França",
+      "flag": "https://restcountries.eu/data/fra.svg",
+      "local": "Paris",
+      "meta": "04/2023",
+      "id": 59
+    },
+    {
+      "country": "Emirados árabes Unidos",
+      "flag": "https://restcountries.eu/data/are.svg",
+      "local": "Dubai",
+      "meta": "01/2024",
+      "id": 60
+    },
+    {
+      "country": "Estados Unidos",
+      "flag": "https://restcountries.eu/data/usa.svg",
+      "local": "Filadélfia",
+      "meta": "12/2022",
+      "id": 61
+    },
+    {
+      "country": "Estados Unidos",
+      "flag": "https://restcountries.eu/data/usa.svg",
+      "local": "Nova York",
+      "meta": "12/2022",
+      "id": 62
+    },
+    {
+      "country": "Brasil",
+      "flag": "https://restcountries.eu/data/bra.svg",
+      "local": "Fortaleza",
+      "meta": "05/2022",
+      "id": 63
+    },
+    {
+      "country": "Bolívia",
+      "flag": "https://restcountries.eu/data/bol.svg",
+      "local": "Salar de Uyuni",
+      "meta": "04/2023",
+      "id": 64
+    },
+    {
+      "country": "Brasil",
+      "flag": "https://restcountries.eu/data/bra.svg",
+      "local": "Balneário Camboriu",
+      "meta": "04/2022",
+      "id": 65
+    }
+  ]
+}
