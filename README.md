@@ -4,11 +4,9 @@
      alt="Clubpetro" width="300">
 
 - [Descrição](#descrição)
-  - [O Desafio](#o-desafio)
-  - [Requisitos Obrigatórios](#requisitos-obrigatórios)
-  - [Bônus](#bônus)
-- [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
-
+  - [Funcionalidades](#funcionalidades)
+  - [Como Rodar a Aplicação](#como-rodar-a-aplicação)
+  
 ## Descrição
 
 Este repositório contém a implementação do Desafio Frontend da ClubPetro
