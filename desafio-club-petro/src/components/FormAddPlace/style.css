@@ -5,6 +5,7 @@
 .form-section {
   width: 100%;
   background-color: #4f9419;
+  position: relative;
 }
 
 .form-container {

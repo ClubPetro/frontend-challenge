@@ -55,6 +55,7 @@ const FormEditPlace = () => {
               className="input-group-height place-width"
               id="form-place"
               placeholder="Digite o local que deseja conhecer"
+              required
               value={dataPlaceEdit.place}
               onChange={(e) => handleChangePlaceAndMeta(e)}
             />
@@ -71,6 +72,7 @@ const FormEditPlace = () => {
               className="input-group-height meta-width"
               id="form-meta"
               placeholder="mês/ano"
+              required
               value={dataPlaceEdit.meta}
               onChange={(e) => handleChangePlaceAndMeta(e)}
             />

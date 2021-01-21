@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { GetPlacesContext } from "../../context/GetPlacesContext";
 import { db } from "../../utils/firebase";
 
+
 const FormAddPlace = () => {
   const { places, setPlaces } = useContext(GetPlacesContext);
   const [dataCountrySelect, setDataCountrySelect] = useState([]);
@@ -97,6 +98,7 @@ const FormAddPlace = () => {
                 name="country"
                 className="input-group-height select"
                 id="form-country"
+                required
                 onChange={(e) => handleChangeCountry(e)}
                 defaultValue={countrySelected}
               >
@@ -120,6 +122,7 @@ const FormAddPlace = () => {
               className="input-group-height place-width"
               id="form-place"
               placeholder="Digite o local que deseja conhecer"
+              required
               onChange={(e) => handleChangePlaceAndMeta(e)}
               value={countryDataModel.place}
             />
@@ -136,6 +139,7 @@ const FormAddPlace = () => {
               className="input-group-height meta-width"
               id="form-meta"
               placeholder="mês/ano"
+              required
               onChange={(e) => handleChangePlaceAndMeta(e)}
               value={countryDataModel.meta}
             />

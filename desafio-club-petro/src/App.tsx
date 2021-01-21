@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EditPlaceProvider from "./context/EditPlaceContext";
 import GetPlacesProvider from "./context/GetPlacesContext";
+
 import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 

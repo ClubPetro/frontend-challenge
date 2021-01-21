@@ -13,8 +13,9 @@ const GetPlacesProvider: React.FC = ({ children }) => {
     const getDataPlaces = async () => {
       const { docs } = await db
         .collection("Contries")
+        .orderBy("country.name")
         .get();
-      const countriesMap: any = docs.map((place) => ({
+      const countriesMap: any = docs.map((place: any) => ({
         id: place.id,
         ...place.data(),
       }));
