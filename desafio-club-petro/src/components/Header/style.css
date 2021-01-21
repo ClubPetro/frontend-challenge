@@ -1,13 +1,13 @@
 .header {
-  width: 100%;
-  height: 82px;
   background: #000;
+  height: 82px;
+  width: 100%;
 }
 
 @media (min-width: 1440px) {
   .header-container {
-    width: 1440px;
     margin: 0 auto;
+    width: 1440px;
   }
 
   .header-logo {
