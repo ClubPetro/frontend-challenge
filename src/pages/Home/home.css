@@ -107,7 +107,12 @@
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+ }
+
+ @media(max-width: 634px) {
+     .card-area-container {
+         justify-content: center;
+     }
  }
 
 
