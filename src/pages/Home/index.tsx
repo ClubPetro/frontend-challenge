@@ -108,6 +108,7 @@ function Home() {
                                     showSearch
                                     value={place.country.name}
                                     onChange={handleSelectInput}
+                                    disabled={id !== 0}
                                 >
                                     {countries.map(country => {
                                         return <Option 

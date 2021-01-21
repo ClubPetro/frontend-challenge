@@ -5,7 +5,7 @@
         "name": "Brasil",
         "flag": "https://restcountries.eu/data/bra.svg"
       },
-      "local": "São Paulo",
+      "local": "Maceió",
       "target": "03/2021",
       "id": 1
     },
@@ -26,15 +26,6 @@
       "local": "Santiago",
       "target": "12/2022",
       "id": 3
-    },
-    {
-      "country": {
-        "name": "Argentina",
-        "flag": "https://restcountries.eu/data/arg.svg"
-      },
-      "local": "Buenos Aires",
-      "target": "06/2023",
-      "id": 4
     },
     {
       "country": {
