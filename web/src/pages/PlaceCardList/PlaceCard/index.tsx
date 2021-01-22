@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback} from 'react';
 import { MdClose, MdEdit } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
 import api from '../../../services/api';
