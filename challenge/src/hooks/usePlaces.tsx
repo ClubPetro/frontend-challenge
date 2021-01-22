@@ -9,7 +9,7 @@ import {
 
 import api from '../services/api';
 
-interface Place {
+export interface Place {
   id: number;
   flag: string;
   country: string;
