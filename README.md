@@ -12,6 +12,12 @@ Realize o clone do projeto
 git clone https://github.com/ronaldo-aquino/frontend-challenge.git
 ```
 
+Entra na pasta frontend-challenge
+
+```
+cd frontend-challenge
+```
+
 Instale as dependências via yarn ou npm:
 
 ```
