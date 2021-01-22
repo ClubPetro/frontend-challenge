@@ -6,16 +6,17 @@ import InputMask from 'react-input-mask';
 import axios from 'axios';
 
 
-import PlaceCard from '../PlaceCard';
-import Input from '../Input';
-import SelectInput from '../SelectInput';
+import PlaceCard from './PlaceCard';
+import Input from '../../components/Input';
+import SelectInput from '../../components/SelectInput';
 import api from '../../services/api';
-import customStyles from '../SelectInput/customStyles';
+import customStyles from '../../components/SelectInput/customStyles';
 
 import { ListContainer, FormContainer } from './styles';
+import { useHistory } from 'react-router-dom';
 
 export interface Place {
-  id: string;
+  id: number;
   country: {
     name: string;
     flag: string;
@@ -25,7 +26,7 @@ export interface Place {
 }
 
 interface FormObject {
-  id: string;
+  id: number;
   country: {
     name: string;
     flag: string;
@@ -34,7 +35,7 @@ interface FormObject {
   goal: string;
 }
 
-export interface ResponseCountry {
+interface ResponseCountry {
   flag: string;
   translations: {
     pt: string;
@@ -51,6 +52,8 @@ const PlaceCardList: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const [places, setPlaces] = useState<Place[]>([]);
   const [countries, setCountries] = useState<FilteredCountry[]>([]);
+
+  const history = useHistory();
 
   const placesResponse = useCallback(async () => {
     const response = await api.get("/");
@@ -89,11 +92,15 @@ const PlaceCardList: React.FC = () => {
   const handleSubmit = useCallback(
     async(data: FormObject) => {
       console.log(data);
-      await api.post("/", {...data, id: uuid()});
+      await api.post("/", {...data, id: places.length + 1}, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
       formRef.current?.reset();
       placesResponse();
       
-  },[placesResponse]);
+  },[places.length, placesResponse]);
 
   useEffect(() => {
     loadCountries();
@@ -137,7 +144,7 @@ const PlaceCardList: React.FC = () => {
 
       <ListContainer>
         {places.map(place => (
-          <PlaceCard key={place.id} data={place} />
+          <PlaceCard key={place.id} data={place}  />
         ))}
       </ListContainer>
     </>

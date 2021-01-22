@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,8 +84,4 @@ export const CardContent = styled.div`
   }
 `;
 
-export const ModalFormContainer = styled.div``;
-export const Form = styled.div``;
-export const Select = styled.div``;
-export const Input = styled.div``;
 
