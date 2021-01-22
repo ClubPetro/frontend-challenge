@@ -1,6 +1,6 @@
 # Intruções de como executar a aplicação
 
-Importante, o back end é o firebase, então precisa fazer nenhuma configuração de back end. O banco de dados utilizado foi o firestore.
+Importante, o back end é o firebase, então não precisa fazer nenhuma configuração de back end. O banco de dados utilizado foi o firestore.
 
 Também fiz o deploy da aplicação, [DEMO](https://clubpetro-desafio.web.app).
 
@@ -12,7 +12,7 @@ Realize o clone do projeto
 git clone https://github.com/ronaldo-aquino/frontend-challenge.git
 ```
 
-Entra na pasta frontend-challenge
+Entre na pasta frontend-challenge
 
 ```
 cd frontend-challenge
