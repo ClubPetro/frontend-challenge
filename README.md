@@ -1,4 +1,4 @@
-# Intruções de como executar a aplicação
+# Instruções de como executar a aplicação
 
 Importante, o back end é o firebase, então não precisa fazer nenhuma configuração de back end. O banco de dados utilizado foi o firestore.
 
