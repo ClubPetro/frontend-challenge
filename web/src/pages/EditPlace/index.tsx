@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import InputMask from 'react-input-mask';
@@ -7,7 +7,7 @@ import Input from '../../components/Input';
 
 import { Container } from './styles';
 import api from '../../services/api';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Place } from '../PlaceCardList';
 
 
@@ -20,20 +20,23 @@ interface EditPlaceParams {
   placeId: string;
 }
 
-interface LocationStateParams {
-  place_data: Place;
-}
-
-
 const EditPlace: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const {placeId} = useParams<EditPlaceParams>();
-
-  const { state } = useLocation<LocationStateParams>();
-
+  const [placeData, setPlaceData] = useState<Place>({} as Place)
   const history = useHistory();
 
-  console.log(placeId);
+  useEffect(() => {
+    const loadPlaceInfo = async() => {
+      const response = await api.get(`/${placeId}`);
+      console.log(response.data);
+      setPlaceData(response.data);
+
+      formRef.current?.setFieldValue('place', placeData.place);
+      formRef.current?.setFieldValue('goal', placeData.goal);
+    }
+    loadPlaceInfo();
+  }, [placeData.goal, placeData.place, placeId])
 
 
   const handleSubmit = useCallback(
@@ -43,20 +46,22 @@ const EditPlace: React.FC = () => {
           'Content-Type': 'application/json'
         },
       });
+
       formRef.current?.reset();
-      history.push("/");
+      history.replace("/");
       
   },[history, placeId]);
 
   return (
     <Container>
+      <h1>Digite as novas informações:</h1>
       <Form onSubmit={handleSubmit} ref={formRef}>
         <div id="country">
           <img 
-          src={state?.place_data.country.flag} 
-          alt={state?.place_data.country.name}
+          src={placeData?.country?.flag} 
+          alt={placeData?.country?.name}
           />
-          <strong>{state?.place_data.country.name}</strong>
+          <strong>{placeData?.country?.name}</strong>
         </div>
         <Input name="place" placeholder="Digite o novo local"/>
         <InputMask mask="99/9999">

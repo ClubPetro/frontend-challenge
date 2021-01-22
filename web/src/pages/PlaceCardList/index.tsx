@@ -2,7 +2,6 @@
 import React, {useCallback, useEffect,useRef,useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { v4 as uuid } from 'uuid';
 import InputMask from 'react-input-mask';
 import axios from 'axios';
 
@@ -14,7 +13,6 @@ import api from '../../services/api';
 import customStyles from '../../components/SelectInput/customStyles';
 
 import { ListContainer, FormContainer } from './styles';
-import { useHistory } from 'react-router-dom';
 
 export interface Place {
   id: number;
@@ -51,12 +49,9 @@ interface FilteredCountry {
 
 const PlaceCardList: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const selectRef = useRef(null);
 
   const [places, setPlaces] = useState<Place[]>([]);
   const [countries, setCountries] = useState<FilteredCountry[]>([]);
-
-  const history = useHistory();
 
   const placesResponse = useCallback(async () => {
     const response = await api.get("/");
@@ -65,7 +60,11 @@ const PlaceCardList: React.FC = () => {
 
   useEffect(() => {
     placesResponse();
-  }, [placesResponse])
+  }, [placesResponse]);
+
+  const renderPlacesListChanges = useCallback(() => {
+     placesResponse();
+  }, [placesResponse]);
 
   
   
@@ -91,6 +90,8 @@ const PlaceCardList: React.FC = () => {
 
     label: country.name
   }));
+
+  
 
   const handleSubmit = useCallback(
     async(data: FormObject) => {
@@ -147,7 +148,7 @@ const PlaceCardList: React.FC = () => {
 
       <ListContainer>
         {places.map(place => (
-          <PlaceCard key={place.id} data={place}  />
+          <PlaceCard key={place.id} data={place} renderPlacesListChanges={renderPlacesListChanges} />
         ))}
       </ListContainer>
     </>

@@ -3,10 +3,15 @@ import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 200px;
-  
+  margin-top: 100px;
+
+  h1 {
+    color: #868686;
+    margin-bottom: 15px;
+  }
   
   form {
     display: flex;
@@ -27,6 +32,7 @@ export const Container = styled.div`
       background-color: #fff;
       width: 303px;
       border-radius: 7px;
+      padding: 10px;
 
       img {
       width: 100px;
@@ -36,6 +42,7 @@ export const Container = styled.div`
       strong {
         text-transform: uppercase;
         margin-bottom: 5px;
+        margin-top: 4px;
         color: #4f9419;
         max-width: 290px;
       }

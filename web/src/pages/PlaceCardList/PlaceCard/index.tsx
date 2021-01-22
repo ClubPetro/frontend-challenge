@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { MdClose, MdEdit } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
 import api from '../../../services/api';
@@ -9,10 +9,13 @@ import { Container, CardHeader, CardContent} from './styles';
 
 interface PlaceCardProps  {
   data: Place;
+  renderPlacesListChanges: () => void;
 }
 
 
-const PlaceCard: React.FC<PlaceCardProps> = ({ data }) => {
+
+const PlaceCard: React.FC<PlaceCardProps> = ({ data, renderPlacesListChanges }) => {
+
   const history = useHistory();
 
   const handleEditButtonClick = useCallback(() => {
@@ -26,7 +29,7 @@ const PlaceCard: React.FC<PlaceCardProps> = ({ data }) => {
 
   const handleCloseButtonClick = async () => {
     await api.delete(`/${data.id}`);
-    history.push("/");
+    renderPlacesListChanges();
   };
 
 
