@@ -8,9 +8,16 @@ export const Container = styled.div`
   justify-content: center;
   margin-top: 100px;
 
+  
+
   h1 {
     color: #868686;
     margin-bottom: 15px;
+
+    @media(max-width: 420px){
+    text-align: center;
+  }
+  
   }
   
   form {

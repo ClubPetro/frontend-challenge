@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useCallback, useEffect,useRef,useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';

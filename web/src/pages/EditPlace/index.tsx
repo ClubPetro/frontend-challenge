@@ -29,7 +29,6 @@ const EditPlace: React.FC = () => {
   useEffect(() => {
     const loadPlaceInfo = async() => {
       const response = await api.get(`/${placeId}`);
-      console.log(response.data);
       setPlaceData(response.data);
 
       formRef.current?.setFieldValue('place', placeData.place);
