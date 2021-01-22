@@ -7,7 +7,7 @@ interface SelectProps extends Props<OptionTypeBase> {
 }
 
 export default function Select(props: SelectProps) {
-  const { id, label } = props;
+  const { id, label, ...rest } = props;
 
   return (
     <S.Wrapper>
@@ -23,6 +23,7 @@ export default function Select(props: SelectProps) {
             primary: 'black',
           },
         })}
+        {...rest}
       />
     </S.Wrapper>
   );
