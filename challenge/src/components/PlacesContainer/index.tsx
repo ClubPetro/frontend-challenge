@@ -3,10 +3,10 @@ import * as S from './styles';
 import Place from './Place';
 import Container from '../Container';
 
-import { useTools } from '../../hooks/usePlaces';
+import { usePlaces } from '../../hooks/usePlaces';
 
 export default function PlacesContainer() {
-  const { places } = useTools();
+  const { places } = usePlaces();
 
   return (
     <S.Wrapper>

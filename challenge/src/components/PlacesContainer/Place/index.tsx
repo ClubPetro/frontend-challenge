@@ -1,5 +1,5 @@
 import { FiEdit2, FiX } from 'react-icons/fi';
-import { Place as IPlace } from '../../../hooks/usePlaces';
+import { Place as IPlace, usePlaces } from '../../../hooks/usePlaces';
 
 import * as S from './styles';
 
@@ -9,6 +9,8 @@ interface PlaceProps {
 
 export default function Place(props: PlaceProps) {
   const { place } = props;
+
+  const { handleRemovePlace } = usePlaces();
 
   return (
     <S.Wrapper>
@@ -24,7 +26,7 @@ export default function Place(props: PlaceProps) {
         <button type="button">
           <FiEdit2 size={16} />
         </button>
-        <button type="button">
+        <button type="button" onClick={() => handleRemovePlace(place.id)}>
           <FiX size={20} />
         </button>
       </S.Buttons>

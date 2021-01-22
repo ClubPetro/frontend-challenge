@@ -8,13 +8,6 @@
       "meta": "04/2022"
     },
     {
-      "id": 2,
-      "flag": "ttps://restcountries.eu/data/bol.svg",
-      "country": "Bolívia",
-      "local": "Salar de Uyuni",
-      "meta": "04/2023"
-    },
-    {
       "id": 3,
       "flag": "https://restcountries.eu/data/bra.svg",
       "country": "Brasil",
