@@ -136,7 +136,7 @@ const FormAddPlace = () => {
 
           <div className="input-group">
             <label className="input-label" htmlFor="form-meta">
-              Local
+              Meta
             </label>
             <InputMask
               mask="99/9999"

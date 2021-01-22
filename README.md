@@ -12,17 +12,6 @@ Realize o clone do projeto
 git clone https://github.com/ronaldo-aquino/frontend-challenge.git
 ```
 
-Entre na pasta do projeto:
-
-```
-cd frontend-challenge
-```
-Entre na pasta do frontend
-
-```
-cd desafio-club-petro
-```
-
 Instale as dependências via yarn ou npm:
 
 ```
