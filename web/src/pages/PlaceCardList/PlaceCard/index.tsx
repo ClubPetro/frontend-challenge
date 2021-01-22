@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { MdClose, MdEdit } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
+import api from '../../../services/api';
 
 import { Place } from '../../PlaceCardList';
 
@@ -14,13 +15,19 @@ interface PlaceCardProps  {
 const PlaceCard: React.FC<PlaceCardProps> = ({ data }) => {
   const history = useHistory();
 
-  console.log(data, data.id);
-
   const handleEditButtonClick = useCallback(() => {
-    history.push(`/edit/${data.id}`);
-  }, [data.id, history]);
+    history.push({
+      pathname: `/edit/${data.id}`,
+      state: {
+        place_data: data
+      }
+    });
+  }, [data, history]);
 
-  const handleCloseButtonClick = () => {};
+  const handleCloseButtonClick = async () => {
+    await api.delete(`/${data.id}`);
+    history.push("/");
+  };
 
 
   return (
@@ -35,7 +42,10 @@ const PlaceCard: React.FC<PlaceCardProps> = ({ data }) => {
           </button>
     
           <button type="button">
-            <MdClose size={20} color="#868686"/>
+            <MdClose 
+            size={20} color="#868686" 
+            onClick={handleCloseButtonClick}
+            />
           </button>
         </div>
       </CardHeader>

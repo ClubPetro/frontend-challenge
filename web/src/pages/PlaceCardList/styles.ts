@@ -1,3 +1,4 @@
+import { shade } from 'polished';
 import styled from 'styled-components';
 
 export const ListContainer = styled.div`
@@ -61,6 +62,11 @@ export const FormContainer = styled.div`
       border-radius: 7px;
       width: 203px;
       height: 49px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: ${shade(0.2, '#006C18')};
+      }
     }
   }
 `;

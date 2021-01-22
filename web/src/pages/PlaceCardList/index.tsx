@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useCallback, useEffect,useRef,useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -50,6 +51,8 @@ interface FilteredCountry {
 
 const PlaceCardList: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const selectRef = useRef(null);
+
   const [places, setPlaces] = useState<Place[]>([]);
   const [countries, setCountries] = useState<FilteredCountry[]>([]);
 

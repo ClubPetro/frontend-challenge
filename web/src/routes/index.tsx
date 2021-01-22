@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import Route from './Route';
+import { Route } from 'react-router-dom';
 
 import PlaceCardList from '../pages/PlaceCardList';
 import EditPlace from '../pages/EditPlace';
