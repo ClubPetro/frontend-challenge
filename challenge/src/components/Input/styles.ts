@@ -13,6 +13,11 @@ export const Wrapper = styled.div`
       height: 4.8rem;
       padding: ${theme.spacings.small};
       border-radius: ${theme.radius.default};
+      border: 0.2rem solid transparent;
+
+      &:focus {
+        border-color: ${theme.colors.black};
+      }
 
       &::placeholder {
         color: ${theme.colors.gray};
