@@ -111,6 +111,7 @@ function Home() {
                                     placeholder="Selecione..."
                                     showSearch
                                     value={place.country.name}
+                                    disabled={id !== 0}
                                     onChange={(name) => {
                                         handleSelectInput(name);
                                     }}
