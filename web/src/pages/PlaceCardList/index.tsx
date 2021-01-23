@@ -3,6 +3,7 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import InputMask from 'react-input-mask';
 import axios from 'axios';
+import * as Yup from 'yup';
 
 
 import PlaceCard from './PlaceCard';
@@ -12,6 +13,7 @@ import api from '../../services/api';
 import customStyles from '../../components/SelectInput/customStyles';
 
 import { ListContainer, FormContainer } from './styles';
+import { toast } from 'react-toastify';
 
 export interface Place {
   id: number;
@@ -94,14 +96,32 @@ const PlaceCardList: React.FC = () => {
 
   const handleSubmit = useCallback(
     async(data: FormObject) => {
-      console.log(data);
-      await api.post("/", {...data, id: places.length + 1}, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
-      formRef.current?.reset();
-      placesResponse();
+      try {
+        const schema = Yup.object().shape({
+          country: Yup.object({
+            name: Yup.string().required(),
+            flag: Yup.string(),
+          }).required(),
+          place: Yup.string().required(),
+          goal: Yup.string().required(),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false
+        });
+
+        await api.post("/", {...data, id: places.length + 1}, {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
+        formRef.current?.reset();
+        placesResponse();
+      } catch (err) {
+        if(err instanceof Yup.ValidationError){
+          toast.error("Todos os campos são obrigatórios. Digite os dados e tente novamente");
+        }
+      }
       
   },[places.length, placesResponse]);
 

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
   *  {
@@ -23,4 +24,8 @@ export default createGlobalStyle`
     button {
       cursor: pointer;
     }
+
+    div.Toastify__toast.Toastify__toast--error{
+    border-radius: 7px;
+  }
 `;

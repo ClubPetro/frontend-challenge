@@ -108,7 +108,8 @@ export const FormContainer = styled.div`
       transition: background-color 0.2s;
 
       @media(max-width: 1280px){
-        margin-top: 15px;
+        margin-top: 25px;
+        margin-bottom: 15px;
       }
 
       &:hover {

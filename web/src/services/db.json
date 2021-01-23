@@ -23,7 +23,7 @@
         "name": "Andorra",
         "flag": "https://restcountries.eu/data/and.svg"
       },
-      "place": "Balneário Camboriú",
+      "place": "Another place else",
       "goal": "02/2022",
       "id": 3
     },
@@ -34,16 +34,25 @@
       },
       "place": "",
       "goal": "02/2022",
-      "id": 4
+      "id": 5
     },
     {
       "country": {
-        "name": "Andorra",
-        "flag": "https://restcountries.eu/data/and.svg"
+        "name": "Aruba",
+        "flag": "https://restcountries.eu/data/abw.svg"
       },
-      "place": "",
+      "place": "Balneário Camboriú",
       "goal": "02/2022",
-      "id": 5
+      "id": 6
+    },
+    {
+      "country": {
+        "name": "Aruba",
+        "flag": "https://restcountries.eu/data/abw.svg"
+      },
+      "place": "Balneário Camboriú",
+      "goal": "02/2022",
+      "id": 7
     }
   ]
 }
