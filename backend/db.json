@@ -1,0 +1,76 @@
+{
+  "places": [
+    {
+      "country": {
+        "name": "Brasil",
+        "flag": "https://restcountries.eu/data/bra.svg"
+      },
+      "local": "São Paulo",
+      "target": "03/2021",
+      "id": 1
+    },
+    {
+      "country": {
+        "name": "Itália",
+        "flag": "https://restcountries.eu/data/ita.svg"
+      },
+      "local": "Milão",
+      "target": "05/2024",
+      "id": 2
+    },
+    {
+      "country": {
+        "name": "Chile",
+        "flag": "https://restcountries.eu/data/chl.svg"
+      },
+      "local": "Santiago",
+      "target": "12/2022",
+      "id": 3
+    },
+    {
+      "country": {
+        "name": "Argentina",
+        "flag": "https://restcountries.eu/data/arg.svg"
+      },
+      "local": "Buenos Aires",
+      "target": "06/2023",
+      "id": 4
+    },
+    {
+      "country": {
+        "name": "Colômbia",
+        "flag": "https://restcountries.eu/data/col.svg"
+      },
+      "local": "Cartagena",
+      "target": "01/2029",
+      "id": 5
+    },
+    {
+      "country": {
+        "name": "França",
+        "flag": "https://restcountries.eu/data/fra.svg"
+      },
+      "local": "Paris",
+      "target": "02/2023",
+      "id": 7
+    },
+    {
+      "country": {
+        "name": "Austrália",
+        "flag": "https://restcountries.eu/data/aus.svg"
+      },
+      "local": "Sidney",
+      "target": "03/2024",
+      "id": 8
+    },
+    {
+      "country": {
+        "name": "Canadá",
+        "flag": "https://restcountries.eu/data/can.svg"
+      },
+      "local": "Ottawa",
+      "target": "02/2025",
+      "id": 9
+    }
+  ]
+}

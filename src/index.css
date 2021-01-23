@@ -1,0 +1,10 @@
+* {
+  font-family: Roboto, sans-serif;
+  font: 400 Roboto 1rem;
+
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
