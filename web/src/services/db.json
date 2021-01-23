@@ -8,51 +8,7 @@
       "place": "Balneário Camboriú",
       "goal": "02/2022",
       "id": 1
-    },
-    {
-      "country": {
-        "name": "Argélia",
-        "flag": "https://restcountries.eu/data/dza.svg"
-      },
-      "place": "Balneário Camboriú",
-      "goal": "02/2022",
-      "id": 2
-    },
-    {
-      "country": {
-        "name": "Andorra",
-        "flag": "https://restcountries.eu/data/and.svg"
-      },
-      "place": "Another place else",
-      "goal": "02/2022",
-      "id": 3
-    },
-    {
-      "country": {
-        "name": "Andorra",
-        "flag": "https://restcountries.eu/data/and.svg"
-      },
-      "place": "",
-      "goal": "02/2022",
-      "id": 5
-    },
-    {
-      "country": {
-        "name": "Aruba",
-        "flag": "https://restcountries.eu/data/abw.svg"
-      },
-      "place": "Balneário Camboriú",
-      "goal": "02/2022",
-      "id": 6
-    },
-    {
-      "country": {
-        "name": "Aruba",
-        "flag": "https://restcountries.eu/data/abw.svg"
-      },
-      "place": "Balneário Camboriú",
-      "goal": "02/2022",
-      "id": 7
     }
+    
   ]
 }
