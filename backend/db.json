@@ -62,6 +62,15 @@
       "local": "Sidney",
       "target": "03/2024",
       "id": 8
+    },
+    {
+      "country": {
+        "name": "Canadá",
+        "flag": "https://restcountries.eu/data/can.svg"
+      },
+      "local": "Ottawa",
+      "target": "02/2025",
+      "id": 9
     }
   ]
 }

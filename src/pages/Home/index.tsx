@@ -12,6 +12,7 @@ import Iplace from '../../interfaces/Iplace';
 import { baseUrl } from '../../services/backend';
 
 import './home.css'
+import ICountry from '../../interfaces/ICountry';
 
 function Home() {
 
@@ -24,16 +25,18 @@ function Home() {
         target: ""
     }
     const { Option } = Select
-    const [countries, setCountries] = useState<any[]>([])
+    const [countries, setCountries] = useState<ICountry[]>([])
     const [place, setPlace] = useState<Iplace>({...defaultPlace})
     const [places, setPlaces] = useState<Iplace[]>([])
     const [id, setId] = useState(0)
     const [isPlacesUpdated, setIsPlacesUpdated] = useState(false)
 
-    const handleSelectInput = (value: string) => {
+    const handleSelectInput = (name: string) => {
+        const { flag } = countries.filter(country => country.name === name)[0]
+        
         setPlace({...place, country: {
-            name: value.substring(0, value.indexOf('-')),
-            flag: value.substring(value.indexOf('-') + 1),
+            name,
+            flag
         }})
     }
 
@@ -55,11 +58,12 @@ function Home() {
         
     }
 
-    const loadCountries = useCallback(() => {
-        axios.get(apiUrl)
-            .then(resp => {
-                setCountries(resp.data)
-            })
+    const loadCountries = useCallback(async () => {
+        const response = await axios.get(apiUrl)
+        const countries = response.data.map((country: any) => {
+            return {name: country.translations.br, flag: country.flag}
+        })
+        setCountries(countries)
     },[])
 
     const loadPlacesToGo = useCallback(() => {
@@ -107,15 +111,20 @@ function Home() {
                                     placeholder="Selecione..."
                                     showSearch
                                     value={place.country.name}
-                                    onChange={handleSelectInput}
+                                    onChange={(name) => {
+                                        handleSelectInput(name);
+                                        // handleChoiceSelected(name);
+                                    }}
                                 >
                                     {countries.map(country => {
-                                        return <Option 
-                                                    value={`${country.translations.br}-${country.flag}`}
-                                                    key={country.name}
-                                                >
-                                                    {country.translations.br}
-                                                </Option>
+                                        return (
+                                            <Option 
+                                                value={`${country.name}`}
+                                                key={country.name}
+                                            >
+                                                {country.name}
+                                            </Option> 
+                                        )
                                     })}
                                 </Select>
                             </Form.Item>
