@@ -113,7 +113,6 @@ function Home() {
                                     value={place.country.name}
                                     onChange={(name) => {
                                         handleSelectInput(name);
-                                        // handleChoiceSelected(name);
                                     }}
                                 >
                                     {countries.map(country => {
