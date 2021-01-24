@@ -1,3 +1,22 @@
 {
-  "places": []
+  "places": [
+    {
+      "country": "Antarctica",
+      "place": "asdqweasd",
+      "goal": "12/3123",
+      "id": 4
+    },
+    {
+      "country": "Dominican Republic",
+      "place": "asdqweqdas",
+      "goal": "12/3123",
+      "id": 14
+    },
+    {
+      "country": "United States of America",
+      "place": "sadqweqwdasd",
+      "goal": "12/3123",
+      "id": 15
+    }
+  ]
 }

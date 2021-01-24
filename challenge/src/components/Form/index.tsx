@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Container, InputContainer, Button } from "./style";
 import InputMask from "react-input-mask";
 
-import { api } from "../../services/axios";
-import axios from "axios";
+import { api, countriesApi } from "../../services/api";
 
 interface CountriesProps {
   translations: {
     br: string;
   };
+  name: string;
 }
 
 const Form = () => {
@@ -18,9 +18,9 @@ const Form = () => {
   const [countries, setCountries] = useState<CountriesProps[]>([]);
 
   useEffect(() => {
-    axios
-      .get("https://restcountries.eu/rest/v2/all")
-      .then((res) => setCountries(res.data));
+    countriesApi.get("/all").then((res) => {
+      setCountries(res.data);
+    });
   }, []);
 
   const submitForm = (e: any) => {
@@ -32,7 +32,11 @@ const Form = () => {
       goal,
     };
 
-    api.post("/places", data).then((res) => console.log(res));
+    api.post("/places", data).then((res) => {
+      setCountry("Selecione...");
+      setPlace("");
+      setGoal("");
+    });
   };
 
   return (
@@ -47,7 +51,7 @@ const Form = () => {
           >
             <option>Selecione...</option>
             {countries.map((country, index) => (
-              <option value={country.translations.br} key={index}>
+              <option value={country.name} key={index}>
                 {country.translations.br}
               </option>
             ))}
