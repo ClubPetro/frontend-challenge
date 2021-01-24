@@ -5,14 +5,9 @@ import Input from '@material-ui/core/Input';
 import InputMask from 'react-input-mask';
 
 export const Container = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 100vw;
-  height: 100vh;
-  padding: 50px;
-  background-color: #74eaae; */
+  & > div.content-area {
+    padding: 53px 36px;
+  }
 `;
 
 export const Header = styled.div`
@@ -34,6 +29,16 @@ export const SearchArea = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    div {
+      h1 {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        color: #ffffff;
+      }
+    }
   }
 `;
 
@@ -47,6 +52,12 @@ export const Select = styled(NativeSelect)`
   background: #ffffff;
   border-radius: 7px;
   border: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #868686;
 `;
 
 export const InputPlace = styled(Input)`
@@ -55,6 +66,12 @@ export const InputPlace = styled(Input)`
   background: #ffffff;
   border-radius: 7px;
   border: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #868686;
 `;
 
 export const InputDate = styled(InputMask)`
@@ -63,6 +80,12 @@ export const InputDate = styled(InputMask)`
   background: #ffffff;
   border-radius: 7px;
   border: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #868686;
 `;
 
 export const AddButton = styled.button`
@@ -76,5 +99,6 @@ export const AddButton = styled.button`
   font-size: 18px;
   line-height: 21px;
   border: none;
+  margin-top: 19px;
   color: #ffffff;
 `;

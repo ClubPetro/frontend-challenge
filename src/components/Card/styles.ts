@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Card, CardMedia } from '@material-ui/core';
 
-export const Container = styled.div`
+export const Container = styled(Card)`
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -9,7 +10,24 @@ export const Container = styled.div`
   border-radius: 10px;
   box-shadow: 0px 1px 2px gray;
   padding: 26px 10px;
-  div:first-of-type {
+  & > div.card-padding {
+    & > h1 {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      color: #4f9419;
+    }
+  }
+`;
+
+export const Image = styled(CardMedia)`
+  width: 56px;
+  height: 34px;
+`;
+
+/* div:first-of-type {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -40,32 +58,4 @@ export const Container = styled.div`
     }
     p {
     }
-  }
-`;
-/* div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 6px 4px;
-    div.flag {
-      display: flex;
-      flex-direction: column;
-      
-      h1 {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 19px;
-        padding-top: 16px;
-        color: #4f9419;
-      }
-    }
-    div.buttons {
-    }
-  }
-  div.info {
-    display: flex;
-    flex-direction: column;
-
   } */
