@@ -14,6 +14,20 @@ export const Container = styled.form`
   align-items: center;
   justify-content: space-around;
 
+  @media (max-width: 1024px) {
+    width: 90vw;
+  }
+
+  @media (max-width: 770px) {
+    width: 90vw;
+  }
+
+  @media (max-width: 640px) {
+    height: 40vh;
+    width: 90vw;
+    flex-direction: column;
+  }
+
   button {
     padding: 10px;
     width: 20%;
@@ -23,6 +37,10 @@ export const Container = styled.form`
     color: #fff;
     font: 400 1rem Roboto, sans-serif;
     margin-top: 15px;
+
+    @media (max-width: 640px) {
+      width: 50vw;
+    }
   }
 `;
 
@@ -38,5 +56,9 @@ export const InputContainer = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 7px;
     padding: 10px;
+
+    @media (max-width: 640px) {
+      width: 80vw;
+    }
   }
 `;

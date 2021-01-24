@@ -63,7 +63,7 @@ const ModalContainer = ({ id }: ModalProps) => {
             />
           </InputContainer>
 
-          <button>Teste</button>
+          <button>Editar</button>
         </Container>
       </Modal>
     </>
