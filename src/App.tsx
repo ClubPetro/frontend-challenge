@@ -1,10 +1,13 @@
 import GetAllPlacesProvider from "./context/GetAllPlacesContext";
+import ModalEditProvider from "./context/ModalEditContext";
 import Home from "./pages/Home";
 
 const App = () => {
   return (
     <GetAllPlacesProvider>
-      <Home />
+      <ModalEditProvider>
+        <Home />
+      </ModalEditProvider>
     </GetAllPlacesProvider>
   );
 };
