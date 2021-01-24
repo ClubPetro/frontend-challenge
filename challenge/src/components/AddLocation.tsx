@@ -7,31 +7,23 @@ import InputMask from 'react-input-mask'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import axios from 'axios'
+import { LocationModel } from '../App'
 import { v4 as uuidv4 } from 'uuid'
 
 
 interface FuncProps {
     setLocationsItens(arg: Object): void
-    locationsItens
+    locationsItens: LocationModel[]
 }
 
 const AddLocation: React.FC<FuncProps> = (props) => {
-    const [country, setCountry] = useState('')
-    const [countryFlag, setCountryFlag] = useState('')
-    const [location, setLocation] = useState('')
-    const [plan, setPlan] = useState('')
-    const [countryList, setCountryList] = useState<any>([])
+    const [country, setCountry] = useState<string>('')
+    const [countryFlag, setCountryFlag] = useState<string>('')
+    const [location, setLocation] = useState<string>('')
+    const [plan, setPlan] = useState<string>('')
+    const [countryList, setCountryList] = useState<CountryObject[]>([])
 
-    async function fetchCountryList() {
-        try {
-            const response = await axios.get('https://restcountries.eu/rest/v2/all')
-            const listedCountries: Object[] = response.data
-            setCountryList(() => listedCountries)
-        }
-        catch (error) {
-
-        }
-    }
+    
 
     const formHandler = (e) => {
         e.preventDefault()
@@ -48,6 +40,18 @@ const AddLocation: React.FC<FuncProps> = (props) => {
     }
 
     useEffect(() => {
+        async function fetchCountryList() {
+            try {
+                const response = await axios.get('https://restcountries.eu/rest/v2/all')
+                const listedCountries: CountryObject[] = response.data
+                setCountryList(() => listedCountries)
+            }
+            catch (error) {
+                console.log('API com erro.');
+                
+            }
+        }
+
         fetchCountryList()
     }, [])
 
@@ -73,7 +77,7 @@ const AddLocation: React.FC<FuncProps> = (props) => {
                         onChange={(e: React.ChangeEvent<{ value: any }>) => {
                             const countryValue = e.target.value
 
-                            const countryObject: CountryObject = countryList.filter((i: CountryObject) => i.translations.pt === countryValue)                      
+                            const countryObject: CountryObject[] = countryList.filter((i: CountryObject) => i.translations.pt === countryValue)                      
                             
                             setCountry(countryValue)
                             setCountryFlag(countryObject[0].flag)
