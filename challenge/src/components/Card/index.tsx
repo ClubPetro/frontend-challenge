@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
 import { Card, CardHeader, CardMedia, IconButton } from "@material-ui/core";
-import { Edit, Clear } from "@material-ui/icons";
+import { Clear } from "@material-ui/icons";
 
 import { CountryName, Hr, Text } from "./style";
 
 import { DataProps } from "../CardsList";
 import { countriesApi, api } from "../../services/api";
+
+import Modal from "../Modal";
 
 const CardContainer = ({ place, goal, country, id }: DataProps) => {
   const [image, setImage] = useState("");
@@ -41,9 +43,7 @@ const CardContainer = ({ place, goal, country, id }: DataProps) => {
         }
         action={
           <>
-            <IconButton aria-label="edit">
-              <Edit />
-            </IconButton>
+            <Modal id={id} />
             <IconButton aria-label="edit" onClick={() => deleteGoal(id)}>
               <Clear />
             </IconButton>

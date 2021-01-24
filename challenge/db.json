@@ -2,8 +2,8 @@
   "places": [
     {
       "country": "Antarctica",
-      "place": "asdqweasd",
-      "goal": "12/3123",
+      "place": "assdqwe",
+      "goal": "10/4545",
       "id": 4
     },
     {
@@ -17,6 +17,12 @@
       "place": "sadqweqwdasd",
       "goal": "12/3123",
       "id": 15
+    },
+    {
+      "country": "Brazil",
+      "place": "Rio de Janeiro",
+      "goal": "10/2525",
+      "id": 16
     }
   ]
 }
