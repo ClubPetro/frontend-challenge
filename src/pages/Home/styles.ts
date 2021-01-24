@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Input from '@material-ui/core/Input';
-// import Button from '@material-ui/core/Button';
 import InputMask from 'react-input-mask';
 
-export const Container = styled.div`
-  & > div.content-area {
-    padding: 53px 36px;
-  }
-`;
+export const Container = styled.div``;
 
 export const Header = styled.div`
   height: 85px;
@@ -23,13 +18,18 @@ export const SearchArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 247px;
+  min-height: 200px;
   background: #4f9419;
+  /* padding: 15px 0 15px 0; */
   form {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    line-break: strict;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
     div {
+      margin: 0 5px 0 5px;
       h1 {
         font-family: Roboto;
         font-style: normal;
@@ -37,41 +37,54 @@ export const SearchArea = styled.div`
         font-size: 16px;
         line-height: 19px;
         color: #ffffff;
+        margin-bottom: 3px;
       }
     }
   }
 `;
 
 export const ContentArea = styled.div`
-  margin: 50px 30px;
+  display: flex;
+  flex-direction: row;
+  line-break: strict;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 30px 0;
 `;
 
 export const Select = styled(NativeSelect)`
-  width: 303px;
+  width: 100%;
   height: 48px;
   background: #ffffff;
-  border-radius: 7px;
   border: none;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  color: #868686;
+  border-radius: 7px;
+  select {
+    font-family: Roboto;
+    text-indent: 8px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #868686;
+  }
 `;
 
 export const InputPlace = styled(Input)`
   width: 455px;
   height: 48px;
   background: #ffffff;
+  border-color: white;
   border-radius: 7px;
   border: none;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
   color: #868686;
+  input {
+    font-family: Roboto;
+    text-indent: 18px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
 `;
 
 export const InputDate = styled(InputMask)`
@@ -85,6 +98,7 @@ export const InputDate = styled(InputMask)`
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
+  text-indent: 10px;
   color: #868686;
 `;
 

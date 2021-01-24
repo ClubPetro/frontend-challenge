@@ -27,6 +27,7 @@ const Home: React.FC = () => {
     },
     spot: '',
     date: '',
+    id: '',
   });
 
   useEffect(() => {
@@ -36,10 +37,6 @@ const Home: React.FC = () => {
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log(country);
-  }, [country]);
 
   const handleAddGoal = async () => {
     await dbApi.createGoal(country);
@@ -101,7 +98,7 @@ const Home: React.FC = () => {
             <InputDate
               name="date"
               mask="99/9999"
-              maskPlaceholder="mês/ano"
+              placeholder="mês/ano"
               value={country?.date}
               onChange={handleChange}
             />
@@ -111,16 +108,20 @@ const Home: React.FC = () => {
           </AddButton>
         </form>
       </SearchArea>
-      <div className="content-area">
-        {goals.map(item => (
-          <Card
-            id={item.id}
-            country={item.country}
-            spot={item.spot}
-            date={item.date}
-          />
-        ))}
-      </div>
+      <ContentArea>
+        {goals !== null ? (
+          goals.map(item => (
+            <Card
+              id={item.id}
+              country={item.country}
+              spot={item.spot}
+              date={item.date}
+            />
+          ))
+        ) : (
+          <h1>{null}</h1>
+        )}
+      </ContentArea>
     </Container>
   );
 };

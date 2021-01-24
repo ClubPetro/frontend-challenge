@@ -6,7 +6,7 @@ export interface ICountry {
 }
 
 export interface IGoal {
-  id?: string;
+  id: string;
   country: ICountry;
   spot: string;
   date: string;

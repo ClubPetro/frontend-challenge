@@ -15,6 +15,9 @@ const dbApi = {
   async deleteGoal(id: string): Promise<IGoal[]> {
     return (await api.delete(`/goals/${id}`)).data;
   },
+  async updateGoal(id: string, goal: IGoal): Promise<IGoal[]> {
+    return (await api.put(`/goals/${id}`, goal)).data;
+  },
 };
 
 export default dbApi;
