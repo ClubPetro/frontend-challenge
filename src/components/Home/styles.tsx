@@ -6,12 +6,12 @@ const Styles = styled.header`
   background: #000;
 
   @media (min-width: 1440px) {
-    & .container {
+    .container {
       width: 1440px;
       margin: 0 auto;
     }
 
-    & .logo {
+    .logo {
       margin-left: 53px;
     }
   }

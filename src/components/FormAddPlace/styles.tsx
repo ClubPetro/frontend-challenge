@@ -76,13 +76,6 @@ const Styles = styled.section`
       width: 203px;
     }
   }
-
-  @media (min-width: 1440px) {
-    .container {
-      width: 1440px;
-      margin: 0 auto;
-    }
-  }
 `;
 
 export default Styles;
