@@ -22,14 +22,25 @@ class Search extends Component {
                 </label>
                 <label className='label'>
                     Local
-                    <input className='input search-local' value={ local } name="local" onChange={ handleInput } type='text' placeholder='Digite o local que deseja conhecer' />
+                    <input 
+                        className='input search-local'
+                        value={ local }
+                        name="local"
+                        onChange={ handleInput }
+                        type='text'
+                        placeholder='Digite o local que deseja conhecer' 
+                    />
                 </label>
                 <label className='label'>
                     Meta
                     <input name="meta" value={ meta } onChange={ handleInput } className='input search-data' type='date' />
                 </label>
-                {!edit ? <button className='search-btn' type='submit' onClick={ handleAdd } >Adicionar</button> : <button className='search-btn' type='submit' onClick={ handleChange } > Editar </button>}
-               
+                {!edit ? <button 
+                            className='search-btn'
+                            type='submit'
+                                 onClick={ handleAdd }
+                         >Adicionar</button> 
+                       : <button className='search-btn' type='submit' onClick={ handleChange } > Editar </button>}
             </section>
          );
     }
