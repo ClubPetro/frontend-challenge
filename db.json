@@ -1,0 +1,15 @@
+{
+  "goals": [
+    {
+      "id": 1,
+      "country": {
+        "translations": {
+          "br": "Estados Unidos"
+        },
+        "flag": "https://restcountries.eu/data/usa.svg"
+      },
+      "spot": "Museu bonito",
+      "date": "02/2021"
+    }
+  ]
+}
