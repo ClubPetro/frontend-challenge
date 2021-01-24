@@ -13,7 +13,10 @@ class App extends Component {
       pais: '',
       local: '',
       meta: '',
-      cards: [{ name: 'Brasil', flag: 'https://restcountries.eu/data/bra.svg' , local: 'João Pessoa' , meta: '2021-07-04' }, { name: 'Chile', flag: 'https://restcountries.eu/data/afg.svg' , local: 'Bariloche' , meta: '2021-12-20' }],
+      cards: [
+        { name: 'Brasil', flag: 'https://restcountries.eu/data/bra.svg' , local: 'João Pessoa' , meta: '2021-07-04' },
+        { name: 'Chile', flag: 'https://restcountries.eu/data/afg.svg' , local: 'Bariloche' , meta: '2021-12-20' }
+      ],
       edit: 0,
       indiceEdit: 0,
     }
@@ -88,17 +91,30 @@ class App extends Component {
     })
 }
 
-
   render() { 
     console.log('Render');
     const { paises, pais, local, meta, cards, edit } = this.state
     return ( 
       <div className="App">
         <Header />
-        {paises && <Search paises={ paises } pais={ pais } local={ local } meta={ meta } handleInput={ this.handleInput.bind(this) } handleAdd={ this.handleAdd.bind(this) } handleChange={ this.handleChange.bind(this) } edit={ edit } />}
-        <CardCountry cards={ cards } handleEdit={ this.handleEdit.bind(this) } handleDel={ this.handleDel.bind(this)}  />
+        {paises &&
+          <Search 
+            paises={ paises } 
+            pais={ pais } 
+            local={ local } 
+            meta={ meta } 
+            handleInput={ this.handleInput.bind(this) } 
+            handleAdd={ this.handleAdd.bind(this) } 
+            handleChange={ this.handleChange.bind(this) } 
+            edit={ edit } 
+           />
+         }
+        <CardCountry
+          cards={ cards }
+          handleEdit={ this.handleEdit.bind(this) }
+          handleDel={ this.handleDel.bind(this)}  
+        />
       </div>
-      
      );
   }
 }
