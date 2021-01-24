@@ -1,0 +1,14 @@
+{
+  "places": [
+    {
+      "country": {
+        "name": "Brasil",
+        "flag": "https://restcountries.eu/data/bra.svg"
+      },
+      "place": "Balneário Camboriú",
+      "goal": "02/2022",
+      "id": 1
+    }
+    
+  ]
+}

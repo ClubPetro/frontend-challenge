@@ -1,6 +1,3 @@
-Nesta aplicação, o usuário pode adicionar, editar e deletar cards contendo informações do país, local e a meta para visitar o local.
-
-
 ## Para executar o projeto siga os passos a seguir
 ### `yarn` ou `npm install`
 
