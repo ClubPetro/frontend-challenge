@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-input-mask": "^3.0.0",
     "@types/styled-components": "^5.1.7"
   }
 }
