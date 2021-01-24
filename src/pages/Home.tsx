@@ -1,4 +1,5 @@
 import FormAddPlace from "../components/FormAddPlace";
+import GridCardPlaces from "../components/GridCardPlaces";
 import Header from "../components/Home";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <Header />
       <FormAddPlace />
+      <GridCardPlaces />
     </>
   );
 };
