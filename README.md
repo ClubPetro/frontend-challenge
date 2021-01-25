@@ -6,13 +6,13 @@ Também fiz o deploy da aplicação, [DEMO](https://clubpetro-desafio.web.app).
 
 ## Como rodar a aplicação
 
-Realize o clone do projeto 
+Realize o clone do projeto:
 
 ```
 git clone https://github.com/ronaldo-aquino/frontend-challenge.git
 ```
 
-Entre na pasta frontend-challenge
+Entre na pasta frontend-challenge:
 
 ```
 cd frontend-challenge
