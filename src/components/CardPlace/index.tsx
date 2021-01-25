@@ -3,6 +3,7 @@ import Styles from "./styles";
 import { GetAllPlacesContext } from "../../context/GetAllPlacesContext";
 import { ModalEditContext } from "../../context/ModalEditContext";
 import { EditPlaceContext } from "../../context/EditPlaceContext";
+import { db } from "../../utils/firebase";
 
 export interface Places {
   id: string;
@@ -15,13 +16,27 @@ export interface Places {
 }
 
 const CardPlace = () => {
-  const { places } = useContext(GetAllPlacesContext);
+  const { places, setPlaces } = useContext(GetAllPlacesContext);
   const { setIsModalVisible } = useContext(ModalEditContext);
   const { setDataPlaceEdit } = useContext(EditPlaceContext);
 
   const editConfig = (place: Places) => {
     setIsModalVisible(true);
     setDataPlaceEdit(place);
+  };
+
+  const deletePlace = async (id: string) => {
+    try {
+      db.collection("Contries").doc(id).delete();
+
+      const deleteFilter = places.filter(
+        (placeFilter) => placeFilter.id !== id
+      );
+
+      setPlaces(deleteFilter);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -41,6 +56,7 @@ const CardPlace = () => {
               className="delete-place"
               src="./assets/img/delete.png"
               alt="Excluir Lugar"
+              onClick={() => deletePlace(place.id)}
             />
             <img
               className="edit-place"

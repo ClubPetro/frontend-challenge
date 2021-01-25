@@ -21,20 +21,10 @@ cd frontend-challenge
 Instale as dependências via yarn ou npm:
 
 ```
-yarn install
-```
-ou
-
-```
 npm install
 ```
 
 Execute a aplicação via yarn ou npm:
-
-```
-yarn start
-```
-ou
 
 ```
 npm start
