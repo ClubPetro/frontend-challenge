@@ -3,7 +3,7 @@ import {
   Container,
   ContentArea,
   Header,
-  SearchArea,
+  RegisterArea,
   Select,
   InputPlace,
   InputDate,
@@ -18,7 +18,7 @@ import Card from '../../components/Card';
 const Home: React.FC = () => {
   const [apiData, setApiData] = useState<ICountry[]>([]);
   const [goals, setGoals] = useState<IGoal[]>([]);
-  const [country, setCountry] = useState<IGoal>({
+  const [goal, setGoal] = useState<IGoal>({
     country: {
       translations: {
         br: '',
@@ -39,24 +39,23 @@ const Home: React.FC = () => {
   }, []);
 
   const handleAddGoal = async () => {
-    await dbApi.createGoal(country);
+    await dbApi.createGoal(goal);
     window.location.reload();
   };
 
   const handleChange = (e: any) => {
     const { name, value } = e.currentTarget;
-    setCountry({
-      ...country,
+    setGoal({
+      ...goal,
       country: {
-        ...country.country,
+        ...goal.country,
         translations: {
-          br:
-            name === 'countryInfo'
-              ? value.split(',')[0]
-              : country.country.translations.br,
+          br: name === 'countryInfo' ? value : goal.country.translations.br,
         },
         flag:
-          name === 'countryInfo' ? value.split(',')[1] : country.country.flag,
+          name === 'countryInfo'
+            ? apiData.find(x => x.translations.br === value)?.flag || ''
+            : goal.country.flag,
       },
       [name]: value,
     });
@@ -67,18 +66,18 @@ const Home: React.FC = () => {
       <Header>
         <img src={Logo} alt="" />
       </Header>
-      <SearchArea>
+      <RegisterArea>
         <form>
           <div>
             <h1>País</h1>
             <Select
               name="countryInfo"
-              value={country?.country.translations.br}
+              value={goal?.country.translations.br}
               onChange={handleChange}
             >
               <option>Selecione...</option>
               {apiData.map(item => (
-                <option value={[item.translations.br, item.flag]}>
+                <option value={item.translations.br}>
                   {item.translations.br}
                 </option>
               ))}
@@ -89,7 +88,7 @@ const Home: React.FC = () => {
             <InputPlace
               name="spot"
               placeholder="Digite o local que deseja conhecer"
-              value={country?.spot}
+              value={goal?.spot}
               onChange={handleChange}
             />
           </div>
@@ -99,7 +98,7 @@ const Home: React.FC = () => {
               name="date"
               mask="99/9999"
               placeholder="mês/ano"
-              value={country?.date}
+              value={goal?.date}
               onChange={handleChange}
             />
           </div>
@@ -107,7 +106,7 @@ const Home: React.FC = () => {
             Adicionar
           </AddButton>
         </form>
-      </SearchArea>
+      </RegisterArea>
       <ContentArea>
         {goals !== null ? (
           goals.map(item => (

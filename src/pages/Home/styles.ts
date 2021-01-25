@@ -14,13 +14,13 @@ export const Header = styled.div`
   }
 `;
 
-export const SearchArea = styled.div`
+export const RegisterArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   min-height: 200px;
   background: #4f9419;
-  /* padding: 15px 0 15px 0; */
+  padding: 0 15px 0 15px;
   form {
     display: flex;
     flex-direction: row;
@@ -29,7 +29,6 @@ export const SearchArea = styled.div`
     flex-flow: row wrap;
     justify-content: space-evenly;
     div {
-      margin: 0 5px 0 5px;
       h1 {
         font-family: Roboto;
         font-style: normal;
@@ -53,7 +52,7 @@ export const ContentArea = styled.div`
 `;
 
 export const Select = styled(NativeSelect)`
-  width: 100%;
+  max-width: 100%;
   height: 48px;
   background: #ffffff;
   border: none;
@@ -70,7 +69,8 @@ export const Select = styled(NativeSelect)`
 `;
 
 export const InputPlace = styled(Input)`
-  width: 455px;
+  width: 40vw;
+  min-width: 350px;
   height: 48px;
   background: #ffffff;
   border-color: white;
@@ -88,7 +88,8 @@ export const InputPlace = styled(Input)`
 `;
 
 export const InputDate = styled(InputMask)`
-  width: 238px;
+  width: 3vw;
+  min-width: 238px;
   height: 48px;
   background: #ffffff;
   border-radius: 7px;
