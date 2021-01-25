@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Styles from "./styles";
 import { GetAllPlacesContext } from "../../context/GetAllPlacesContext";
 import { ModalEditContext } from "../../context/ModalEditContext";
+import { EditPlaceContext } from "../../context/EditPlaceContext";
 
 export interface Places {
   id: string;
@@ -16,9 +17,11 @@ export interface Places {
 const CardPlace = () => {
   const { places } = useContext(GetAllPlacesContext);
   const { setIsModalVisible } = useContext(ModalEditContext);
+  const { setDataPlaceEdit } = useContext(EditPlaceContext);
 
   const editConfig = (place: Places) => {
     setIsModalVisible(true);
+    setDataPlaceEdit(place);
   };
 
   return (

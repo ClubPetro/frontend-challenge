@@ -58,7 +58,7 @@ const Styles = styled.div`
     padding-bottom: 11px;
   }
 
-  .meta-date{
+  .meta-date {
     margin: 0px;
   }
 `;
