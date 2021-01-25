@@ -4,7 +4,7 @@ import { Icon } from '@material-ui/core';
 import { Container, Image } from './styles';
 import { IGoal } from '../../Interfaces/index';
 import dbApi from '../../services/dbApi';
-import CardUpdateModal from '../CardUpdateModal';
+import FromDialog from '../CardUpdateModal';
 
 const Card: React.FC<IGoal> = ({ id, country, spot, date }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -26,9 +26,13 @@ const Card: React.FC<IGoal> = ({ id, country, spot, date }) => {
 
   return (
     <Container>
-      <CardUpdateModal enabled={modalOpen} goal={goal} />
-      <div className="card-padding">
-        <div className="half-1">
+      <FromDialog
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        goal={goal}
+      />
+      <div>
+        <div className="header">
           <div className="flag-area">
             <Image image={country.flag} />
             <h1>{country.translations.br}</h1>

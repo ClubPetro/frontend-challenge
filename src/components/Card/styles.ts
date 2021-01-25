@@ -11,12 +11,11 @@ export const Container = styled(Card)`
   box-shadow: 0px 1px 2px gray;
   overflow-wrap: break-word;
   margin: 20px 10px;
-  & > div.card-padding {
-    padding: 26px 15px;
-    & > div.half-1 {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+  padding: 26px 15px;
+  & > div {
+    & > div.header {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
       & > div.flag-area {
         & > h1 {
           font-family: Roboto;
@@ -44,8 +43,8 @@ export const Container = styled(Card)`
     }
     & > div.info-area {
       display: block;
-      padding: 43px 0 0 26px;
-      p:first-of-type {
+      padding: 43px 0 0 11px;
+      p {
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
