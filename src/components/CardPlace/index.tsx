@@ -67,8 +67,8 @@ const CardPlace = () => {
           </div>
           <img src="./assets/img/line.png" alt="Divisor" className="line" />
           <div className="place-and-meta">
-            <p className="place-description">{place.place}</p>
-            <p className="meta-date">{place.meta}</p>
+            <p className="place-description">Local: {place.place}</p>
+            <p className="meta-date">Meta: {place.meta}</p>
           </div>
         </Styles>
       ))}

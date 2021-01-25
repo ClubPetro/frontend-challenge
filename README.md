@@ -18,13 +18,13 @@ Entre na pasta frontend-challenge
 cd frontend-challenge
 ```
 
-Instale as dependências via yarn ou npm:
+Instale as dependências:
 
 ```
 npm install
 ```
 
-Execute a aplicação via yarn ou npm:
+Execute a aplicação:
 
 ```
 npm start

@@ -76,7 +76,7 @@ const ModalEdit = () => {
 
           <div className="input-group">
             <label htmlFor="input-meta-edit" className="input-place-edit">
-              meta
+              Meta
             </label>
             <InputMask
               mask="99/9999"
