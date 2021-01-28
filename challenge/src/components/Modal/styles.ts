@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -15,12 +15,24 @@ export const Container = styled.div`
   `}
 `;
 
+const appearFromTop = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, -5rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
+
 export const Content = styled.div`
   ${({ theme }) => css`
     width: 100%;
     max-width: 40rem;
     background: ${theme.colors.white};
     border-radius: ${theme.radius.large};
+    animation: ${appearFromTop} 0.4s;
 
     header {
       display: flex;
