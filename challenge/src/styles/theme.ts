@@ -6,6 +6,8 @@ export default {
     primaryDark: '#006C18',
     gray: '#868686',
     lightGray: '#ABABAB',
+    red: '#e74c3c',
+    darkRed: '#c0392b',
   },
   font: {
     normal: 400,
@@ -22,6 +24,7 @@ export default {
   },
   transitions: {
     default: '0.2s',
+    long: '0.4s',
   },
   radius: {
     default: '0.8rem',
