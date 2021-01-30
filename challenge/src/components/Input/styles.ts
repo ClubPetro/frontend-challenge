@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  error: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   ${({ theme }) => css`
     label {
       display: block;
@@ -24,4 +28,20 @@ export const Wrapper = styled.div`
       }
     }
   `}
+
+  ${({ theme, error }) =>
+    error &&
+    css`
+      input {
+        background: #fcc6c5;
+      }
+    `}
+`;
+
+export const ErrorMessage = styled.span`
+  ${({ theme }) => css`
+    display: block;
+    color: ${theme.colors.white};
+    margin-top: ${theme.spacings.xxsmall};
+  `};
 `;
