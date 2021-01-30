@@ -30,8 +30,12 @@ export const Wrapper = styled.section`
         max-width: 100%;
         display: grid;
         grid-template-columns: 30rem 1fr 24rem 20rem;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: ${theme.spacings.large};
+
+        button {
+          margin-top: ${theme.spacings.medium};
+        }
       }
     `}
   `}
