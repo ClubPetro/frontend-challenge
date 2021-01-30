@@ -29,7 +29,7 @@ const appearFromTop = keyframes`
 export const Content = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    max-width: 40rem;
+    max-width: 50rem;
     background: ${theme.colors.white};
     border-radius: ${theme.radius.large};
     animation: ${appearFromTop} 0.4s;
