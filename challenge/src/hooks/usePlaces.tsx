@@ -14,7 +14,7 @@ export interface Place {
   flag: string;
   country: string;
   local: string;
-  meta: string;
+  goal: string;
 }
 
 interface PlaceContextData {

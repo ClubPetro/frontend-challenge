@@ -5,35 +5,28 @@
       "flag": "https://restcountries.eu/data/bra.svg",
       "country": "Brasil",
       "local": "Balneario Camboriu",
-      "meta": "04/2022"
+      "goal": "04/2022"
     },
     {
       "id": 3,
       "flag": "https://restcountries.eu/data/bra.svg",
       "country": "Brasil",
       "local": "Fortaleza",
-      "meta": "05/2022"
+      "goal": "05/2022"
     },
     {
       "id": 4,
       "flag": "https://restcountries.eu/data/usa.svg",
       "country": "Estados Unidos",
       "local": "Nova York",
-      "meta": "12/2022"
-    },
-    {
-      "id": 5,
-      "flag": "https://restcountries.eu/data/usa.svg",
-      "country": "Estados Unidos",
-      "local": "Filadélfia",
-      "meta": "12/2022"
+      "goal": "12/2022"
     },
     {
       "id": 6,
       "flag": "https://restcountries.eu/data/are.svg",
       "country": "Emirados Árabes Unidos",
       "local": "Dubai",
-      "meta": "01/24"
+      "goal": "01/24"
     }
   ]
 }

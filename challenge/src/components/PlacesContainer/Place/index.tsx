@@ -27,7 +27,7 @@ export default function Place(props: PlaceProps) {
         </S.Header>
         <S.Infos>
           <p>Local: {place.local}</p>
-          <p>Meta: {place.meta}</p>
+          <p>Meta: {place.goal}</p>
         </S.Infos>
         <S.Buttons>
           <button
@@ -64,7 +64,7 @@ export default function Place(props: PlaceProps) {
         <EditPlace
           id={place.id}
           local={place.local}
-          meta={place.meta}
+          goal={place.goal}
           hide={() => setEditModalIsShown(state => !state)}
         />
       </Modal>

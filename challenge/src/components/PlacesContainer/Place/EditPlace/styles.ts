@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 
+import { Form } from 'formik';
+
 import { Wrapper as Field } from '../../../Input/styles';
 
-export const Container = styled.form`
+export const Container = styled(Form)`
   ${({ theme }) => css`
     ${Field} {
       margin-bottom: ${theme.spacings.small};
