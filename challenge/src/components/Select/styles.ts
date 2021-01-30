@@ -56,7 +56,7 @@ export const Wrapper = styled.div<WrapperProps>`
     css`
       .react-select {
         &__control {
-          background: #fcc6c5;
+          background: ${theme.colors.lightRed};
         }
       }
     `}
