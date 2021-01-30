@@ -4,6 +4,7 @@ import { Place as IPlace } from '../../../hooks/usePlaces';
 
 import Modal from '../../Modal';
 import Confirmation from '../../Confirmation';
+import EditPlace from './EditPlace';
 
 import * as S from './styles';
 
@@ -14,7 +15,8 @@ interface PlaceProps {
 export default function Place(props: PlaceProps) {
   const { place } = props;
 
-  const [modalIsShown, setModalIsShown] = useState(false);
+  const [removeModalIsShown, setRemoveModalIsShown] = useState(false);
+  const [editModalIsShown, setEditModalIsShown] = useState(false);
 
   return (
     <>
@@ -28,12 +30,15 @@ export default function Place(props: PlaceProps) {
           <p>Meta: {place.meta}</p>
         </S.Infos>
         <S.Buttons>
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => setEditModalIsShown(state => !state)}
+          >
             <FiEdit2 size={16} />
           </button>
           <button
             type="button"
-            onClick={() => setModalIsShown(state => !state)}
+            onClick={() => setRemoveModalIsShown(state => !state)}
           >
             <FiX size={20} />
           </button>
@@ -41,14 +46,26 @@ export default function Place(props: PlaceProps) {
       </S.Wrapper>
       <Modal
         title="Excluir local"
-        isShown={modalIsShown}
-        hide={() => setModalIsShown(state => !state)}
+        isShown={removeModalIsShown}
+        hide={() => setRemoveModalIsShown(state => !state)}
       >
         <Confirmation
           id={place.id}
           local={place.local}
           country={place.country}
-          hide={() => setModalIsShown(state => !state)}
+          hide={() => setRemoveModalIsShown(state => !state)}
+        />
+      </Modal>
+      <Modal
+        title="Editar local"
+        isShown={editModalIsShown}
+        hide={() => setEditModalIsShown(state => !state)}
+      >
+        <EditPlace
+          id={place.id}
+          local={place.local}
+          meta={place.meta}
+          hide={() => setEditModalIsShown(state => !state)}
         />
       </Modal>
     </>

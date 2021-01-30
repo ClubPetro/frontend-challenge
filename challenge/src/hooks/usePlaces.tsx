@@ -20,6 +20,7 @@ export interface Place {
 interface PlaceContextData {
   places: Place[];
   handleRemovePlace(id: number): void;
+  handleEditPlace(id: number): void;
 }
 
 const ContextOfPlaces = createContext({} as PlaceContextData);
@@ -37,6 +38,10 @@ export function PlacesProvider({ children }: PropsWithChildren<unknown>) {
     getData();
   }, [getData]);
 
+  const handleEditPlace = useCallback(async id => {
+    await api.put(`places/${id}`);
+  }, []);
+
   const handleRemovePlace = useCallback(
     async id => {
       await api.delete(`places/${id}`);
@@ -52,7 +57,9 @@ export function PlacesProvider({ children }: PropsWithChildren<unknown>) {
   );
 
   return (
-    <ContextOfPlaces.Provider value={{ places, handleRemovePlace }}>
+    <ContextOfPlaces.Provider
+      value={{ places, handleEditPlace, handleRemovePlace }}
+    >
       {children}
     </ContextOfPlaces.Provider>
   );
