@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
-
 import axios from 'axios';
+import { usePlaces } from '../../hooks/usePlaces';
 
+import api from '../../services/api';
 import schema from './schema';
 
 import Container from '../Container';
@@ -18,6 +19,7 @@ interface FormData {
 }
 
 export interface Country {
+  flag: string;
   translations: {
     br: string;
   };
@@ -30,6 +32,8 @@ const initialValues: FormData = {
 };
 
 export default function FormArea() {
+  const { setPlaces, places } = usePlaces();
+
   const [countries, setCountries] = useState<Country[]>([]);
 
   const getCountriesData = useCallback(async () => {
@@ -42,9 +46,23 @@ export default function FormArea() {
     getCountriesData();
   }, [getCountriesData]);
 
-  const handleSubmit = useCallback(data => {
-    console.log(data);
-  }, []);
+  const handleSubmit = useCallback(
+    async data => {
+      const { country: nameOfTheCountry } = data;
+
+      const countryFinded = countries.find(
+        country => country.translations.br === nameOfTheCountry,
+      );
+
+      const response = await api.post('places', {
+        ...data,
+        flag: countryFinded?.flag,
+      });
+
+      setPlaces([...places, response.data]);
+    },
+    [countries, setPlaces, places],
+  );
 
   return (
     <S.Wrapper>
