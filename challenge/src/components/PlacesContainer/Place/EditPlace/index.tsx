@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { Formik } from 'formik';
 import { usePlaces } from '../../../../hooks/usePlaces';
 
+import api from '../../../../services/api';
 import schema from './schema';
 
 import Input from '../../../Input';
@@ -21,6 +22,8 @@ interface EditPlaceProps {
 }
 
 export default function EditPlace(props: EditPlaceProps) {
+  const { places, setPlaces } = usePlaces();
+
   const { id, local, goal, hide } = props;
 
   const initialValues: FormData = {
@@ -28,12 +31,23 @@ export default function EditPlace(props: EditPlaceProps) {
     editgoal: goal,
   };
 
-  const { handleEditPlace } = usePlaces();
+  const handleSubmit = useCallback(
+    async (data: FormData) => {
+      const response = await api.patch(`places/${id}`, {
+        local: data.editlocal,
+        goal: data.editgoal,
+      });
 
-  const handleSubmit = useCallback(() => {
-    handleEditPlace(id);
-    hide();
-  }, [handleEditPlace, id, hide]);
+      const updatedPlace = places.findIndex(place => place.id === id);
+
+      const newPlaces = places;
+      newPlaces.splice(updatedPlace, 1, response.data);
+
+      setPlaces([...newPlaces]);
+      hide();
+    },
+    [hide, id, places, setPlaces],
+  );
 
   return (
     <Formik
