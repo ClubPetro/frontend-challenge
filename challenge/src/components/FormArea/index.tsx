@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
+
 import axios from 'axios';
+
 import { usePlaces } from '../../hooks/usePlaces';
 
 import api from '../../services/api';
 import schema from './schema';
 
 import Container from '../Container';
-import Input from '../Input';
 import Select from '../Select';
+import Input from '../Input';
 
 import * as S from './styles';
 
@@ -90,7 +92,14 @@ export default function FormArea() {
                 label="Local"
                 placeholder="Digite o local que deseja conhecer"
               />
-              <Input name="goal" id="goal" label="Meta" placeholder="mês/ano" />
+              <Input
+                name="goal"
+                id="goal"
+                label="Meta"
+                placeholder="mês/ano"
+                isMask
+                mask="99/9999"
+              />
               <button type="submit">Adicionar</button>
             </Form>
           )}
