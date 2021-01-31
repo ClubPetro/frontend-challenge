@@ -41,7 +41,7 @@ export const Wrapper = styled.div<WrapperProps>`
 export const ErrorMessage = styled.span`
   ${({ theme }) => css`
     display: block;
-    color: ${theme.colors.white};
+    color: ${theme.colors.darkRed};
     margin-top: ${theme.spacings.xxsmall};
   `};
 `;
