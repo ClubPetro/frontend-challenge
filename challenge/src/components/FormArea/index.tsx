@@ -47,7 +47,7 @@ export default function FormArea() {
   }, [getCountriesData]);
 
   const handleSubmit = useCallback(
-    async data => {
+    async (data, { resetForm }) => {
       const { country: nameOfTheCountry } = data;
 
       const countryFinded = countries.find(
@@ -59,6 +59,7 @@ export default function FormArea() {
         flag: countryFinded?.flag,
       });
 
+      resetForm(initialValues);
       setPlaces([...places, response.data]);
     },
     [countries, setPlaces, places],
