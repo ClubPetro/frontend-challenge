@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 import { usePlaces } from '../../hooks/usePlaces';
 
+import api from '../../services/api';
+
 import * as S from './styles';
 
 interface ConfirmationProps {
@@ -13,12 +15,19 @@ interface ConfirmationProps {
 export default function Confirmation(props: ConfirmationProps) {
   const { id, local, country, hide } = props;
 
-  const { handleRemovePlace } = usePlaces();
+  const { places, setPlaces } = usePlaces();
 
-  const handleRemove = useCallback(() => {
-    handleRemovePlace(id);
+  const handleRemovePlace = useCallback(async () => {
+    await api.delete(`places/${id}`);
+
+    const placeRemoved = places.findIndex(place => place.id === id);
+
+    const newPlaces = places;
+    newPlaces.splice(placeRemoved, 1);
+
+    setPlaces([...newPlaces]);
     hide();
-  }, [id, handleRemovePlace, hide]);
+  }, [id, places, setPlaces, hide]);
 
   return (
     <S.Container>
@@ -33,7 +42,7 @@ export default function Confirmation(props: ConfirmationProps) {
         <button type="button" onClick={hide}>
           Cancelar
         </button>
-        <button type="button" onClick={handleRemove}>
+        <button type="button" onClick={handleRemovePlace}>
           Excluir
         </button>
       </div>
