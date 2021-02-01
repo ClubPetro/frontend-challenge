@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import axios from 'axios';
 
 import { usePlaces } from '../../hooks/usePlaces';
+import { useToast } from '../../hooks/useToast';
 
 import api from '../../services/api';
 import schema from './schema';
@@ -35,6 +36,7 @@ const initialValues: FormData = {
 
 export default function FormArea() {
   const { setPlaces, places } = usePlaces();
+  const { addToast } = useToast();
 
   const [countries, setCountries] = useState<Country[]>([]);
 
@@ -50,21 +52,35 @@ export default function FormArea() {
 
   const handleSubmit = useCallback(
     async (data, { resetForm }) => {
-      const { country: nameOfTheCountry } = data;
+      try {
+        const { country: nameOfTheCountry } = data;
 
-      const countryFinded = countries.find(
-        country => country.translations.br === nameOfTheCountry,
-      );
+        const countryFinded = countries.find(
+          country => country.translations.br === nameOfTheCountry,
+        );
 
-      const response = await api.post('places', {
-        ...data,
-        flag: countryFinded?.flag,
-      });
+        const response = await api.post('places', {
+          ...data,
+          flag: countryFinded?.flag,
+        });
 
-      resetForm(initialValues);
-      setPlaces([...places, response.data]);
+        resetForm(initialValues);
+        setPlaces([...places, response.data]);
+        addToast({
+          type: 'success',
+          title: 'Sucesso',
+          description: 'Local adicionado com sucesso.',
+        });
+      } catch (err) {
+        addToast({
+          type: 'error',
+          title: 'Erro',
+          description:
+            'Ocorreu um erro ao tentar adicionar um novo local, tente novamente.',
+        });
+      }
     },
-    [countries, setPlaces, places],
+    [countries, setPlaces, places, addToast],
   );
 
   return (

@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { Formik } from 'formik';
 import { usePlaces } from '../../../../hooks/usePlaces';
+import { useToast } from '../../../../hooks/useToast';
 
 import api from '../../../../services/api';
 import schema from './schema';
@@ -23,6 +24,7 @@ interface EditPlaceProps {
 
 export default function EditPlace(props: EditPlaceProps) {
   const { places, setPlaces } = usePlaces();
+  const { addToast } = useToast();
 
   const { id, local, goal, hide } = props;
 
@@ -45,8 +47,13 @@ export default function EditPlace(props: EditPlaceProps) {
 
       setPlaces([...newPlaces]);
       hide();
+      addToast({
+        type: 'success',
+        title: 'Sucesso',
+        description: 'Local editado com sucesso.',
+      });
     },
-    [hide, id, places, setPlaces],
+    [hide, id, places, setPlaces, addToast],
   );
 
   return (
