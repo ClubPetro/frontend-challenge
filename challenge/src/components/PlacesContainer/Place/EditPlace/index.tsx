@@ -68,6 +68,8 @@ export default function EditPlace(props: EditPlaceProps) {
             id="editgoal"
             label="Meta"
             placeholder="mês/ano"
+            isMask
+            mask="99/9999"
           />
           <S.Buttons>
             <button type="button" onClick={hide}>
