@@ -1,6 +1,11 @@
 import { PropsWithChildren } from 'react';
 import { PlacesProvider } from './usePlaces';
+import { ToastProvider } from './useToast';
 
 export default function AppProvider({ children }: PropsWithChildren<unknown>) {
-  return <PlacesProvider>{children}</PlacesProvider>;
+  return (
+    <PlacesProvider>
+      <ToastProvider>{children}</ToastProvider>
+    </PlacesProvider>
+  );
 }
