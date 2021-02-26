@@ -1,8 +1,3 @@
-# desafio de frontend
-
-<img src="logo-clubpetro.png"
-     alt="Clubpetro" width="300">
-
 ## desenvolvido com:
 
 - [ReactJS + Typescript](https://pt-br.reactjs.org/docs/static-type-checking.html#typescript)
