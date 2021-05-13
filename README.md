@@ -25,7 +25,7 @@ Acesse o diretório raiz ("./frontend") do projeto e utilize os comandos abaixo 
 	npm install
 	```
 	<br/>
-2. Após efetuar o download das dependências do projeto inicie o backend em seguida o front-end:
+2. Após efetuar o download das dependências do projeto inicie o backend e em seguida o front-end:
 
 	_**para inicializar o backend:**_
 
