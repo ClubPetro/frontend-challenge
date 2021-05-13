@@ -70,7 +70,7 @@ Acesse o diretório raiz ("./frontend") do projeto e utilize os comandos abaixo 
 	```
 	yarn
 	```
-	e em seguida use os comandos abaixo para criar o banco de dados e startar o servidor:
+	e em seguida use os comandos abaixo para criar a tabela no banco de dados e startar o servidor:
 	```
 	yarn typeorm migration:run
 	```
