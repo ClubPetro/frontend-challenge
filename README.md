@@ -1,59 +1,81 @@
-# Desafio de Frontend
 
-<img src="./img/logo-clubpetro.png"
-     alt="Clubpetro" width="300">
+# Frontend challenge
 
-- [Descrição](#descrição)
-  - [O Desafio](#o-desafio)
-  - [Requisitos Obrigatórios](#requisitos-obrigatórios)
-  - [Bônus](#bônus)
-- [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+![desafio de frontend](https://github.com/Kwan13/Kwan13/blob/master/images/frontend-challenge.gif)
 
-## Descrição
+### Tecnologias:
 
-Este desafio tem como objetivo avaliar as habilidades técnicas do canditado a vaga de desenvolvedor frontend no Clubpetro.
+- Typescript
+- ReactJS
+- Styled-Components
+- Material-UI
+- json-server
 
-#### O Desafio
+### Instruções:
 
-O desafio consiste em desenvolver um sistema que permita o CRUD de lugares para se conhecer ao redor do mundo. Como na imagem a seguir:
+Acesse o diretório raiz ("./frontend") do projeto e utilize os comandos abaixo para baixar as dependências e startar o projeto respectivamente.
 
-<img src="./img/challenge.png" alt="Desafio" >
+1. Para baixar as dependências do projeto utilize os comandos:
 
-O Sistema deverá conter um formulário com 3 campos:
+	```
+	yarn
+	```
+	*ou*
+	```
+	npm install
+	```
+	<br/>
+2. Após efetuar o download das dependências do projeto inicie o backend e em seguida o front-end:
 
-- País: um select contendo a lista de todos os países existentes;
-- Local: um input para que o usuário digite o local que ele deseja conhecer no país selecionado;
-- Meta: um input para que o usuário digite a o mês e o ano que ele pretende visitar o local em questão.
+	_**para inicializar o backend:**_
 
-Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o local deverá aparecer na listagem dos cards, como mostrado na imagem acima.
+	```
+	yarn dev
+	```
+	*ou*
+	```
+	npm run dev
+	```
 
-#### Requisitos Obrigatórios
+	_**para inicializar o front-end:**_
 
-> Requisitos que serão avaliados no desafio.
+	```
+	yarn start
+	```
+	*ou*
+	```
+	npm run start
+	```
+<br/>
 
-- O Sistema deverá ser desenvolvido em typescript utilizando a biblioteca [React](https://pt-br.reactjs.org/);
-- O Layout apresentado na imagem acima deverá ser fielmente seguido e pode ser encontrado no [Figma](https://www.figma.com/file/IC0xt3K3X21rLEfLRQ3mpl/Lugares-que-quero-conhecer?node-id=0%3A1);
-- O CRUD poderá ser gerenciado pelo estado no React;
-- Apenas o Local e Meta poderão ser editados e a edição do card deverá ser feita de acordo com a criatividade do canditado, não tendo um layout específico para esta ação;
-- O Sistema deverá ser desenvolvido utilizando [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html);
-- O Sistema deverá ser integrado à API [Rest Countries](https://restcountries.eu/rest/v2/all) para a listagem dos países. Esta conta com a imagem da bandeira e a tradução do nome do país para Português;
-- A biblioteca [react-input-mask](https://www.npmjs.com/package/react-input-mask) deverá ser utilizada para colocar uma mascara no input de "Meta" no formato mm/aaaa;
-- O Sistema deverá ser responsivo;
-- O candidato deverá adicionar ao projeto uma explicação de como executar a aplicação.
+### *Opcional - Backend (NodeJS):
 
-#### Bônus
+#### Tecnologias:
+- Typescript
+- NodeJS
+- Express
+- TypeORM
+- Docker
+- Postgres
 
-> Requisitos que não são obrigatórios mas podem te deixar em vantagem com relação aos outros candidatos.
+### Instruções:
 
-- [Material-UI](https://material-ui.com/pt/);
-- [Styled Components](https://styled-components.com/);
-- Testes automatizados;
-- Utilização da biblioteca [json-server](https://www.npmjs.com/package/json-server) para o CRUD.
+1. Baixe e instale o <a href="https://www.docker.com/get-started" target="_blank">Docker</a>, utilize o comando a seguir no terminal para criar um container com o  Postgres:
+	```
+	docker run --name countries -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+	```
+	após criar o container, dentro dele crie um banco de dados com o nome "countries", utilize o software que preferir para gerenciar o banco, recomento o <a href="https://dbeaver.io/" target="_blank">DBeaver</a>.
+	
+3. Vá até a pasta "./backend-optional" e baixe todas as dependências do projeto usando o comando a seguir.
+	```
+	yarn
+	```
+	e em seguida use os comandos abaixo para criar a tabela no banco de dados e startar o servidor:
+	```
+	yarn typeorm migration:run
+	```
+	```
+	yarn dev
+	```
 
-### Submissão e Prazo de entrega
 
-- O canditado deverá realizar um fork deste repositório e submeter o código no mesmo;
-- Em caso do deploy realizado, a url deverá ser adicionada no README;
-- O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
-- Ao finalizar o desafio, o candidato deverá submeter o desafio no questionário disponível na sua área de candidato na plataforma(https://menvievagas.com.br/vagas/fam%C3%8Dliapires/) do Processo Seletivo. É só clicar em RESPONDER no questionário e inserir o link do seu PR.
-Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
