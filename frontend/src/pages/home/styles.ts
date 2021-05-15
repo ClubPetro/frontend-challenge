@@ -12,13 +12,15 @@ export const InputSection = styled.section`
     & > main {
         display: flex;
         padding: 73px 0px;
-        max-width: 1000px;
+        max-width: 1440px;
         margin: 0 auto;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 `;
 
 export const ScheduleSection = styled.section`
-    max-width: 1000px;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
