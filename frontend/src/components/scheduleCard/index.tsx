@@ -3,16 +3,28 @@ import DeleteIcon from './components/deleteIcon';
 import EditIcon from './components/editIcon';
 import ScheduleWrapper from './styles';
 
-const ScheduleCard = (): React.ReactElement => {
+interface ScheduleCardProps {
+    imgUri: string;
+    country: string;
+    location: string;
+    date: string;
+}
+
+const ScheduleCard = ({
+    country,
+    date,
+    imgUri,
+    location,
+}: ScheduleCardProps): React.ReactElement => {
     return (
         <ScheduleWrapper>
-            <img src="https://restcountries.eu/data/bra.svg" alt="Brasil" />
-            <h2>Brasil</h2>
+            <img src={imgUri} alt={country} />
+            <h2>{country}</h2>
             <EditIcon className="editIcon" />
             <DeleteIcon className="deleteIcon" />
             <hr />
-            <p className="location">Local: Balneario Camboriu </p>
-            <p className="date">Meta: 04/2022</p>
+            <p className="location">Local: {location} </p>
+            <p className="date">Meta: {date}</p>
         </ScheduleWrapper>
     );
 };

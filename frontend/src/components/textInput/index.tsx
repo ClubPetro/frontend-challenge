@@ -14,7 +14,12 @@ const TextInput = ({
     return (
         <TextInputWrapper inputSize={inputSize}>
             <p>{textLabel}</p>
-            <input type="text" value={props.value} />
+            <input
+                type="text"
+                id={props.id}
+                value={props.value}
+                onChange={props.onChange}
+            />
         </TextInputWrapper>
     );
 };

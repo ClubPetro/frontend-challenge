@@ -9,7 +9,7 @@ export const Wrapper = styled.main`
 export const InputSection = styled.section`
     background-color: ${Colors.brandColor};
 
-    & > main {
+    & > form {
         display: flex;
         padding: 73px 0px;
         max-width: 1440px;
