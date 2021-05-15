@@ -22,6 +22,10 @@ const TextInputWrapper = styled.div<{ inputSize: string }>`
         font-size: 16px;
         line-height: 19px;
         color: ${Colors.grayColors.gray1};
+
+        @media (max-width: 1024px) {
+            width: 250px;
+        }
     }
 `;
 

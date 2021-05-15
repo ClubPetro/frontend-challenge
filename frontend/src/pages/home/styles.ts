@@ -16,6 +16,16 @@ export const InputSection = styled.section`
         margin: 0 auto;
         justify-content: space-between;
         align-items: flex-end;
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            padding: 32px 0;
+            align-items: center;
+
+            & > div {
+                margin-bottom: 32px;
+            }
+        }
     }
 `;
 
@@ -35,5 +45,22 @@ export const ScheduleSection = styled.section`
     & > div {
         margin-right: 30px;
         margin-top: 33px;
+    }
+
+    @media (max-width: 540px) {
+        flex-direction: column;
+        align-items: center;
+
+        & > div {
+            margin-right: 0px;
+        }
+    }
+
+    @media (min-width: 540px) and (max-width: 768px) {
+        width: 560px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1025px) {
+        width: 840px;
     }
 `;

@@ -29,6 +29,10 @@ const Select = styled.div`
         background-repeat: no-repeat;
         background-size: 11.12px 7.29px;
         background-position: 95% center;
+
+        @media (max-width: 1024px) {
+            width: 250px;
+        }
     }
 `;
 
