@@ -21,6 +21,14 @@ const Select = styled.div`
         font-size: 16px;
         line-height: 19px;
         color: ${Colors.grayColors.gray1};
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        background: url('/images/arrow-down-stroke-icon.png') #ffffff;
+        background-repeat: no-repeat;
+        background-size: 11.12px 7.29px;
+        background-position: 95% center;
     }
 `;
 

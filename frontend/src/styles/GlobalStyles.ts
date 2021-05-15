@@ -17,7 +17,7 @@ export default createGlobalStyle`
         font-style: normal;
     }
 
-    h1 {
+    h2 {
         font-weight: bold;
         font-size: 16px;
         line-height: 19px;

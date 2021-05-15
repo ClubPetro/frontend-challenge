@@ -8,13 +8,13 @@ interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
 
 const TextInput = ({
     textLabel,
-    value,
     inputSize,
+    ...props
 }: TextInputProps): React.ReactElement => {
     return (
         <TextInputWrapper inputSize={inputSize}>
             <p>{textLabel}</p>
-            <input type="text" value={value} />
+            <input type="text" value={props.value} />
         </TextInputWrapper>
     );
 };

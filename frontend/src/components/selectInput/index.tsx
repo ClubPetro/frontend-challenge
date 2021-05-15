@@ -8,14 +8,13 @@ interface SelectInputProps extends React.HTMLProps<HTMLSelectElement> {
 
 const SelectInput = ({
     options,
-    onChange,
-    value,
     textLabel,
+    ...props
 }: SelectInputProps): React.ReactElement => {
     return (
         <Select>
             <p>{textLabel}</p>
-            <select onChange={onChange} value={value}>
+            <select onChange={props.onChange} value={props.value}>
                 <option value="">Selecione...</option>
                 {options.map(item => (
                     <option value={item}>{item}</option>
