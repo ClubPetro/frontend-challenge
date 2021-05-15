@@ -1,11 +1,13 @@
+import Header from './components/header';
+import Home from './pages/home';
 import GlobalStyles from './styles/GlobalStyles';
 
 const App = (): JSX.Element => {
     return (
         <>
             <GlobalStyles />
-            <h1>App</h1>
-            <p>paragraphy</p>
+            <Header />
+            <Home />
         </>
     );
 };
