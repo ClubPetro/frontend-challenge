@@ -1,8 +1,12 @@
-[
-    {
-        "id": "1",
-        "country": "Brasil",
-        "location": "Balneario Camboriu",
-        "date": "04/2022"
-    }
-]
+{
+    "schedules" : 
+    [
+        {
+            "id": "1",
+            "country": "Brasil",
+            "flag": "https://restcountries.eu/data/bra.svg",
+            "location": "Balneario Camboriu",
+            "date": "04/2022"
+        }
+    ]
+}
