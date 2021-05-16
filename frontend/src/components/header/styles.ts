@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.header`
+const Wrapper = styled.header`
     background-color: #000000;
 
     & > main {
@@ -9,4 +9,4 @@ export const Wrapper = styled.header`
     }
 `;
 
-export const teste = styled.div``;
+export default Wrapper;

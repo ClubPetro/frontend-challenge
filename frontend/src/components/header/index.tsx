@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper } from './styles';
+import Wrapper from './styles';
 
 const Header = (): React.ReactElement => {
     return (

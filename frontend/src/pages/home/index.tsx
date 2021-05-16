@@ -1,12 +1,17 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import Button from '../../components/button';
 import InputMaskComponent from '../../components/inputMask';
 import ScheduleCard from '../../components/scheduleCard';
 import SelectInput from '../../components/selectInput';
 import TextInput from '../../components/textInput';
 import { ScheduleContext } from '../../context/scheduleContext';
-import { getCountriesFromApi, fetchCountryDetails } from './helper';
-import { InputSection, ScheduleSection, Wrapper } from './styles';
+import {
+    getCountriesFromApi,
+    handleFormSubmit,
+    handleSelectInputChange,
+    handleTextInputChange,
+} from './helper';
+import { ErrorMessage, InputSection, ScheduleSection, Wrapper } from './styles';
 
 const Home = (): React.ReactElement => {
     const { scheduleList, setScheduleList } = React.useContext(ScheduleContext);
@@ -17,55 +22,39 @@ const Home = (): React.ReactElement => {
         location: '',
         date: '',
     });
-    const [isThereError, setIsThereError] = React.useState<boolean>(false);
+    const [isThereError, setIsThereError] = React.useState<string>('');
 
     React.useEffect(() => {
         getCountriesFromApi(setCountryList);
     }, []);
 
-    function handleTextInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-        const { id, value } = e.target;
-        setFormData({ ...formData, [id]: value });
-    }
-
-    function handleSelectInputChange(e: React.ChangeEvent<HTMLSelectElement>) {
-        const country = e.target.value;
-        setFormData({ ...formData, country });
-    }
-
-    function handleFormSubmit(e: FormEvent) {
-        e.preventDefault();
-        fetchCountryDetails(formData.country).then(res => {
-            if (typeof res === 'string') {
-                setIsThereError(true);
-            } else {
-                const newScheduleObject = {
-                    id: Math.random().toString().replace('0.', ''),
-                    flag: res[0].flag,
-                    country: formData.country,
-                    date: formData.date,
-                    location: formData.location,
-                };
-                setScheduleList([...scheduleList, newScheduleObject]);
-            }
-        });
-
-        setFormData({
-            country: '',
-            location: '',
-            date: '',
-        });
-    }
-
     return (
         <Wrapper>
             <InputSection>
-                <form onSubmit={handleFormSubmit}>
+                <form
+                    onSubmit={event =>
+                        handleFormSubmit(
+                            event,
+                            setIsThereError,
+                            formData,
+                            setFormData,
+                            scheduleList,
+                            setScheduleList,
+                        )
+                    }
+                >
                     <SelectInput
                         options={countryList}
                         textLabel="País"
                         value={formData.country}
-                        onChange={handleSelectInputChange}
+                        id="country"
+                        onChange={event =>
+                            handleSelectInputChange(
+                                event,
+                                formData,
+                                setFormData,
+                            )
+                        }
                     />
                     <TextInput
                         inputSize="large"
@@ -73,10 +62,14 @@ const Home = (): React.ReactElement => {
                         id="location"
                         placeholder="Digite o local que deseja conhecer"
                         value={formData.location}
-                        onChange={handleTextInputChange}
+                        onChange={event =>
+                            handleTextInputChange(event, formData, setFormData)
+                        }
                     />
                     <InputMaskComponent
-                        onChange={handleTextInputChange}
+                        onChange={event =>
+                            handleTextInputChange(event, formData, setFormData)
+                        }
                         value={formData.date}
                         id="date"
                         placeholder="mês/ano"
@@ -85,6 +78,9 @@ const Home = (): React.ReactElement => {
                 </form>
             </InputSection>
             <ScheduleSection>
+                {isThereError ? (
+                    <ErrorMessage>{isThereError}</ErrorMessage>
+                ) : null}
                 {scheduleList.length > 0 ? (
                     scheduleList.map(item => (
                         <ScheduleCard

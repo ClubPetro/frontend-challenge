@@ -23,7 +23,6 @@ const ScheduleWrapper = styled.div`
     & > h2 {
         grid-column-start: 1;
         grid-column-end: 3;
-        padding-left: 4px;
     }
 
     & > .editIcon {

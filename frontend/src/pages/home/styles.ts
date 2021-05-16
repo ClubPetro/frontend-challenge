@@ -64,3 +64,7 @@ export const ScheduleSection = styled.section`
         width: 840px;
     }
 `;
+
+export const ErrorMessage = styled.p`
+    color: red;
+`;

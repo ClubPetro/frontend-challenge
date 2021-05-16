@@ -14,7 +14,7 @@ const SelectInput = ({
     return (
         <Select>
             <p>{textLabel}</p>
-            <select onChange={props.onChange} value={props.value}>
+            <select onChange={props.onChange} value={props.value} id={props.id}>
                 <option value="">Selecione...</option>
                 {options.map(item => (
                     <option value={item} key={item}>
