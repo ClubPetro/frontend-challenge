@@ -1,12 +1,14 @@
 interface IconProps {
     className: string;
+    onClick: () => void;
 }
 
-const DeleteIcon = ({ className }: IconProps): React.ReactElement => {
+const DeleteIcon = ({ className, onClick }: IconProps): React.ReactElement => {
     return (
         <svg
             style={{ cursor: 'pointer' }}
             className={className}
+            onClick={onClick}
             width="24"
             height="24"
             viewBox="0 0 24 24"

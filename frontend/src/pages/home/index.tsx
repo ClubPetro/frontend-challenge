@@ -89,6 +89,7 @@ const Home = (): React.ReactElement => {
                             imgUri={item.flag}
                             key={item.id}
                             location={item.location}
+                            id={item.id}
                         />
                     ))
                 ) : (
