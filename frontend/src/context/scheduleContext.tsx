@@ -12,7 +12,7 @@ export const ScheduleProvider = ({
 
     async function getDataFromDataBaseApi() {
         try {
-            const response = await dataBaseApi.get('/schedule-list');
+            const response = await dataBaseApi.get('/schedules');
             if (response.status >= 204) {
                 throw new Error(`Error status: ${response.status}`);
             } else {
