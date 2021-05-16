@@ -56,17 +56,11 @@ const Home = (): React.ReactElement => {
                         value={formData.location}
                         onChange={handleTextInputChange}
                     />
-                    {/* <TextInput
-                        inputSize="medium"
-                        textLabel="Meta"
-                        id="date"
-                        value={formData.date}
-                        onChange={handleTextInputChange}
-                    /> */}
                     <InputMaskComponent
                         onChange={handleTextInputChange}
                         value={formData.date}
                         id="date"
+                        placeholder="mês/ano"
                     />
                     <Button type="submit">Adicionar</Button>
                 </form>

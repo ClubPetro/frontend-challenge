@@ -6,12 +6,14 @@ interface InputMaskProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value: string;
     id: string;
+    placeholder: string;
 }
 
 const InputMaskComponent = ({
     onChange,
     value,
     id,
+    placeholder,
 }: InputMaskProps): React.ReactElement => {
     return (
         <Wrapper>
@@ -21,6 +23,7 @@ const InputMaskComponent = ({
                 onChange={onChange}
                 value={value}
                 id={id}
+                placeholder={placeholder}
             />
         </Wrapper>
     );
