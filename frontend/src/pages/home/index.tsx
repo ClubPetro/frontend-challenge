@@ -1,5 +1,6 @@
 import React, { FormEvent } from 'react';
 import Button from '../../components/button';
+import InputMaskComponent from '../../components/inputMask';
 import ScheduleCard from '../../components/scheduleCard';
 import SelectInput from '../../components/selectInput';
 import TextInput from '../../components/textInput';
@@ -51,15 +52,21 @@ const Home = (): React.ReactElement => {
                         inputSize="large"
                         textLabel="Local"
                         id="location"
+                        placeholder="Digite o local que deseja conhecer"
                         value={formData.location}
                         onChange={handleTextInputChange}
                     />
-                    <TextInput
+                    {/* <TextInput
                         inputSize="medium"
                         textLabel="Meta"
                         id="date"
                         value={formData.date}
                         onChange={handleTextInputChange}
+                    /> */}
+                    <InputMaskComponent
+                        onChange={handleTextInputChange}
+                        value={formData.date}
+                        id="date"
                     />
                     <Button type="submit">Adicionar</Button>
                 </form>

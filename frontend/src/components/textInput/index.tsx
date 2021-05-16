@@ -19,6 +19,7 @@ const TextInput = ({
                 id={props.id}
                 value={props.value}
                 onChange={props.onChange}
+                placeholder={props.placeholder}
             />
         </TextInputWrapper>
     );
