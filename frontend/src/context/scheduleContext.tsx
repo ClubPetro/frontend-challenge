@@ -19,7 +19,8 @@ export const ScheduleProvider = ({
                 setScheduleList(response.data);
             }
         } catch (err) {
-            console.log('error', err);
+            // eslint-disable-next-line no-console
+            console.log(err);
         }
     }
 

@@ -1,4 +1,3 @@
-// import { ChangeEvent, FormEventHandler } from 'react';
 import React from 'react';
 import countryApi from '../../services/countryApi';
 
@@ -18,6 +17,18 @@ export async function getCountriesFromApi(
     setCountryList(parseApiDataToStringArray(data));
 }
 
-// export async function getCountryDetails() {
-//     const {} = await api.get();
-// }
+export async function fetchCountryDetails(
+    countryName: string,
+): Promise<CountryApiData[] | string> {
+    try {
+        const { data } = await countryApi.get<CountryApiData[]>(
+            '/all?fields=translations;flag',
+        );
+        const filteredArray = data.filter(
+            item => item.translations.br === countryName,
+        );
+        return filteredArray;
+    } catch (err) {
+        return 'Algo deu errado! Tente novamente';
+    }
+}

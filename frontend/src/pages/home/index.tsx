@@ -5,7 +5,7 @@ import ScheduleCard from '../../components/scheduleCard';
 import SelectInput from '../../components/selectInput';
 import TextInput from '../../components/textInput';
 import { ScheduleContext } from '../../context/scheduleContext';
-import { getCountriesFromApi } from './helper';
+import { getCountriesFromApi, fetchCountryDetails } from './helper';
 import { InputSection, ScheduleSection, Wrapper } from './styles';
 
 const Home = (): React.ReactElement => {
@@ -17,6 +17,7 @@ const Home = (): React.ReactElement => {
         location: '',
         date: '',
     });
+    const [isThereError, setIsThereError] = React.useState<boolean>(false);
 
     React.useEffect(() => {
         getCountriesFromApi(setCountryList);
@@ -34,8 +35,26 @@ const Home = (): React.ReactElement => {
 
     function handleFormSubmit(e: FormEvent) {
         e.preventDefault();
+        fetchCountryDetails(formData.country).then(res => {
+            if (typeof res === 'string') {
+                setIsThereError(true);
+            } else {
+                const newScheduleObject = {
+                    id: Math.random().toString().replace('0.', ''),
+                    flag: res[0].flag,
+                    country: formData.country,
+                    date: formData.date,
+                    location: formData.location,
+                };
+                setScheduleList([...scheduleList, newScheduleObject]);
+            }
+        });
 
-        console.log(formData);
+        setFormData({
+            country: '',
+            location: '',
+            date: '',
+        });
     }
 
     return (
