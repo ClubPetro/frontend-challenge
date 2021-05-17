@@ -5,7 +5,7 @@ import InputMaskComponent from '../../../components/inputMask';
 import SelectInput from '../../../components/selectInput';
 import TextInput from '../../../components/textInput';
 import { CountryContext } from '../../../context/countryContext';
-import { ScheduleContext } from '../../../context/scheduleContext';
+import { useScheduleContext } from '../../../context/scheduleContext';
 import { parseApiDataToStringArray } from '../helper';
 import {
     filterCurrentSchedule,
@@ -18,7 +18,7 @@ import Wrapper from './styles';
 type IProps = RouteComponentProps<{ id: string }>;
 
 const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
-    const { scheduleList, setScheduleList } = React.useContext(ScheduleContext);
+    const { scheduleList, setScheduleList } = useScheduleContext();
     const { countryList } = React.useContext(CountryContext);
 
     const countryNameList = parseApiDataToStringArray(countryList);
@@ -61,7 +61,12 @@ const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
                     border
                     inputSize="large"
                     onChange={event =>
-                        handleSelectChange(event, schedule, setSchedule)
+                        handleSelectChange(
+                            event,
+                            schedule,
+                            setSchedule,
+                            countryList,
+                        )
                     }
                 />
                 <h3>Local</h3>

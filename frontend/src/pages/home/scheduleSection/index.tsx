@@ -1,10 +1,10 @@
 import React from 'react';
 import ScheduleCard from '../../../components/scheduleCard';
-import { ScheduleContext } from '../../../context/scheduleContext';
+import { useScheduleContext } from '../../../context/scheduleContext';
 import ScheduleSection from './styles';
 
 const SchedulesSection = (): React.ReactElement => {
-    const { scheduleList } = React.useContext(ScheduleContext);
+    const { scheduleList } = useScheduleContext();
 
     return (
         <ScheduleSection>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ScheduleContext } from '../../context/scheduleContext';
+import { useScheduleContext } from '../../context/scheduleContext';
 import DeleteIcon from './components/deleteIcon';
 import EditIcon from './components/editIcon';
 import ScheduleWrapper from './styles';
@@ -20,7 +20,7 @@ const ScheduleCard = ({
     imgUri,
     location,
 }: ScheduleCardProps): React.ReactElement => {
-    const { setScheduleList, scheduleList } = React.useContext(ScheduleContext);
+    const { setScheduleList, scheduleList } = useScheduleContext();
 
     function handleDeleteClick() {
         const filteredArray = scheduleList.filter(item => item.id !== id);

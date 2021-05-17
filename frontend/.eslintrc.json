@@ -28,22 +28,23 @@
         "prettier/prettier": "error",
 	    "react-hooks/exhaustive-deps": "warn",
 	    "react/jsx-filename-extension": [
-	      1,
-	      {
-	        "extensions": [
-	          ".tsx"
-	        ]
-	      }
+            1,
+            {
+                "extensions": [
+                    ".tsx"
+                ]
+            }
 	    ],
 	    "import/extensions": [
-	      "error",
-	      "ignorePackages",
-	      {
-	        "ts": "never",
-	        "tsx": "never"
-	      }
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never",
+                "tsx": "never"
+            }
 	    ],
 	    "no-use-before-define": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
 	    "@typescript-eslint/no-use-before-define": [
 	      "error"
 	    ],

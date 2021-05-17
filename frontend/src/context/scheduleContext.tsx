@@ -1,9 +1,8 @@
 import React from 'react';
 import dataBaseApi from '../services/dataBaseApi';
 
-export const ScheduleContext = React.createContext<ScheduleContext>(
-    {} as ScheduleContext,
-);
+export const ScheduleContext =
+    React.createContext<ScheduleContext | null>(null);
 
 export const ScheduleProvider = ({
     children,
@@ -33,4 +32,14 @@ export const ScheduleProvider = ({
             {children}
         </ScheduleContext.Provider>
     );
+};
+
+export const useScheduleContext = (): ScheduleContext => {
+    const context = React.useContext(ScheduleContext);
+    if (!context) {
+        throw new Error(
+            'Deve-se usar um contexto dentro de um ScheduleProvider',
+        );
+    }
+    return context;
 };

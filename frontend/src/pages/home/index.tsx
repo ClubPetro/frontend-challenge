@@ -5,7 +5,7 @@ import InputMaskComponent from '../../components/inputMask';
 import SelectInput from '../../components/selectInput';
 import TextInput from '../../components/textInput';
 import { CountryContext } from '../../context/countryContext';
-import { ScheduleContext } from '../../context/scheduleContext';
+import { useScheduleContext } from '../../context/scheduleContext';
 import {
     handleFormSubmit,
     handleSelectInputChange,
@@ -15,7 +15,7 @@ import {
 import { InputSection, Wrapper, ErrorMessage } from './styles';
 
 const Home = (): React.ReactElement => {
-    const { scheduleList, setScheduleList } = React.useContext(ScheduleContext);
+    const { scheduleList, setScheduleList } = useScheduleContext();
     const { countryList } = React.useContext(CountryContext);
 
     const countryNameList = parseApiDataToStringArray(countryList);

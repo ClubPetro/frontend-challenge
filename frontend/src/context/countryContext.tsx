@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 import countryApi from '../services/countryApi';
 
-export const CountryContext = createContext({} as CountryContext);
+export const CountryContext = createContext<CountryContext>({
+    countryList: [],
+});
 
 export const CountryProvider = ({
     children,
@@ -21,7 +23,7 @@ export const CountryProvider = ({
     }, []);
 
     return (
-        <CountryContext.Provider value={{ countryList, setCountryList }}>
+        <CountryContext.Provider value={{ countryList }}>
             {children}
         </CountryContext.Provider>
     );

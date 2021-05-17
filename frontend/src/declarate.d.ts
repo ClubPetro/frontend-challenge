@@ -31,7 +31,6 @@ interface DataBaseApiData {
 
 interface CountryContext {
     countryList: CountryApiData[];
-    setCountryList: React.Dispatch<React.SetStateAction<CountryApiData[]>>;
 }
 
 interface CountryProviderProps {

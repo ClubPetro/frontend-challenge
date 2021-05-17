@@ -1,5 +1,4 @@
 import React from 'react';
-import { fetchCountryDetails } from '../helper';
 
 export const filterCurrentSchedule = (
     scheduleList: Schedule[],
@@ -19,35 +18,18 @@ export const handleInputChange = (
     setSchedule({ ...schedule, [id]: value });
 };
 
-// export const handleSelectChange = (
-//     event: React.FormEvent<HTMLSelectElement>,
-//     schedule: Schedule,
-//     setSchedule: React.Dispatch<React.SetStateAction<Schedule>>,
-//     countryList: CountryApiData[],
-// ): void => {
-//     const { value } = event.currentTarget;
-//     setSchedule({
-//         ...schedule,
-//         country: value,
-//         flag: countryList.filter(
-//             item => item.translations.br === schedule.country,
-//         )[0].flag,
-//     });
-// };
 export const handleSelectChange = (
     event: React.FormEvent<HTMLSelectElement>,
     schedule: Schedule,
     setSchedule: React.Dispatch<React.SetStateAction<Schedule>>,
+    countryList: CountryApiData[],
 ): void => {
     const { value } = event.currentTarget;
-    fetchCountryDetails(value).then(res => {
-        if (typeof res !== 'string') {
-            setSchedule({
-                ...schedule,
-                country: value,
-                flag: res[0].flag,
-            });
-        }
+    setSchedule({
+        ...schedule,
+        country: value,
+        flag: countryList.filter(item => item.translations.br === value)[0]
+            .flag,
     });
 };
 
