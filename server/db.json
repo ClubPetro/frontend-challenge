@@ -1,12 +1,61 @@
 {
-    "schedules" : 
-    [
-        {
-            "id": "1",
-            "country": "Brasil",
-            "flag": "https://restcountries.eu/data/bra.svg",
-            "location": "Balneario Camboriu",
-            "date": "04/2022"
-        }
-    ]
+  "schedules": [
+    {
+      "country": "Austrália",
+      "location": "Surfar!",
+      "date": "05/2023",
+      "flag": "https://restcountries.eu/data/aus.svg",
+      "translations": {
+        "br": "Austrália",
+        "pt": "Austrália",
+        "nl": "Australië",
+        "hr": "Australija",
+        "fa": "استرالیا",
+        "de": "Australien",
+        "es": "Australia",
+        "fr": "Australie",
+        "ja": "オーストラリア",
+        "it": "Australia"
+      },
+      "id": "2057378717617171"
+    },
+    {
+      "country": "Argentina",
+      "date": "01/2023",
+      "location": "Buenos Aires",
+      "flag": "https://restcountries.eu/data/arg.svg",
+      "translations": {
+        "br": "Ilhas Faroé",
+        "pt": "Ilhas Faroé",
+        "nl": "Faeröer",
+        "hr": "Farski Otoci",
+        "fa": "جزایر فارو",
+        "de": "Färöer-Inseln",
+        "es": "Islas Faroe",
+        "fr": "Îles Féroé",
+        "ja": "フェロー諸島",
+        "it": "Isole Far Oer"
+      },
+      "id": "19924271720560682"
+    },
+    {
+      "country": "Brasil",
+      "location": "Salvador/BA",
+      "date": "05/2021",
+      "flag": "https://restcountries.eu/data/bra.svg",
+      "translations": {
+        "br": "Brasil",
+        "pt": "Brasil",
+        "nl": "Brazilië",
+        "hr": "Brazil",
+        "fa": "برزیل",
+        "de": "Brasilien",
+        "es": "Brasil",
+        "fr": "Brésil",
+        "ja": "ブラジル",
+        "it": "Brasile"
+      },
+      "id": "7286016458935822"
+    }
+  ]
 }
