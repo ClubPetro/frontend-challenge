@@ -8,7 +8,6 @@ import { CountryContext } from '../../../context/countryContext';
 import { useScheduleContext } from '../../../context/scheduleContext';
 import { parseApiDataToStringArray } from '../helper';
 import {
-    filterCurrentSchedule,
     handleFormSubmit,
     handleInputChange,
     handleSelectChange,
@@ -18,7 +17,7 @@ import Wrapper from './styles';
 type IProps = RouteComponentProps<{ id: string }>;
 
 const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
-    const { scheduleList, setScheduleList } = useScheduleContext();
+    const { editSchedule, getSingleSchedule } = useScheduleContext();
     const { countryList } = React.useContext(CountryContext);
 
     const countryNameList = parseApiDataToStringArray(countryList);
@@ -35,8 +34,8 @@ const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
     });
 
     React.useEffect(() => {
-        filterCurrentSchedule(scheduleList, setSchedule, scheduleId);
-    }, [scheduleId, scheduleList]);
+        getSingleSchedule(scheduleId, setSchedule);
+    }, [getSingleSchedule, scheduleId]);
 
     return (
         <Wrapper>
@@ -44,12 +43,7 @@ const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
             <img src={schedule.flag} alt={schedule.country} />
             <form
                 onSubmit={event => {
-                    handleFormSubmit(
-                        event,
-                        scheduleList,
-                        setScheduleList,
-                        schedule,
-                    );
+                    handleFormSubmit(event, editSchedule, schedule);
                     history.push('/');
                 }}
             >

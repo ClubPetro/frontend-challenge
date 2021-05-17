@@ -35,12 +35,9 @@ export const handleSelectChange = (
 
 export const handleFormSubmit = (
     event: React.FormEvent,
-    scheduleList: Schedule[],
-    setScheduleList: React.Dispatch<React.SetStateAction<Schedule[]>>,
+    editSchedule: (schedule: Schedule) => Promise<void>,
     schedule: Schedule,
 ): void => {
     event.preventDefault();
-    const newArr = scheduleList.filter(item => item.id !== schedule.id);
-    newArr.push(schedule);
-    setScheduleList(newArr);
+    editSchedule(schedule);
 };

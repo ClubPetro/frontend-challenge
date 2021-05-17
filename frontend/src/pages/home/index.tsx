@@ -15,7 +15,7 @@ import {
 import { InputSection, Wrapper, ErrorMessage } from './styles';
 
 const Home = (): React.ReactElement => {
-    const { scheduleList, setScheduleList } = useScheduleContext();
+    const { createSchedule } = useScheduleContext();
     const { countryList } = React.useContext(CountryContext);
 
     const countryNameList = parseApiDataToStringArray(countryList);
@@ -34,11 +34,10 @@ const Home = (): React.ReactElement => {
                     onSubmit={event =>
                         handleFormSubmit(
                             event,
-                            setIsThereError,
                             formData,
                             setFormData,
-                            scheduleList,
-                            setScheduleList,
+                            countryList,
+                            createSchedule,
                         )
                     }
                 >

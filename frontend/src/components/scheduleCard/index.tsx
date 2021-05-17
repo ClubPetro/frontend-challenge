@@ -20,12 +20,7 @@ const ScheduleCard = ({
     imgUri,
     location,
 }: ScheduleCardProps): React.ReactElement => {
-    const { setScheduleList, scheduleList } = useScheduleContext();
-
-    function handleDeleteClick() {
-        const filteredArray = scheduleList.filter(item => item.id !== id);
-        setScheduleList(filteredArray);
-    }
+    const { deleteSchedule } = useScheduleContext();
 
     return (
         <ScheduleWrapper>
@@ -34,7 +29,10 @@ const ScheduleCard = ({
             <Link to={`/schedule-detail/${id}`} className="editIcon">
                 <EditIcon />
             </Link>
-            <DeleteIcon className="deleteIcon" onClick={handleDeleteClick} />
+            <DeleteIcon
+                className="deleteIcon"
+                onClick={() => deleteSchedule(id)}
+            />
             <hr />
             <p className="location">Local: {location} </p>
             <p className="date">Meta: {date}</p>
