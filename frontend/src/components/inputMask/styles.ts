@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import Colors from '../../styles/colors';
 
-const Wrapper = styled.div`
+interface WrapperProps {
+    border: boolean | undefined;
+    inputSize: 'medium' | 'large';
+}
+
+const Wrapper = styled.div<WrapperProps>`
     & > p {
         color: #ffffff;
         margin-bottom: 3px;
@@ -9,11 +14,11 @@ const Wrapper = styled.div`
     }
 
     & > input {
-        width: 238px;
+        width: ${props => (props.inputSize === 'large' ? '445px' : '238px')};
         height: 48px;
         background: #ffffff;
         border-radius: 7px;
-        border: 0;
+        border: ${props => (props.border ? '1px solid black' : '0')};
         padding: 18px;
 
         font-family: Roboto;

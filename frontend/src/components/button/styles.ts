@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import Colors from '../../styles/colors';
 
-const ButtonWrapper = styled.button`
+const ButtonWrapper = styled.button<{ theme: 'primary' | 'secondary' }>`
     width: 203px;
     height: 49px;
-    background: ${Colors.primaryColor};
+    background: ${props =>
+        props.theme === 'primary' ? Colors.primaryColor : '#FFFFFF'};
     border-radius: 7px;
-    border: 0;
+    border: ${props => (props.theme === 'primary' ? '0' : `2px solid black`)};
     cursor: pointer;
 
     font-family: Roboto;
@@ -15,10 +16,12 @@ const ButtonWrapper = styled.button`
     font-size: 18px;
     line-height: 21px;
 
-    color: #ffffff;
+    color: ${props => (props.theme === 'primary' ? '#FFFFFF' : '#000')};
 
     &:hover {
-        background-color: ${Colors.primaryColorOnHover};
+        background-color: ${props =>
+            props.theme === 'primary' ? Colors.primaryColorOnHover : '#000'};
+        color: #ffffff;
     }
 `;
 

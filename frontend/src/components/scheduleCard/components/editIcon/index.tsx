@@ -1,12 +1,7 @@
-interface IconProps {
-    className: string;
-}
-
-const EditIcon = ({ className }: IconProps): React.ReactElement => {
+const EditIcon = (): React.ReactElement => {
     return (
         <svg
             style={{ cursor: 'pointer' }}
-            className={className}
             width="18"
             height="19"
             viewBox="0 0 18 19"

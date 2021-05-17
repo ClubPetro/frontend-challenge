@@ -1,7 +1,7 @@
 import React from 'react';
+import { FiAlertTriangle } from 'react-icons/fi';
 import Button from '../../components/button';
 import InputMaskComponent from '../../components/inputMask';
-import ScheduleCard from '../../components/scheduleCard';
 import SelectInput from '../../components/selectInput';
 import TextInput from '../../components/textInput';
 import { ScheduleContext } from '../../context/scheduleContext';
@@ -11,7 +11,7 @@ import {
     handleSelectInputChange,
     handleTextInputChange,
 } from './helper';
-import { ErrorMessage, InputSection, ScheduleSection, Wrapper } from './styles';
+import { InputSection, Wrapper, ErrorMessage } from './styles';
 
 const Home = (): React.ReactElement => {
     const { scheduleList, setScheduleList } = React.useContext(ScheduleContext);
@@ -44,6 +44,7 @@ const Home = (): React.ReactElement => {
                     }
                 >
                     <SelectInput
+                        inputSize="medium"
                         options={countryList}
                         textLabel="País"
                         value={formData.country}
@@ -67,6 +68,8 @@ const Home = (): React.ReactElement => {
                         }
                     />
                     <InputMaskComponent
+                        inputSize="medium"
+                        textLabel="Meta"
                         onChange={event =>
                             handleTextInputChange(event, formData, setFormData)
                         }
@@ -74,31 +77,16 @@ const Home = (): React.ReactElement => {
                         id="date"
                         placeholder="mês/ano"
                     />
-                    <Button type="submit">Adicionar</Button>
+                    <Button theme="primary" type="submit">
+                        Adicionar
+                    </Button>
                 </form>
-            </InputSection>
-            <ScheduleSection>
                 {isThereError ? (
-                    <ErrorMessage>{isThereError}</ErrorMessage>
+                    <ErrorMessage>
+                        <FiAlertTriangle /> {isThereError}
+                    </ErrorMessage>
                 ) : null}
-                {scheduleList.length > 0 ? (
-                    scheduleList.map(item => (
-                        <ScheduleCard
-                            country={item.country}
-                            date={item.date}
-                            imgUri={item.flag}
-                            key={item.id}
-                            location={item.location}
-                            id={item.id}
-                        />
-                    ))
-                ) : (
-                    <h1>
-                        Você não tem nenhuma meta para conhecer novos lugares!{' '}
-                        <br /> Que tal criar uma nova?
-                    </h1>
-                )}
-            </ScheduleSection>
+            </InputSection>
         </Wrapper>
     );
 };

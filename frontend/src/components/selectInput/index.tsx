@@ -4,15 +4,19 @@ import Select from './styles';
 interface SelectInputProps extends React.HTMLProps<HTMLSelectElement> {
     options: string[];
     textLabel?: string;
+    border?: boolean;
+    inputSize: 'medium' | 'large';
 }
 
 const SelectInput = ({
     options,
     textLabel,
+    border,
+    inputSize,
     ...props
 }: SelectInputProps): React.ReactElement => {
     return (
-        <Select>
+        <Select border={border} inputSize={inputSize}>
             <p>{textLabel}</p>
             <select onChange={props.onChange} value={props.value} id={props.id}>
                 <option value="">Selecione...</option>
@@ -28,6 +32,7 @@ const SelectInput = ({
 
 SelectInput.defaultProps = {
     textLabel: null,
+    border: false,
 };
 
 export default SelectInput;

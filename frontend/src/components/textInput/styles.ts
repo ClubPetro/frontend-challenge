@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import Colors from '../../styles/colors';
 
-const TextInputWrapper = styled.div<{ inputSize: string }>`
+interface InputWrapperProps {
+    inputSize: string;
+    border: boolean | undefined;
+}
+
+const TextInputWrapper = styled.div<InputWrapperProps>`
     & > p {
         color: #ffffff;
         margin-bottom: 3px;
@@ -13,7 +18,7 @@ const TextInputWrapper = styled.div<{ inputSize: string }>`
         height: 48px;
         background: #ffffff;
         border-radius: 7px;
-        border: 0;
+        border: ${props => (props.border ? '1px solid black' : '0')};
         padding: 18px;
 
         font-family: Roboto;

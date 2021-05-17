@@ -29,42 +29,21 @@ export const InputSection = styled.section`
     }
 `;
 
-export const ScheduleSection = styled.section`
-    max-width: 1440px;
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-
-    & > h1 {
-        margin-top: 48px;
-        width: 700px;
-        text-align: center;
-        line-height: 60px;
-    }
-
-    & > div {
-        margin-right: 30px;
-        margin-top: 33px;
-    }
-
-    @media (max-width: 540px) {
-        flex-direction: column;
-        align-items: center;
-
-        & > div {
-            margin-right: 0px;
-        }
-    }
-
-    @media (min-width: 540px) and (max-width: 768px) {
-        width: 560px;
-    }
-
-    @media (min-width: 768px) and (max-width: 1025px) {
-        width: 840px;
-    }
-`;
-
 export const ErrorMessage = styled.p`
-    color: red;
+    background-color: #f5edeb;
+    border-style: solid;
+    border-color: #e44131;
+    border-width: 1px 1px 1px 7px;
+    border-radius: 3px;
+    height: 50px;
+    width: fit-content;
+    color: #ed4433;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+
+    & > svg {
+        margin-right: 5px;
+    }
 `;

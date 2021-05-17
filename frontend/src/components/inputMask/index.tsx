@@ -7,17 +7,23 @@ interface InputMaskProps {
     value: string;
     id: string;
     placeholder: string;
+    border?: boolean;
+    textLabel?: string;
+    inputSize: 'medium' | 'large';
 }
 
 const InputMaskComponent = ({
     onChange,
     value,
     id,
+    border,
+    inputSize,
+    textLabel,
     placeholder,
 }: InputMaskProps): React.ReactElement => {
     return (
-        <Wrapper>
-            <p>Meta</p>
+        <Wrapper border={border} inputSize={inputSize}>
+            {textLabel ? <p>{textLabel}</p> : null}
             <InputMask
                 mask="99/9999"
                 onChange={onChange}
@@ -27,6 +33,11 @@ const InputMaskComponent = ({
             />
         </Wrapper>
     );
+};
+
+InputMaskComponent.defaultProps = {
+    border: false,
+    textLabel: '',
 };
 
 export default InputMaskComponent;

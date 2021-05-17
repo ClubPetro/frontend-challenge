@@ -1,18 +1,23 @@
 import styled from 'styled-components';
 import Colors from '../../styles/colors';
 
-const Select = styled.div`
+interface SelectProps {
+    border: boolean | undefined;
+    inputSize: 'medium' | 'large';
+}
+
+const Select = styled.div<SelectProps>`
     & > p {
         color: #ffffff;
         margin-bottom: 3px;
         padding-left: 2px;
     }
     & > select {
-        width: 303px;
+        width: ${props => (props.inputSize === 'large' ? '445px' : '303px')};
         height: 48px;
         background: #ffffff;
         border-radius: 7px;
-        border: 0;
+        border: ${props => (props.border ? '1px solid black' : '0')};
         padding: 15px;
 
         font-family: Roboto;

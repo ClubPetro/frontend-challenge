@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ScheduleContext } from '../../context/scheduleContext';
 import DeleteIcon from './components/deleteIcon';
 import EditIcon from './components/editIcon';
@@ -30,7 +31,9 @@ const ScheduleCard = ({
         <ScheduleWrapper>
             <img src={imgUri} alt={country} />
             <h2>{country}</h2>
-            <EditIcon className="editIcon" />
+            <Link to="/schedule-detail" className="editIcon">
+                <EditIcon />
+            </Link>
             <DeleteIcon className="deleteIcon" onClick={handleDeleteClick} />
             <hr />
             <p className="location">Local: {location} </p>
