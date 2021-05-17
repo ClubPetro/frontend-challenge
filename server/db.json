@@ -1,10 +1,10 @@
 {
   "schedules": [
     {
-      "country": "Austrália",
-      "location": "Surfar!",
+      "country": "Brasil",
+      "location": "Conhecer Ouro Preto",
       "date": "05/2023",
-      "flag": "https://restcountries.eu/data/aus.svg",
+      "flag": "https://restcountries.eu/data/bra.svg",
       "translations": {
         "br": "Austrália",
         "pt": "Austrália",
@@ -39,23 +39,42 @@
       "id": "19924271720560682"
     },
     {
-      "country": "Brasil",
-      "location": "Salvador/BA",
-      "date": "05/2021",
-      "flag": "https://restcountries.eu/data/bra.svg",
+      "country": "Egito",
+      "location": "Conhecer as pirâmides",
+      "date": "01/2034",
+      "flag": "https://restcountries.eu/data/egy.svg",
       "translations": {
-        "br": "Brasil",
-        "pt": "Brasil",
-        "nl": "Brazilië",
-        "hr": "Brazil",
-        "fa": "برزیل",
-        "de": "Brasilien",
-        "es": "Brasil",
-        "fr": "Brésil",
-        "ja": "ブラジル",
-        "it": "Brasile"
+        "br": "Egito",
+        "pt": "Egipto",
+        "nl": "Egypte",
+        "hr": "Egipat",
+        "fa": "مصر",
+        "de": "Ägypten",
+        "es": "Egipto",
+        "fr": "Égypte",
+        "ja": "エジプト",
+        "it": "Egitto"
       },
-      "id": "7286016458935822"
+      "id": "9208946390153583"
+    },
+    {
+      "country": "Itália",
+      "date": "01/2025",
+      "location": "Tour gastronômico",
+      "flag": "https://restcountries.eu/data/ita.svg",
+      "translations": {
+        "br": "Itália",
+        "pt": "Itália",
+        "nl": "Italië",
+        "hr": "Italija",
+        "fa": "ایتالیا",
+        "de": "Italien",
+        "es": "Italia",
+        "fr": "Italie",
+        "ja": "イタリア",
+        "it": "Italia"
+      },
+      "id": "9475451808225779"
     }
   ]
 }
