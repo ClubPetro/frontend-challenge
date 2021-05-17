@@ -10,85 +10,41 @@ export const ScheduleProvider = ({
     const [scheduleList, setScheduleList] = React.useState<Schedule[]>([]);
 
     async function getSchedules() {
-        try {
-            const response = await dataBaseApi.get('/schedules');
-            if (response.status >= 204) {
-                throw new Error(`Error status: ${response.status}`);
-            } else {
-                setScheduleList(response.data);
-            }
-        } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log(err);
-        }
+        await dataBaseApi
+            .get<Schedule[]>('/schedules')
+            .then(response => setScheduleList(response.data))
+            .catch(error => console.log(error));
     }
 
     async function deleteSchedule(scheduleId: string) {
-        try {
-            const response = await dataBaseApi.delete(
-                `/schedules/${scheduleId}`,
-            );
-
-            if (response.status > 204) {
-                throw new Error(`Error status: ${response.status}`);
-            } else {
-                getSchedules();
-            }
-        } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log(err);
-        }
+        await dataBaseApi
+            .delete(`/schedules/${scheduleId}`)
+            .then(() => getSchedules())
+            .catch(error => console.log(error));
     }
 
     async function createSchedule(schedule: Schedule) {
-        try {
-            const response = await dataBaseApi.post('/schedules', schedule);
-
-            if (response.status > 204) {
-                throw new Error(`Error status: ${response.status}`);
-            } else {
-                getSchedules();
-            }
-        } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log(err);
-        }
+        await dataBaseApi
+            .post('/schedules', schedule)
+            .then(() => getSchedules())
+            .catch(error => console.log(error));
     }
 
     async function editSchedule(schedule: Schedule) {
-        try {
-            const response = await dataBaseApi.put(
-                `/schedules/${schedule.id}`,
-                schedule,
-            );
-
-            if (response.status > 204) {
-                throw new Error(`Error Status: ${response.status}`);
-            } else {
-                getSchedules();
-            }
-        } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log(err);
-        }
+        await dataBaseApi
+            .put(`/schedules/${schedule.id}`, schedule)
+            .then(() => getSchedules())
+            .catch(error => console.log(error));
     }
 
     async function getSingleSchedule(
         scheduleId: string,
         setSchedule: React.Dispatch<React.SetStateAction<Schedule>>,
     ) {
-        try {
-            const response = await dataBaseApi.get(`/schedules/${scheduleId}`);
-            if (response.status > 204) {
-                throw new Error(`Error status: ${response.status}`);
-            } else {
-                setSchedule(response.data);
-                getSchedules();
-            }
-        } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log(err);
-        }
+        await dataBaseApi
+            .get(`/schedules/${scheduleId}`)
+            .then(response => setSchedule(response.data))
+            .catch(error => console.log(error));
     }
 
     React.useEffect(() => {
