@@ -8,10 +8,7 @@ const Router = (): React.ReactElement => {
         <BrowserRouter>
             <Switch>
                 <Route path="/" component={SchedulesSection} exact />
-                <Route
-                    path="/schedule-detail/{id}"
-                    component={ScheduleDetail}
-                />
+                <Route path="/schedule-detail/:id" component={ScheduleDetail} />
             </Switch>
         </BrowserRouter>
     );

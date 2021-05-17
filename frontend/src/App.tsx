@@ -3,14 +3,17 @@ import { ScheduleProvider } from './context/scheduleContext';
 import Home from './pages/home';
 import GlobalStyles from './styles/GlobalStyles';
 import Router from './router/index';
+import { CountryProvider } from './context/countryContext';
 
 const App = (): JSX.Element => {
     return (
         <ScheduleProvider>
-            <GlobalStyles />
-            <Header />
-            <Home />
-            <Router />
+            <CountryProvider>
+                <GlobalStyles />
+                <Header />
+                <Home />
+                <Router />
+            </CountryProvider>
         </ScheduleProvider>
     );
 };

@@ -4,29 +4,28 @@ import Button from '../../components/button';
 import InputMaskComponent from '../../components/inputMask';
 import SelectInput from '../../components/selectInput';
 import TextInput from '../../components/textInput';
+import { CountryContext } from '../../context/countryContext';
 import { ScheduleContext } from '../../context/scheduleContext';
 import {
-    getCountriesFromApi,
     handleFormSubmit,
     handleSelectInputChange,
     handleTextInputChange,
+    parseApiDataToStringArray,
 } from './helper';
 import { InputSection, Wrapper, ErrorMessage } from './styles';
 
 const Home = (): React.ReactElement => {
     const { scheduleList, setScheduleList } = React.useContext(ScheduleContext);
+    const { countryList } = React.useContext(CountryContext);
 
-    const [countryList, setCountryList] = React.useState<string[]>([]);
+    const countryNameList = parseApiDataToStringArray(countryList);
+
     const [formData, setFormData] = React.useState<ScheduleFormData>({
         country: '',
         location: '',
         date: '',
     });
     const [isThereError, setIsThereError] = React.useState<string>('');
-
-    React.useEffect(() => {
-        getCountriesFromApi(setCountryList);
-    }, []);
 
     return (
         <Wrapper>
@@ -45,7 +44,7 @@ const Home = (): React.ReactElement => {
                 >
                     <SelectInput
                         inputSize="medium"
-                        options={countryList}
+                        options={countryNameList}
                         textLabel="País"
                         value={formData.country}
                         id="country"

@@ -11,6 +11,7 @@ const ScheduleSection = styled.section`
         width: 700px;
         text-align: center;
         line-height: 60px;
+        margin: 0 auto;
     }
 
     & > div {

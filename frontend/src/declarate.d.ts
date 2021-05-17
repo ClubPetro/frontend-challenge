@@ -28,3 +28,12 @@ interface CountryApiData {
 interface DataBaseApiData {
     scheduleList: Schedule[];
 }
+
+interface CountryContext {
+    countryList: CountryApiData[];
+    setCountryList: React.Dispatch<React.SetStateAction<CountryApiData[]>>;
+}
+
+interface CountryProviderProps {
+    children: React.ReactNode;
+}

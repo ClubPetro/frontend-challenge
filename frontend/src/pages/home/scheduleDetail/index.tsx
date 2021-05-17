@@ -1,17 +1,30 @@
-import React, { useContext } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import React from 'react';
+import { Link, RouteComponentProps, useHistory } from 'react-router-dom';
 import Button from '../../../components/button';
 import InputMaskComponent from '../../../components/inputMask';
 import SelectInput from '../../../components/selectInput';
 import TextInput from '../../../components/textInput';
+import { CountryContext } from '../../../context/countryContext';
 import { ScheduleContext } from '../../../context/scheduleContext';
-import { handleSelectInputChange, handleTextInputChange } from '../helper';
+import { parseApiDataToStringArray } from '../helper';
+import {
+    filterCurrentSchedule,
+    handleFormSubmit,
+    handleInputChange,
+    handleSelectChange,
+} from './helper';
 import Wrapper from './styles';
 
 type IProps = RouteComponentProps<{ id: string }>;
 
-const ScheduleDetail = (props: IProps): React.ReactElement => {
-    const { scheduleList } = useContext(ScheduleContext);
+const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
+    const { scheduleList, setScheduleList } = React.useContext(ScheduleContext);
+    const { countryList } = React.useContext(CountryContext);
+
+    const countryNameList = parseApiDataToStringArray(countryList);
+    const scheduleId = match.params.id;
+
+    const history = useHistory();
 
     const [schedule, setSchedule] = React.useState<Schedule>({
         country: '',
@@ -21,34 +34,46 @@ const ScheduleDetail = (props: IProps): React.ReactElement => {
         location: '',
     });
 
-    const [formData, setFormData] = React.useState<ScheduleFormData>({
-        country: '',
-        date: '',
-        location: '',
-    });
-
     React.useEffect(() => {
-        const filteredArr = scheduleList.filter(
-            item => item.id === props.match.params.id,
-        );
-        setSchedule(filteredArr[0]);
-        // eslint-disable-next-line react/destructuring-assignment
-    }, [props.match.params.id, scheduleList]);
+        filterCurrentSchedule(scheduleList, setSchedule, scheduleId);
+    }, [scheduleId, scheduleList]);
+
     return (
         <Wrapper>
             <h1>Edite os detalhes de sua meta!</h1>
             <img src={schedule.flag} alt={schedule.country} />
-            <form action="">
+            <form
+                onSubmit={event => {
+                    handleFormSubmit(
+                        event,
+                        scheduleList,
+                        setScheduleList,
+                        schedule,
+                    );
+                    history.push('/');
+                }}
+            >
                 <h3>País</h3>
                 <SelectInput
                     id="country"
-                    options={[]}
+                    options={countryNameList}
                     value={schedule.country}
                     border
                     inputSize="large"
+                    onChange={event =>
+                        handleSelectChange(event, schedule, setSchedule)
+                    }
                 />
                 <h3>Local</h3>
-                <TextInput inputSize="large" border value={schedule.location} />
+                <TextInput
+                    inputSize="large"
+                    border
+                    value={schedule.location}
+                    id="location"
+                    onChange={event =>
+                        handleInputChange(event, schedule, setSchedule)
+                    }
+                />
                 <h3>Meta</h3>
                 <InputMaskComponent
                     value={schedule.date}
@@ -56,8 +81,13 @@ const ScheduleDetail = (props: IProps): React.ReactElement => {
                     id="date"
                     placeholder="mês/ano"
                     border
+                    onChange={event =>
+                        handleInputChange(event, schedule, setSchedule)
+                    }
                 />
-                <Button theme="primary">Confirmar</Button>
+                <Button theme="primary" type="submit">
+                    Confirmar
+                </Button>
                 <Link to="/">
                     <Button theme="secondary">Cancelar</Button>
                 </Link>
