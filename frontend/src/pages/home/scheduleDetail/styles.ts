@@ -25,7 +25,7 @@ const Wrapper = styled.section`
         margin-top: 16px;
     }
 
-    & > form > button + button {
+    & > form > button + a {
         margin-left: 40px;
     }
 `;

@@ -3,7 +3,8 @@ import InputMask from 'react-input-mask';
 import Wrapper from './styles';
 
 interface InputMaskProps {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    // eslint-disable-next-line react/require-default-props
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value: string;
     id: string;
     placeholder: string;

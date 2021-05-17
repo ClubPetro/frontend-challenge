@@ -31,7 +31,7 @@ const ScheduleCard = ({
         <ScheduleWrapper>
             <img src={imgUri} alt={country} />
             <h2>{country}</h2>
-            <Link to="/schedule-detail" className="editIcon">
+            <Link to={`/schedule-detail/${id}`} className="editIcon">
                 <EditIcon />
             </Link>
             <DeleteIcon className="deleteIcon" onClick={handleDeleteClick} />
