@@ -23,7 +23,11 @@ const InputMaskComponent = ({
 }: InputMaskProps): React.ReactElement => {
     return (
         <Wrapper border={border} inputSize={inputSize} data-testid={id}>
-            {textLabel ? <p>{textLabel}</p> : null}
+            {textLabel ? (
+                <label htmlFor={id}>
+                    <p>{textLabel}</p>
+                </label>
+            ) : null}
             <InputMask
                 mask="99/9999"
                 onChange={onChange}

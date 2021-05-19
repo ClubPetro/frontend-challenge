@@ -15,7 +15,9 @@ const TextInput = ({
 }: TextInputProps): React.ReactElement => {
     return (
         <TextInputWrapper inputSize={inputSize} border={border}>
-            <p>{textLabel}</p>
+            <label htmlFor={props.id}>
+                <p>{textLabel}</p>
+            </label>
             <input
                 type="text"
                 id={props.id}

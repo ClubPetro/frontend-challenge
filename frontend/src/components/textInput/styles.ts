@@ -7,7 +7,7 @@ interface InputWrapperProps {
 }
 
 const TextInputWrapper = styled.div<InputWrapperProps>`
-    & > p {
+    & > label > p {
         color: #ffffff;
         margin-bottom: 3px;
         padding-left: 2px;

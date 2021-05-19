@@ -7,7 +7,7 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-    & > p {
+    & > label > p {
         color: #ffffff;
         margin-bottom: 3px;
         padding-left: 2px;

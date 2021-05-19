@@ -7,7 +7,7 @@ interface SelectProps {
 }
 
 const Select = styled.div<SelectProps>`
-    & > p {
+    & > label > p {
         color: #ffffff;
         margin-bottom: 3px;
         padding-left: 2px;

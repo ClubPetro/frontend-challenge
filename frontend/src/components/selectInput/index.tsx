@@ -17,8 +17,15 @@ const SelectInput = ({
 }: SelectInputProps): React.ReactElement => {
     return (
         <Select border={border} inputSize={inputSize}>
-            <p>{textLabel}</p>
-            <select onChange={props.onChange} value={props.value} id={props.id}>
+            <label htmlFor={props.id}>
+                <p>{textLabel}</p>
+            </label>
+            <select
+                onChange={props.onChange}
+                value={props.value}
+                id={props.id}
+                data-testid="select"
+            >
                 <option value="">Selecione...</option>
                 {options.map(item => (
                     <option value={item} key={item}>
