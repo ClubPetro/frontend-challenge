@@ -1,9 +1,9 @@
 import Header from './components/header';
-import { ScheduleProvider } from './context/scheduleContext';
+import { ScheduleProvider } from './context/scheduleContext/scheduleContext';
 import Home from './pages/home';
 import GlobalStyles from './styles/GlobalStyles';
 import Router from './router/index';
-import { CountryProvider } from './context/countryContext';
+import { CountryProvider } from './context/countryContext/countryContext';
 
 const App = (): JSX.Element => {
     return (

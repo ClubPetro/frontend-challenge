@@ -1,5 +1,5 @@
 import React from 'react';
-import dataBaseApi from '../services/dataBaseApi';
+import dataBaseApi from '../../services/dataBaseApi';
 
 export const ScheduleContext =
     React.createContext<ScheduleContext | null>(null);
@@ -55,7 +55,6 @@ export const ScheduleProvider = ({
         <ScheduleContext.Provider
             value={{
                 scheduleList,
-                setScheduleList,
                 deleteSchedule,
                 createSchedule,
                 editSchedule,

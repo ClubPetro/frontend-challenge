@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useScheduleContext } from '../../context/scheduleContext';
+import { useScheduleContext } from '../../context/scheduleContext/scheduleContext';
 import DeleteIcon from './components/deleteIcon';
 import EditIcon from './components/editIcon';
 import ScheduleWrapper from './styles';

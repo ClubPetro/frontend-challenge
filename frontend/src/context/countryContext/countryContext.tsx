@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import countryApi from '../services/countryApi';
+import countryApi from '../../services/countryApi';
 
 export const CountryContext = createContext<CountryContext>({
     countryList: [],

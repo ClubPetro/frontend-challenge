@@ -3,8 +3,7 @@ import InputMask from 'react-input-mask';
 import Wrapper from './styles';
 
 interface InputMaskProps {
-    // eslint-disable-next-line react/require-default-props
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value: string;
     id: string;
     placeholder: string;
@@ -23,7 +22,7 @@ const InputMaskComponent = ({
     placeholder,
 }: InputMaskProps): React.ReactElement => {
     return (
-        <Wrapper border={border} inputSize={inputSize}>
+        <Wrapper border={border} inputSize={inputSize} data-testid={id}>
             {textLabel ? <p>{textLabel}</p> : null}
             <InputMask
                 mask="99/9999"

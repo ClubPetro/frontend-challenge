@@ -11,7 +11,6 @@ interface Schedule extends ScheduleFormData {
 
 interface ScheduleContext {
     scheduleList: Schedule[];
-    setScheduleList: React.Dispatch<React.SetStateAction<Schedule[]>>;
     deleteSchedule: (scheduleId: string) => Promise<void>;
     createSchedule: (schedule: Schedule) => Promise<void>;
     editSchedule: (schedule: Schedule) => Promise<void>;

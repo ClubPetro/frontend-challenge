@@ -4,8 +4,8 @@ import Button from '../../components/button';
 import InputMaskComponent from '../../components/inputMask';
 import SelectInput from '../../components/selectInput';
 import TextInput from '../../components/textInput';
-import { CountryContext } from '../../context/countryContext';
-import { useScheduleContext } from '../../context/scheduleContext';
+import { CountryContext } from '../../context/countryContext/countryContext';
+import { useScheduleContext } from '../../context/scheduleContext/scheduleContext';
 import {
     handleFormSubmit,
     handleSelectInputChange,
