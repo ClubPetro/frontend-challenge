@@ -11,6 +11,7 @@ interface Schedule extends ScheduleFormData {
 
 interface ScheduleContext {
     scheduleList: Schedule[];
+    errorMessage: Error | null;
     deleteSchedule: (scheduleId: string) => Promise<void>;
     createSchedule: (schedule: Schedule) => Promise<void>;
     editSchedule: (schedule: Schedule) => Promise<void>;

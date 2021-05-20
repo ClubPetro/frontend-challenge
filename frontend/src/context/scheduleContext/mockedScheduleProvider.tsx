@@ -24,10 +24,12 @@ const MockedScheduleProvider = ({
         ScheduleId: string,
         setSchedule: React.Dispatch<React.SetStateAction<Schedule>>,
     ): Promise<void> => new Promise(() => {});
+    const errorMessage = null;
     return (
         <ScheduleContext.Provider
             value={{
                 scheduleList,
+                errorMessage,
                 deleteSchedule,
                 createSchedule,
                 editSchedule,

@@ -41,7 +41,7 @@ export const ErrorMessage = styled.p`
     padding: 16px;
     display: flex;
     align-items: center;
-    margin: 0 auto;
+    margin: 16px auto;
 
     & > svg {
         margin-right: 5px;

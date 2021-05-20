@@ -8,33 +8,34 @@ export const ScheduleProvider = ({
     children,
 }: ScheduleProviderProps): React.ReactElement => {
     const [scheduleList, setScheduleList] = React.useState<Schedule[]>([]);
+    const [errorMessage, setErrorMessage] = React.useState<Error | null>(null);
 
     async function getSchedules() {
         await dataBaseApi
             .get<Schedule[]>('/schedules')
             .then(response => setScheduleList(response.data))
-            .catch(error => console.log(error));
+            .catch(error => setErrorMessage(error));
     }
 
     async function deleteSchedule(scheduleId: string) {
         await dataBaseApi
             .delete(`/schedules/${scheduleId}`)
             .then(() => getSchedules())
-            .catch(error => console.log(error));
+            .catch(error => setErrorMessage(error));
     }
 
     async function createSchedule(schedule: Schedule) {
         await dataBaseApi
             .post('/schedules', schedule)
             .then(() => getSchedules())
-            .catch(error => console.log(error));
+            .catch(error => setErrorMessage(error));
     }
 
     async function editSchedule(schedule: Schedule) {
         await dataBaseApi
             .put(`/schedules/${schedule.id}`, schedule)
             .then(() => getSchedules())
-            .catch(error => console.log(error));
+            .catch(error => setErrorMessage(error));
     }
 
     async function getSingleSchedule(
@@ -44,7 +45,7 @@ export const ScheduleProvider = ({
         await dataBaseApi
             .get(`/schedules/${scheduleId}`)
             .then(response => setSchedule(response.data))
-            .catch(error => console.log(error));
+            .catch(error => setErrorMessage(error));
     }
 
     React.useEffect(() => {
@@ -55,6 +56,7 @@ export const ScheduleProvider = ({
         <ScheduleContext.Provider
             value={{
                 scheduleList,
+                errorMessage,
                 deleteSchedule,
                 createSchedule,
                 editSchedule,

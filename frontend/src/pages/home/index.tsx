@@ -15,7 +15,7 @@ import {
 import { InputSection, Wrapper, ErrorMessage } from './styles';
 
 const Home = (): React.ReactElement => {
-    const { createSchedule } = useScheduleContext();
+    const { createSchedule, errorMessage } = useScheduleContext();
     const { countryList } = React.useContext(CountryContext);
 
     const countryNameList = parseApiDataToStringArray(countryList);
@@ -25,7 +25,11 @@ const Home = (): React.ReactElement => {
         location: '',
         date: '',
     });
-    const [isThereError, setIsThereError] = React.useState<string>('');
+    const [isThereError, setIsThereError] = React.useState<Error | null>(null);
+
+    React.useEffect(() => {
+        setIsThereError(errorMessage);
+    }, [errorMessage]);
 
     return (
         <Wrapper>
@@ -81,7 +85,7 @@ const Home = (): React.ReactElement => {
                 </form>
                 {isThereError ? (
                     <ErrorMessage>
-                        <FiAlertTriangle /> {isThereError}
+                        <FiAlertTriangle /> {isThereError.message}
                     </ErrorMessage>
                 ) : null}
             </InputSection>
