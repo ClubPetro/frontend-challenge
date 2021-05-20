@@ -3,6 +3,7 @@ import TextInputWrapper from './styles';
 
 interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
     textLabel?: string;
+    blackLabel?: boolean;
     inputSize: 'medium' | 'large';
     border?: boolean;
 }
@@ -10,13 +11,18 @@ interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
 const TextInput = ({
     textLabel,
     inputSize,
+    blackLabel,
     border,
     ...props
 }: TextInputProps): React.ReactElement => {
     return (
-        <TextInputWrapper inputSize={inputSize} border={border}>
+        <TextInputWrapper
+            inputSize={inputSize}
+            border={border}
+            blackLabel={blackLabel}
+        >
             <label htmlFor={props.id}>
-                <p>{textLabel}</p>
+                <h3>{textLabel}</h3>
             </label>
             <input
                 type="text"
@@ -32,6 +38,7 @@ const TextInput = ({
 TextInput.defaultProps = {
     textLabel: null,
     border: false,
+    blackLabel: false,
 };
 
 export default TextInput;

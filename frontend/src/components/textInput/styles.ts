@@ -4,12 +4,13 @@ import Colors from '../../styles/colors';
 interface InputWrapperProps {
     inputSize: string;
     border: boolean | undefined;
+    blackLabel: boolean | undefined;
 }
 
 const TextInputWrapper = styled.div<InputWrapperProps>`
-    & > label > p {
-        color: #ffffff;
-        margin-bottom: 3px;
+    & > label > h3 {
+        color: ${props => (props.blackLabel ? '#000000' : '#ffffff')};
+        margin-bottom: 8px;
         padding-left: 2px;
     }
 

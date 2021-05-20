@@ -47,11 +47,12 @@ const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
                     history.push('/');
                 }}
             >
-                <h3>País</h3>
                 <SelectInput
                     id="country"
                     options={countryNameList}
                     value={schedule.country}
+                    textLabel="País"
+                    blackLabel
                     border
                     inputSize="large"
                     onChange={event =>
@@ -63,9 +64,10 @@ const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
                         )
                     }
                 />
-                <h3>Local</h3>
                 <TextInput
                     inputSize="large"
+                    textLabel="Local"
+                    blackLabel
                     border
                     value={schedule.location}
                     id="location"
@@ -73,9 +75,10 @@ const ScheduleDetail = ({ match }: IProps): React.ReactElement => {
                         handleInputChange(event, schedule, setSchedule)
                     }
                 />
-                <h3>Meta</h3>
                 <InputMaskComponent
                     value={schedule.date}
+                    textLabel="Meta"
+                    blackLabel
                     inputSize="large"
                     id="date"
                     placeholder="mês/ano"
