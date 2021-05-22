@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import SelectInput from '.';
 
 describe('SelectInput test suite', () => {
-    it('should render options label', () => {
+    it('should render select label', () => {
         const optionsList = ['house', 'ball'];
 
         render(
