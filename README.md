@@ -76,3 +76,5 @@ O arquivo contido na pasta com caminho ```server/db.json``` deve ser escutado ut
 
 O seguinte comando resume toda a operação do backend:
 ```json-server --watch db.json --port 8000```
+
+Lembrando que o comando ```json-server``` deve ser executado dentro da pasta server ```cd server``` enquanto que o ```yarn start``` deve ser executado dentro da pasta frontend ```cd frontend```
