@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import SchedulesSection from '.';
-import MockedScheduleProvider from '../../../context/scheduleContext/mockedScheduleProvider';
+import MockedScheduleProvider from '../../../mocks/mockedScheduleProvider';
 
 describe('ScheduleSection test suite', () => {
     it('should render no-schedule-message', () => {

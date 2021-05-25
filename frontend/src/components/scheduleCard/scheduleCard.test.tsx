@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import ScheduleCard from '.';
-import MockedScheduleProvider from '../../context/scheduleContext/mockedScheduleProvider';
+import MockedScheduleProvider from '../../mocks/mockedScheduleProvider';
 
 describe('scheduleCard test component', () => {
     it('Should render Brazil schedule card', () => {

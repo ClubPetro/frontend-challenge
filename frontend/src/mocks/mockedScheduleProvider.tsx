@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { ScheduleContext } from './scheduleContext';
+import { ScheduleContext } from '../context/scheduleContext/scheduleContext';
 
 interface MockedScheduleProviderProps {
     scheduleList: Schedule[];
