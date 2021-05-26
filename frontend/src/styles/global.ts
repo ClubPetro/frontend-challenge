@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, input, text-area, button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
   }
 
