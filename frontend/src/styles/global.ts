@@ -8,6 +8,8 @@ export const GlobalStyles = createGlobalStyle`
     --darkGreen: rgba(0,108,24,1.0);
     
     --lightGreen: rgba(79,148,25,1.0);
+
+    --black: rgba(0,0,0,1.0);
   }
 
   * {
