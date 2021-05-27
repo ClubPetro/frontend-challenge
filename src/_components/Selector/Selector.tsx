@@ -7,6 +7,8 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import {KeyboardDatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import CountrySelector from './country-selector/CountrySelector';
+import CitySelect from './city-selector/CitySelect';
+import DateSelector from './date-selector/DateSelector';
 
 // const BootstrapInput = withStyles((theme) => ({
 //     root: {
@@ -44,56 +46,37 @@ import CountrySelector from './country-selector/CountrySelector';
 //   }))(InputBase);
   
 
-export default function Selector(){
+export default function Selector({onSentFlightData}: any){
 
 
     const [selectedCountry, setSelectedCountry] = React.useState('');
     const [selectedCity, setSelectedCity] = React.useState('');
+    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
     // const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
     const grabSelectedCountry = (event: any) =>{
-      console.log("Selecting country",  event.target.value);
       setSelectedCountry(event.target.value);
+    }
+
+    const grabSelectedCity = (event: any) =>{
+      setSelectedCity(event.target.value);
+    }
+
+    const grabSelectedDate = (value: any) =>{
+      setSelectedDate(value);
+    }
+
+    const sentSelectedData = ()=>{
+      let newObject = {country: selectedCountry, city: selectedCity, date: selectedDate}
+      onSentFlightData(newObject);
     }
 
     return(
         <GreenBox>
-            
-            {/* <SelectorField>
-            <SelectorLabel>
-                Local
-            </SelectorLabel>
-            <TextField>
-
-            </TextField>            
-
-            </SelectorField>
-
-            <SelectorField>
-            <SelectorLabel>
-                Meta
-            </SelectorLabel>
-
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="MM/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          label="Date picker inline"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-            </MuiPickersUtilsProvider>
-
-            // </SelectorField> */}
-
             <CountrySelector onCountrySelected={grabSelectedCountry} selectedCountry={selectedCountry}/>
-            
+            <CitySelect selectedCity={selectedCity} onCitySelected={grabSelectedCity}/>
+            <DateSelector selectedDate={selectedDate} onSelectedDateChange={grabSelectedDate}></DateSelector>
+            <button onClick={sentSelectedData}> Enviar</button>            
         </GreenBox>
     );
 }
