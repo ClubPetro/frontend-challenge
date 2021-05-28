@@ -1,18 +1,17 @@
 import React from 'react';
-import {SelectorField, SelectorLabel} from './../Selector.style';
-import TextField from '@material-ui/core/TextField';
+import {CitySelectorField, SelectorLabel, MainTextField} from './../Selector.style';
 
 
 export default function CitySelect({selectedCity, onCitySelected}: any){
     return(
-        <SelectorField>
+        <CitySelectorField>
             <SelectorLabel>
                 Local
             </SelectorLabel>
-            <TextField onChange={onCitySelected}>
+            <MainTextField onChange={onCitySelected} className="cityTextField">
 
-            </TextField>            
+            </MainTextField>            
 
-            </SelectorField>
+            </CitySelectorField>
     )
 }

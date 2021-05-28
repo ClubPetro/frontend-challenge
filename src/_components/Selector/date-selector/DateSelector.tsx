@@ -1,7 +1,5 @@
 import React from 'react';
-import {GreenBox, SelectorField, SelectorLabel} from './../Selector.style';
-import {KeyboardDatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
+import {SelectorField, SelectorLabel, CustomizedTextField} from './../Selector.style';
 
 
 
@@ -12,20 +10,10 @@ export default function DateSelector({selectedDate, onSelectedDateChange}:any){
             <SelectorLabel>
                 Meta
             </SelectorLabel>
-
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="MM/yyyy"
+            <CustomizedTextField
           id="date-picker-inline"
           value={selectedDate}
-          onChange={onSelectedDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-            </MuiPickersUtilsProvider>
+          onChange={onSelectedDateChange} type="date"/>
 
              </SelectorField>
     )

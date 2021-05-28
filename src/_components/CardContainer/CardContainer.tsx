@@ -10,7 +10,7 @@ export default function CardContainer({listOfCards}:any){
             return <div>
                 <h2>{e.country}</h2>
                 <h2>{e.city}</h2>
-                <h2>{e.date}</h2>
+                <h2>{e.date?.toString()}</h2>
             </div>
             })
         }

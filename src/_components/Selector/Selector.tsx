@@ -1,5 +1,5 @@
 import React from 'react';
-import {GreenBox, SelectorField, SelectorLabel} from './Selector.style';
+import {CustomizedButton, GreenBox, SelectorField, SelectorLabel} from './Selector.style';
 import TextField from '@material-ui/core/TextField';
 import Select from  '@material-ui/core/Select';
 import InputBase from '@material-ui/core/InputBase';
@@ -76,7 +76,7 @@ export default function Selector({onSentFlightData}: any){
             <CountrySelector onCountrySelected={grabSelectedCountry} selectedCountry={selectedCountry}/>
             <CitySelect selectedCity={selectedCity} onCitySelected={grabSelectedCity}/>
             <DateSelector selectedDate={selectedDate} onSelectedDateChange={grabSelectedDate}></DateSelector>
-            <button onClick={sentSelectedData}> Enviar</button>            
+            <CustomizedButton onClick={sentSelectedData}> Adicionar</CustomizedButton>            
         </GreenBox>
     );
 }

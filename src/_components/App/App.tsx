@@ -12,11 +12,8 @@ function App() {
   }];
   const [initialList, setInitialList] = React.useState(initialListValue);
   const addFlightOnList = (value: any)=>{
-    console.log(value);
-    let actualListValue = initialList;
-    actualListValue.push(value);
-    console.log(initialList);
-    setInitialList(actualListValue);
+    
+    setInitialList([...initialList, value]);
   }
 
 
