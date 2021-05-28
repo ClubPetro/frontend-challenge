@@ -31,7 +31,6 @@ export default function CountrySelector({selectedCountry, onCountrySelected}:any
             <CustomizedSelect
           labelId="demo-customized-select-label"
           id="demo-customized-select" value={selectedCountry} onChange={onCountrySelected}
-        //   input={<BootstrapInput/>}
         >
             <MenuItem value='Selecione uma opção'>
             <em>Selecione uma opção</em>

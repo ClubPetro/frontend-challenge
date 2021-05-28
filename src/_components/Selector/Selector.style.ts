@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import {Box, InputBase} from '@material-ui/core';
 import Select from  '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
-import {withStyles, makeStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 

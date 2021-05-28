@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
+import CardTravel from './card-travel/CardTravel';
 
 
-export default function CardContainer({listOfCards}:any){
+export default function CardContainer({listOfCards, removeFlightEvent}:any){
     return(
         <div>
-            <p>Div aparecendo</p>
             {listOfCards.map((e:any)=>{
                 console.log("e rendered: ", e);
-            return <div>
-                <h2>{e.country}</h2>
-                <h2>{e.city}</h2>
-                <h2>{e.date?.toString()}</h2>
-            </div>
+            return <CardTravel key={e.id} flightData={e} removeFlightEvent={removeFlightEvent}/>
             })
         }
         </div>
