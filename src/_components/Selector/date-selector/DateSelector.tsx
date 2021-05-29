@@ -1,5 +1,6 @@
 import React from 'react';
 import {SelectorField, SelectorLabel, CustomizedTextField} from './../Selector.style';
+import InputMask from 'react-input-mask';
 
 
 
@@ -10,10 +11,13 @@ export default function DateSelector({selectedDate, onSelectedDateChange}:any){
             <SelectorLabel>
                 Meta
             </SelectorLabel>
-            <CustomizedTextField
+            <InputMask mask="99/9999" value={selectedDate}
+          onChange={onSelectedDateChange}>
+            {(inputProps: any)=><CustomizedTextField {...inputProps}
           id="date-picker-inline"
-          value={selectedDate}
-          onChange={onSelectedDateChange} type="date"/>
+           />}
+            </InputMask>
+            
 
              </SelectorField>
     )

@@ -11,7 +11,7 @@ export default function Selector({onSentFlightData, listOfCountries}: any){
 
     const [selectedCountry, setSelectedCountry] = React.useState('');
     const [selectedCity, setSelectedCity] = React.useState('');
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [selectedDate, setSelectedDate] = React.useState('');
 
     const grabSelectedCountry = (event: any) =>{
       setSelectedCountry(event.target.value);
@@ -28,6 +28,10 @@ export default function Selector({onSentFlightData, listOfCountries}: any){
     const sentSelectedData = ()=>{
       const getSelectedCountry = listOfCountries.find((e:Country)=>e.numericCode === selectedCountry);
       let newObject = {country: getSelectedCountry, city: selectedCity, date: selectedDate}
+
+      setSelectedCity('')
+      setSelectedDate('')
+      setSelectedCountry('')
       onSentFlightData(newObject);
     }
 

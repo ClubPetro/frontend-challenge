@@ -8,7 +8,7 @@ export default function CitySelect({selectedCity, onCitySelected}: any){
             <SelectorLabel>
                 Local
             </SelectorLabel>
-            <MainTextField onChange={onCitySelected} className="cityTextField">
+            <MainTextField value={selectedCity} onChange={onCitySelected} className="cityTextField">
 
             </MainTextField>            
 
