@@ -2,27 +2,11 @@ import React, { useEffect, useState } from 'react';
 import {SelectorField, SelectorLabel, CustomizedSelect} from './../Selector.style';
 
 import { MenuItem } from '@material-ui/core';
+import Country from '../../../_models/Country';
 
 
-export default function CountrySelector({selectedCountry, onCountrySelected}:any){
-    const initialValue: any[] = [];
-
-    const [listOfCountries, setListOfCountries] = useState(initialValue)
-
-    //TODO add types on countries
-    const fetchCountries = async ()=>{
-        const res = await fetch('https://restcountries.eu/rest/v2/all')
-        const data = await res.json();
-        setListOfCountries(data);
-    }
-
-    useEffect(()=>{
-        console.log(onCountrySelected);
-        if(listOfCountries.length < 2){
-            fetchCountries();
-        }
-    }, [])
-    // fetchCountries();
+export default function CountrySelector({selectedCountry, onCountrySelected, listOfCountries}:any){
+    
     return(
         <SelectorField>
             <SelectorLabel>
@@ -37,8 +21,8 @@ export default function CountrySelector({selectedCountry, onCountrySelected}:any
           </MenuItem>
 
             {
-                listOfCountries.map((e:any)=>{
-                   return <option key={parseInt(e.numericCode)} value={e.name}>{e.name}</option>
+                listOfCountries.map((e: Country)=>{
+                   return <option key={parseInt(e.numericCode)} value={e.numericCode}>{e.name}</option>
                 })
             }
 

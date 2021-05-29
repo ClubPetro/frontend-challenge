@@ -3,9 +3,10 @@ import {CustomizedButton, GreenBox} from './Selector.style';
 import CountrySelector from './country-selector/CountrySelector';
 import CitySelect from './city-selector/CitySelect';
 import DateSelector from './date-selector/DateSelector';
+import Country from '../../_models/Country';
 
 
-export default function Selector({onSentFlightData}: any){
+export default function Selector({onSentFlightData, listOfCountries}: any){
 
 
     const [selectedCountry, setSelectedCountry] = React.useState('');
@@ -25,13 +26,14 @@ export default function Selector({onSentFlightData}: any){
     }
 
     const sentSelectedData = ()=>{
-      let newObject = {country: selectedCountry, city: selectedCity, date: selectedDate}
+      const getSelectedCountry = listOfCountries.find((e:Country)=>e.numericCode === selectedCountry);
+      let newObject = {country: getSelectedCountry, city: selectedCity, date: selectedDate}
       onSentFlightData(newObject);
     }
 
     return(
         <GreenBox>
-            <CountrySelector onCountrySelected={grabSelectedCountry} selectedCountry={selectedCountry}/>
+            <CountrySelector onCountrySelected={grabSelectedCountry} selectedCountry={selectedCountry} listOfCountries={listOfCountries}/>
             <CitySelect selectedCity={selectedCity} onCitySelected={grabSelectedCity}/>
             <DateSelector selectedDate={selectedDate} onSelectedDateChange={grabSelectedDate}></DateSelector>
             <CustomizedButton onClick={sentSelectedData}> Adicionar</CustomizedButton>            
