@@ -1,6 +1,13 @@
-import { CardContent, CardHeader, Card, IconButton, TextField, CardMedia } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
-import {CustomizedCard} from './CardTravel.style';
+import {IconButton, TextField} from '@material-ui/core';
+import React, {useState } from 'react';
+import {ContentWrapper, CountryContainer, CountryImage, CountryName, CustomizedCard, CustomizedCardContent, CustomizedCardHeader, EditContainer, InfoContainer, LineDecoration} from './CardTravel.style';
+import {ReactComponent as Pencil} from './../../../images/pencil.svg';
+import {ReactComponent as Close} from './../../../images/close.svg';
+import {ReactComponent as Done} from './../../../images/done.svg';
+import {ReactComponent as Cancel} from './../../../images/cancel.svg';
+import InputMask from 'react-input-mask';
+
+
 
 
 
@@ -13,53 +20,78 @@ export default function CardTravel({flightData, removeFlightEvent, editFlightEve
 
     const toogleEditState = ()=>{
         setEditState(!editState);
+        if(!editState){
+            setCity(flightData.city);
+            setDate(flightData.date);
+        }
     }
 
     return(
         <CustomizedCard>
-        <CardHeader title={flightData.country.name} action={
+        <CustomizedCardHeader action={
             <div>
                 {
-                    editState? <div><IconButton onClick={toogleEditState}>
-                    e
-                    </IconButton>
-                    <IconButton onClick={()=>{editFlightEvent(flightData.id, city, date);
+                    editState? <div>
+                        <IconButton onClick={()=>{editFlightEvent(flightData.id, city, date);
                         toogleEditState();
                     }}>
-                        x
-                    </IconButton></div> : <div>
+                        <Done width="10" height="10"></Done>
+                    </IconButton>
                     <IconButton onClick={toogleEditState}>
-                t
+                    <Cancel width="10" height="10"></Cancel>
+                    </IconButton>
+                    </div> : <div>
+                    <IconButton onClick={toogleEditState}>
+                    <Pencil width="10" height="10"></Pencil>
                 </IconButton>
                 <IconButton onClick={()=>removeFlightEvent(flightData.id)}>
-                    y
+                    <Close width="10" height="10"></Close>
                 </IconButton>
                     </div>
                 }
             </div>
             
         }> 
-        </CardHeader>
-        <CardMedia component="img" image={flightData?.country?.flag} height="50"/>
-        <CardContent>
+        </CustomizedCardHeader>
+        {/* <CardMedia component="img" image={flightData?.country?.flag} height="34"/> */}
+        <CustomizedCardContent>
             {
-                editState? <div>
-                        <TextField defaultValue={flightData.city} onChange={(event)=>{setCity(event.target.value)}}>
+                <ContentWrapper>
+                <CountryContainer>
+                    <CountryImage src={flightData?.country?.flag}/>
+                    <CountryName>{flightData?.country?.translations.br}</CountryName>
+                    <LineDecoration/>
+                 </CountryContainer>
+
+                 {editState? <EditContainer>
+                        <TextField variant="outlined" defaultValue={flightData.city} onChange={(event)=>{setCity(event.target.value)}}>
 
                         </TextField>
-                        <TextField defaultValue={flightData.date} onChange={(event)=>{setDate(event.target.value)}}>
 
+                        <InputMask mask="99/9999" defaultValue={flightData.date} onChange={(event)=>{setDate(event.target.value)}}>
+                        {(inputProps: any)=>
+                        <TextField {...inputProps} variant="outlined" >
                         </TextField>
+                        }
+                        </InputMask>
+                        
 
-                    </div>:
-                    <div>
+                    </EditContainer>:
+                    <InfoContainer>
                           <p>Local: {flightData.city}</p>
                         <p>Data: {flightData.date?.toString()}</p>
-                    </div>
+                    </InfoContainer>
+                }
+
+                </ContentWrapper>
+                
+  
+
+                
                   
                 
             }
-        </CardContent>
+        </CustomizedCardContent>
         </CustomizedCard>
 
     )

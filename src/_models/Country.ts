@@ -11,4 +11,5 @@ export default interface Country{
     population: number,
     region: string,
     numericCode: string
+    translations: any
 }

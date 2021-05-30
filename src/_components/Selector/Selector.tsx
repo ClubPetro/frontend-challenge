@@ -1,5 +1,5 @@
 import React from 'react';
-import {CustomizedButton, GreenBox} from './Selector.style';
+import {AlignContainer, CustomizedButton, GreenBox} from './Selector.style';
 import CountrySelector from './country-selector/CountrySelector';
 import CitySelect from './city-selector/CitySelect';
 import DateSelector from './date-selector/DateSelector';
@@ -36,11 +36,13 @@ export default function Selector({onSentFlightData, listOfCountries}: any){
     }
 
     return(
-        <GreenBox>
-            <CountrySelector onCountrySelected={grabSelectedCountry} selectedCountry={selectedCountry} listOfCountries={listOfCountries}/>
-            <CitySelect selectedCity={selectedCity} onCitySelected={grabSelectedCity}/>
-            <DateSelector selectedDate={selectedDate} onSelectedDateChange={grabSelectedDate}></DateSelector>
-            <CustomizedButton onClick={sentSelectedData}> Adicionar</CustomizedButton>            
-        </GreenBox>
+      <GreenBox>
+        <AlignContainer>
+          <CountrySelector onCountrySelected={grabSelectedCountry} selectedCountry={selectedCountry} listOfCountries={listOfCountries} />
+          <CitySelect selectedCity={selectedCity} onCitySelected={grabSelectedCity} />
+          <DateSelector selectedDate={selectedDate} onSelectedDateChange={grabSelectedDate}></DateSelector>
+          <CustomizedButton onClick={sentSelectedData}> Adicionar</CustomizedButton>
+        </AlignContainer>
+      </GreenBox>
     );
 }

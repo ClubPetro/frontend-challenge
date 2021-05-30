@@ -1,16 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import CardTravel from './card-travel/CardTravel';
+import { CardGrid, CardWrapper } from './CardContainer.style';
 
 
 export default function CardContainer({listOfCards, removeFlightEvent, editFlightEvent}:any){
     return(
-        <div>
+        <CardGrid>
             {listOfCards.map((e:any)=>{
-                console.log("e rendered: ", e);
-            return <CardTravel key={e.id} flightData={e} removeFlightEvent={removeFlightEvent} editFlightEvent={editFlightEvent}/>
+            return <CardWrapper>
+                <CardTravel key={e.id} flightData={e} removeFlightEvent={removeFlightEvent} editFlightEvent={editFlightEvent}/>
+            </CardWrapper>
+            
             })
         }
-        </div>
+        </CardGrid>
         
     )
 }

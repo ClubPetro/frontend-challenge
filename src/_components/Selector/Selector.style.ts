@@ -8,23 +8,52 @@ import Button from '@material-ui/core/Button';
 
 export const GreenBox = styled(Box)`
     background-color: #4F9419;
-    width: 100vw;
-    height: 100px;
+    width: 100%;
+    padding: 50px 0px;
+`
+
+export const AlignContainer = styled.div`
     display: flex;
     align-items: center;
-    padding: 15px 6%;
+    width: 88%;
+    height: 100%;
+    padding: 0px 6%;
+
+    @media(max-width: 800px){
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px 0px;
+    }
+
 `
 export const SelectorField = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-right: 50px
+    margin-right: 50px;
+    @media(max-width: 800px){
+        width: 60% !important;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0px;
+    }
 
+`
+
+export const CountrySelectorField = styled(SelectorField)`
+    width: 25%;
+    min-width: 150px;
 `
 
 
 export const CitySelectorField = styled(SelectorField)`
-    width: 30%;
+    width: 45%;
+    min-width: 150px;
+`
+
+export const DateSelectorField = styled(SelectorField)`
+    width: 20%;
+    min-width: 100px;
 `
 
 export const SelectorLabel = styled.label`
@@ -33,7 +62,8 @@ export const SelectorLabel = styled.label`
 `
 
 export const CustomizedSelect = styled(Select)`
-    width: 200px;
+    width: 100%;
+    min-width: 100px;
     background-color: #fff;
     border-radius: 5px;
     padding: 5px 15px;
@@ -53,14 +83,17 @@ export const CustomizedButton = withStyles({
 })(Button)
 
 export const CustomizedTextField = withStyles((theme)=>({
+    root:{
+        width: '100%'
+    },
       input: {
         borderRadius: 4,
         position: 'relative',
         backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         fontSize: 16,
-        width: 'auto',
-        padding: '10px 12px',
+        width: '100%',
+        padding: '10px 0px',
       }
 }))(InputBase);
 

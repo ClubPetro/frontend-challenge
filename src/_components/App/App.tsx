@@ -3,15 +3,12 @@ import Country from '../../_models/Country';
 import CardContainer from '../CardContainer/CardContainer';
 import Header from '../Header/Header';
 import Selector from '../Selector/Selector';
+import { MainContainer } from './App.style';
 
 
 function App() {
   
-  const initialListValue: any[] = [{
-    id: 1,
-    country: {name: 'Brasil'} as Country,
-    city: 'Fortaleza'
-  }];
+  const initialListValue: any[] = [];
   const [flightList, setFlightList] = React.useState(initialListValue);
   const [serialValue, setSerialValue] = React.useState(1);
   const initialValue: Country[] = [];
@@ -61,11 +58,11 @@ function App() {
 
 
   return (
-    <div>
+    <MainContainer>
       <Header></Header>
       <Selector onSentFlightData={addFlightOnList} listOfCountries={listOfCountries}></Selector>
       <CardContainer listOfCards={flightList} removeFlightEvent={removeFlightOnList} editFlightEvent={editFlightOnList}/>
-    </div>
+    </MainContainer>
   );
 }
 
