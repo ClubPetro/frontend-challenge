@@ -11,7 +11,7 @@ export const GreenBox = styled(Box)`
     padding: 50px 0px;
 `
 
-export const AlignContainer = styled.div`
+export const AlignContainer = styled.form`
     display: flex;
     align-items: center;
     width: 88%;
@@ -84,11 +84,17 @@ export const CustomizedButton = withStyles({
         fontWeight: 400,
         padding: '10px 50px',
         textTransform: 'none',
-        marginTop: '18px'
+        marginTop: '18px',
+        '&.Mui-disabled':{
+            backgroundColor: '#ccc',
+            color: '#000',
+            opacity: 0.3
+        }
+        
     }
 })(Button)
 
-export const CustomizedTextField = withStyles({
+export const CustomizedTextField = withStyles((theme)=>({
     root:{
         width: '100%'
     },
@@ -101,7 +107,7 @@ export const CustomizedTextField = withStyles({
         width: '100%',
         padding: '10px 10px',
       }
-})(InputBase);
+}))(InputBase);
 
 
 export const MainTextField = withStyles((theme)=>({

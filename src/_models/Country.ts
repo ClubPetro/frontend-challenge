@@ -1,3 +1,6 @@
+/**
+ * Modelo de país compatível com a API Rest Countries.
+ */
 export default interface Country{
     alpha2Code: string,
     alpha3Code: string,

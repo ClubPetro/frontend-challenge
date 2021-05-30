@@ -18,6 +18,10 @@ export default function CardTravel({flightData, removeFlightEvent, editFlightEve
    const [city, setCity] = useState('');
    const [date, setDate] = useState('');
 
+
+   /**
+    * Função que aciona o estado de edição do componente.
+    */
     const toogleEditState = ()=>{
         setEditState(!editState);
         if(!editState){
