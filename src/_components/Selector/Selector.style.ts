@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import {Box, InputBase} from '@material-ui/core';
-import Select from  '@material-ui/core/Select';
+import {Box, InputBase, TextField} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -61,15 +60,22 @@ export const SelectorLabel = styled.label`
     font-weight: 300;
 `
 
-export const CustomizedSelect = styled(Select)`
-    width: 100%;
-    min-width: 100px;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 5px 15px;
-    cursor: pointer;
-
-`
+export const CustomizedSelect = withStyles({
+    root:{
+        width: '100%',
+        height: '41px',
+        minWidth: '100px',
+        backgroundColor: '#fff',
+        borderRadius: '5px',
+        padding: '0px 0px',
+        cursor: 'pointer',
+        '& .MuiInputBase-root':{
+            height: '100%',
+        }
+    },
+    
+    
+})(TextField)
 
 export const CustomizedButton = withStyles({
     root:{
@@ -82,20 +88,20 @@ export const CustomizedButton = withStyles({
     }
 })(Button)
 
-export const CustomizedTextField = withStyles((theme)=>({
+export const CustomizedTextField = withStyles({
     root:{
         width: '100%'
     },
       input: {
         borderRadius: 4,
         position: 'relative',
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: '#fff',
         border: '1px solid #ced4da',
         fontSize: 16,
         width: '100%',
-        padding: '10px 0px',
+        padding: '10px 10px',
       }
-}))(InputBase);
+})(InputBase);
 
 
 export const MainTextField = withStyles((theme)=>({

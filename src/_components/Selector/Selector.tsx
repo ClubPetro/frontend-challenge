@@ -9,7 +9,7 @@ import Country from '../../_models/Country';
 export default function Selector({onSentFlightData, listOfCountries}: any){
 
 
-    const [selectedCountry, setSelectedCountry] = React.useState('');
+    const [selectedCountry, setSelectedCountry] = React.useState('1');
     const [selectedCity, setSelectedCity] = React.useState('');
     const [selectedDate, setSelectedDate] = React.useState('');
 

@@ -1,7 +1,5 @@
 import React from 'react';
 import {SelectorLabel, CustomizedSelect, CountrySelectorField} from './../Selector.style';
-
-import { MenuItem } from '@material-ui/core';
 import Country from '../../../_models/Country';
 
 
@@ -12,13 +10,11 @@ export default function CountrySelector({selectedCountry, onCountrySelected, lis
             <SelectorLabel>
                 País
             </SelectorLabel>
-            <CustomizedSelect
-          labelId="demo-customized-select-label"
-          id="demo-customized-select" value={selectedCountry} onChange={onCountrySelected}
+            <CustomizedSelect select  value={selectedCountry} onChange={onCountrySelected} SelectProps={{
+            native: true,
+          }} variant="outlined"
         >
-            <MenuItem value='Selecione uma opção'>
-            <em>Selecione uma opção</em>
-          </MenuItem>
+            <option value="1">Selecione uma opção</option>
 
             {
                 listOfCountries.map((e: Country)=>{

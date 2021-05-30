@@ -10,7 +10,7 @@ function App() {
   
   const initialListValue: any[] = [];
   const [flightList, setFlightList] = React.useState(initialListValue);
-  const [serialValue, setSerialValue] = React.useState(1);
+  const [serialValue, setSerialValue] = React.useState(0);
   const initialValue: Country[] = [];
 
   const [listOfCountries, setListOfCountries] = useState(initialValue)
