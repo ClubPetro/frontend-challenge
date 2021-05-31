@@ -9,34 +9,46 @@ const media = generateMedia({
 });
 
 export const Container = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Content = styled.div`
   padding-left: 4rem;
   padding-right: 4rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   background-color: var(--lightGreen);
+
+  .MuiIconButton-root {
+    color: orange;
+  }
 
   ${media.greaterThan("large")`
   display: flex;
+  align-items: flex-end;
   width: 100%;
  
   `}
 
   ${media.between("medium", "large")`
   display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3);
     gap: 1rem 1rem;
-    
+    margin-left: 0;
   `}
 
   ${media.between("small", "medium")`
   display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2);
     gap: 1rem 1rem;
   `} 
   
   ${media.lessThan("small")`
   display: grid;
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(1);
     gap: 1rem 1rem;
   `}
 `;
