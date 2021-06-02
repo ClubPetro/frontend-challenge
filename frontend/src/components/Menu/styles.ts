@@ -8,23 +8,19 @@ const media = generateMedia({
   small: "600px",
 });
 
-export const Container = styled.div`
+export const ContainerHeader = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
 `;
 
-export const Content = styled.div`
+export const ContentHeader = styled.div`
   padding-left: 4rem;
   padding-right: 4rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: var(--lightGreen);
-
-  .MuiIconButton-root {
-    color: orange;
-  }
 
   ${media.greaterThan("large")`
   display: flex;
