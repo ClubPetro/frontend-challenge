@@ -6,6 +6,7 @@ import SelectPlace from "components/SelectPlace";
 import * as S from "./styles";
 
 export default function Menu() {
+  // Trazer a verificação dos valores aqui para fora
   return (
     <>
       <S.ContainerHeader>

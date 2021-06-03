@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { darken, transparentize } from "polished";
 
 export const Container = styled.form`
   h2 {
@@ -56,16 +55,6 @@ export const ContainerButtonsType = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 `;
-
-interface ButtonProps {
-  isActive: boolean;
-  activeColor: "green" | "red";
-}
-
-const colors = {
-  green: "rgba(51, 204, 149, 1)",
-  red: "rgba(229,46,77,1.0)",
-};
 
 // export const TypeButton = styled.button<ButtonProps>`
 //   height: 4rem;

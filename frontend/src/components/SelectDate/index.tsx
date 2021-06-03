@@ -5,10 +5,7 @@ import InputMask from "react-input-mask";
 import MaterialInput from "@material-ui/core/Input";
 
 const Container = styled.div`
-  /* width: 100%; */
   margin-left: 30px;
-
-  /* background-color: greenyellow; */
 `;
 
 const Label = styled.p`
