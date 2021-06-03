@@ -4,14 +4,22 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import IconButton from "@material-ui/core/IconButton";
 
-export default function Card() {
+interface Props {
+  onOpenModalEditDestination: () => void;
+}
+
+export default function Card({ onOpenModalEditDestination }: Props) {
   return (
     <S.Container>
       <S.Presentation>
         <S.Row>
           <S.Flag src="https://restcountries.eu/data/afg.svg" alt="country" />
           <S.ContainerIcons>
-            <IconButton color="primary" size="small">
+            <IconButton
+              color="primary"
+              size="small"
+              onClick={onOpenModalEditDestination}
+            >
               <EditIcon />
             </IconButton>
             <IconButton color="primary" size="small">
