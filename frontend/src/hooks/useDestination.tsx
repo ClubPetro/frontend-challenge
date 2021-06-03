@@ -7,6 +7,14 @@ import {
 } from "react";
 import { api } from "../services/api";
 
+import axios from "axios";
+
+interface APIData {
+  name: string;
+  flag: string;
+}
+
+// ----------------------------------------------
 interface TransactionsProps {
   id: string;
   category: string;
@@ -25,6 +33,7 @@ interface DestinationProviderProps {
 interface TransactionsData {
   transactions: TransactionsProps[];
   CreateTransaction: (transaction: TransactionInput) => Promise<void>;
+  countries: APIData[];
 }
 
 const TransactionContext = createContext<TransactionsData>(
@@ -34,6 +43,23 @@ const TransactionContext = createContext<TransactionsData>(
 // Usado na raiz dos componente no App, apenas!
 export function DestinationProvider({ children }: DestinationProviderProps) {
   const [transactions, setTransactions] = useState<TransactionsProps[]>([]);
+  const [countries, setCountries] = useState<APIData[]>([]);
+  useEffect(() => {
+    const loadData = async (): Promise<void> => {
+      const { data } = await axios.get(
+        "https://restcountries.eu/rest/v2/all?fields=name;flag"
+      );
+      const filteredValues = data.map((elem: any) => {
+        return {
+          name: elem.name,
+          flag: elem.flag,
+        } as APIData;
+      });
+      setCountries(filteredValues);
+    };
+
+    loadData();
+  }, []);
 
   useEffect(() => {
     api
@@ -53,7 +79,9 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
   };
 
   return (
-    <TransactionContext.Provider value={{ transactions, CreateTransaction }}>
+    <TransactionContext.Provider
+      value={{ transactions, CreateTransaction, countries }}
+    >
       {children}
     </TransactionContext.Provider>
   );

@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { useState } from "react";
 import InputBase from "@material-ui/core/InputBase";
 import styled from "styled-components";
+import { useDestination } from "hooks/useDestination";
 
 const Container = styled.div`
   /* width: 100%; */
@@ -46,10 +47,14 @@ export default function SelectCountry() {
   }));
   const classes = useStyles();
   const [country, setCountry] = useState("none");
+
   const [showPlaceholder, setShowPlaceholder] = useState(country === "none");
   const handleChange = (event: any) => {
     setCountry(event.target.value);
   };
+
+  const { countries } = useDestination();
+
   return (
     <Container>
       <Label>País</Label>
@@ -78,9 +83,13 @@ export default function SelectCountry() {
           >
             Selecione...
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {countries.map((elem, index: number) => (
+            <MenuItem key={index} value={elem.name}>
+              {elem.name}
+            </MenuItem>
+          ))}
+          {/* <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem> */}
         </SelectSC>
       </FormControl>
     </Container>
