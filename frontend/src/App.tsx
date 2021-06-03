@@ -1,6 +1,11 @@
+import { DestinationProvider } from "hooks/useDestination";
 import Home from "pages/home";
 import React from "react";
 
 export default function App() {
-  return <Home />;
+  return (
+    <DestinationProvider>
+      <Home />
+    </DestinationProvider>
+  );
 }
