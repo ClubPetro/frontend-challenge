@@ -89,7 +89,7 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
     api.get("/destinies").then((response) => setDestinies(response.data));
   }, []);
 
-  const CreateDestinie = async () => {
+  const CreateDestinie = async (): Promise<void> => {
     const response = await api.post("/destinies", {
       goal,
       place,
@@ -105,6 +105,10 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
     setPlace("");
     setGoal("");
   };
+
+  // const EditDestinie = async (id: number): Promise<void> => {
+  //   const destinie = api.get(`/destinies/${id}`);
+  // };
 
   return (
     <DestiniesContext.Provider
