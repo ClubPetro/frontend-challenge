@@ -67,9 +67,7 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
   useEffect(() => {
     api
       .get("/destinies")
-      .then((response) => console.log("Oi: ", response.data.destinies));
-    // api.get("/destinies").then((response) => setdestinies(response.data.destinies));
-    console.log("Oi: ", countries);
+      .then((response) => setdestinies(response.data.destinies));
   }, [countries]);
 
   const CreateTransaction = async (DestiniesInput: DestiniesInput) => {
