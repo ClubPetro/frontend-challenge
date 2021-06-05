@@ -6,7 +6,7 @@ import {
   useContext,
 } from "react";
 import { api } from "../services/api";
-
+import _ from "lodash";
 import axios from "axios";
 
 interface APIData {
@@ -15,7 +15,7 @@ interface APIData {
 }
 
 // ----------------------------------------------
-interface TransactionsProps {
+interface DestiniesProps {
   id: string;
   category: string;
   title: string;
@@ -24,25 +24,23 @@ interface TransactionsProps {
   value: number;
 }
 
-type TransactionInput = Omit<TransactionsProps, "id" | "createdAt">;
+type DestiniesInput = Omit<DestiniesProps, "id" | "createdAt">;
 
 interface DestinationProviderProps {
   children: ReactNode;
 }
 
-interface TransactionsData {
-  transactions: TransactionsProps[];
-  CreateTransaction: (transaction: TransactionInput) => Promise<void>;
+interface DestiniesData {
+  destinies: DestiniesProps[];
+  CreateTransaction: (transaction: DestiniesInput) => Promise<void>;
   countries: APIData[];
 }
 
-const TransactionContext = createContext<TransactionsData>(
-  {} as TransactionsData
-);
+const DestiniesContext = createContext<DestiniesData>({} as DestiniesData);
 
 // Usado na raiz dos componente no App, apenas!
 export function DestinationProvider({ children }: DestinationProviderProps) {
-  const [transactions, setTransactions] = useState<TransactionsProps[]>([]);
+  const [destinies, setdestinies] = useState<DestiniesProps[]>([]);
   const [countries, setCountries] = useState<APIData[]>([]);
   useEffect(() => {
     const loadData = async (): Promise<void> => {
@@ -55,7 +53,12 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
           flag: elem.flag,
         } as APIData;
       });
-      setCountries(filteredValues);
+      const orderedCountriesByName = _.orderBy(
+        filteredValues,
+        ["name"],
+        ["asc"]
+      );
+      setCountries(orderedCountriesByName);
     };
 
     loadData();
@@ -63,32 +66,34 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
 
   useEffect(() => {
     api
-      .get("/transactions")
-      .then((response) => setTransactions(response.data.transactions));
-  }, []);
+      .get("/destinies")
+      .then((response) => console.log("Oi: ", response.data.destinies));
+    // api.get("/destinies").then((response) => setdestinies(response.data.destinies));
+    console.log("Oi: ", countries);
+  }, [countries]);
 
-  const CreateTransaction = async (transactionInput: TransactionInput) => {
-    const response = await api.post("/transactions", {
-      ...transactionInput,
+  const CreateTransaction = async (DestiniesInput: DestiniesInput) => {
+    const response = await api.post("/destinies", {
+      ...DestiniesInput,
       createdAt: new Date(),
     });
 
     const { transaction } = response.data;
 
-    setTransactions([...transactions, transaction]);
+    setdestinies([...destinies, transaction]);
   };
 
   return (
-    <TransactionContext.Provider
-      value={{ transactions, CreateTransaction, countries }}
+    <DestiniesContext.Provider
+      value={{ destinies, CreateTransaction, countries }}
     >
       {children}
-    </TransactionContext.Provider>
+    </DestiniesContext.Provider>
   );
 }
 
 export function useDestination() {
-  const context = useContext(TransactionContext);
+  const context = useContext(DestiniesContext);
 
   return context;
 }
