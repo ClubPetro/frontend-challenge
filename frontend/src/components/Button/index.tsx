@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
+import { useDestination } from "hooks/useDestination";
 
 const Container = styled.div`
   /* width: 100%; */
@@ -30,9 +31,11 @@ const ButtonSC = styled(Button)`
 `;
 
 export default function ButtonForm() {
+  const { CreateDestinie } = useDestination();
+
   return (
     <Container>
-      <ButtonSC>Adicionar</ButtonSC>
+      <ButtonSC onClick={() => CreateDestinie()}>Adicionar</ButtonSC>
     </Container>
   );
 }

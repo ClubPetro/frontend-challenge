@@ -17,11 +17,10 @@ interface APIData {
 // ----------------------------------------------
 interface DestiniesProps {
   id: string;
-  category: string;
-  title: string;
+  place: string;
+  goal: string;
+  country: string;
   createdAt: string;
-  type: string;
-  value: number;
 }
 
 type DestiniesInput = Omit<DestiniesProps, "id" | "createdAt">;
@@ -32,16 +31,38 @@ interface DestinationProviderProps {
 
 interface DestiniesData {
   destinies: DestiniesProps[];
-  CreateTransaction: (transaction: DestiniesInput) => Promise<void>;
+  CreateDestinie: () => Promise<void>;
   countries: APIData[];
+  goal: string;
+  handleChangeGoal: (event: React.ChangeEvent<{ value: string }>) => void;
+  place: string;
+  handleChangePlace: (event: React.ChangeEvent<{ value: string }>) => void;
+  country: string;
+  handleChangeCountry: (event: any) => void;
 }
 
 const DestiniesContext = createContext<DestiniesData>({} as DestiniesData);
 
 // Usado na raiz dos componente no App, apenas!
 export function DestinationProvider({ children }: DestinationProviderProps) {
-  const [destinies, setdestinies] = useState<DestiniesProps[]>([]);
+  const [destinies, setDestinies] = useState<DestiniesProps[]>([]);
   const [countries, setCountries] = useState<APIData[]>([]);
+
+  const [goal, setGoal] = useState("");
+  const handleChangeGoal = (event: React.ChangeEvent<{ value: string }>) => {
+    setGoal(event.target.value);
+  };
+
+  const [place, setPlace] = useState("");
+  const handleChangePlace = (event: React.ChangeEvent<{ value: string }>) => {
+    setPlace(event.target.value);
+  };
+
+  const [country, setCountry] = useState("none");
+  const handleChangeCountry = (event: any) => {
+    setCountry(event.target.value);
+  };
+
   useEffect(() => {
     const loadData = async (): Promise<void> => {
       const { data } = await axios.get(
@@ -65,25 +86,39 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
   }, []);
 
   useEffect(() => {
-    api
-      .get("/destinies")
-      .then((response) => setdestinies(response.data.destinies));
-  }, [countries]);
+    api.get("/destinies").then((response) => setDestinies(response.data));
+  }, []);
 
-  const CreateTransaction = async (DestiniesInput: DestiniesInput) => {
+  const CreateDestinie = async () => {
     const response = await api.post("/destinies", {
-      ...DestiniesInput,
+      goal,
+      place,
+      country,
       createdAt: new Date(),
     });
 
-    const { transaction } = response.data;
+    const destination = response.data as DestiniesProps;
 
-    setdestinies([...destinies, transaction]);
+    setDestinies([...destinies, destination]);
+
+    setCountry("none");
+    setPlace("");
+    setGoal("");
   };
 
   return (
     <DestiniesContext.Provider
-      value={{ destinies, CreateTransaction, countries }}
+      value={{
+        destinies,
+        CreateDestinie,
+        countries,
+        country,
+        goal,
+        place,
+        handleChangeCountry,
+        handleChangeGoal,
+        handleChangePlace,
+      }}
     >
       {children}
     </DestiniesContext.Provider>

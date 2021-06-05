@@ -46,14 +46,14 @@ export default function SelectCountry() {
     },
   }));
   const classes = useStyles();
-  const [country, setCountry] = useState("none");
+  // const [country, setCountry] = useState("none");
 
+  // const handleChangeCountry = (event: any) => {
+  //   setCountry(event.target.value);
+  // };
+
+  const { countries, country, handleChangeCountry } = useDestination();
   const [showPlaceholder, setShowPlaceholder] = useState(country === "none");
-  const handleChange = (event: any) => {
-    setCountry(event.target.value);
-  };
-
-  const { countries } = useDestination();
 
   return (
     <Container>
@@ -62,7 +62,7 @@ export default function SelectCountry() {
         <SelectSC
           country={country}
           value={country}
-          onChange={handleChange}
+          onChange={handleChangeCountry}
           input={<InputBase />}
           defaultValue="none"
           onFocus={() => setShowPlaceholder(false)}

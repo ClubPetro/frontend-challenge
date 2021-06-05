@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import InputMask from "react-input-mask";
 import MaterialInput from "@material-ui/core/Input";
+import { useDestination } from "hooks/useDestination";
 
 const Container = styled.div`
   margin-left: 30px;
@@ -28,12 +29,7 @@ const TextFieldSC = styled(MaterialInput)`
 
 // Will work fine
 const Input = (props: any) => (
-  <InputMask
-    mask="99/9999"
-    maskPlaceholder={null}
-    value={props.value}
-    onChange={props.onChange}
-  >
+  <InputMask mask="99/9999" value={props.value} onChange={props.onChange}>
     {(inputProps: any) => (
       <TextFieldSC {...inputProps} disableUnderline placeholder="mês/ano" />
     )}
@@ -41,14 +37,17 @@ const Input = (props: any) => (
 );
 
 export default function SelectDate() {
-  const [goal, setGoal] = useState("");
-  const handleChange = (event: React.ChangeEvent<{ value: string }>) => {
-    setGoal(event.target.value);
-  };
+  // const [goal, setGoal] = useState("");
+  // const handleChangeGoal = (event: React.ChangeEvent<{ value: string }>) => {
+  //   setGoal(event.target.value);
+  // };
+
+  const { goal, handleChangeGoal } = useDestination();
+
   return (
     <Container>
       <Label>Meta</Label>
-      <Input value={goal} onChange={handleChange} />
+      <Input value={goal} onChange={handleChangeGoal} />
     </Container>
   );
 }

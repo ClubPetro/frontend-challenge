@@ -1,6 +1,7 @@
 import grey from "@material-ui/core/colors/grey";
 import MaterialInput from "@material-ui/core/Input";
 import { useState } from "react";
+import { useDestination } from "hooks/useDestination";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -29,16 +30,18 @@ const TextFieldSC = styled(MaterialInput)`
 `;
 
 export default function SelectPlace() {
-  const [place, setPlace] = useState("");
-  const handleChange = (event: React.ChangeEvent<{ value: string }>) => {
-    setPlace(event.target.value);
-  };
+  // const [place, setPlace] = useState("");
+  // const handleChangePlace = (event: React.ChangeEvent<{ value: string }>) => {
+  //   setPlace(event.target.value);
+  // };
+
+  const { place, handleChangePlace } = useDestination();
   return (
     <Container>
       <Label>Local</Label>
       <TextFieldSC
         placeholder="Digite o local que deseja conhecer"
-        onChange={handleChange}
+        onChange={handleChangePlace}
         value={place}
         disableUnderline
       />

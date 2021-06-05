@@ -13,12 +13,7 @@ interface ModalProps {
 }
 
 const Input = (props: any) => (
-  <InputMask
-    mask="99/9999"
-    maskPlaceholder={null}
-    value={props.value}
-    onChange={props.onChange}
-  >
+  <InputMask mask="99/9999" value={props.value} onChange={props.onChange}>
     {(inputProps: any) => <input {...inputProps} placeholder="mês/ano" />}
   </InputMask>
 );

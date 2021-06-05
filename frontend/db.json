@@ -1,3 +1,12 @@
 {
-  "destinies": []
+  "destinies": [
+    {
+      "goal": "07/2021",
+      "place": "Geleiras",
+      "country": "Antártida",
+      "createdAt": "2021-06-05T21:02:30.424Z",
+      "id": 1
+    }
+    
+  ]
 }
