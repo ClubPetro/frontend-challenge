@@ -47,11 +47,11 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
   useEffect(() => {
     const loadData = async (): Promise<void> => {
       const { data } = await axios.get(
-        "https://restcountries.eu/rest/v2/all?fields=name;flag"
+        "https://restcountries.eu/rest/v2/all?fields=translations;flag"
       );
       const filteredValues = data.map((elem: any) => {
         return {
-          name: elem.name,
+          name: elem.translations.br,
           flag: elem.flag,
         } as APIData;
       });
