@@ -3,17 +3,15 @@ import Button from "@material-ui/core/Button";
 import { useDestination } from "hooks/useDestination";
 
 const Container = styled.div`
-  /* width: 100%; */
   display: flex;
-
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+  margin-top: 25px;
   align-items: center;
   justify-content: center;
-  margin-left: 30px;
-  /* margin-top: 23px; */
-
   background-color: var(--darkGreen);
   border-radius: 0.5rem;
-  text-decoration-color: white;
 
   .MuiButton-text {
     color: white;
@@ -28,6 +26,8 @@ const ButtonSC = styled(Button)`
   cursor: "pointer";
   text-align: "left";
   padding: 0.5rem;
+
+  text-decoration-color: white;
 `;
 
 export default function ButtonForm() {

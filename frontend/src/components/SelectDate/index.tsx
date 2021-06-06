@@ -5,9 +5,7 @@ import InputMask from "react-input-mask";
 import MaterialInput from "@material-ui/core/Input";
 import { useDestination } from "hooks/useDestination";
 
-const Container = styled.div`
-  margin-left: 30px;
-`;
+const Container = styled.div``;
 
 const Label = styled.p`
   color: white;
@@ -37,11 +35,6 @@ const Input = (props: any) => (
 );
 
 export default function SelectDate() {
-  // const [goal, setGoal] = useState("");
-  // const handleChangeGoal = (event: React.ChangeEvent<{ value: string }>) => {
-  //   setGoal(event.target.value);
-  // };
-
   const { goal, handleChangeGoal } = useDestination();
 
   return (

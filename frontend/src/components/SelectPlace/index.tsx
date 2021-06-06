@@ -4,12 +4,7 @@ import { useState } from "react";
 import { useDestination } from "hooks/useDestination";
 import styled from "styled-components";
 
-const Container = styled.div`
-  /* width: 100%; */
-  margin-left: 30px;
-
-  /* background-color: greenyellow; */
-`;
+const Container = styled.div``;
 
 const Label = styled.p`
   color: white;
@@ -30,11 +25,6 @@ const TextFieldSC = styled(MaterialInput)`
 `;
 
 export default function SelectPlace() {
-  // const [place, setPlace] = useState("");
-  // const handleChangePlace = (event: React.ChangeEvent<{ value: string }>) => {
-  //   setPlace(event.target.value);
-  // };
-
   const { place, handleChangePlace } = useDestination();
   return (
     <Container>

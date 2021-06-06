@@ -9,10 +9,7 @@ const media = generateMedia({
 });
 
 export const ContainerHeader = styled.div`
-  display: flex;
   width: 100%;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const ContentHeader = styled.div`
@@ -23,47 +20,34 @@ export const ContentHeader = styled.div`
   background-color: var(--lightGreen);
 
   ${media.greaterThan("large")`
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
- 
-  `}
-
-  ${media.between("medium", "large")`
-  display: grid;
-    grid-template-columns: repeat(3);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem 1rem;
     margin-left: 0;
   `}
 
-  ${media.between("small", "medium")`
-  display: grid;
-    grid-template-columns: repeat(2);
+  ${media.between("medium", "large")`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem 1rem;
+    margin-left: 0;
+    align-items: left;
+
+  `}
+
+  ${media.between("small", "medium")`
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem 1rem;
+    margin-left: 0;
+
   `} 
   
   ${media.lessThan("small")`
-  display: grid;
-    grid-template-columns: repeat(1);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem 1rem;
+    margin-left: 0;
+
   `}
-`;
-
-export const Cont = styled.div`
-  min-width: 100px;
-  width: 100%;
-  height: 80px;
-
-  background-color: var(--black);
-  margin-left: 1rem;
-`;
-
-export const Cont2 = styled.div`
-  min-width: 100px;
-  width: 100;
-
-  height: 80px;
-
-  background-color: var(--black);
-  margin-left: 1rem;
 `;
