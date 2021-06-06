@@ -8,13 +8,14 @@ import {
 import { api } from "../services/api";
 import _ from "lodash";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 interface APIData {
   name: string;
   flag: string;
 }
 
-// ----------------------------------------------
 interface DestiniesProps {
   id: string;
   place: string;
@@ -50,7 +51,6 @@ interface DestiniesData {
 
 const DestiniesContext = createContext<DestiniesData>({} as DestiniesData);
 
-// Usado na raiz dos componente no App, apenas!
 export function DestinationProvider({ children }: DestinationProviderProps) {
   const [destinies, setDestinies] = useState<DestiniesProps[]>([]);
   const [countries, setCountries] = useState<APIData[]>([]);
@@ -106,46 +106,73 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
   }, []);
 
   const CreateDestinie = async (): Promise<void> => {
-    const data = countries.find((elem) => elem.name === country);
+    try {
+      if (
+        country === "none" ||
+        goal === "" ||
+        goal.lastIndexOf("_") !== -1 ||
+        place === ""
+      ) {
+        throw new Error("Invalid data");
+      }
+      const data = countries.find((elem) => elem.name === country);
+      const response = await api.post("/destinies", {
+        goal,
+        place,
+        country,
+        flag: data !== undefined ? data.flag : undefined,
+        createdAt: new Date(),
+      });
 
-    const response = await api.post("/destinies", {
-      goal,
-      place,
-      country,
-      flag: data !== undefined ? data.flag : undefined,
-      createdAt: new Date(),
-    });
+      const destination = response.data as DestiniesProps;
 
-    const destination = response.data as DestiniesProps;
+      setDestinies([...destinies, destination]);
 
-    setDestinies([...destinies, destination]);
+      toast.success("Dados cadastrados com sucesso!");
 
-    setCountry("none");
-    setPlace("");
-    setGoal("");
+      setCountry("none");
+      setPlace("");
+      setGoal("");
+    } catch (error) {
+      toast.error(
+        "Erro no formato dos datos, insira valores válidos e tente novamente"
+      );
+    }
   };
 
   const EditDestinie = async ({
     goal,
     place,
   }: DestiniesInputEdit): Promise<void> => {
-    const destinie = await api.get(`/destinies/${idToEditAndDeleteDestinie}`);
+    try {
+      if (goal.lastIndexOf("_") !== -1 || goal === "" || place === "") {
+        throw new Error("Invalid data");
+      }
 
-    const editedDestinie = {
-      ...destinie.data,
-      goal,
-      place,
-    };
+      const destinie = await api.get(`/destinies/${idToEditAndDeleteDestinie}`);
 
-    await api.put(`/destinies/${idToEditAndDeleteDestinie}`, editedDestinie);
+      const editedDestinie = {
+        ...destinie.data,
+        goal,
+        place,
+      };
 
-    loadDestinies();
+      await api.put(`/destinies/${idToEditAndDeleteDestinie}`, editedDestinie);
+
+      loadDestinies();
+      toast.success("Dados editados com sucesso!");
+    } catch (error) {
+      toast.error(
+        "Erro no formato dos datos, insira valores válidos e tente novamente"
+      );
+    }
   };
 
   const DeleteDestinie = async (id: number): Promise<void> => {
     await api.delete(`/destinies/${id}`);
 
     loadDestinies();
+    toast.success("Dados deletados com sucesso!");
   };
 
   return (

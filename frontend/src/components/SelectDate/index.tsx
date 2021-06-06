@@ -24,7 +24,6 @@ const TextFieldSC = styled(MaterialInput)`
   border-radius: 0.25rem;
 `;
 
-// Will work fine
 const Input = (props: any) => (
   <InputMask mask="99/9999" value={props.value} onChange={props.onChange}>
     {(inputProps: any) => (

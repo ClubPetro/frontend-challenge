@@ -1,36 +1,3 @@
 {
-  "destinies": [
-    {
-      "goal": "12/2020",
-      "place": "Rancho Meu xodó",
-      "country": "Antártida",
-      "flag": "https://restcountries.eu/data/ata.svg",
-      "createdAt": "2021-06-06T13:46:01.228Z",
-      "id": 1
-    },
-    {
-      "goal": "12/2021",
-      "place": "Toronto",
-      "country": "Canadá",
-      "flag": "https://restcountries.eu/data/can.svg",
-      "createdAt": "2021-06-06T13:54:44.867Z",
-      "id": 7
-    },
-    {
-      "goal": "01/2000",
-      "place": "Casa do Batistinha Do tico e teco",
-      "country": "Angola",
-      "flag": "https://restcountries.eu/data/ago.svg",
-      "createdAt": "2021-06-06T15:06:56.535Z",
-      "id": 8
-    },
-    {
-      "goal": "12/2000",
-      "place": "Casa do sheik",
-      "country": "Catar",
-      "flag": "https://restcountries.eu/data/qat.svg",
-      "createdAt": "2021-06-06T18:01:44.725Z",
-      "id": 10
-    }
-  ]
+  "destinies": []
 }

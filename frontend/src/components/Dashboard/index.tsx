@@ -11,14 +11,16 @@ export default function Dashboard({ onOpenEditModalDestination }: Props) {
 
   return (
     <S.Container>
-      {destinies.map((destinie) => (
-        <Card
-          identify={Number(destinie.id)}
-          key={destinie.id}
-          destinie={destinie}
-          onOpenModalEditDestination={onOpenEditModalDestination}
-        />
-      ))}
+      <S.Content>
+        {destinies.map((destinie) => (
+          <Card
+            identify={Number(destinie.id)}
+            key={destinie.id}
+            destinie={destinie}
+            onOpenModalEditDestination={onOpenEditModalDestination}
+          />
+        ))}
+      </S.Content>
     </S.Container>
   );
 }

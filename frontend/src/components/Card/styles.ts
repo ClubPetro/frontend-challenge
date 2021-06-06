@@ -7,9 +7,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-  /* background: antiquewhite;
-  box-shadow: 0px 8px 10px -6px rgba(0, 0, 0, 0.3); */
-
   box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.15),
     0px 1px 2px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
