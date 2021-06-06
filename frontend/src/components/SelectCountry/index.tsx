@@ -9,11 +9,7 @@ import InputBase from "@material-ui/core/InputBase";
 import styled from "styled-components";
 import { useDestination } from "hooks/useDestination";
 
-const Container = styled.div`
-  /* width: 100%; */
-
-  /* background-color: greenyellow; */
-`;
+const Container = styled.div``;
 
 const Label = styled.p`
   color: white;
@@ -46,11 +42,6 @@ export default function SelectCountry() {
     },
   }));
   const classes = useStyles();
-  // const [country, setCountry] = useState("none");
-
-  // const handleChangeCountry = (event: any) => {
-  //   setCountry(event.target.value);
-  // };
 
   const { countries, country, handleChangeCountry } = useDestination();
   const [showPlaceholder, setShowPlaceholder] = useState(country === "none");
@@ -88,8 +79,6 @@ export default function SelectCountry() {
               {elem.name}
             </MenuItem>
           ))}
-          {/* <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
         </SelectSC>
       </FormControl>
     </Container>

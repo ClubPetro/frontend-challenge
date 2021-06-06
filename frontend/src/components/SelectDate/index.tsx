@@ -1,6 +1,5 @@
 import grey from "@material-ui/core/colors/grey";
 import styled from "styled-components";
-import { useState } from "react";
 import InputMask from "react-input-mask";
 import MaterialInput from "@material-ui/core/Input";
 import { useDestination } from "hooks/useDestination";

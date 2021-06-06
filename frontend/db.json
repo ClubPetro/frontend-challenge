@@ -26,27 +26,11 @@
     },
     {
       "goal": "12/2000",
-      "place": "Fazer a barba",
-      "country": "Antígua e Barbuda",
-      "flag": "https://restcountries.eu/data/atg.svg",
-      "createdAt": "2021-06-06T15:08:00.052Z",
-      "id": 9
-    },
-    {
-      "goal": "04/5000",
-      "place": "Papua",
-      "country": "Omã",
-      "flag": "https://restcountries.eu/data/omn.svg",
-      "createdAt": "2021-06-06T15:08:14.961Z",
+      "place": "Casa do sheik",
+      "country": "Catar",
+      "flag": "https://restcountries.eu/data/qat.svg",
+      "createdAt": "2021-06-06T18:01:44.725Z",
       "id": 10
-    },
-    {
-      "goal": "11/2000",
-      "place": "stay",
-      "country": "Coreia do Norte",
-      "flag": "https://restcountries.eu/data/prk.svg",
-      "createdAt": "2021-06-06T17:43:57.630Z",
-      "id": 11
     }
   ]
 }
