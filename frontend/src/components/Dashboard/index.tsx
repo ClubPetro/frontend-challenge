@@ -7,15 +7,15 @@ interface Props {
 }
 
 export default function Dashboard({ onOpenEditModalDestination }: Props) {
+  const { destinies } = useDestination();
   return (
     <S.Container>
-      {/* <Card onOpenModalEditDestination={onOpenEditModalDestination} />
-      <Card onOpenModalEditDestination={onOpenEditModalDestination} />
-      <Card onOpenModalEditDestination={onOpenEditModalDestination} />
-      <Card onOpenModalEditDestination={onOpenEditModalDestination} />
-      <Card onOpenModalEditDestination={onOpenEditModalDestination} />
-      <Card onOpenModalEditDestination={onOpenEditModalDestination} />
-      <Card onOpenModalEditDestination={onOpenEditModalDestination} /> */}
+      {destinies.map((destinie) => (
+        <Card
+          destinie={destinie}
+          onOpenModalEditDestination={onOpenEditModalDestination}
+        />
+      ))}
     </S.Container>
   );
 }

@@ -6,24 +6,20 @@ import IconButton from "@material-ui/core/IconButton";
 
 interface Props {
   onOpenModalEditDestination: () => void;
-  flag: string;
-  country: string;
-  goal: string;
-  place: string;
+  destinie: {
+    flag: string;
+    country: string;
+    goal: string;
+    place: string;
+  };
 }
 
-export default function Card({
-  onOpenModalEditDestination,
-  country,
-  flag,
-  place,
-  goal,
-}: Props) {
+export default function Card({ onOpenModalEditDestination, destinie }: Props) {
   return (
     <S.Container>
       <S.Presentation>
         <S.Row>
-          <S.Flag src={flag} alt="country" />
+          <S.Flag src={destinie.flag} alt="country" />
           <S.ContainerIcons>
             <IconButton
               color="primary"
@@ -38,12 +34,12 @@ export default function Card({
           </S.ContainerIcons>
         </S.Row>
         <S.Row>
-          <S.Text>{country.toUpperCase()}</S.Text>
+          <S.Text>{destinie.country.toUpperCase()}</S.Text>
         </S.Row>
       </S.Presentation>
       <S.Content>
-        <S.Description>Local: {place}</S.Description>
-        <S.Description>Meta: {goal}</S.Description>
+        <S.Description>Local: {destinie.place}</S.Description>
+        <S.Description>Meta: {destinie.goal}</S.Description>
       </S.Content>
     </S.Container>
   );

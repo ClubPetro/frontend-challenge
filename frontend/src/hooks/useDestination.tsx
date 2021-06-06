@@ -20,6 +20,7 @@ interface DestiniesProps {
   place: string;
   goal: string;
   country: string;
+  flag: string;
   createdAt: string;
 }
 
@@ -47,6 +48,7 @@ const DestiniesContext = createContext<DestiniesData>({} as DestiniesData);
 export function DestinationProvider({ children }: DestinationProviderProps) {
   const [destinies, setDestinies] = useState<DestiniesProps[]>([]);
   const [countries, setCountries] = useState<APIData[]>([]);
+  const [flag, setFlag] = useState("");
 
   const [goal, setGoal] = useState("");
   const handleChangeGoal = (event: React.ChangeEvent<{ value: string }>) => {
@@ -90,10 +92,13 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
   }, []);
 
   const CreateDestinie = async (): Promise<void> => {
+    const data = countries.find((elem) => elem.name === country);
+
     const response = await api.post("/destinies", {
       goal,
       place,
       country,
+      flag: data !== undefined ? data.flag : undefined,
       createdAt: new Date(),
     });
 
