@@ -24,7 +24,10 @@ interface DestiniesProps {
   createdAt: string;
 }
 
-type DestiniesInput = Omit<DestiniesProps, "id" | "createdAt">;
+type DestiniesInputEdit = Omit<
+  DestiniesProps,
+  "country" | "createdAt" | "flag" | "id"
+>;
 
 interface DestinationProviderProps {
   children: ReactNode;
@@ -33,6 +36,9 @@ interface DestinationProviderProps {
 interface DestiniesData {
   destinies: DestiniesProps[];
   CreateDestinie: () => Promise<void>;
+  EditDestinie: (data: DestiniesInputEdit) => Promise<void>;
+  SetIdToEditAndDelete: (id: number) => void;
+  DeleteDestinie: (id: number) => Promise<void>;
   countries: APIData[];
   goal: string;
   handleChangeGoal: (event: React.ChangeEvent<{ value: string }>) => void;
@@ -48,9 +54,14 @@ const DestiniesContext = createContext<DestiniesData>({} as DestiniesData);
 export function DestinationProvider({ children }: DestinationProviderProps) {
   const [destinies, setDestinies] = useState<DestiniesProps[]>([]);
   const [countries, setCountries] = useState<APIData[]>([]);
-  const [flag, setFlag] = useState("");
-
+  const [idToEditAndDeleteDestinie, setIdToEditAndDeleteDestinie] =
+    useState<number>(0);
   const [goal, setGoal] = useState("");
+
+  const SetIdToEditAndDelete = (id: number) => {
+    setIdToEditAndDeleteDestinie(id);
+  };
+
   const handleChangeGoal = (event: React.ChangeEvent<{ value: string }>) => {
     setGoal(event.target.value);
   };
@@ -63,6 +74,10 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
   const [country, setCountry] = useState("none");
   const handleChangeCountry = (event: any) => {
     setCountry(event.target.value);
+  };
+
+  const loadDestinies = async () => {
+    api.get("/destinies").then((response) => setDestinies(response.data));
   };
 
   useEffect(() => {
@@ -83,12 +98,11 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
       );
       setCountries(orderedCountriesByName);
     };
-
     loadData();
   }, []);
 
   useEffect(() => {
-    api.get("/destinies").then((response) => setDestinies(response.data));
+    loadDestinies();
   }, []);
 
   const CreateDestinie = async (): Promise<void> => {
@@ -111,15 +125,37 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
     setGoal("");
   };
 
-  // const EditDestinie = async (id: number): Promise<void> => {
-  //   const destinie = api.get(`/destinies/${id}`);
-  // };
+  const EditDestinie = async ({
+    goal,
+    place,
+  }: DestiniesInputEdit): Promise<void> => {
+    const destinie = await api.get(`/destinies/${idToEditAndDeleteDestinie}`);
+
+    const editedDestinie = {
+      ...destinie.data,
+      goal,
+      place,
+    };
+
+    await api.put(`/destinies/${idToEditAndDeleteDestinie}`, editedDestinie);
+
+    loadDestinies();
+  };
+
+  const DeleteDestinie = async (id: number): Promise<void> => {
+    await api.delete(`/destinies/${id}`);
+
+    loadDestinies();
+  };
 
   return (
     <DestiniesContext.Provider
       value={{
         destinies,
         CreateDestinie,
+        EditDestinie,
+        DeleteDestinie,
+        SetIdToEditAndDelete,
         countries,
         country,
         goal,

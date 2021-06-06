@@ -8,10 +8,13 @@ interface Props {
 
 export default function Dashboard({ onOpenEditModalDestination }: Props) {
   const { destinies } = useDestination();
+
   return (
     <S.Container>
       {destinies.map((destinie) => (
         <Card
+          identify={Number(destinie.id)}
+          key={destinie.id}
           destinie={destinie}
           onOpenModalEditDestination={onOpenEditModalDestination}
         />

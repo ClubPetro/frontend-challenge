@@ -2,7 +2,7 @@ import Modal from "react-modal";
 import * as S from "./styles";
 import CloseButtonImg from "assets/close/close.svg";
 import { FormEvent, useEffect, useState } from "react";
-// import { useTransaction } from "hooks/useDestination";
+import { useDestination } from "hooks/useDestination";
 import InputMask from "react-input-mask";
 
 Modal.setAppElement("#root");
@@ -23,17 +23,19 @@ export function EditDestinationModal({ isOpen, onRequestClose }: ModalProps) {
 
   const [goal, setGoal] = useState<string>("");
 
-  // const { CreateTransaction } = useTransaction();
-  const handleChange = (event: React.ChangeEvent<{ value: string }>) => {
+  const { EditDestinie } = useDestination();
+  const handleChangeGoal = (event: React.ChangeEvent<{ value: string }>) => {
     setGoal(event.target.value);
+  };
+  const handleChangePlace = (event: React.ChangeEvent<{ value: string }>) => {
+    setPlace(event.target.value);
   };
   const handleEditDestination = async (event: FormEvent) => {
     event.preventDefault();
 
-    // await CreateTransaction({ place, type, goal, value });
-
-    // setGoal("");
-    // setPlace("");
+    EditDestinie({ goal, place });
+    setGoal("");
+    setPlace("");
 
     onRequestClose();
   };
@@ -64,17 +66,10 @@ export function EditDestinationModal({ isOpen, onRequestClose }: ModalProps) {
           type="text"
           placeholder="Local"
           value={place}
-          onChange={(event) => setPlace(event.target.value)}
+          onChange={handleChangePlace}
         />
 
-        {/* <input
-          type="text"
-          placeholder="Meta"
-          value={goal}
-          onChange={(event) => setGoal(event.target.value)}
-        /> */}
-
-        <Input value={goal} onChange={handleChange} />
+        <Input value={goal} onChange={handleChangeGoal} />
 
         <button type="submit">Editar</button>
       </S.Container>

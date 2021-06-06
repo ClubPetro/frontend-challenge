@@ -1,10 +1,12 @@
 import * as S from "./styles";
 import EditIcon from "@material-ui/icons/Edit";
 import CloseIcon from "@material-ui/icons/Close";
+import { useDestination } from "hooks/useDestination";
 
 import IconButton from "@material-ui/core/IconButton";
 
 interface Props {
+  identify: number;
   onOpenModalEditDestination: () => void;
   destinie: {
     flag: string;
@@ -14,7 +16,12 @@ interface Props {
   };
 }
 
-export default function Card({ onOpenModalEditDestination, destinie }: Props) {
+export default function Card({
+  onOpenModalEditDestination,
+  destinie,
+  identify,
+}: Props) {
+  const { SetIdToEditAndDelete, DeleteDestinie } = useDestination();
   return (
     <S.Container>
       <S.Presentation>
@@ -24,11 +31,24 @@ export default function Card({ onOpenModalEditDestination, destinie }: Props) {
             <IconButton
               color="primary"
               size="small"
-              onClick={onOpenModalEditDestination}
+              onClick={() => {
+                SetIdToEditAndDelete(identify);
+                onOpenModalEditDestination();
+              }}
             >
               <EditIcon />
             </IconButton>
-            <IconButton color="primary" size="small">
+            <IconButton
+              color="primary"
+              size="small"
+              onClick={() => {
+                const load = async () => {
+                  DeleteDestinie(Number(identify));
+                };
+
+                load();
+              }}
+            >
               <CloseIcon />
             </IconButton>
           </S.ContainerIcons>
