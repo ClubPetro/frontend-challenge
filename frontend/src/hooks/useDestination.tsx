@@ -113,7 +113,7 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
         goal.lastIndexOf("_") !== -1 ||
         place === ""
       ) {
-        throw new Error("Invalid data");
+        throw new Error("Invalid data!");
       }
       const data = countries.find((elem) => elem.name === country);
       const response = await api.post("/destinies", {
