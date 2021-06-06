@@ -38,7 +38,7 @@ interface DestiniesData {
   destinies: DestiniesProps[];
   CreateDestinie: () => Promise<void>;
   EditDestinie: (data: DestiniesInputEdit) => Promise<void>;
-  SetIdToEditAndDelete: (id: number) => void;
+  SetIdToEdit: (id: number) => void;
   DeleteDestinie: (id: number) => Promise<void>;
   countries: APIData[];
   goal: string;
@@ -58,7 +58,7 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
     useState<number>(0);
   const [goal, setGoal] = useState("");
 
-  const SetIdToEditAndDelete = (id: number) => {
+  const SetIdToEdit = (id: number) => {
     setIdToEditAndDeleteDestinie(id);
   };
 
@@ -182,7 +182,7 @@ export function DestinationProvider({ children }: DestinationProviderProps) {
         CreateDestinie,
         EditDestinie,
         DeleteDestinie,
-        SetIdToEditAndDelete,
+        SetIdToEdit,
         countries,
         country,
         goal,

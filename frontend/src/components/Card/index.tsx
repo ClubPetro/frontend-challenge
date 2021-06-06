@@ -21,7 +21,7 @@ export default function Card({
   destinie,
   identify,
 }: Props) {
-  const { SetIdToEditAndDelete, DeleteDestinie } = useDestination();
+  const { SetIdToEdit, DeleteDestinie } = useDestination();
   return (
     <S.Container>
       <S.Presentation>
@@ -32,7 +32,7 @@ export default function Card({
               color="primary"
               size="small"
               onClick={() => {
-                SetIdToEditAndDelete(identify);
+                SetIdToEdit(identify);
                 onOpenModalEditDestination();
               }}
             >
