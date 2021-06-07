@@ -63,21 +63,30 @@ Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
 
 ### Run-project
 
-cd /frontend
-yarn 
+Acessar o diretório do front:
+
+`cd /frontend`
+
+Instalar as dependências
+
+`yarn` 
 
 ou 
 
-npm install
+`npm install`
 
-yarn server
+Rodar o servidor
 
-abre outro terminal e 
+`yarn server`
 
-yarn start
+Depois basta abrir outro terminal e 
+
+`yarn start`
 
 ### Url
 
-[Clique aqui](https://alvaro-places-2.herokuapp.com/)
+Deploy pelo heroku
+
+[Clique aqui para acessar o projeto](https://alvaro-places-2.herokuapp.com/)
 
 https://alvaro-places-2.herokuapp.com/
