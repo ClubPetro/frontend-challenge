@@ -8,6 +8,8 @@
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+- [Rodar o projeto](#run-project)
+- [Url do Projeto](#url)
 
 ## Descrição
 
@@ -57,3 +59,25 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá submeter o desafio no questionário disponível na sua área de candidato na plataforma(https://menvievagas.com.br/vagas/fam%C3%8Dliapires/) do Processo Seletivo. É só clicar em RESPONDER no questionário e inserir o link do seu PR.
 Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
+
+
+### Run-project
+
+cd /frontend
+yarn 
+
+ou 
+
+npm install
+
+yarn server
+
+abre outro terminal e 
+
+yarn start
+
+### Url
+
+[Clique aqui](https://alvaro-places-2.herokuapp.com/)
+
+https://alvaro-places-2.herokuapp.com/
