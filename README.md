@@ -36,7 +36,7 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O CRUD poderá ser gerenciado pelo estado no React;
 - Apenas o Local e Meta poderão ser editados e a edição do card deverá ser feita de acordo com a criatividade do canditado, não tendo um layout específico para esta ação;
 - O Sistema deverá ser desenvolvido utilizando [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html);
-- O Sistema deverá ser integrado à API [Rest Countries](https://restcountries.eu/rest/v2/all) para a listagem dos países. Esta conta com a imagem da bandeira e a tradução do nome do país para Português;
+- O Sistema deverá ser integrado à API [Rest Countries](https://restcountries.com/v2/all) para a listagem dos países. Esta conta com a imagem da bandeira e a tradução do nome do país para Português;
 - A biblioteca [react-input-mask](https://www.npmjs.com/package/react-input-mask) deverá ser utilizada para colocar uma mascara no input de "Meta" no formato mm/aaaa;
 - O Sistema deverá ser responsivo;
 - O candidato deverá adicionar ao projeto uma explicação de como executar a aplicação.
