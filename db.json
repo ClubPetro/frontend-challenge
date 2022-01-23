@@ -1,0 +1,46 @@
+{
+  "countries": [
+    {
+      "meta": "12/2022",
+      "place": "Gramado",
+      "name": "Brasil",
+      "flag": "https://flagcdn.com/br.svg",
+      "id": 1
+    },
+    {
+      "name": "Argentina",
+      "flag": "https://flagcdn.com/ar.svg",
+      "place": "Buenos Aires",
+      "meta": "11/2022",
+      "id": 2
+    },
+    {
+      "name": "Colômbia",
+      "flag": "https://flagcdn.com/co.svg",
+      "place": "Bogotá",
+      "meta": "11/2022",
+      "id": 3
+    },
+    {
+      "name": "Irlanda",
+      "flag": "https://flagcdn.com/ie.svg",
+      "place": "Dublin",
+      "meta": "09/2022",
+      "id": 4
+    },
+    {
+      "meta": "07/2022",
+      "place": "Pirâmides do Egito",
+      "name": "Egito",
+      "flag": "https://flagcdn.com/eg.svg",
+      "id": 5
+    },
+    {
+      "name": "Angola",
+      "flag": "https://flagcdn.com/ao.svg",
+      "place": "Kuduairo",
+      "meta": "11/2023",
+      "id": 6
+    }
+  ]
+}

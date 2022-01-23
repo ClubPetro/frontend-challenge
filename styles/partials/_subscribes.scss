@@ -1,0 +1,35 @@
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+  background-color: white;
+  height: 48px;
+  border-radius: 7px;
+  ::placeholder {
+    color: #868686;
+    opacity: 1;
+  }
+  em {
+    color: #868686;
+  }
+  &:hover {
+    .MuiOutlinedInput-notchedOutlin {
+      border-color: transparent !important;
+    }
+  }
+}
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  max-height: 200px !important;
+}
+.MuiFormControl-root {
+  position: relative;
+  .custom-label {
+    position: absolute;
+    top: -20px;
+    color: #ffff;
+  }
+}
+
+@media (max-width: 500px) {
+  .Toastify__toast {
+    margin: 0 auto 50px !important;
+    width: 80% !important;
+  }
+}
