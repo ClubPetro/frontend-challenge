@@ -9,6 +9,49 @@
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
 
+## Como executar a aplicação
+
+
+## Após clonar o projeto deverá ir para a pasta raíz e instalar todas as dependências
+
+```bash
+yarn
+```
+ou
+
+```bash
+npm install
+```
+
+## Depois deverá instalar o json-server
+
+```bash
+npm install -g json-server
+```
+
+## Após instalado deverá executar os seguintes comandos
+
+```bash
+json-server --watch ./src/server/db.json --port 3004
+```
+
+## Em outro terminal 
+
+```bash
+yarn start
+```
+ou
+
+```bash
+npm run start
+```
+
+## Depois acessar o link
+```bash
+http://localhost:3000
+```
+
+
 ## Descrição
 
 Este desafio tem como objetivo avaliar as habilidades técnicas do canditado a vaga de desenvolvedor frontend no Clubpetro.

@@ -1,0 +1,25 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "flag": "https://flagcdn.com/br.svg",
+      "country": "Brazil",
+      "place": "Pipa - MA",
+      "goal": "07/2022"
+    },
+    {
+      "country": "France",
+      "place": "Paris",
+      "goal": "11/2022",
+      "flag": "https://flagcdn.com/fr.svg",
+      "id": 2
+    },
+    {
+      "country": "Brazil",
+      "place": "Rio Grande do Sul",
+      "goal": "12/2022",
+      "flag": "https://flagcdn.com/br.svg",
+      "id": 3
+    }
+  ]
+}
