@@ -4,8 +4,11 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import CloseIcon from "@mui/icons-material/Close";
 
 export const CardStyles = styled(Card)`
-  max-width: 250px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  && {
+    max-width: 250px;
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 export const CardContentStyles = styled(CardContent)`
@@ -27,15 +30,15 @@ export const Icons = styled("div")``;
 export const ModeEditIconStyles = styled(ModeEditIcon)`
   && {
     font-size: 20px;
-    color: #868686;
+    color: ${({ theme }) => theme.colors.placeholderColor};
     margin-right: 24px;
   }
 `;
 
 export const CloseIconStyles = styled(CloseIcon)`
   && {
-    font-size: 20px;
-    color: #868686;
+    font-size: 22px;
+    color: ${({ theme }) => theme.colors.placeholderColor};
   }
 `;
 

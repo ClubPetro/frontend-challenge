@@ -1,8 +1,7 @@
-import React from "react";
-import { Card } from "./components/Card";
+import { Home } from "./Container/Home";
 
 function App() {
-  return <Card />;
+  return <Home />;
 }
 
 export default App;
