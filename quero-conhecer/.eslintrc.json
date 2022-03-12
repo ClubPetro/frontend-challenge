@@ -4,7 +4,7 @@
       "es2021": true
     },
     "extends": ["plugin:prettier/recommended"],
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
       "ecmaFeatures": {
         "jsx": true
