@@ -56,7 +56,7 @@ export interface Inputs {
   local: string;
   meta: string;
   localModal: string;
-  metaModal: any;
+  metaModal: string;
 }
 
 export interface PropsCountrie {
