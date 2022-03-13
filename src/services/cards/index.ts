@@ -7,18 +7,18 @@ interface bodyProps {
   img?: string;
 }
 
-export const getAllCards = async () => {
+export const postCard = async (body: bodyProps) => {
   const returnApi = await apiJsonServer
-    .get("/cards")
+    .post("/cards", { ...body })
     .then((response) => response)
     .then((data) => data.data)
     .catch((err) => console.log(err));
   return returnApi;
 };
 
-export const postCard = async (body: bodyProps) => {
+export const getAllCards = async () => {
   const returnApi = await apiJsonServer
-    .post("/cards", { ...body })
+    .get("/cards")
     .then((response) => response)
     .then((data) => data.data)
     .catch((err) => console.log(err));

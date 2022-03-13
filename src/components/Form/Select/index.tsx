@@ -8,8 +8,14 @@ interface Props {
   handleChangeSelect:
     | ((event: SelectChangeEvent<unknown>, child: React.ReactNode) => void)
     | undefined;
-  contentMenuItem: object[];
+  contentMenuItem: ItemProps[];
   isVisible?: boolean | undefined;
+  disabled?: boolean;
+}
+interface ItemProps {
+  translations: {
+    br: string;
+  };
 }
 
 const ITEM_HEIGHT = 80;
@@ -30,6 +36,7 @@ export function Select({
   handleChangeSelect,
   contentMenuItem,
   isVisible,
+  disabled = false,
 }: Props) {
   function renderValue(option: string) {
     if (option === "") {
@@ -49,11 +56,12 @@ export function Select({
         MenuProps={MenuProps}
         inputProps={{ "aria-label": "Without label" }}
         renderValue={() => renderValue(value)}
+        disabled={disabled}
       >
         {contentMenuItem &&
-          contentMenuItem.map((item: any, key: number) => (
-            <MenuItemStyles value={item.name} key={key}>
-              {item.name}
+          contentMenuItem.map((item: ItemProps, key: number) => (
+            <MenuItemStyles value={item.translations.br} key={key}>
+              {item.translations.br}
             </MenuItemStyles>
           ))}
       </SelectStyles>

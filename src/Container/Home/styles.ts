@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import styled from "styled-components";
 
 export const Form = styled("form")`
@@ -24,6 +24,10 @@ export const Form = styled("form")`
   }
 `;
 
+export const BoxStyles = styled(Box)`
+  padding: 53px 36px 0 36px;
+`;
+
 export const SelectArea = styled("div")`
   && {
     width: 100%;
@@ -32,10 +36,6 @@ export const SelectArea = styled("div")`
       max-width: 100%;
     }
   }
-`;
-
-export const SelectAreaModal = styled("div")`
-  margin-top: 10px;
 `;
 
 export const InputAreaModal = styled("div")`
@@ -72,15 +72,9 @@ export const ButtonArea = styled("div")`
   }
 `;
 
-export const ContentBody = styled(Grid)`
-  && {
-  }
-`;
+export const ContentBody = styled(Grid)``;
 
-export const Item = styled(Grid).attrs({ item: true })`
-  && {
-  }
-`;
+export const Item = styled(Grid).attrs({ item: true })``;
 
 export const FormModal = styled("form")`
   position: absolute;
@@ -103,6 +97,13 @@ export const FormModal = styled("form")`
 
 export const ButtonAreaModal = styled("div")`
   margin-top: 20px;
+`;
+
+export const AreaLoad = styled("div")`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 333px;
 `;
 
 export const ContainerConfirmeDelete = styled("div")`

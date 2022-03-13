@@ -12,7 +12,6 @@ export const Container = styled("div")`
 
 export const SelectStyles = styled(Select)`
   && {
-    /* max-width: 300px; */
     height: 48px;
     background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     border-radius: 7px;
@@ -21,10 +20,7 @@ export const SelectStyles = styled(Select)`
   }
 `;
 
-export const MenuItemStyles = styled(MenuItem)`
-  && {
-  }
-`;
+export const MenuItemStyles = styled(MenuItem)``;
 
 export const LabelStyles = styled("label")<PropsLabel>`
   color: ${({ theme }) => theme.colors.backgroundPrimary};

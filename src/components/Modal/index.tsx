@@ -1,4 +1,4 @@
-import { JSXElementConstructor, ReactElement } from "react";
+import { ReactElement } from "react";
 import { ModalStyles } from "./styles";
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
     | ((event: {}, reason: "backdropClick" | "escapeKeyDown") => void)
     | undefined;
   open: boolean;
-  children: ReactElement<any, string | JSXElementConstructor<any>>;
+  children: ReactElement;
 }
 
 export function Modal({ handleClose, open, children }: Props) {

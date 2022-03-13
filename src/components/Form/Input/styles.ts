@@ -1,8 +1,6 @@
 import styled, { css } from "styled-components";
+import InputMask from "react-input-mask";
 
-interface Props {
-  isBorder?: boolean | undefined;
-}
 interface PropsLabel {
   isVisible?: boolean | undefined;
 }
@@ -22,15 +20,22 @@ export const LabelStyles = styled("label")<PropsLabel>`
     `}
 `;
 
-export const InputStyles = styled("input")<Props>`
+export const InputStyles = styled("input")`
   height: 48px;
   border-radius: 7px;
   border: none;
   outline: none;
   padding: 12px;
-  ${({ isBorder }) =>
-    isBorder &&
-    css`
-      border: 1px solid ${({ theme }) => theme.colors.border};
-    `}
+  border: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+export const InputMaskStyles = styled(InputMask).attrs({
+  mask: "99/9999",
+})`
+  height: 48px;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `;

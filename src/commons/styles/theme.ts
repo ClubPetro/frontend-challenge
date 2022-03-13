@@ -7,6 +7,7 @@ export const theme = {
     placeholderColor: "#868686",
     titleTop: "#000000",
     border: "#c4c4c4",
+    borderDivider: "#ababab",
   },
   fonts: {
     primary: "Roboto Regular",

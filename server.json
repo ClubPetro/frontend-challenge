@@ -1,46 +1,11 @@
 {
   "cards": [
     {
-      "local": "teste",
-      "meta": "01/2025",
-      "checkboxPais": "Benin",
-      "img": "https://flagcdn.com/bj.svg",
+      "local": "Toronto",
+      "meta": "02/2022",
+      "checkboxPais": "Canada",
+      "img": "https://flagcdn.com/ca.svg",
       "id": 1
-    },
-    {
-      "local": "china",
-      "meta": "10/2021",
-      "checkboxPais": "Bulgaria",
-      "img": "https://flagcdn.com/bg.svg",
-      "id": 2
-    },
-    {
-      "local": "asdasd",
-      "meta": "10/2021",
-      "checkboxPais": "Brazil",
-      "img": "https://flagcdn.com/br.svg",
-      "id": 4
-    },
-    {
-      "meta": "01/2025",
-      "local": "chinaaa",
-      "checkboxPais": "Nigeria",
-      "img": "https://flagcdn.com/ng.svg",
-      "id": 5
-    },
-    {
-      "local": "chinaaa",
-      "meta": "10/2021",
-      "checkboxPais": "Tajikistan",
-      "img": "https://flagcdn.com/tj.svg",
-      "id": 6
-    },
-    {
-      "local": "china",
-      "meta": "102022",
-      "checkboxPais": "Albania",
-      "img": "https://flagcdn.com/al.svg",
-      "id": 8
     }
   ]
 }

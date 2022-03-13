@@ -5,7 +5,6 @@ import CloseIcon from "@mui/icons-material/Close";
 
 export const CardStyles = styled(Card)`
   && {
-    /* max-width: 250px; */
     max-height: 250px;
     width: 100%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -31,7 +30,7 @@ export const ModeEditIconStyles = styled(ModeEditIcon)`
     font-size: 20px;
     color: ${({ theme }) => theme.colors.placeholderColor};
     margin-right: 24px;
-    transition: 0.3s;
+    transition: all 0.3s;
     &:hover {
       cursor: pointer;
       color: ${({ theme }) => theme.colors.titleTop};
@@ -43,7 +42,7 @@ export const CloseIconStyles = styled(CloseIcon)`
   && {
     font-size: 22px;
     color: ${({ theme }) => theme.colors.placeholderColor};
-    transition: 0.3s;
+    transition: all 0.3s;
     &:hover {
       cursor: pointer;
       color: ${({ theme }) => theme.colors.titleTop};
@@ -83,6 +82,6 @@ export const ContentBody = styled("div")`
 
 export const DividerStyles = styled(Divider)`
   && {
-    border-color: #ababab;
+    border-color: ${({ theme }) => theme.colors.borderDivider};
   }
 `;
