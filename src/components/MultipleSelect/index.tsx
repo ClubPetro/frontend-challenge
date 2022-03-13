@@ -54,39 +54,38 @@ const MultipleSelect: React.FC = () => {
 
   return (
     <Container>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <span>País</span>
-        <ThemeProvider theme={componentsTheme}>
-          <Select
-            displayEmpty
-            value={personName}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <span>Selecione...</span>;
-              }
+      <span>País</span>
+      <ThemeProvider theme={componentsTheme}>
+        <Select
+          displayEmpty
+          value={personName}
+          onChange={handleChange}
+          input={<OutlinedInput />}
+          renderValue={(selected) => {
+            if (selected.length === 0) {
+              return <text>Selecione...</text>;
+            }
 
-              return selected.join(', ');
-            }}
-            MenuProps={MenuProps}
-            inputProps={{ 'aria-label': 'Without label' }}
-          >
-            <MenuItem disabled value="">
-              <em>Placeholder</em>
+            return selected.join(', ');
+          }}
+          MenuProps={MenuProps}
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+          <MenuItem disabled value="">
+            <em>Selecione...</em>
+          </MenuItem>
+          {names.map((name) => (
+            <MenuItem
+              key={name}
+              value={name}
+              style={getStyles(name, personName, theme)}
+            >
+              {name}
             </MenuItem>
-            {names.map((name) => (
-              <MenuItem
-                key={name}
-                value={name}
-                style={getStyles(name, personName, theme)}
-              >
-                {name}
-              </MenuItem>
-            ))}
-          </Select>
-        </ThemeProvider>
-      </FormControl>
+          ))}
+        </Select>
+      </ThemeProvider>
+
     </Container>
   );
 }
