@@ -63,4 +63,3 @@ Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
 - Modifique o nome do arquivo *.env.sample*, simplesmente removendo o *.sample*, o nome final deve ser *.env*.
 - Execute o json-server com o comando `npm run server` ele deve rodar na porta 3333, certificar se não tenha nada ja utilizando esta porta.
 - Para rodar o projeto utilize o comando `npm start`, por padão o projeto deve iniciar na seguinte url e porta `http://localhost:3000/`
-- Este projeto conta com alguns testes de requisições, caso queira executar os testes utilizar o comando `npm run test`
