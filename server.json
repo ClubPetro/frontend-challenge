@@ -1,0 +1,11 @@
+{
+  "cards": [
+    {
+      "local": "Toronto",
+      "meta": "02/2022",
+      "checkboxPais": "Canada",
+      "img": "https://flagcdn.com/ca.svg",
+      "id": 1
+    }
+  ]
+}

@@ -8,6 +8,7 @@
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+- [Como executar o projeto](#executar-o-projeto)
 
 ## Descrição
 
@@ -57,3 +58,8 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá submeter o desafio no questionário disponível na sua área de candidato na plataforma(https://menvievagas.com.br/vagas/fam%C3%8Dliapires/) do Processo Seletivo. É só clicar em RESPONDER no questionário e inserir o link do seu PR.
 Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
+
+## Executar o Projeto
+- Modifique o nome do arquivo *".env.sample"*, simplesmente removendo o *".sample"*, o nome final deve ser *".env"*.
+- Execute o json-server com o comando `npm run server` ele deve rodar na porta 3333, certificar se não tenha nada ja utilizando esta porta.
+- Para rodar o projeto utilize o comando `npm start`, por padão o projeto deve iniciar na seguinte url e porta `http://localhost:3000/`
