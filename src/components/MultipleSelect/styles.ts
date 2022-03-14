@@ -9,9 +9,7 @@ export const Container = styled.div`
   span{
     color: #fff;
   }
-  text{
+  .placeholder{
     color: #868686;
-
-
   }
 `;

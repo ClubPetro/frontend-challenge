@@ -1,6 +1,7 @@
 import { FormControl, MenuItem, OutlinedInput, SelectChangeEvent, Theme, useTheme, Select, ThemeProvider } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { componentsTheme } from '../../theme/materialStyles';
+import { Country } from '../../types';
 import { Container } from './styles';
 
 // import { Container } from './styles';
@@ -15,58 +16,38 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
 
-function getStyles(name: string, personName: string[], theme: Theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
+interface SelectProps {
+  countries: Country[]
+  onSelect: (e: string) => void;
 }
 
-const MultipleSelect: React.FC = () => {
-  const theme = useTheme();
-  console.log(theme);
-  const [personName, setPersonName] = React.useState<string[]>([]);
+const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect}) => {
+  const [country, setCountry] = useState<string>('');
+  const [commonName, setCommonName] = useState<string>('')
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+  const handleChange = (event: SelectChangeEvent<typeof country>) => {
+    console.log(event)
+    const {target: { value },} = event;
+    setCountry(value);
+    onSelect(String(value));
   };
 
+  console.log(countries);
   return (
     <Container>
       <span>País</span>
       <ThemeProvider theme={componentsTheme}>
         <Select
           displayEmpty
-          value={personName}
+          value={country}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {
-            if (selected.length === 0) {
-              return <text>Selecione...</text>;
+            if (!selected) {
+              return <span className="placeholder">Selecione...</span>;
             }
-
-            return selected.join(', ');
+            return commonName;
           }}
           MenuProps={MenuProps}
           inputProps={{ 'aria-label': 'Without label' }}
@@ -74,15 +55,17 @@ const MultipleSelect: React.FC = () => {
           <MenuItem disabled value="">
             <em>Selecione...</em>
           </MenuItem>
-          {names.map((name) => (
+          {countries.map((item, index)=> (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              key={index}
+              value={item.name.official}
+              onClick={() => setCommonName(item.translations.por.common)}
             >
-              {name}
+              {item.translations.por.common}
             </MenuItem>
-          ))}
+          ))
+          }
+
         </Select>
       </ThemeProvider>
 

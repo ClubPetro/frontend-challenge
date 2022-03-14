@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const countriesApi = axios.create({
-  baseURL: "http://localhost:8000/",
+  baseURL: "https://restcountries.com/v3.1/",
 });
 
 export default countriesApi;
