@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 export const AddNewLocaleContainer = withStyles((theme) => ({
   root: {
-    padding: '73px 32px',
+    padding: '73px 56px',
     backgroundColor: theme.palette.primary.main,
     gap: '34px',
   },

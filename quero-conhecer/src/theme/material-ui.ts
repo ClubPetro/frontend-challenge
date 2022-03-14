@@ -26,15 +26,42 @@ const themeOptions: ThemeOptions = {
   typography: {
     subtitle1: {
       color: '#FFFFFF',
-      [breakpoints.up('md')]: {
-        fontSize: '1rem',
-      },
-      [breakpoints.between('sm', 'md')]: {
-        fontSize: '0.725rem',
-      },
-      [breakpoints.down('sm')]: {
-        fontSize: '.07rem',
-      },
+      fontWeight: 400,
+      // [breakpoints.up('md')]: {
+      //   fontSize: '1rem',
+      // },
+      // [breakpoints.between('sm', 'md')]: {
+      //   fontSize: '0.725rem',
+      // },
+      // [breakpoints.down('sm')]: {
+      //   fontSize: '.07rem',
+      // },
+    },
+    subtitle2: {
+      color: '#000000',
+      fontWeight: 400,
+      // [breakpoints.up('md')]: {
+      //   fontSize: '1rem',
+      // },
+      // [breakpoints.between('sm', 'md')]: {
+      //   fontSize: '0.725rem',
+      // },
+      // [breakpoints.down('sm')]: {
+      //   fontSize: '.07rem',
+      // },
+    },
+    body1: {
+      color: '#4F9419',
+      fontWeight: 700,
+      // [breakpoints.up('md')]: {
+      //   fontSize: '1rem',
+      // },
+      // [breakpoints.between('sm', 'md')]: {
+      //   fontSize: '0.725rem',
+      // },
+      // [breakpoints.down('sm')]: {
+      //   fontSize: '.07rem',
+      // },
     },
   },
 
@@ -117,6 +144,14 @@ const themeOptions: ThemeOptions = {
       select: {
         '&:focus': {
           backgroundColor: 'unset',
+        },
+      },
+    },
+
+    MuiCssBaseline: {
+      '@global': {
+        body: {
+          backgroundColor: '#ffffff',
         },
       },
     },

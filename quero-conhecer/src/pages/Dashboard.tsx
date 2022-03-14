@@ -5,7 +5,7 @@ import { SelectedLocales } from '../components/organisms/SelectedLocales/Selecte
 
 export const Dashboard = () => {
   return (
-    <Box display='flex' flexDirection='column'>
+    <Box display='flex' flexDirection='column' height='100vh'>
       <Header />
       <AddNewLocale />
       <SelectedLocales />
