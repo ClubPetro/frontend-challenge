@@ -24,21 +24,38 @@ const themeOptions: ThemeOptions = {
   },
 
   typography: {
-    h1: {
+    subtitle1: {
+      color: '#FFFFFF',
       [breakpoints.up('md')]: {
-        fontSize: '3.5rem' /* 56px */,
+        fontSize: '1rem',
       },
       [breakpoints.between('sm', 'md')]: {
-        fontSize: '2.4rem',
+        fontSize: '0.725rem',
       },
       [breakpoints.down('sm')]: {
-        fontSize: '1.8rem',
+        fontSize: '.07rem',
       },
     },
   },
 
   overrides: {
-    
+    MuiButton: {
+      root: {
+        borderRadius: '7px',
+        padding: '13px 20px',
+        minWidth: 'unset',
+        textTransform: 'none',
+      },
+      contained: {
+        backgroundColor: '#006C18',
+        color: '#FFFFFF',
+        boxShadow: 'none',
+        '&:hover': {
+          boxShadow: 'none',
+          color: '#006C18',
+        },
+      },
+    },
 
     MuiInputBase: {
       root: {
@@ -47,8 +64,8 @@ const themeOptions: ThemeOptions = {
         width: '100%',
         borderRadius: '8px',
         padding: '8px 14px',
-        marginTop: '8px',
-        marginBottom: '8px',
+        marginTop: '0px',
+        marginBottom: '0px',
         fontSize: '16px',
         '&:before': {
           display: 'none',
