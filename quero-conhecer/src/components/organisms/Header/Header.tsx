@@ -1,5 +1,10 @@
+import { ReactElement } from 'react';
 import { HeaderContainer } from './styles';
 
-export const Header = () => {
-  return <HeaderContainer>Header</HeaderContainer>;
+export const Header = (): ReactElement => {
+  return (
+    <HeaderContainer>
+      <img src='./images/logo.png'></img>
+    </HeaderContainer>
+  );
 };

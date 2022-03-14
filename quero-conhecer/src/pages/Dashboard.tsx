@@ -7,8 +7,8 @@ export const Dashboard = () => {
   return (
     <Box display='flex' flexDirection='column'>
       <Header />
-      <SelectedLocales />
       <AddNewLocale />
+      <SelectedLocales />
     </Box>
   );
 };
