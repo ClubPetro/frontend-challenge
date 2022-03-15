@@ -1,18 +1,16 @@
 import { SelectedLocalesContainer } from './styles';
 import { CardLocale } from '../../molecules/CardLocale/CardLocale';
-import { ReactElement } from 'react';
-import { useLocalesToVisit } from '../../../hooks/useLocalesToVisit/useLocalesToVisit';
-import { useCountries } from '../../../hooks/useCountries/useCountries';
+import { ReactElement, useContext } from 'react';
+import SelectedLocalesContext from '../../../context/SelectedLocalesContext/SelectedLocalesContext';
 
 export const SelectedLocales = (): ReactElement => {
-  const { countries } = useCountries();
-  const { selectedLocales } = useLocalesToVisit(countries);
-
-  console.log('selectedLocales', selectedLocales);
+  const { selecteds } = useContext(SelectedLocalesContext);
 
   return (
     <SelectedLocalesContainer>
-      <CardLocale />
+      {selecteds.map((value, index) => {
+        return <CardLocale key={index} item={value} />;
+      })}
     </SelectedLocalesContainer>
   );
 };

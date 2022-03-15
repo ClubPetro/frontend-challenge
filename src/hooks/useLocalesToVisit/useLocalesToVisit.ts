@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import SelectedLocalesContext from '../../context/SelectedLocalesContext/SelectedLocalesContext';
 import { ApiCountriesResponse } from '../useCountries/useCountries.interface';
-import {
-  PropsReturnHook,
-  PropsSelectedLocale,
-} from './useLocalesToVisit.interface';
+import { PropsReturnHook } from './useLocalesToVisit.interface';
 
 export function useLocalesToVisit(
   countries: ApiCountriesResponse[]
 ): PropsReturnHook {
-  const [selectedLocales, setSelectedLocales] = React.useState<
-    PropsSelectedLocale[]
-  >([]);
+  const { selecteds, setSelecteds } = useContext(SelectedLocalesContext);
 
   const addCountry = (countryName: string, locale: string, date: string) => {
     const selectedCountry = countries.filter(
@@ -25,12 +21,11 @@ export function useLocalesToVisit(
       date,
     };
 
-    setSelectedLocales([...selectedLocales, newLocale]);
+    setSelecteds(newLocale);
   };
-  console.log(selectedLocales);
 
   return {
     addCountry,
-    selectedLocales,
+    selectedLocales: selecteds,
   };
 }

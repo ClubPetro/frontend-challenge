@@ -17,6 +17,20 @@ export const FormAddLocale = (): ReactElement => {
       date: '',
     },
 
+    // validate: (values) => {
+    //   const errors = {};
+    //   if (values.countryName > 50 || values.qtdQuestions < 1) {
+    //     errors.qtdQuestions = 'The question limit is 50.';
+    //   }
+    //   if ( values.locale < 1) {
+    //     errors.qtdQuestions = 'The question limit is 1.';
+
+    //   if ( values.date < 1) {
+    //     errors.qtdQuestions = 'The question limit is 1.';
+    //   }
+    //   return errors;
+    // },
+
     onSubmit: (values) => {
       addCountry(values.countryName, values.locale, values.date);
     },
