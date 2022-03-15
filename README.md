@@ -1,59 +1,46 @@
-# Desafio de Frontend
+# Getting Started with Create React App
 
-<img src="./img/logo-clubpetro.png"
-     alt="Clubpetro" width="300">
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- [Descrição](#descrição)
-  - [O Desafio](#o-desafio)
-  - [Requisitos Obrigatórios](#requisitos-obrigatórios)
-  - [Bônus](#bônus)
-- [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+## Available Scripts
 
-## Descrição
+In the project directory, you can run:
 
-Este desafio tem como objetivo avaliar as habilidades técnicas do canditado a vaga de desenvolvedor frontend no Clubpetro.
+### `yarn start`
 
-#### O Desafio
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-O desafio consiste em desenvolver um sistema que permita o CRUD de lugares para se conhecer ao redor do mundo. Como na imagem a seguir:
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-<img src="./img/challenge.png" alt="Desafio" >
+### `yarn test`
 
-O Sistema deverá conter um formulário com 3 campos:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- País: um select contendo a lista de todos os países existentes;
-- Local: um input para que o usuário digite o local que ele deseja conhecer no país selecionado;
-- Meta: um input para que o usuário digite a o mês e o ano que ele pretende visitar o local em questão.
+### `yarn build`
 
-Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o local deverá aparecer na listagem dos cards, como mostrado na imagem acima.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### Requisitos Obrigatórios
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-> Requisitos que serão avaliados no desafio.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- O Sistema deverá ser desenvolvido em typescript utilizando a biblioteca [React](https://pt-br.reactjs.org/);
-- O Layout apresentado na imagem acima deverá ser fielmente seguido e pode ser encontrado no [Figma](https://www.figma.com/file/IC0xt3K3X21rLEfLRQ3mpl/Lugares-que-quero-conhecer?node-id=0%3A1);
-- O CRUD poderá ser gerenciado pelo estado no React;
-- Apenas o Local e Meta poderão ser editados e a edição do card deverá ser feita de acordo com a criatividade do canditado, não tendo um layout específico para esta ação;
-- O Sistema deverá ser desenvolvido utilizando [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html);
-- O Sistema deverá ser integrado à API [Rest Countries](https://restcountries.com/v2/all) para a listagem dos países. Esta conta com a imagem da bandeira e a tradução do nome do país para Português;
-- A biblioteca [react-input-mask](https://www.npmjs.com/package/react-input-mask) deverá ser utilizada para colocar uma mascara no input de "Meta" no formato mm/aaaa;
-- O Sistema deverá ser responsivo;
-- O candidato deverá adicionar ao projeto uma explicação de como executar a aplicação.
+### `yarn eject`
 
-#### Bônus
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-> Requisitos que não são obrigatórios mas podem te deixar em vantagem com relação aos outros candidatos.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- [Material-UI](https://material-ui.com/pt/);
-- [Styled Components](https://styled-components.com/);
-- Testes automatizados;
-- Utilização da biblioteca [json-server](https://www.npmjs.com/package/json-server) para o CRUD.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### Submissão e Prazo de entrega
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-- O canditado deverá realizar um fork deste repositório e submeter o código no mesmo;
-- Em caso do deploy realizado, a url deverá ser adicionada no README;
-- O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
-- Ao finalizar o desafio, o candidato deverá submeter o desafio no questionário disponível na sua área de candidato na plataforma(https://menvievagas.com.br/vagas/fam%C3%8Dliapires/) do Processo Seletivo. É só clicar em RESPONDER no questionário e inserir o link do seu PR.
-Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
