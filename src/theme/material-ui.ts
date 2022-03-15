@@ -40,28 +40,10 @@ const themeOptions: ThemeOptions = {
     subtitle2: {
       color: '#000000',
       fontWeight: 400,
-      // [breakpoints.up('md')]: {
-      //   fontSize: '1rem',
-      // },
-      // [breakpoints.between('sm', 'md')]: {
-      //   fontSize: '0.725rem',
-      // },
-      // [breakpoints.down('sm')]: {
-      //   fontSize: '.07rem',
-      // },
     },
     body1: {
       color: '#4F9419',
       fontWeight: 700,
-      // [breakpoints.up('md')]: {
-      //   fontSize: '1rem',
-      // },
-      // [breakpoints.between('sm', 'md')]: {
-      //   fontSize: '0.725rem',
-      // },
-      // [breakpoints.down('sm')]: {
-      //   fontSize: '.07rem',
-      // },
     },
   },
 
@@ -140,6 +122,34 @@ const themeOptions: ThemeOptions = {
         '&:-webkit-autofill:active': {
           '-webkit-box-shadow': '0 0 0 30px white inset !important',
         },
+      },
+    },
+
+    MuiTextField: {
+      root: {
+        borderRadius: '8px',
+        '& .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input':
+          {
+            padding: '6px 4px',
+          },
+        '& .MuiOutlinedInput-root': {
+          borderRadius: '8px',
+        },
+        '& .MuiFormLabel-root ': {
+          color: '#00000099',
+          fontWeight: 400,
+        },
+        '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused.Mui-focused': {
+          display: 'none',
+        },
+        '& .PrivateNotchedOutline-root-11.MuiOutlinedInput-notchedOutline': {
+          display: 'none',
+          backgroundColor: 'red',
+        },
+        '& .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.MuiInputLabel-outlined.MuiFormLabel-filled':
+          {
+            display: 'none',
+          },
       },
     },
 
