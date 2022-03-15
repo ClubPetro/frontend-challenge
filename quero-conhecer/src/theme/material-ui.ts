@@ -69,6 +69,8 @@ const themeOptions: ThemeOptions = {
     MuiButton: {
       root: {
         borderRadius: '7px',
+        width: '100%',
+        maxWidth: '203px',
         padding: '13px 20px',
         minWidth: 'unset',
         textTransform: 'none',
@@ -94,6 +96,7 @@ const themeOptions: ThemeOptions = {
         marginTop: '0px',
         marginBottom: '0px',
         fontSize: '16px',
+        fontWeight: 400,
         '&:before': {
           display: 'none',
         },
