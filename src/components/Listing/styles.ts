@@ -69,4 +69,10 @@ export const AddButton = styled.button`
 `
 export const ListingContainer = styled.div`
   padding: 53px 36px 0 36px;
+  flex-direction: row ;
+  display: flex;
 `
+
+export const Form = styled.form`
+  width: 100%;
+` 

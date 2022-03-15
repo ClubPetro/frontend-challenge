@@ -1,50 +1,72 @@
 import { Close, Edit } from '@mui/icons-material';
+import { Tooltip } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
-import countriesApi from '../../services/countriesApi';
-import { Country } from '../../types';
+import api from '../../services/api';
+import { CountriesResponse } from '../../types';
+import EditModal from '../EditModal';
 
 import { Container, ContentContainer, Line, Options } from './styles';
 
 interface CardProps{
-  countryName: string;
+  countryId: number;
+  onUpdate: () => void;
 }
 
-const Card: React.FC<CardProps> = ({countryName}) => {
-  const [country, setCountry] = useState<Country>();
+const Card: React.FC<CardProps> = ({countryId, onUpdate}) => {
+  const [country, setCountry] = useState<CountriesResponse>({} as CountriesResponse);
+  const [open, setOpen] = useState<boolean>(false);
 
   const getCountry = useCallback(() => {
-    countriesApi.get(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`).then((response)=>{
+    api.get(`/countries/${countryId}`).then((response)=>{
       console.log('name', response)
-      setCountry(response.data[0])
+      setCountry(response.data)
     }).catch((err) => console.log(err));
-  },[countryName])
+  },[countryId])
 
   useEffect(() => {
+    console.log('entrei aqui');
     getCountry();
   },[getCountry])
 
+  const handleUpdate = () => {
+    onUpdate();
+    getCountry();
+  }
+
+  const deleteCountry = () => {
+    api.delete(`countries/${countryId}`).then((response) => {
+      console.log(response);
+      onUpdate();
+    })
+  }
 
   return (
     <Container>
       <Options>
-        <Edit style={{marginRight: '16px', color:"#868686"}}/>
-        <Close style={{color:"#868686"}}/>
+        <Tooltip title="Edit">
+          <Edit onClick={() => setOpen(true)} cursor="pointer" style={{marginRight: '16px', color:"#868686"}}/>
+        </Tooltip>
+        <Tooltip title="Delete">
+          <Close cursor="pointer" onClick={() => deleteCountry()} style={{color:"#868686"}}/>
+        </Tooltip>
       </Options>
 
       
       {country &&
         <>
-          <img alt="flag" src={country.flags.svg}/>
-          <h1>{country.translations.por.common.toUpperCase()}</h1>
+          <img alt="flag" src={country.flag}/>
+          <h1>{country.name?.toUpperCase()}</h1>
         </>
       }
      
       <Line/>
 
       <ContentContainer>
-        <span className="localText" >Local: Balneario Camboriu</span>
-        <span className="metaText">Meta: 04/2022</span>
+        <span className="localText" >Local: {country.local}</span>
+        <span className="metaText">Meta: {country.meta}</span>
       </ContentContainer>
+      
+      <EditModal onUpdate={() => handleUpdate()} open={open} countryId={countryId} onClose={()=> setOpen(false)}/>
     </Container>
   )}
 

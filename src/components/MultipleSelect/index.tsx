@@ -24,7 +24,6 @@ interface SelectProps {
 
 const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect}) => {
   const [country, setCountry] = useState<string>('');
-  const [commonName, setCommonName] = useState<string>('')
 
   const handleChange = (event: SelectChangeEvent<typeof country>) => {
     console.log(event)
@@ -33,7 +32,7 @@ const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect}) => {
     onSelect(String(value));
   };
 
-  console.log(countries);
+  // console.log(countries);
   return (
     <Container>
       <span>País</span>
@@ -47,7 +46,7 @@ const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect}) => {
             if (!selected) {
               return <span className="placeholder">Selecione...</span>;
             }
-            return commonName;
+            return selected;
           }}
           MenuProps={MenuProps}
           inputProps={{ 'aria-label': 'Without label' }}
@@ -58,8 +57,7 @@ const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect}) => {
           {countries.map((item, index)=> (
             <MenuItem
               key={index}
-              value={item.name.official}
-              onClick={() => setCommonName(item.translations.por.common)}
+              value={item.translations.por.common}
             >
               {item.translations.por.common}
             </MenuItem>

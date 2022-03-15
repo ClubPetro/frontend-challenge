@@ -15,8 +15,9 @@ export interface Country{
   }
 }
 
-export interface ContriesResponse{
-  country: String,
-	local: String,
-	meta: String,
+export interface CountriesResponse{
+  name: string,
+	local: string,
+	meta: string,
+  flag: string,
 }

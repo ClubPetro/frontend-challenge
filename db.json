@@ -1,10 +1,18 @@
 {
   "countries": [
     {
-      "country": "Brasil",
-      "local": "Jaguaribe",
-      "meta": "15/02",
+      "name": "Estados Unidos",
+      "flag": "https://flagcdn.com/us.svg",
+      "local": "New York",
+      "meta": "12/2021",
       "id": 1
+    },
+    {
+      "name": "Brasil",
+      "flag": "https://flagcdn.com/br.svg",
+      "local": "São Paulo",
+      "meta": "02/2022",
+      "id": 2
     }
   ]
 }
