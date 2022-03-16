@@ -6,7 +6,7 @@
 
 Obs: Devido o cooldown da plataforma pode-se ser que o primeiro acesso seja mais demorado.
 
-## Dependências
+## Principais dependências
 
 [ReactJS](#)
 
@@ -22,6 +22,7 @@ Obs: Devido o cooldown da plataforma pode-se ser que o primeiro acesso seja mais
 
 [Formik](#)
 
+[Jest](#)
 
 ## Executar o projeto
 
