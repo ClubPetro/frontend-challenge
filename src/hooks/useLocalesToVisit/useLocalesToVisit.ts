@@ -34,8 +34,24 @@ export function useLocalesToVisit(
     setSelecteds([...selectedCountry]);
   };
 
+  const editCountry = (indexPosition: number, locale: string, date: string) => {
+    const selectedCountry = selecteds.map((item: ISelectedLocales, index) => {
+      if (indexPosition === index) {
+        return {
+          selectedCountry: item.selectedCountry,
+          locale,
+          date,
+        };
+      }
+      return item;
+    });
+
+    setSelecteds([...selectedCountry]);
+  };
+
   return {
     addCountry,
+    editCountry,
     removeCountry,
     selectedLocales: selecteds,
   };

@@ -7,21 +7,26 @@ import { useLocalesToVisit } from '../../../hooks/useLocalesToVisit/useLocalesTo
 import { useFormik } from 'formik';
 import { FormikInitialValues } from '../../organisms/AddNewLocale/AddNewLocale.interface';
 import InputMask from 'react-input-mask';
+import { FormAddLocaleProps } from './FormEditLocale.interface';
 
-export const FormAddLocale = (): ReactElement => {
+export const FormEditLocale = ({
+  item,
+  indexPosition,
+  actionSubmit,
+}: FormAddLocaleProps): ReactElement => {
   const { countries } = useCountries();
-  const { addCountry } = useLocalesToVisit(countries);
+  const { editCountry } = useLocalesToVisit(countries);
 
   const handleSubmit = (values: any) => {
-    addCountry(values.countryName, values.locale, values.date);
-    formik.resetForm();
+    editCountry(indexPosition, values.locale, values.date);
+    actionSubmit();
   };
 
   const formik = useFormik<FormikInitialValues>({
     initialValues: {
-      countryName: '',
-      locale: '',
-      date: '',
+      countryName: item?.selectedCountry.name || '',
+      locale: item?.locale || '',
+      date: item?.date || '',
     },
 
     onSubmit: (values) => {
@@ -46,6 +51,7 @@ export const FormAddLocale = (): ReactElement => {
       <Box flex='1' minWidth='200px'>
         <Typography variant='subtitle1'>País</Typography>
         <Autocomplete
+          disabled={true}
           options={countries}
           getOptionLabel={(option): any => option.translations.br}
           renderInput={(params): any => (
