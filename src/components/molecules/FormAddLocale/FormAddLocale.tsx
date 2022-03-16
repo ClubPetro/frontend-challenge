@@ -31,13 +31,12 @@ export const FormAddLocale = (): ReactElement => {
 
   const onSubmitValidations = () => {
     if (
-      formik.values.countryName.length <= 0 &&
-      formik.values.locale.length <= 0 &&
+      formik.values.countryName.length <= 0 ||
+      formik.values.locale.length <= 0 ||
       formik.values.date.length <= 0
     ) {
       return;
     }
-
     formik.submitForm();
   };
 
