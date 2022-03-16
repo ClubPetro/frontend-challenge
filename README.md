@@ -1,23 +1,46 @@
-# Desafio de Frontend
+# Desafio Front-end - ClubPetro
 
-<img src="./img/logo-clubpetro.png"
-     alt="Clubpetro" width="300">
+## Acesse o projeto em:
 
-- [Descrição](#descrição)
-  - [O Desafio](#o-desafio)
-  - [Requisitos Obrigatórios](#requisitos-obrigatórios)
-  - [Bônus](#bônus)
-- [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+### [https://eu-quero-conhecer.herokuapp.com/](https://eu-quero-conhecer.herokuapp.com/)
 
-## Descrição
+Obs: Devido o cooldown da plataforma pode-se ser que o primeiro acesso seja mais demorado.
+
+## Principais dependências
+
+[ReactJS](#)
+
+[TypeScript](#)
+
+[Material UI](https://mui.com/pt/)
+
+[React Input Mask](#)
+
+[Styled Components](#)
+
+[Axios](#)
+
+[Formik](#)
+
+[Jest](#)
+
+## Executar o projeto
+
+- Na raiz do projeto, execute `yarn install` para instalar as dependências:
+
+- Execute `yarn start` para rodar a aplicação:
+
+- Acesse [http://localhost:3000](http://localhost:3000) em seu navegador.
+
+-------------------
+
+## Sobre do desafio:
 
 Este desafio tem como objetivo avaliar as habilidades técnicas do canditado a vaga de desenvolvedor frontend no Clubpetro.
 
 #### O Desafio
 
 O desafio consiste em desenvolver um sistema que permita o CRUD de lugares para se conhecer ao redor do mundo. Como na imagem a seguir:
-
-<img src="./img/challenge.png" alt="Desafio" >
 
 O Sistema deverá conter um formulário com 3 campos:
 
@@ -57,3 +80,5 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá submeter o desafio no questionário disponível na sua área de candidato na plataforma(https://menvievagas.com.br/vagas/fam%C3%8Dliapires/) do Processo Seletivo. É só clicar em RESPONDER no questionário e inserir o link do seu PR.
 Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
+
+------------
