@@ -43,7 +43,7 @@ export const FormAddLocale = (): ReactElement => {
 
   return (
     <>
-      <Box flex='1'>
+      <Box flex='1' minWidth='200px'>
         <Typography variant='subtitle1'>País</Typography>
         <Autocomplete
           options={countries}
@@ -60,7 +60,7 @@ export const FormAddLocale = (): ReactElement => {
           }}
         />
       </Box>
-      <Box flex='2'>
+      <Box flex='2' minWidth='208px'>
         <Typography variant='subtitle1'>Local</Typography>
         <Input
           placeholder='Digite o local que deseja conhecer'
@@ -70,7 +70,7 @@ export const FormAddLocale = (): ReactElement => {
           value={formik.values.locale}
         />
       </Box>
-      <Box>
+      <Box flex='1' minWidth='200px'>
         <Typography variant='subtitle1'>Meta</Typography>
         <InputMask
           mask='99/99/9999'

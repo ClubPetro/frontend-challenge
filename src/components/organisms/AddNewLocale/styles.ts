@@ -6,5 +6,8 @@ export const AddNewLocaleContainer = withStyles((theme) => ({
     padding: '73px 56px',
     backgroundColor: theme.palette.primary.main,
     gap: '34px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '30px 56px',
+    },
   },
 }))(Box);
