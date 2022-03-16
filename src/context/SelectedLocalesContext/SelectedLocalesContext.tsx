@@ -8,7 +8,7 @@ export interface ISelectedLocales {
 
 export interface ISelectedLocalesState {
   selecteds: ISelectedLocales[];
-  setSelecteds: (locale: ISelectedLocales) => void;
+  setSelecteds: (locale: ISelectedLocales[]) => void;
 }
 
 const INITIAL_STATE: ISelectedLocalesState = {
@@ -26,8 +26,8 @@ export function SelectedLocalesProvider({
   const [selecteds, setSelecteds] = React.useState<ISelectedLocales[]>([]);
 
   const setItems = useCallback(
-    (locale: ISelectedLocales) => {
-      setSelecteds([...selecteds, locale]);
+    (locale: ISelectedLocales[]) => {
+      setSelecteds(locale);
     },
     [selecteds]
   );

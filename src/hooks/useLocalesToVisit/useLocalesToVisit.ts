@@ -1,3 +1,4 @@
+import { ISelectedLocales } from './../../context/SelectedLocalesContext/SelectedLocalesContext';
 import React, { useContext } from 'react';
 import SelectedLocalesContext from '../../context/SelectedLocalesContext/SelectedLocalesContext';
 import { ApiCountriesResponse } from '../useCountries/useCountries.interface';
@@ -21,11 +22,21 @@ export function useLocalesToVisit(
       date,
     };
 
-    setSelecteds(newLocale);
+    setSelecteds([...selecteds, newLocale]);
+  };
+
+  const removeCountry = (indexPosition: number) => {
+    const selectedCountry = selecteds.filter(
+      (locale: ISelectedLocales, index) => {
+        return indexPosition !== index;
+      }
+    );
+    setSelecteds([...selectedCountry]);
   };
 
   return {
     addCountry,
+    removeCountry,
     selectedLocales: selecteds,
   };
 }

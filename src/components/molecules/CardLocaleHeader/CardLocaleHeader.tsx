@@ -4,7 +4,10 @@ import { CardLocaleAction } from '../../atoms/CardLocaleAction/CardLocaleAction'
 import { ReactElement } from 'react';
 import { PropsCardLocale } from '../CardLocale/CardLocale.interface';
 
-export const CardLocaleHeader = ({ item }: PropsCardLocale): ReactElement => {
+export const CardLocaleHeader = ({
+  item,
+  indexPosition,
+}: PropsCardLocale): ReactElement => {
   return (
     <CardHeader>
       <Box mb={2}>
@@ -16,7 +19,7 @@ export const CardLocaleHeader = ({ item }: PropsCardLocale): ReactElement => {
       <Typography variant='body1'>
         {item.selectedCountry?.translations?.br}
       </Typography>
-      <CardLocaleAction />
+      <CardLocaleAction item={item} indexPosition={indexPosition} />
     </CardHeader>
   );
 };

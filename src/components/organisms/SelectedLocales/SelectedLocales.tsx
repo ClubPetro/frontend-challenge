@@ -9,7 +9,7 @@ export const SelectedLocales = (): ReactElement => {
   return (
     <SelectedLocalesContainer>
       {selecteds.map((value, index) => {
-        return <CardLocale key={index} item={value} />;
+        return <CardLocale key={index} item={value} indexPosition={index} />;
       })}
     </SelectedLocalesContainer>
   );

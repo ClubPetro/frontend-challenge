@@ -6,6 +6,7 @@ export interface PropsSelectedLocale {
 
 export interface PropsCardLocale {
   item: PropsSelectedLocale;
+  indexPosition: number;
 }
 
 export interface SelectedCountry {
