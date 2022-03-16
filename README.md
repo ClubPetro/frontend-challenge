@@ -2,7 +2,7 @@
 
 ## Acesse o projeto em:
 
-### [https://quero-conhecer.herokuapp.com/](https://quero-conhecer.herokuapp.com/)
+### [https://eu-quero-conhecer.herokuapp.com/](https://eu-quero-conhecer.herokuapp.com/)
 
 Obs: Devido o cooldown da plataforma pode-se ser que o primeiro acesso seja mais demorado.
 

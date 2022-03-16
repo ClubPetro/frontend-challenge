@@ -6,6 +6,7 @@ import { ReactElement } from 'react';
 import { useLocalesToVisit } from '../../../hooks/useLocalesToVisit/useLocalesToVisit';
 import { useCountries } from '../../../hooks/useCountries/useCountries';
 import { PropsCardLocale } from '../../molecules/CardLocale/CardLocale.interface';
+import { ModalEdit } from '../../molecules/ModalEdit/ModalEdit';
 
 export const CardLocaleAction = ({
   item,
@@ -22,6 +23,8 @@ export const CardLocaleAction = ({
         component={CloseRoundedIcon}
         onClick={() => removeCountry(indexPosition)}
       />
+
+      <ModalEdit item={item} indexPosition={indexPosition} />
     </CardAction>
   );
 };

@@ -1,9 +1,5 @@
 import React from 'react';
-import SelectedLocalesContext, {
-  SelectedLocalesProvider,
-} from './context/SelectedLocalesContext/SelectedLocalesContext';
-import { PropsSelectedLocalesContext } from './context/SelectedLocalesContext/SelectedLocalesContext.interface';
-import { PropsSelectedLocale } from './hooks/useLocalesToVisit/useLocalesToVisit.interface';
+import { SelectedLocalesProvider } from './context/SelectedLocalesContext/SelectedLocalesContext';
 import { Dashboard } from './pages/Dashboard';
 
 function App() {

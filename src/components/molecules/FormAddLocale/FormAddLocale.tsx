@@ -8,7 +8,7 @@ import { useFormik } from 'formik';
 import { FormikInitialValues } from '../../organisms/AddNewLocale/AddNewLocale.interface';
 import InputMask from 'react-input-mask';
 
-export const FormAddLocale = (): ReactElement => {
+export const FormAddLocale = ({ edit }: { edit?: boolean }): ReactElement => {
   const { countries } = useCountries();
   const { addCountry } = useLocalesToVisit(countries);
 
@@ -46,6 +46,7 @@ export const FormAddLocale = (): ReactElement => {
       <Box flex='1' minWidth='200px'>
         <Typography variant='subtitle1'>País</Typography>
         <Autocomplete
+          disabled={edit}
           options={countries}
           getOptionLabel={(option): any => option.translations.br}
           renderInput={(params): any => (

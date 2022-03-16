@@ -1,6 +1,6 @@
 import { Box, Typography } from '@material-ui/core';
 import { CardHeader } from './styles';
-import { CardLocaleAction } from '../../atoms/CardLocaleAction/CardLocaleAction';
+import { CardLocaleAction } from '../../organisms/CardLocaleAction/CardLocaleAction';
 import { ReactElement } from 'react';
 import { PropsCardLocale } from '../CardLocale/CardLocale.interface';
 
