@@ -1,14 +1,21 @@
 import { Input, Box, Typography, TextField, Button } from '@material-ui/core';
+import MaterialInput from '@material-ui/core/Input';
 import { ReactElement } from 'react';
 import { Autocomplete } from '@material-ui/lab';
 import { useCountries } from '../../../hooks/useCountries/useCountries';
 import { useLocalesToVisit } from '../../../hooks/useLocalesToVisit/useLocalesToVisit';
 import { useFormik } from 'formik';
 import { FormikInitialValues } from '../../organisms/AddNewLocale/AddNewLocale.interface';
+import InputMask from 'react-input-mask';
 
 export const FormAddLocale = (): ReactElement => {
   const { countries } = useCountries();
   const { addCountry } = useLocalesToVisit(countries);
+
+  const handleSubmit = (values: any) => {
+    addCountry(values.countryName, values.locale, values.date);
+    formik.resetForm();
+  };
 
   const formik = useFormik<FormikInitialValues>({
     initialValues: {
@@ -17,24 +24,22 @@ export const FormAddLocale = (): ReactElement => {
       date: '',
     },
 
-    // validate: (values) => {
-    //   const errors = {};
-    //   if (values.countryName > 50 || values.qtdQuestions < 1) {
-    //     errors.qtdQuestions = 'The question limit is 50.';
-    //   }
-    //   if ( values.locale < 1) {
-    //     errors.qtdQuestions = 'The question limit is 1.';
-
-    //   if ( values.date < 1) {
-    //     errors.qtdQuestions = 'The question limit is 1.';
-    //   }
-    //   return errors;
-    // },
-
     onSubmit: (values) => {
-      addCountry(values.countryName, values.locale, values.date);
+      handleSubmit(values);
     },
   });
+
+  const onSubmitValidations = () => {
+    if (
+      formik.values.countryName.length <= 0 &&
+      formik.values.locale.length <= 0 &&
+      formik.values.date.length <= 0
+    ) {
+      return;
+    }
+
+    formik.submitForm();
+  };
 
   return (
     <>
@@ -46,10 +51,13 @@ export const FormAddLocale = (): ReactElement => {
           renderInput={(params): any => (
             <TextField {...params} label='Selecione...' variant='outlined' />
           )}
-          onChange={
-            (event, values) => formik.setFieldValue('countryName', values?.name)
-            // formik.setFieldValue('locale', values.target.value)
+          onChange={(event, values) =>
+            formik.setFieldValue('countryName', values?.name)
           }
+          value={{
+            name: formik.values.countryName,
+            translations: { br: formik.values.countryName },
+          }}
         />
       </Box>
       <Box flex='2'>
@@ -64,16 +72,19 @@ export const FormAddLocale = (): ReactElement => {
       </Box>
       <Box>
         <Typography variant='subtitle1'>Meta</Typography>
-        <Input
-          placeholder='Mês/ano'
+        <InputMask
+          mask='99/99/9999'
+          value={formik.values.date}
           onChange={(values) =>
             formik.setFieldValue('date', values.target.value)
           }
-          value={formik.values.date}
-        />
+          placeholder='Mês/ano'
+        >
+          {() => <MaterialInput placeholder='Mês/ano' />}
+        </InputMask>
       </Box>
 
-      <Button variant='contained' onClick={formik.submitForm}>
+      <Button variant='contained' onClick={onSubmitValidations}>
         Adicionar
       </Button>
     </>
