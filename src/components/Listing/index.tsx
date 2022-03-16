@@ -1,20 +1,22 @@
-import { Alert, Grid, Input, Snackbar } from "@mui/material";
+import { Alert, CircularProgress, Grid, Snackbar, ThemeProvider } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import countriesApi from "../../services/countriesApi";
 import { CountriesResponse, Country } from "../../types";
 import MultipleSelect from "../MultipleSelect";
 
-import { Container, SearchContainer, InputRow, Col, LocalInput, MetaInput, AddButton, ListingContainer, Form } from "./styles";
+import { Container, SearchContainer, InputRow, Col, LocalInput, MetaInput, AddButton, ListingContainer, Form, Center } from "./styles";
 import Card from "../Card";
 import api from "../../services/api";
 import InputMask from 'react-input-mask';
+import { componentsTheme } from "../../theme/materialStyles";
 
 const Listing: React.FC = () => {
-
   const [countries, setCountries] = useState<Country[]>([])
   const [selectedCountry, setSelectedCountry] = useState<string>('');
   const [selectedLocal, setSelectedLocal] = useState<string>('')
-  const [selectedDate, setSelectedDate] = useState<string>('')
+  const [selectedMeta, setSelectedMeta] = useState<string>('')
+  const [apiError, setApiError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   
   const [error, setError] = useState<boolean>(false);
 
@@ -24,15 +26,16 @@ const Listing: React.FC = () => {
     countriesApi.get('/all').then((response)=> {
       setCountries(response.data);
     }).catch((er)=>{
+      setApiError(true);
       console.log('er', er);
     }); 
   },[])
 
   const getCountries = useCallback(() => {
     api.get('/countries').then((response)=> {
-      console.log('aqui ruan', response.data);
       setData(response.data);
     }).catch((er)=>{
+      setApiError(true);
       console.log('er', er);
     }); 
   },[])
@@ -44,8 +47,10 @@ const Listing: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if(!selectedCountry || !selectedLocal || !selectedDate){
+    setLoading(true);
+    if(!selectedCountry || !selectedLocal || !selectedMeta){
       setError(true);
+      setLoading(false);
       return ;
     }
 
@@ -53,55 +58,64 @@ const Listing: React.FC = () => {
       name: selectedCountry,
       flag: countries.find((item)=> item.translations.por.common === selectedCountry)?.flags.svg,
       local: selectedLocal,
-      meta: selectedDate
+      meta: selectedMeta
     }
-
+    
     api.post('/countries', {...newData}).then((response) => {
-      console.log('eni', response);
       setData([...data, response.data]);
+      setLoading(false);
+      setSelectedCountry('');
+      setSelectedLocal('');
+      setSelectedMeta('');
+    }).catch((error)=> {
+      setLoading(false);
+      console.log(error);
+      setApiError(true);
     })
   }
 
-  useEffect(() => {
-    console.log('aaa', data)
-  },[data])
-  
   return (
     <Container>
       <SearchContainer>
         <Form onSubmit={handleSubmit}>
           <InputRow>
-            <Grid justifyContent="center" container spacing={5}>
-              <Grid item xs={2}>
-                <MultipleSelect onSelect={(e) => {setSelectedCountry(e)}} countries={countries ?? []}/>
+            <ThemeProvider theme={componentsTheme}>
+              <Grid justifyContent="center" container spacing={4}>
+                <Grid item xs={10} sm={3} md={3} lg={3}>
+                  <MultipleSelect value={selectedCountry} onSelect={(e) => {setSelectedCountry(e)}} countries={countries ?? []}/>
+                </Grid>
+                <Grid item xs={10} sm={4} md={4} lg={4}>
+                  <Col>
+                    <span>Local</span>
+                    <LocalInput value={selectedLocal} onChange={(e) => setSelectedLocal(e.target.value)} placeholder="Digite o local que deseja conhecer" />
+                  </Col>
+                </Grid>
+                <Grid item xs={10} sm={2} md={2} lg={2}>
+                  <Col>
+                    <span>Meta</span>
+                    <InputMask mask="99/9999" value={selectedMeta} onChange={(e) => setSelectedMeta(e.target.value)}>
+                      <MetaInput placeholder="mês/ano" />
+                    </InputMask>
+                  </Col>
+                </Grid>
+                <Grid item xs={8} sm={2} md={2} lg={2}>
+                  <AddButton type="submit" >
+                    {loading ? <CircularProgress color="inherit" /> : 'Adicionar'}
+                  </AddButton>
+                </Grid>
               </Grid>
-              <Grid item xs={4}>
-                <Col>
-                  <span>Local</span>
-                  <LocalInput onChange={(e) => setSelectedLocal(e.target.value)} placeholder="Digite o local que deseja conhecer" />
-                </Col>
-              </Grid>
-              <Grid item xs={2}>
-                <Col>
-                  <span>Meta</span>
-                  <InputMask mask="99/9999" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}>
-                    <MetaInput placeholder="mês/ano" />
-                  </InputMask>
-                </Col>
-              </Grid>
-              <Grid item xs={2}>
-                <AddButton type="submit" >Adicionar</AddButton>
-              </Grid>
-            </Grid>
+            </ThemeProvider>
           </InputRow>
         </Form>
       </SearchContainer>
-
-      <ListingContainer>
-        {data.length > 0 && data.map((item: any, index) => (
-          <Card key={index} onUpdate={() => getCountries()} countryId={item.id}></Card>
-        ))}
-      </ListingContainer>
+      
+      <Center>
+        <ListingContainer>
+          {data.length > 0 && data.map((item: any, index) => (
+            <Card key={index} onUpdate={() => getCountries()} countryId={item.id}></Card>
+          ))}
+        </ListingContainer>
+      </Center>
 
       <Snackbar open={error} autoHideDuration={6000} onClose={() => setError(false)}>
         <Alert onClose={() => setError(false)} severity="error" variant="filled" sx={{ width: '100%' }}>
@@ -109,8 +123,11 @@ const Listing: React.FC = () => {
         </Alert>
       </Snackbar>
 
-      
-     
+      <Snackbar open={apiError} autoHideDuration={6000} onClose={() => setApiError(false)}>
+        <Alert onClose={() => setApiError(false)} variant="filled" severity="error" sx={{ width: '100%' }}>
+          Ocorreu um erro
+        </Alert>
+      </Snackbar>
     </Container>
   );
 };

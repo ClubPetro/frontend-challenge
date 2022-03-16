@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media (max-width: 597px) { 
+  .css-1xnaaoc-MuiGrid-root>.MuiGrid-item{
+    padding-top: 10px !important;
+  }
+}
+

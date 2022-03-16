@@ -1,10 +1,9 @@
-import { FormControl, MenuItem, OutlinedInput, SelectChangeEvent, Theme, useTheme, Select, ThemeProvider } from '@mui/material';
+import { MenuItem, OutlinedInput, SelectChangeEvent, Select, ThemeProvider } from '@mui/material';
 import React, { useState } from 'react';
 import { componentsTheme } from '../../theme/materialStyles';
-import { Country } from '../../types';
+import { SelectProps } from '../../types';
 import { Container } from './styles';
 
-// import { Container } from './styles';
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -16,30 +15,21 @@ const MenuProps = {
   },
 };
 
-
-interface SelectProps {
-  countries: Country[]
-  onSelect: (e: string) => void;
-}
-
-const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect}) => {
+const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect, value = ''}) => {
   const [country, setCountry] = useState<string>('');
 
   const handleChange = (event: SelectChangeEvent<typeof country>) => {
-    console.log(event)
     const {target: { value },} = event;
     setCountry(value);
     onSelect(String(value));
   };
-
-  // console.log(countries);
   return (
     <Container>
       <span>País</span>
       <ThemeProvider theme={componentsTheme}>
         <Select
           displayEmpty
-          value={country}
+          value={value}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {
