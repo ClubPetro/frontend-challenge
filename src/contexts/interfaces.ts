@@ -56,6 +56,7 @@ export interface ItemCardDeleteProps {
 export interface Inputs {
   local: string;
   goal: string;
+  countries: string;
   localModal: string;
   metaModal: string;
 }

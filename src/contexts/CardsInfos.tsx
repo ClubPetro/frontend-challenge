@@ -16,6 +16,7 @@ import {
   ItemCardDeleteProps,
   PropsCountrie,
 } from "./interfaces";
+const { v4: uuidv4 } = require('uuid');
 
 export const CountrieContext = createContext({} as PropsCountrie);
 
@@ -41,23 +42,19 @@ export function CountrieContextProvider({ children }: Props) {
   }, [upDateState]);
 
   const onSubmitPostCard: SubmitHandler<any> = (rest) => {
-    const flag: DataProps[] | undefined =
+    const flag: any | undefined =
       data &&
       data.filter((item: DataProps): DataProps | undefined => {
-        if (item.translations.br === selectCountrie) {
+        if (item.translations.br === rest.countries) {
           return item;
         }
         return undefined;
-      });
+    });
 
-    const body = {
-      ...rest,
-      checkboxPais: selectCountrie,
-      img: flag[0].flag,
-    };
-    postCard(body).then((returnApi) => {
+    postCard({...rest, img: flag[0].flag, title: flag[0]?.translations.br, id: uuidv4()}).then((returnApi) => {
+      console.log(flag)
       setUpDateState(returnApi);
-      reset({ goal: "", local: "" });
+      reset({ goal: "", local: "", countries: "" });
       setSelectCountrie("");
     });
   };

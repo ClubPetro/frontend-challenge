@@ -4,7 +4,6 @@ interface bodyProps {
   local?: string;
   title?: string;
   goal?: string;
-  checkboxPais?: string;
   img?: string;
 }
 

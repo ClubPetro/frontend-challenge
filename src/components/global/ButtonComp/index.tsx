@@ -1,10 +1,15 @@
 import React from 'react'
-import { Button  } from '@mui/material'
 import { ButtonStyled } from './styles'
 
-const ButtonComp: React.FC = ({children}) => {
+interface ButtonProps {
+  rest?: any;
+}
+
+const ButtonComp: React.FC<ButtonProps> = ({rest, children}) => {
   return (
-    <ButtonStyled variant="contained">{children}</ButtonStyled>
+    <ButtonStyled {...rest} variant="contained" type="submit">
+      {children}
+    </ButtonStyled>
   )
 }
 

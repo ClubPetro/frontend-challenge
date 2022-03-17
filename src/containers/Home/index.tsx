@@ -16,7 +16,7 @@ const Home: React.FC = () => {
             <CardItem
               key={item.id}
               imgSrc={item.img}
-              altImg={item.img}
+              altImg={item.title}
               title={item.title}
               local={item.local}
               goal={item.goal}

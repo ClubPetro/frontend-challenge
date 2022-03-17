@@ -10,6 +10,9 @@ export const CardContentStyled = styled(CardContent)`
 
       img {
         margin: 0;
+        width: 50px;
+        min-height: 40px;
+        max-width: 200px;
       }
 
       h4 {
