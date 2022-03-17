@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const apiCountries = axios.create({
-  baseURL: process.env.BASE_URL_COUNTRIES,
+  baseURL: process.env.REACT_APP_BASE_URL_COUNTRIES,
 });
 
 export const apiJsonServer = axios.create({
-  baseURL: process.env.BASE_URL_BACKEND_SERVER,
+  baseURL: process.env.REACT_APP_BASE_URL_BACKEND_SERVER,
 });
