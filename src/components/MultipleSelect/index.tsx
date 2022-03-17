@@ -17,6 +17,7 @@ const MenuProps = {
 
 const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect, value = ''}) => {
   const [country, setCountry] = useState<string>('');
+  console.log(countries);
 
   const handleChange = (event: SelectChangeEvent<typeof country>) => {
     const {target: { value },} = event;
@@ -28,6 +29,7 @@ const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect, value = ''}
       <span>País</span>
       <ThemeProvider theme={componentsTheme}>
         <Select
+          data-testid="select-input"
           displayEmpty
           value={value}
           onChange={handleChange}
@@ -46,6 +48,7 @@ const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect, value = ''}
           </MenuItem>
           {countries.map((item, index)=> (
             <MenuItem
+              data-testid={item.translations.por.common}
               key={index}
               value={item.translations.por.common}
             >
@@ -53,7 +56,6 @@ const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect, value = ''}
             </MenuItem>
           ))
           }
-
         </Select>
       </ThemeProvider>
 

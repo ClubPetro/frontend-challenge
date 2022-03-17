@@ -17,9 +17,7 @@ const Listing: React.FC = () => {
   const [selectedMeta, setSelectedMeta] = useState<string>('')
   const [apiError, setApiError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  
   const [error, setError] = useState<boolean>(false);
-
   const [data, setData] = useState<CountriesResponse[]>([]);
 
   const getCountriesOptions = useCallback(() => {
@@ -99,7 +97,7 @@ const Listing: React.FC = () => {
                   </Col>
                 </Grid>
                 <Grid item xs={8} sm={2} md={2} lg={2}>
-                  <AddButton type="submit" >
+                  <AddButton type="submit" className="teste">
                     {loading ? <CircularProgress color="inherit" /> : 'Adicionar'}
                   </AddButton>
                 </Grid>
@@ -111,8 +109,8 @@ const Listing: React.FC = () => {
       
       <Center>
         <ListingContainer>
-          {data.length > 0 && data.map((item: any, index) => (
-            <Card key={index} onUpdate={() => getCountries()} countryId={item.id}></Card>
+          {data.length > 0 && data.map((item, index) => (
+            <Card key={item.id} onUpdate={() => getCountries()} countryId={item.id}></Card>
           ))}
         </ListingContainer>
       </Center>

@@ -51,6 +51,12 @@ export const CloseIcon = styled(Close)`
   width: 20px !important;
   margin-bottom: 2px;
 `
+export const SkeletonContainer = styled.div`
+  width: 250px;
+  height: 250px;
+  margin-top: -82px ;
+  margin-bottom: 82px;
+`
 
 export const Options = styled.div`
   position: absolute;

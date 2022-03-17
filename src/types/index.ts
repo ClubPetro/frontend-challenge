@@ -17,6 +17,7 @@ export interface Country{
 
 export interface CountriesResponse{
   name: string,
+  id: number,
 	local: string,
 	meta: string,
   flag: string,
@@ -41,7 +42,7 @@ export interface EditModalProps{
 }
 
 export interface SelectProps {
-  countries: Country[]
+  countries: Country[],
   onSelect: (e: string) => void;
   value: string;
 }

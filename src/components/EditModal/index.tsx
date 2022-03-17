@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-role */
 
 import { Alert, CircularProgress, Dialog, Snackbar, TextField, Tooltip } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -19,7 +20,10 @@ const EditModal: React.FC<EditModalProps> = ({open=false, onClose, countryId, on
   const getCountry = useCallback(() => {
     api.get(`/countries/${countryId}`).then((response)=>{
       setCountry(response.data)
-    }).catch((err) => console.log(err));
+    }).catch((err) => {
+      setError(true);
+      console.log(err)}
+    );
   },[countryId])
 
   const handleEdit = ((event:React.FormEvent) => {
@@ -53,18 +57,18 @@ const EditModal: React.FC<EditModalProps> = ({open=false, onClose, countryId, on
   
   return (
     <Container>
-      <Dialog onClose={onClose} open={open}>
+      <Dialog onClose={handleClose} open={open}>
         <Content>
           <TitleContainer>
             <img alt="flag" src={country.flag}/>
             <h1>{country.name?.toUpperCase()}</h1>
-            <small>{country.local}, {country.meta}</small> 
+            <small role="small" >{country.local}, {country.meta}</small> 
           </TitleContainer>
-          <Line/>
+          <Line />
           <Form onSubmit={handleEdit} >
             <InputContainer>
               <span>Local</span>
-              <TextField value={country.local} onChange={(e) => setCountry({...country, local: e.target.value})} variant='standard' size='small'/>
+              <TextField placeholder='Digite o local que deseja conhecer' value={country.local} onChange={(e) => setCountry({...country, local: e.target.value})} variant='standard' size='small'/>
             </InputContainer>
 
             <InputContainer>
@@ -74,14 +78,14 @@ const EditModal: React.FC<EditModalProps> = ({open=false, onClose, countryId, on
               </InputMask>
               
             </InputContainer>
-            <SaveButton type="submit">
+            <SaveButton onClick={() => onUpdate()} type="submit">
               {loading ? <CircularProgress color="inherit" /> : 'Salvar'}
             </SaveButton>
           </Form>
 
-          <Option>
+          <Option className="close">
             <Tooltip title="Close Modal">
-              <Close cursor="pointer" onClick={() => handleClose()} style={{color:"#868686"}}/>
+              <Close data-testid="close-button" cursor="pointer" onClick={() => handleClose()} style={{color:"#868686"}}/>
             </Tooltip>
           </Option>
         </Content>

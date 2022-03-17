@@ -2,6 +2,7 @@ import { Close } from '@mui/icons-material';
 import { Alert, Dialog, Snackbar, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import { ConfirmationModalProps } from '../../types';
+import { CloseIcon } from '../Card/styles';
 
 import { DeleteButton, ButtonOutline, Container, Content, InputRow, Option } from './styles';
 
@@ -27,7 +28,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({onClose, open = fa
         </Content>
         <Option>
           <Tooltip title="Close Modal">
-            <Close cursor="pointer" onClick={() => onClose()} style={{color:"#868686"}}/>
+            <CloseIcon data-testid="close-button" cursor="pointer" onClick={() => onClose()}/>
           </Tooltip>
         </Option>
       </Dialog>
