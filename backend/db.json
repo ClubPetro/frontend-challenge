@@ -1,0 +1,7 @@
+{
+  "places": [
+    { "id": 1, "title": "Brasil", "img": "./assets/brasil.png", "local": "SP", "goal": "12/2022" },
+    { "id": 2, "title": "Canadá", "img": "./assets/canada.png", "local": "Vancouver", "goal": "10/2022" },
+    { "id": 3, "title": "USA", "img": "./assets/usa.png", "local": "New York", "goal": "09/2022" }
+  ]
+}
