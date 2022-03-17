@@ -1,67 +1,28 @@
 import React from 'react'
 import { WrapContainerStyled, ContainerStyled } from './styles'
 import { CardItem } from '../../components'
+import { useContext } from "react";
+import { CountrieContext } from "../../contexts/CardsInfos";
+import { CardDataProps } from "../../contexts/interfaces";
 
 const Home: React.FC = () => {
+  const { cardData } = useContext(CountrieContext);
+
   return (
     <WrapContainerStyled>
       <ContainerStyled>
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
-        <CardItem
-          imgSrc={"test"}
-          altImg={"test"}
-          title={"Brasil"}
-          local={"São Paulo"}
-          goal={"08/2022"}
-        />
+        {cardData &&
+          cardData.map((item: CardDataProps) => (
+            <CardItem
+              key={item.id}
+              imgSrc={item.img}
+              altImg={item.img}
+              title={item.title}
+              local={item.local}
+              goal={item.goal}
+            />
+          ))
+        }
       </ContainerStyled>
     </WrapContainerStyled>
   )
