@@ -1,3 +1,16 @@
+# Setting to run the application with the .env environment variable 
+
+Create an .env file and insert the content that is in .env.sample
+
+# Getting Started Backend
+
+In the backend directory /backend, you can run:
+
+### `npm start`
+Open [http://localhost:3006](http://localhost:3006) to view the json-server running.
+
+Open [http://localhost:3006/places](http://localhost:3006/places) to view the json content.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
