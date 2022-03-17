@@ -8,32 +8,25 @@
       "id": 1
     },
     {
-      "name": "Afeganistão",
-      "flag": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg",
-      "local": "Nova Yorks",
-      "meta": "05/2022",
+      "name": "Estados Unidos",
+      "flag": "https://flagcdn.com/us.svg",
+      "local": "Nova York",
+      "meta": "12/2022",
+      "id": 2
+    },
+    {
+      "name": "Brasil",
+      "flag": "https://flagcdn.com/br.svg",
+      "local": "São Paulo",
+      "meta": "12/2023",
       "id": 3
     },
     {
-      "name": "Estados Unidos",
-      "flag": "https://flagcdn.com/us.svg",
-      "local": "Californiaa",
-      "meta": "45/4661",
+      "name": "Chile",
+      "flag": "https://flagcdn.com/cl.svg",
+      "local": "Condilheira dos Andes",
+      "meta": "07/2022",
       "id": 4
-    },
-    {
-      "name": "Estados Unidos",
-      "flag": "https://flagcdn.com/us.svg",
-      "local": "dqwdwqd",
-      "meta": "44/1123",
-      "id": 5
-    },
-    {
-      "name": "Gâmbia",
-      "flag": "https://flagcdn.com/gm.svg",
-      "local": "ewqewq",
-      "meta": "32/4321",
-      "id": 6
     }
   ]
 }

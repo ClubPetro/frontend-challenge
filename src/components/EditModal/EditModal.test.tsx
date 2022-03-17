@@ -1,9 +1,7 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import {  act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {  act, fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import EditModal from '.';
-
-const handleUpdate = jest.fn();
 
 describe('Componente de edit modal', () => {
   it('renderiza corretamente', () => {

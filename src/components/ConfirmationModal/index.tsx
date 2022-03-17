@@ -1,16 +1,13 @@
-import { Close } from '@mui/icons-material';
-import { Alert, Dialog, Snackbar, Tooltip } from '@mui/material';
-import React, { useState } from 'react';
+import { Dialog, Tooltip } from '@mui/material';
+import React from 'react';
 import { ConfirmationModalProps } from '../../types';
 import { CloseIcon } from '../Card/styles';
 
 import { DeleteButton, ButtonOutline, Container, Content, InputRow, Option } from './styles';
 
 const ConfirmationModal: React.FC<ConfirmationModalProps> = ({onClose, open = false, onDelete}) => {
-  const [feedback, setFeedback] = useState<boolean>(false);
 
   const handleDelete = () => {
-    setFeedback(true);
     onDelete();
     onClose();
   }
