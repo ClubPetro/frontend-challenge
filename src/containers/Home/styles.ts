@@ -1,31 +1,33 @@
 import styled from '@emotion/styled'
 import { css } from '@mui/styled-engine'
-import { Theme, Container } from '@mui/material'
+import { Theme } from '@mui/material'
+import { MainContainerStyled } from '../../commons/styles/globalStyle'
 
 export const WrapContainerStyled = styled('div')`
   ${({ theme }: { theme?: Theme }) =>
     theme &&
     css`
-      background-color: ${theme.palette.primary.main};
       display: flex;
       justify-content: center;
       align-items: center;
   `}
 `
 
-export const ContainerStyled = styled(Container)`
+export const ContainerStyled = styled(MainContainerStyled)`
   ${({ theme }: { theme?: Theme }) =>
     theme &&
     css`
-      min-height: 55px;
-      padding: 55px 0 35px 0;
+      margin: 40px 0;
       display: grid;
-      grid-template-columns: 2fr 3fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       gap: 25px;
+
+      ${theme.breakpoints.down('md')}{
+        grid-template-columns: 1fr 1fr;
+      }
 
       ${theme.breakpoints.down('sm')}{
         grid-template-columns: 1fr;
-        padding: 55px 10px 35px 10px;
       }
   `}
 `

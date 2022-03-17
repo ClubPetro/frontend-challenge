@@ -3,6 +3,7 @@ export const dsTokens = {
     mainGreen: "#4F9419",
     darkGreen: "#006C18",
     mainBlack: "#000000",
+    mainGray: "#868686",
     button: "#006C18",
     buttonCancel: "#e61d02",
     backgroundPrimary: "#FFFFFF",

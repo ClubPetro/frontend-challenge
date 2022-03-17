@@ -3,6 +3,7 @@ import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
 import GlobalStyle from './commons/styles/globalStyle'
 import HVTheme from './commons/styles/theme'
 import { Header, FieldBar } from './components'
+import { Home } from './containers'
 
 function App() {
   return (
@@ -12,8 +13,7 @@ function App() {
           <GlobalStyle/>
           <Header/>
           <FieldBar/>
-          <h1>Started development - {process.env.REACT_APP_BASE_URL_COUNTRIES}</h1>
-          <h1>Started development - {process.env.REACT_APP_BASE_URL_BACKEND_SERVER}</h1>
+          <Home />
         </ThemeProvider>
       </EmotionThemeProvider>
     </StyledEngineProvider>

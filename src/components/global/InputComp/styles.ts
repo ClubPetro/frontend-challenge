@@ -18,7 +18,7 @@ export const BootstrapInput = styled(InputBase)(({ theme }) => ({
     marginTop: '15px',
   },
   '& .MuiInputBase-input': {
-    borderRadius: 4,
+    borderRadius: 7,
     position: 'relative',
     backgroundColor: '#fcfcfb',
     border: '1px solid #ced4da',
