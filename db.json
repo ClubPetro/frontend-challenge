@@ -1,0 +1,32 @@
+{
+  "countries": [
+    {
+      "name": "Brasil",
+      "flag": "https://flagcdn.com/br.svg",
+      "local": "Rio de Janeiro",
+      "meta": "05/2022",
+      "id": 1
+    },
+    {
+      "name": "Estados Unidos",
+      "flag": "https://flagcdn.com/us.svg",
+      "local": "Nova York",
+      "meta": "12/2022",
+      "id": 2
+    },
+    {
+      "name": "Brasil",
+      "flag": "https://flagcdn.com/br.svg",
+      "local": "São Paulo",
+      "meta": "12/2023",
+      "id": 3
+    },
+    {
+      "name": "Chile",
+      "flag": "https://flagcdn.com/cl.svg",
+      "local": "Condilheira dos Andes",
+      "meta": "07/2022",
+      "id": 4
+    }
+  ]
+}

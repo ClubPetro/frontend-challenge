@@ -8,6 +8,7 @@
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+- [Como rodar o projeto](#como-rodar-o-projeto)
 
 ## Descrição
 
@@ -57,3 +58,28 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e o 
 - O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá submeter o desafio no questionário disponível na sua área de candidato na plataforma(https://menvievagas.com.br/vagas/fam%C3%8Dliapires/) do Processo Seletivo. É só clicar em RESPONDER no questionário e inserir o link do seu PR.
 Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
+
+### Como rodar o projeto
+
+Primeiramente para instalar as libs
+```bash
+npm install
+# or
+yarn
+```
+Para rodar o projeto
+```bash
+yarn start
+```
+Para rodar o json server local
+```bash
+json-server --watch db.json --port 8000
+```
+Se quiser adicionar delay nas requisições para deixa-las mais realistas
+```bash
+json-server --watch db.json --port 8000 --delay 500
+```
+Para rodar testes automatizados
+```bash
+yarn test
+```
