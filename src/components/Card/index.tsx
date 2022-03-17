@@ -54,6 +54,7 @@ const Card: React.FC<CardProps> = ({countryId, onUpdate}) => {
         </Options>
 
         <ContentContainer data-testid="container-content">
+          
           {country &&
             <div className="country-container">
               <img alt="flag" src={country.flag}/>
@@ -63,7 +64,7 @@ const Card: React.FC<CardProps> = ({countryId, onUpdate}) => {
           }
 
           <div className="local">
-            <span className="localText" >Local: {country.local}</span>
+            <span data-testid="local" className="localText" >Local: {country.local}</span>
             <span className="metaText">Meta: {country.meta}</span>
           </div>
         </ContentContainer>

@@ -17,7 +17,6 @@ const MenuProps = {
 
 const MultipleSelect: React.FC<SelectProps> = ({countries, onSelect, value = ''}) => {
   const [country, setCountry] = useState<string>('');
-  console.log(countries);
 
   const handleChange = (event: SelectChangeEvent<typeof country>) => {
     const {target: { value },} = event;

@@ -32,11 +32,6 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({onClose, open = fa
           </Tooltip>
         </Option>
       </Dialog>
-      <Snackbar open={feedback} autoHideDuration={6000} onClose={() => setFeedback(false)}>
-        <Alert onClose={() => setFeedback(false)} variant="filled" severity="success" sx={{ width: '100%' }}>
-          Destino excluido com sucesso.
-        </Alert>
-      </Snackbar>
     </Container>
   );
 }

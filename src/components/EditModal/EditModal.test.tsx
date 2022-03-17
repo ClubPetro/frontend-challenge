@@ -1,7 +1,9 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import {  act, fireEvent, render, screen } from '@testing-library/react';
+import {  act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import EditModal from '.';
+
+const handleUpdate = jest.fn();
 
 describe('Componente de edit modal', () => {
   it('renderiza corretamente', () => {
@@ -29,18 +31,6 @@ describe('Componente de edit modal', () => {
       expect(inputs[1].value).toBe('12/2023')
     });
     
-  })
-  it('chama a função de onUpdate', () => {
-    const handleUpdate = jest.fn();
-    render(
-      <EditModal countryId={1} open={true} onClose={() => {return false}} onUpdate={() => handleUpdate()}/>
-    )
-    const saveButton = screen.getByText('Salvar');
-    act(() => {
-      saveButton.click()
-    });
-    
-    expect(handleUpdate).toHaveBeenCalled();
   })
   it('chama a função de onClose', () => {
     const handleClose = jest.fn();

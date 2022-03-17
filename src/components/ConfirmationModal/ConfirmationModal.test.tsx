@@ -19,7 +19,7 @@ describe('Componente de confirmation modal', () => {
     )
     const deleteButton = screen.getByText('Deletar');
     deleteButton.click()
-    expect(handleDelete).toBeCalled();
+    expect(handleDelete).toHaveBeenCalled();
   })
   it('chama a função de onClose', () => {
     const handleClose = jest.fn();

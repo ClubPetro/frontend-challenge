@@ -19,6 +19,7 @@ const Listing: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [data, setData] = useState<CountriesResponse[]>([]);
+  const [feedback, setFeedback] = useState<boolean>(false);
 
   const getCountriesOptions = useCallback(() => {
     countriesApi.get('/all').then((response)=> {
@@ -46,7 +47,7 @@ const Listing: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
-    if(!selectedCountry || !selectedLocal || !selectedMeta){
+    if(!selectedCountry || !selectedLocal || !selectedMeta || selectedMeta.replace(/[^A-Z0-9]/gi, '').length < 6){
       setError(true);
       setLoading(false);
       return ;
@@ -72,6 +73,11 @@ const Listing: React.FC = () => {
     })
   }
 
+  const handleUpdate = () => {
+    setFeedback(true);
+    getCountries();
+  }
+
   return (
     <Container>
       <SearchContainer>
@@ -80,18 +86,18 @@ const Listing: React.FC = () => {
             <ThemeProvider theme={componentsTheme}>
               <Grid justifyContent="center" container spacing={4}>
                 <Grid item xs={10} sm={3} md={3} lg={3}>
-                  <MultipleSelect value={selectedCountry} onSelect={(e) => {setSelectedCountry(e)}} countries={countries ?? []}/>
+                  <MultipleSelect data-testid="select-input" value={selectedCountry} onSelect={(e) => {setSelectedCountry(e)}} countries={countries ?? []}/>
                 </Grid>
                 <Grid item xs={10} sm={4} md={4} lg={4}>
                   <Col>
                     <span>Local</span>
-                    <LocalInput value={selectedLocal} onChange={(e) => setSelectedLocal(e.target.value)} placeholder="Digite o local que deseja conhecer" />
+                    <LocalInput data-testid="local-input" value={selectedLocal} onChange={(e) => setSelectedLocal(e.target.value)} placeholder="Digite o local que deseja conhecer" />
                   </Col>
                 </Grid>
                 <Grid item xs={10} sm={2} md={2} lg={2}>
                   <Col>
                     <span>Meta</span>
-                    <InputMask mask="99/9999" value={selectedMeta} onChange={(e) => setSelectedMeta(e.target.value)}>
+                    <InputMask data-testid="meta-input" mask="99/9999" value={selectedMeta} onChange={(e) => setSelectedMeta(e.target.value)}>
                       <MetaInput placeholder="mês/ano" />
                     </InputMask>
                   </Col>
@@ -110,7 +116,7 @@ const Listing: React.FC = () => {
       <Center>
         <ListingContainer>
           {data.length > 0 && data.map((item, index) => (
-            <Card key={item.id} onUpdate={() => getCountries()} countryId={item.id}></Card>
+            <Card key={item.id} onUpdate={() => {handleUpdate()}} countryId={item.id}></Card>
           ))}
         </ListingContainer>
       </Center>
@@ -124,6 +130,12 @@ const Listing: React.FC = () => {
       <Snackbar open={apiError} autoHideDuration={6000} onClose={() => setApiError(false)}>
         <Alert onClose={() => setApiError(false)} variant="filled" severity="error" sx={{ width: '100%' }}>
           Ocorreu um erro
+        </Alert>
+      </Snackbar>
+
+      <Snackbar open={feedback} autoHideDuration={6000} onClose={() => setFeedback(false)}>
+        <Alert onClose={() => setFeedback(false)} variant="filled" severity="success" sx={{ width: '100%' }}>
+          Alterações salvas com sucesso.
         </Alert>
       </Snackbar>
     </Container>

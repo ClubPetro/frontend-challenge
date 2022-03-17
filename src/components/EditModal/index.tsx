@@ -29,7 +29,7 @@ const EditModal: React.FC<EditModalProps> = ({open=false, onClose, countryId, on
   const handleEdit = ((event:React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
-    if(!country.local || !country.meta){
+    if(!country.local || !country.meta || country.meta.replace(/[^A-Z0-9]/gi, '').length < 6){
       setApiError(true);
       setLoading(false);
       return;
@@ -78,7 +78,7 @@ const EditModal: React.FC<EditModalProps> = ({open=false, onClose, countryId, on
               </InputMask>
               
             </InputContainer>
-            <SaveButton onClick={() => onUpdate()} type="submit">
+            <SaveButton type="submit">
               {loading ? <CircularProgress color="inherit" /> : 'Salvar'}
             </SaveButton>
           </Form>

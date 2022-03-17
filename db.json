@@ -1,88 +1,39 @@
 {
   "countries": [
     {
-      "name": "Paraguai",
-      "flag": "https://flagcdn.com/py.svg",
-      "local": "ali",
-      "meta": "13/2131",
-      "id": 25
-    },
-    {
       "name": "Brasil",
       "flag": "https://flagcdn.com/br.svg",
       "local": "Rio de Janeiro",
-      "meta": "15/2022",
-      "id": 26
+      "meta": "05/2022",
+      "id": 1
     },
     {
-      "name": "Brasil",
-      "flag": "https://flagcdn.com/br.svg",
-      "local": "São Paulo",
-      "meta": "05/2021",
-      "id": 27
+      "name": "Afeganistão",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg",
+      "local": "Nova Yorks",
+      "meta": "05/2022",
+      "id": 3
     },
     {
       "name": "Estados Unidos",
       "flag": "https://flagcdn.com/us.svg",
-      "local": "Nova York",
-      "meta": "05/2022",
-      "id": 28
+      "local": "Californiaa",
+      "meta": "45/4661",
+      "id": 4
     },
     {
-      "name": "Martinica",
-      "flag": "https://flagcdn.com/mq.svg",
-      "local": "31231e",
-      "meta": "32/1312",
-      "id": 34
+      "name": "Estados Unidos",
+      "flag": "https://flagcdn.com/us.svg",
+      "local": "dqwdwqd",
+      "meta": "44/1123",
+      "id": 5
     },
     {
-      "name": "Paraguai",
-      "flag": "https://flagcdn.com/py.svg",
-      "local": "ewqewqe",
-      "meta": "31/2312",
-      "id": 35
-    },
-    {
-      "name": "Paraguai",
-      "flag": "https://flagcdn.com/py.svg",
-      "local": "ewqeqw",
-      "meta": "32/1312",
-      "id": 36
-    },
-    {
-      "name": "Uruguai",
-      "flag": "https://flagcdn.com/uy.svg",
-      "local": "eqweq",
-      "meta": "12/3213",
-      "id": 37
-    },
-    {
-      "name": "Uruguai",
-      "flag": "https://flagcdn.com/uy.svg",
-      "local": "eqweq",
-      "meta": "12/3213",
-      "id": 38
-    },
-    {
-      "name": "Paraguai",
-      "flag": "https://flagcdn.com/py.svg",
-      "local": "123321",
-      "meta": "21/3132",
-      "id": 39
-    },
-    {
-      "name": "Paraguai",
-      "flag": "https://flagcdn.com/py.svg",
-      "local": "123321",
-      "meta": "21/3132",
-      "id": 40
-    },
-    {
-      "name": "Paraguai",
-      "flag": "https://flagcdn.com/py.svg",
-      "local": "123321",
-      "meta": "21/3132",
-      "id": 41
+      "name": "Gâmbia",
+      "flag": "https://flagcdn.com/gm.svg",
+      "local": "ewqewq",
+      "meta": "32/4321",
+      "id": 6
     }
   ]
 }
