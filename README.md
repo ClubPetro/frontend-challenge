@@ -8,7 +8,7 @@
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
-- [Como rodar o projeto](#como-rodar)
+- [Como rodar o projeto](#como-rodar-o-projeto)
 
 ## Descrição
 
