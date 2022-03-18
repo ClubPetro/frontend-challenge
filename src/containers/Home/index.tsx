@@ -15,6 +15,7 @@ const Home: React.FC = () => {
           cardData.map((item: CardDataProps) => (
             <CardItem
               key={item.id}
+              idItem={item.id}
               imgSrc={item.img}
               altImg={item.title}
               title={item.title}

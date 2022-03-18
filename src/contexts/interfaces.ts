@@ -62,10 +62,6 @@ export interface Inputs {
 }
 
 export interface PropsCountrie {
-  setSelectCountrie: Function;
-  selectCountrie: any;
-  setSelectedCountrie: Function;
-  selectedCountrie: any;
   data: DataProps[];
   cardData: CardDataProps[];
   setDataForModal: Function;
@@ -75,14 +71,12 @@ export interface PropsCountrie {
   openEditModal: boolean;
   setItemCardDelete: Function;
   itemCardDelete: ItemCardDeleteProps | undefined;
-  setOpenModaConfirmeDeleteCard: Function;
-  openModaConfirmeDeleteCard: boolean;
   setIsLoad: Function;
   isLoad: boolean;
   onSubmitPostCard: SubmitHandler<any>;
   onSubmitEditCard: SubmitHandler<any>;
   handleOpenCardId: Function;
-  handleDeleteCard: MouseEventHandler<HTMLButtonElement>;
+  handleDeleteCard: any;
   register: UseFormRegister<Inputs>;
   handleSubmit: UseFormHandleSubmit<Inputs>;
 }

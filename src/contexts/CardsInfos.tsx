@@ -21,16 +21,12 @@ const { v4: uuidv4 } = require('uuid');
 export const CountrieContext = createContext({} as PropsCountrie);
 
 export function CountrieContextProvider({ children }: Props) {
-  const [selectCountrie, setSelectCountrie] = useState<any>("");
-  const [selectedCountrie, setSelectedCountrie] = useState<any>("");
   const [data, setData] = useState<DataProps[]>([]);
   const [cardData, setCardData] = useState<CardDataProps[]>([]);
   const [dataForModal, setDataForModal] = useState<CardDataProps[]>([]);
   const [upDateState, setUpDateState] = useState<CardDataProps[]>([]);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [itemCardDelete, setItemCardDelete] = useState<ItemCardDeleteProps>();
-  const [openModaConfirmeDeleteCard, setOpenModaConfirmeDeleteCard] =
-    useState(false);
   const [isLoad, setIsLoad] = useState<boolean>(true);
   const { register, handleSubmit, reset } = useForm<Inputs>();
 
@@ -52,10 +48,8 @@ export function CountrieContextProvider({ children }: Props) {
     });
 
     postCard({...rest, img: flag[0].flag, title: flag[0]?.translations.br, id: uuidv4()}).then((returnApi) => {
-      console.log(flag)
       setUpDateState(returnApi);
       reset({ goal: "", local: "", countries: "" });
-      setSelectCountrie("");
     });
   };
 
@@ -63,20 +57,14 @@ export function CountrieContextProvider({ children }: Props) {
     const flag: DataProps[] | undefined =
       data &&
       data.filter((item: DataProps): DataProps | undefined => {
-        if (item.translations.br === selectedCountrie) {
+        if (item.translations.br === '') {
           return item;
         }
         return undefined;
       });
 
-    const body = {
-      local: rest.localModal,
-      goal: rest.metaModal,
-      checkboxPais: selectedCountrie,
-      img: flag[0].flag,
-    };
 
-    patchCardId(dataForModal[0].id, body).then((returnApi) => {
+    patchCardId(dataForModal[0].id, {...rest, img: flag[0].flag, title: flag[0]?.translations.br, id: uuidv4()} ).then((returnApi) => {
       setUpDateState(returnApi);
       setOpenEditModal(false);
     });
@@ -85,27 +73,21 @@ export function CountrieContextProvider({ children }: Props) {
   const handleOpenCardId = (id: number) => {
     setOpenEditModal(true);
     getCardId(id).then((data: CardDataProps[]) => {
-      setSelectedCountrie(data[0].checkboxPais);
       setDataForModal(data);
       reset({ metaModal: data[0].goal, localModal: data[0].local });
       setIsLoad(false);
     });
   };
 
-  const handleDeleteCard = () => {
-    deleteCardId(itemCardDelete?.id).then((returnApi) => {
+  const handleDeleteCard = (id: number) => {
+    deleteCardId(id).then((returnApi) => {
       setUpDateState(returnApi);
-      setOpenModaConfirmeDeleteCard(false);
     });
   };
 
   return (
     <CountrieContext.Provider
       value={{
-        setSelectCountrie,
-        selectCountrie,
-        setSelectedCountrie,
-        selectedCountrie,
         data,
         cardData,
         setDataForModal,
@@ -115,8 +97,6 @@ export function CountrieContextProvider({ children }: Props) {
         openEditModal,
         setItemCardDelete,
         itemCardDelete,
-        setOpenModaConfirmeDeleteCard,
-        openModaConfirmeDeleteCard,
         setIsLoad,
         isLoad,
         onSubmitPostCard,
