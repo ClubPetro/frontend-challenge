@@ -69,8 +69,6 @@ export interface PropsCountrie {
   setUpDateState: Function;
   setOpenEditModal: Function;
   openEditModal: boolean;
-  setItemCardDelete: Function;
-  itemCardDelete: ItemCardDeleteProps | undefined;
   setIsLoad: Function;
   isLoad: boolean;
   onSubmitPostCard: SubmitHandler<any>;

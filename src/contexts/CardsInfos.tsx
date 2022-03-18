@@ -13,7 +13,6 @@ import {
   CardDataProps,
   Inputs,
   Props,
-  ItemCardDeleteProps,
   PropsCountrie,
 } from "./interfaces";
 const { v4: uuidv4 } = require('uuid');
@@ -26,7 +25,6 @@ export function CountrieContextProvider({ children }: Props) {
   const [dataForModal, setDataForModal] = useState<CardDataProps[]>([]);
   const [upDateState, setUpDateState] = useState<CardDataProps[]>([]);
   const [openEditModal, setOpenEditModal] = useState(false);
-  const [itemCardDelete, setItemCardDelete] = useState<ItemCardDeleteProps>();
   const [isLoad, setIsLoad] = useState<boolean>(true);
   const { register, handleSubmit, reset } = useForm<Inputs>();
 
@@ -95,8 +93,6 @@ export function CountrieContextProvider({ children }: Props) {
         setUpDateState,
         setOpenEditModal,
         openEditModal,
-        setItemCardDelete,
-        itemCardDelete,
         setIsLoad,
         isLoad,
         onSubmitPostCard,

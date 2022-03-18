@@ -1,12 +1,12 @@
 import React from 'react'
 import { WrapContainerStyled, ContainerStyled } from './styles'
-import { CardItem } from '../../components'
+import { CardItem, BasicModal } from '../../components'
 import { useContext } from "react";
 import { CountrieContext } from "../../contexts/CardsInfos";
 import { CardDataProps } from "../../contexts/interfaces";
 
 const Home: React.FC = () => {
-  const { cardData } = useContext(CountrieContext);
+  const { cardData, handleOpenCardId } = useContext(CountrieContext);
 
   return (
     <WrapContainerStyled>
@@ -25,6 +25,7 @@ const Home: React.FC = () => {
           ))
         }
       </ContainerStyled>
+      <BasicModal handleOpenCall={() => handleOpenCardId} />
     </WrapContainerStyled>
   )
 }
