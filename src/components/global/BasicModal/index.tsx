@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { ContainerStyled } from './styles'
@@ -19,44 +18,41 @@ const style = {
 };
 
 interface PropsModal {
-  handleOpenCall?: any;
+  
 }
 
 const BasicModal: React.FC<PropsModal> = ({}) => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const { register, handleSubmit, onSubmitPostCard } = useContext(CountrieContext);
+  const { register, handleSubmit, onSubmitEditCard, openEditModal, handleCloseEditModal } = useContext(CountrieContext);
 
   return (
     <Modal
-      open={open}
+      open={openEditModal}
+      onClose={handleCloseEditModal}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <form onSubmit={handleSubmit(onSubmitPostCard)}>
+        <form onSubmit={handleSubmit(onSubmitEditCard)}>
           <ContainerStyled>
               <InputComp 
                 idInput={'countries'}
                 txtPlaceholder={'Digite o nome do País'}
                 labelTxt="País"
-                register={register('countries')}
+                register={register('countriesModal')}
               />
               <InputComp 
                 idInput={'local'}
                 txtPlaceholder={'Digite o local que deseja conhecer'}
                 labelTxt="Local"
-                register={register('local')}
+                register={register('localModal')}
               />
               <InputComp 
                 idInput={'goal'}
                 txtPlaceholder={'mês/ano'}
                 labelTxt="Meta"
-                register={register('goal')}
+                register={register('goalModal')}
               />
-              <ButtonComp>Adicionar</ButtonComp>
-              <ButtonComp>Fechar</ButtonComp>
+              <ButtonComp>Editar</ButtonComp>
           </ContainerStyled>
         </form>
       </Box>

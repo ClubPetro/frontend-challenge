@@ -52,17 +52,16 @@ export function CountrieContextProvider({ children }: Props) {
   };
 
   const onSubmitEditCard: SubmitHandler<any> = (rest) => {
-    const flag: DataProps[] | undefined =
+    const flag: any | undefined =
       data &&
       data.filter((item: DataProps): DataProps | undefined => {
-        if (item.translations.br === '') {
+        if (item.translations.br === rest.countriesModal) {
           return item;
         }
         return undefined;
       });
 
-
-    patchCardId(dataForModal[0].id, {...rest, img: flag[0].flag, title: flag[0]?.translations.br, id: uuidv4()} ).then((returnApi) => {
+    patchCardId(dataForModal[0].id, {goal: rest.goalModal, local: rest.localModal, img: flag[0].flag, title: flag[0]?.translations.br}).then((returnApi) => {
       setUpDateState(returnApi);
       setOpenEditModal(false);
     });
@@ -72,7 +71,7 @@ export function CountrieContextProvider({ children }: Props) {
     setOpenEditModal(true);
     getCardId(id).then((data: CardDataProps[]) => {
       setDataForModal(data);
-      reset({ metaModal: data[0].goal, localModal: data[0].local });
+      reset({ goalModal: data[0].goal, localModal: data[0].local, countriesModal: data[0].title });
       setIsLoad(false);
     });
   };
@@ -83,6 +82,8 @@ export function CountrieContextProvider({ children }: Props) {
     });
   };
 
+  const handleCloseEditModal = () => setOpenEditModal(false);
+
   return (
     <CountrieContext.Provider
       value={{
@@ -92,6 +93,7 @@ export function CountrieContextProvider({ children }: Props) {
         dataForModal,
         setUpDateState,
         setOpenEditModal,
+        handleCloseEditModal,
         openEditModal,
         setIsLoad,
         isLoad,

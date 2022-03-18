@@ -6,7 +6,7 @@ import { CountrieContext } from "../../contexts/CardsInfos";
 import { CardDataProps } from "../../contexts/interfaces";
 
 const Home: React.FC = () => {
-  const { cardData, handleOpenCardId } = useContext(CountrieContext);
+  const { cardData } = useContext(CountrieContext);
 
   return (
     <WrapContainerStyled>
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
           ))
         }
       </ContainerStyled>
-      <BasicModal handleOpenCall={() => handleOpenCardId} />
+      <BasicModal />
     </WrapContainerStyled>
   )
 }

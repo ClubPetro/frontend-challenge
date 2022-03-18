@@ -58,7 +58,8 @@ export interface Inputs {
   goal: string;
   countries: string;
   localModal: string;
-  metaModal: string;
+  goalModal: string;
+  countriesModal: string;
 }
 
 export interface PropsCountrie {
@@ -75,6 +76,7 @@ export interface PropsCountrie {
   onSubmitEditCard: SubmitHandler<any>;
   handleOpenCardId: Function;
   handleDeleteCard: any;
+  handleCloseEditModal: any;
   register: UseFormRegister<Inputs>;
   handleSubmit: UseFormHandleSubmit<Inputs>;
 }

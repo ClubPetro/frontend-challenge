@@ -16,13 +16,13 @@ interface PropsCardItem {
 }
 
 const CardItem: React.FC<PropsCardItem> = ({imgSrc, altImg, title, local, goal, idItem}) => {
-  const { handleDeleteCard } = useContext(CountrieContext);
+  const { handleDeleteCard, handleOpenCardId } = useContext(CountrieContext);
 
   return (
     <Card>
       <CardContentStyled>
         <IconsPositionStyled>
-          <EditIcon />
+          <EditIcon onClick={() => handleOpenCardId(idItem)} />
           <CloseIcon onClick={() => handleDeleteCard(idItem)} />
         </IconsPositionStyled>
         <img src={imgSrc} alt={altImg} />
